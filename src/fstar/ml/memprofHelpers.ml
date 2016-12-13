@@ -126,15 +126,17 @@ let dump () =
   in
   sort_sampleTree (aux (STC ([], 0, Hashtbl.create 3)) 0)
 
-let start sampling_rate callstack_size min_samples_print =
+let start filename sampling_rate callstack_size min_samples_print =
   Memprof.start { sampling_rate; callstack_size; callback };
   Sys.set_signal Sys.sigusr1 (Sys.Signal_handle
     (fun _ ->
      stop ();
      let chan =
        open_out_gen [Open_wronly; Open_creat; Open_text; Open_append]
-                    0o666  "memory_profile"
+                    0o666  filename
      in
+     let s = Printf.sprintf "Timestamp: %f\n" (Unix.gettimeofday ()) in
+     output_string chan s;
      print chan min_samples_print (dump ());
      close_out chan;
      Memprof.start { sampling_rate; callstack_size; callback }));
