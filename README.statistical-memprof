@@ -1,0 +1,28 @@
+UNDETERMINED LICENSE - PLEASE DO NOT DISTRIBUTE
+
+FStar now supports some memory profiling thanks to Jacques-Henri
+Jourdan's statistical memory profiler. Basically, the fstar executable
+can now produce a snapshot of memory usage information broken down per
+function whenever it receives the USR1 signal. Such snapshots are
+appended to $PWD/statistical-memprof-$PID, where $PWD is fstar's
+working directory and $PID is fstar's process ID. Such a file is to be read as follows, for example:
+
+1024 callee
+  1021 caller1
+  3    caller2
+
+means that statistical-memprof tracked 1024 allocation words for
+callee, among which 1021 were for calls where callee was called by
+caller1, and 3 for calls where callee was called by caller2.
+
+For more info on statistical memory profiling, see
+https://github.com/jhjourdan/ocaml/tree/memprof and
+https://jhjourdan.mketjh.fr/pdf/jourdan2016statistically.pdf
+
+Available tools:
+
+bin/withsamples.sh --sleep n prog progoptions: run prog progoptions
+and send a USR1 signal every n seconds (n may be a floating point)
+
+bin/grabsample.sh --sleep n pid: sends a USR1 signal to process pid
+every n seconds (n may be a floating point)
