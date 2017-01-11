@@ -65,6 +65,8 @@ val dont_gen_projectors         : string  -> bool
 val dump_module                 : string  -> bool
 val eager_inference             : unit    -> bool
 val explicit_deps               : unit    -> bool
+val extract_all                 : unit    -> bool
+val file_list                   : unit    -> list<string>
 val find_file                   : string  -> option<string>
 val fs_typ_app                  : unit    -> bool
 val fstar_home                  : unit    -> string
@@ -73,11 +75,11 @@ val hide_genident_nums          : unit    -> bool
 val hide_uvar_nums              : unit    -> bool
 val hint_info                   : unit    -> bool
 val include_path                : unit    -> list<string>
+val indent                      : unit    -> bool
 val initial_fuel                : unit    -> int
 val initial_ifuel               : unit    -> int
 val inline_arith                : unit    -> bool
 val interactive                 : unit    -> bool
-val interactive_fsi             : unit    -> bool
 val lax                         : unit    -> bool
 val log_queries                 : unit    -> bool
 val log_types                   : unit    -> bool
@@ -107,6 +109,7 @@ val reuse_hint_for              : unit    -> option<string>
 val set_option                  : string  -> option_val -> unit
 val set_options                 : options -> string -> parse_cmdline_res
 val should_print_message        : string  -> bool
+val should_extract              : string  -> bool
 val should_verify               : string  -> bool
 val silent                      : unit    -> bool
 val split_cases                 : unit    -> int

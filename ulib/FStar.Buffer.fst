@@ -332,6 +332,9 @@ abstract let modifies_0 h0 h1 =
   /\ modifies_buf_0 h0.tip h0 h1
   /\ h0.tip=h1.tip
 
+(* This one is very generic: it says
+ * - some references have changed in the frame of b, but
+ * - among all buffers in this frame, b is the only one that changed. *)
 abstract let modifies_1 (#a:Type) (b:buffer a) h0 h1 =
   let rid = frameOf b in
   modifies_one rid h0 h1 /\ modifies_buf_1 rid b h0 h1
@@ -727,6 +730,8 @@ let create #a init len =
   assert (Seq.equal (as_seq h b) (sel h b));
   b
 
+#reset-options "--initial_fuel 0 --max_fuel 0"
+
 module L = FStar.List.Tot
 
 (** Concrete getters and setters *)
@@ -782,6 +787,21 @@ let rcreate #a r init len =
   lemma_upd h0 content s;
   b
 
+
+(* #reset-options "--z3rlimit 100 --initial_fuel 0 --max_fuel 0" *)
+
+(* val create_null: #a:Type -> init:a -> len:UInt32.t -> Stack (buffer a) *)
+(*   (requires (fun h -> True)) *)
+(*   (ensures (fun h0 b h1 -> length b = UInt32.v len /\ h0 == h1)) *)
+(* let create_null #a init len = *)
+(*   push_frame(); *)
+(*   let r = create init len in *)
+(*   pop_frame(); *)
+(*   r *)
+
+
+#reset-options "--initial_fuel 0 --max_fuel 0"
+
 // ocaml-only, used for conversions to Platform.bytes
 val to_seq: #a:Type -> b:buffer a -> l:UInt32.t{v l <= length b} -> STL (seq a)
   (requires (fun h -> live h b))
@@ -791,6 +811,17 @@ let to_seq #a b l =
   let s = !b.content in
   let i = v b.idx in
   Seq.slice s i (i + v l)
+
+
+// ocaml-only, used for conversions to Platform.bytes
+val to_seq_full: #a:Type -> b:buffer a -> ST (seq a)
+  (requires (fun h -> live h b))
+  (ensures  (fun h0 r h1 -> h0 == h1 /\ live h1 b /\ 
+			 r == as_seq #a h1 b ))
+let to_seq_full #a b =
+  let s = !b.content in
+  let i = v b.idx in
+  Seq.slice s i (i + v b.length)
 
 val index: #a:Type -> b:buffer a -> n:UInt32.t{v n < length b} -> Stack a
   (requires (fun h -> live h b))
@@ -944,6 +975,10 @@ assume val fill: #t:Type -> b:buffer t -> z:t -> len:UInt32.t{v len <= length b}
 
 let split #t (b:buffer t) (i:UInt32.t{v i <= length b /\ v i + v b.idx < pow2 n}) : Tot (buffer t * buffer t)
   = sub b 0ul i, offset b i
+
+let join #t (b:buffer t) (b':buffer t{b.max_length == b'.max_length /\ b.content == b'.content /\ idx b + length b = idx b'}) : Tot (buffer t)
+  = MkBuffer (b.max_length) (b.content) (b.idx) (FStar.UInt32.(b.length +^ b'.length))
+
 
 val no_upd_lemma_0: #t:Type -> h0:mem -> h1:mem -> b:buffer t -> Lemma
   (requires (live h0 b /\ modifies_0 h0 h1))
