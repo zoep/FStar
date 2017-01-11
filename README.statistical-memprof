@@ -1,5 +1,7 @@
 UNDETERMINED LICENSE - PLEASE DO NOT DISTRIBUTE
 
+THIS BRANCH REQUIRES opam switch ocaml-4.03.0+statistical-memprof
+
 FStar now supports some memory profiling thanks to Jacques-Henri
 Jourdan's statistical memory profiler. Basically, the fstar executable
 can now produce a snapshot of memory usage information broken down per
