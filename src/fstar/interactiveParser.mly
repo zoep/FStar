@@ -1,5 +1,6 @@
 %{
-
+open FStar_String
+open FStar_Util
 %}
 
 %token EOL
