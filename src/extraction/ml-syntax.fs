@@ -94,6 +94,7 @@ let dummy_loc: mlloc = 0, ""
 
 type mlty =
 | MLTY_Var   of mlident
+(* probably a type application together with an effect tag and its argument (TODO : check order) *)
 | MLTY_Fun   of mlty * e_tag * mlty
 | MLTY_Named of list<mlty> * mlpath
 | MLTY_Tuple of list<mlty>
@@ -115,7 +116,7 @@ type mlpattern =
 | MLP_Const  of mlconstant
 | MLP_Var    of mlident
 | MLP_CTor   of mlpath * list<mlpattern>
-| MLP_Branch of list<mlpattern>
+| MLP_Branch of list<mlpattern> (* Invariant : only at toplevel *)
 (* SUGAR *)
 | MLP_Record of list<mlsymbol> * list<(mlsymbol * mlpattern)>
 | MLP_Tuple  of list<mlpattern>
@@ -174,9 +175,8 @@ type mltybody =
 | MLTD_Abbrev of mlty
 | MLTD_Record of list<(mlsymbol * mlty)>
 | MLTD_DType  of list<(mlsymbol * list<mlty>)>
-    (*list of constructors? list<mlty> is the list of arguments of the constructors?
-        One could have instead used a mlty and tupled the argument types?
-     *)
+    (* list of constructors and its parameters (whose names have been lost)
+        One could have instead used a mlty and tupled the argument types?   *)
 
 // bool: this was assumed (C backend)
 type one_mltydecl = bool * mlsymbol * option<mlsymbol> * mlidents * option<mltybody>
@@ -192,9 +192,9 @@ type mlmodule1 =
 type mlmodule = list<mlmodule1>
 
 type mlsig1 =
-| MLS_Mod of mlsymbol * mlsig
+| MLS_Mod of mlsymbol * mlsig (* Module declaration ; only first element *)
 | MLS_Ty  of mltydecl
-    (*used for both type schemes and inductive types. Even inductives are defined in OCaml using type ....,
+    (* used for both type schemes and inductive types. Even inductives are defined in OCaml using type ....,
         unlike data in Haskell *)
 | MLS_Val of mlsymbol * mltyscheme
 | MLS_Exn of mlsymbol * list<mlty>
@@ -214,9 +214,9 @@ let ml_unit_ty = MLTY_Named ([], (["Prims"], "unit"))
 let ml_bool_ty = MLTY_Named ([], (["Prims"], "bool"))
 let ml_int_ty  = MLTY_Named ([], (["Prims"], "int"))
 let ml_string_ty  = MLTY_Named ([], (["Prims"], "string"))
-let ml_unit    = with_ty ml_unit_ty (MLE_Const MLC_Unit) 
+let ml_unit    = with_ty ml_unit_ty (MLE_Const MLC_Unit)
 let mlp_lalloc = (["SST"], "lalloc")
-let apply_obj_repr x t = 
+let apply_obj_repr x t =
     let obj_repr = with_ty (MLTY_Fun(t, E_PURE, MLTY_Top)) (MLE_Name(["Obj"], "repr")) in
     with_ty_loc MLTY_Top (MLE_App(obj_repr, [x])) x.loc
 
@@ -250,7 +250,7 @@ let avoid_keyword s =
     s
 
 open FStar.Syntax.Syntax
-let bv_as_mlident (x:bv): mlident = 
+let bv_as_mlident (x:bv): mlident =
   if Util.starts_with x.ppname.idText Ident.reserved_prefix
   || is_null_bv x || is_reserved x.ppname.idText
   then x.ppname.idText ^ "_" ^ (string_of_int x.index), 0
