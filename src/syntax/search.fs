@@ -12,7 +12,7 @@ open FStar.Syntax.Util
 type search_result =
   | FromEnv  of lident           (* A lident which should be resolved with the environment *)
   | LocalVar of bv               (* A local variable *)
-  | Resolved of lident * term    (* An entirely resolved name *)
+  | Resolved of either<lident, string> * term    (* An entirely resolved name or constant *)
 
 let option_or x f = match x with
     | None -> f ()
@@ -33,6 +33,35 @@ let search_binder range (bv, _) =
   then Some LocalVar bv
   else None
 
+let search_const e =
+  let lid_to_tm lid = lid_as_fv lid Delta_equational |> fv_to_tm in
+  let type_of_int = function
+      | None -> lid_to_tm C.int_lid
+      | Some x -> match x with
+          | C.Signed, C.Int8 -> lid_to_tm C.int8_lid
+          | C.Unsigned, C.Int8 -> lid_to_tm C.uint8_lid
+          | C.Signed, C.Int16 -> lid_to_tm C.int16_lid
+          | C.Unsigned, C.Int16 -> lid_to_tm C.uint16_lid
+          | C.Signed, C.Int32 -> lid_to_tm C.int32_lid
+          | C.Unsigned, C.Int32 -> lid_to_tm C.uint32_lid
+          | C.Signed, C.Int64 -> lid_to_tm C.int64_lid
+          | C.Unsigned, C.Int64 -> lid_to_tm C.int64_lid
+  in match e with
+  (* TODO : returning Effect as lid does not makes much sense but Effect itself does not make that much sense in the first place *)
+  | Const_effect -> Resolved (Inr "Effect", ktype)
+  | Const_unit -> Resolved (Inr "()", lid_to_tm C.unit_lid)
+  | Const_bool b -> Resolved (Inr (string_of_bool b), lid_to_tm C.bool_lid)
+  | Const_int (s, t) -> Resolved (Inr s, type_of_int t)
+  | Const_char c -> Resolved (Inr (string_of_char c), lid_to_tm C.char_lid)
+  | Const_float d -> Resolved (Inr (float_of_string d), lid_to_tm C.float_lid)
+  (* TODO : figure out how to print the 2 byte arrays below *)
+  | Const_bytearray (barr, _) -> Resolved ("<some byte array>", lid_to_tm C.bytes_lid)
+  | Const_string (barr, _) -> Resolved("<some string>", lid_to_tm C.string_lid)
+  | Const_range -> failwith "Source program should not be able to contain these"
+  | Const_reify -> failwith "Dunno what to do with that one"
+  | Const_reflect _ -> failwith "Dunno what to do with that one"
+
+
 let rec search_term range e =
   if not (range_contains_range (range_of_term e) range)
   then None
@@ -40,7 +69,7 @@ let rec search_term range e =
     match e.tm with
     | Tm_bvar b -> Some (LocalVar b)
     | Tm_fvar -> Resolved (fv., fv.)
-    | Tm_constant _ -> (* TODO : constant *)
+    | Tm_constant e -> search_const e
     | Tm_type u -> None (* TODO : should we answer Type for some universe ? *)
     | Tm_abs (bs, e, rettyp) ->
         option_or (List.tryPick (search_binder range) bs)
