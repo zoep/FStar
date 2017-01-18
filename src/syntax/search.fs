@@ -76,7 +76,23 @@ and search_branch range (pattern, when_opt, body) =
       (fun () -> option_or (option_bind when_opt (search_term range))
         (fun () -> search_term range body))
 
-and search_pat range pattern = (* TODO *)
+and search_pat range pattern =
+  if not (range_contains_range (range_of_pat pattern) range)
+  then None
+  else
+    match pattern.n with
+    | Pat_constant c -> (* TODO *)
+    | Pat_disj pats -> List.tryPick (search_pat range branch) pats
+    | Pat_cons (head, pats)->
+      let search_pat_arg (pat, b) =
+        if b then None
+        else search_pattern range pat
+      in
+      option_or (search_fv range head)
+        (fun () -> List.tryPick search_pat_arg pats)
+   | Pat_var x -> search_bv range x
+   | Pat_wild x -> search_bv range x
+   | Pat_dot_term _ -> None
 
 and search_comp range c = (* TODO *)
 
