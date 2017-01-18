@@ -106,24 +106,43 @@ and search_branch range (pattern, when_opt, body) =
         (fun () -> search_term range body))
 
 and search_pat range pattern =
-  if not (range_contains_range (range_of_pat pattern) range)
+  if not (range_contains_range pattern.p range)
   then None
   else
-    match pattern.n with
-    | Pat_constant c -> (* TODO *)
-    | Pat_disj pats -> List.tryPick (search_pat range branch) pats
-    | Pat_cons (head, pats)->
-      let search_pat_arg (pat, b) =
-        if b then None
-        else search_pattern range pat
-      in
-      option_or (search_fv range head)
-        (fun () -> List.tryPick search_pat_arg pats)
-   | Pat_var x -> search_bv range x
-   | Pat_wild x -> search_bv range x
-   | Pat_dot_term _ -> None
+    let result_in_pat =
+      match pattern.v with
+      | Pat_constant c -> (* TODO *)
+      | Pat_disj pats -> List.tryPick (search_pat range branch) pats
+      | Pat_cons (head, pats)->
+        let search_pat_arg (pat, b) =
+          if b then None
+          else search_pattern range pat
+        in
+        option_or (search_fv range head)
+          (fun () -> List.tryPick search_pat_arg pats)
+      | Pat_var x -> search_bv range x
+      | Pat_wild x -> search_bv range x
+      | Pat_dot_term _ -> None
+    in
+    option_or result_in_pat (fun () -> search_term range pattern.ty)
 
-and search_comp range c = (* TODO *)
+and search_comp range c =
+  (* TODO : should we report about the label of the effect ? *)
+  if not (range_contains_range c.pos range)
+  then None
+  else
+    match c.n with
+    | Total (ty, u_opt)
+    | GTotal (ty, u_opt) ->
+        option_or (search_term range ty)
+        (fun () -> bind_opt u_opt (search_universe range))
+    | Comp ct ->
+        option_or (List.tryPick (search_universe range) ct.comp_univs)
+          (fun () ->
+           option_or (search_term range ct.result_typ)
+             (fun () -> List.tryPick (search_arg range) ct.effect_args))
+
+and search_universe range u = (* TODO *)
 
 and search_letbinding range lb =
   if range_contains_range (range_of_lbname lb.lbname)
