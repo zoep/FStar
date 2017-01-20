@@ -142,7 +142,15 @@ and search_comp range c =
            option_or (search_term range ct.result_typ)
              (fun () -> List.tryPick (search_arg range) ct.effect_args))
 
-and search_universe range u = (* TODO *)
+and search_universe range u =
+  match u with
+  | U_zero
+  | U_bvar _
+  | U_unif _
+  | U_unknown -> None
+  | U_succ u -> search_universe range u
+  | U_max us -> List.tryPick (search_universe range) us
+  | U_name uid -> search_ident range uid
 
 and search_letbinding range lb =
   if range_contains_range (range_of_lbname lb.lbname)
