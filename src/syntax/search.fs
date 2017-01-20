@@ -9,6 +9,9 @@ open FStar.Syntax.Syntax
 open FStar.Syntax.Util
 
 
+(* Would be much easier to implement all this in full F* with a backtracking monad... *)
+
+
 type search_result =
   | FromEnv  of lident           (* A lident which should be resolved with the environment *)
   | LocalVar of bv               (* A local variable *)
@@ -68,7 +71,7 @@ let rec search_term range e =
   else
     match e.tm with
     | Tm_bvar b -> Some (LocalVar b)
-    | Tm_fvar -> Resolved (fv., fv.)
+    | Tm_fvar -> Some (Resolved (fv.fv_name.v, fv.fv_name.ty))
     | Tm_constant e -> search_const e
     | Tm_type u -> None (* TODO : should we answer Type for some universe ? *)
     | Tm_abs (bs, e, rettyp) ->
@@ -98,7 +101,7 @@ let rec search_term range e =
     | Tm_delayed _
     | Tm_unknown -> None
 
-and search_arg range arg = (* TODO *)
+and search_arg range (e, _) = search_term range e
 
 and search_branch range (pattern, when_opt, body) =
     option_or (search_pat range pattern)
@@ -111,7 +114,7 @@ and search_pat range pattern =
   else
     let result_in_pat =
       match pattern.v with
-      | Pat_constant c -> (* TODO *)
+      | Pat_constant c -> search_const range c
       | Pat_disj pats -> List.tryPick (search_pat range branch) pats
       | Pat_cons (head, pats)->
         let search_pat_arg (pat, b) =
@@ -154,14 +157,27 @@ and search_universe range u =
 
 and search_letbinding range lb =
   if range_contains_range (range_of_lbname lb.lbname)
-  then match lb.lbname with
-      | Inl _ -> failwith "Let bindings should not be using bv as name after typechecking"
-      | Inr fv ->
-  (* TODO *)
+  then
+    match lb.lbname with
+    | Inl _ -> failwith "Let bindings should not be using bv as name after typechecking"
+    | Inr fv ->Some (Resolved (fv.fv_name.v, fv.fv_name.ty))
+  else
+    option_or (search_lid range lb.lbeff)
+      (fun () -> option_or (search_term range lb.lbtyp)
+        (fun () -> option_or (search_term range lb.lbdef)))
 
-let search_effect_definition range ed = (* TODO *)
+let search_tscheme range ts =
+  search_term range (snd ts)
 
-let search_sub_effect range se = (* TODO *)
+let search_effect_definition range ed =
+    (* TODO : which field should we lookup ? all of them ? *)
+    None
+
+let search_sub_effect range se =
+  option_or (search_lid range se.source)
+    (fun () -> option_or (search_lid range se.tareget)
+     (fun () -> option_or (bind_opt se.lift_wp (search_tscheme range))
+      (fun () -> bind_opt se.lift (search_tscheme range))))
 
 let search_sigelt range s =
   if not (range_contains_range (range_of_sigelt s) range)
