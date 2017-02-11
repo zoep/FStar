@@ -304,7 +304,7 @@ private let map2_charac_aux_unit
   (sc: seq c)
   (hlen_ab: (hlen_ab: unit {length sa == length sb}))
   (hlen_ac: (hlen_ac: unit {length sa == length sc}))
-  (hf: (i: nat) -> (hi: (hi: unit {i < length sa})) -> (hf: unit {index sc i == f (index sa i) (index sb i)}))
+  (hf: (i: nat) -> (hi: (hi: unit {i < length sa})) -> Tot (hf: unit {index sc i == f (index sa i) (index sb i)}))
 : Lemma
   (ensures equal sc (map2 f sa sb)) 
 =
