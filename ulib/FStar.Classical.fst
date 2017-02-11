@@ -76,6 +76,21 @@ let move_requires (#a:Type) (#p:a -> Type) (#q:a -> Type)
             | Right hnp -> give_witness hnp
           )))
 
+// Thanks KM, CH and SZ
+val impl_intro_gen
+  (#p: Type0)
+  (#q: (h: unit {p}) -> Type0)
+  (f: (x: unit {p}) -> Tot (y: unit {q ()}))
+: Tot (z: unit {p ==> q ()})
+let impl_intro_gen #p #q f =
+  let g () : Lemma
+    (requires p)
+    (ensures (p ==> q ()))
+  =
+   give_proof #(q ()) (f (get_proof p))
+  in
+  move_requires g ()
+
 val ghost_lemma: #a:Type -> #p:(a -> GTot Type0) -> #q:(a -> unit -> GTot Type0) ->
   $f:(x:a -> Ghost unit (p x) (q x)) -> Lemma (forall (x:a). p x ==> q x ())
 let ghost_lemma #a #p #q $f =

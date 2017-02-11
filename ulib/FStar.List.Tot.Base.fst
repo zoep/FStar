@@ -121,6 +121,23 @@ let rec map f x = match x with
   | [] -> []
   | a::tl -> f a::map f tl
 
+(** [map2 f l1 l2] applies [f] to each element of [l1] and the
+corresponding element in [l2] at the same position, and returns the
+list of results, in the order of the original elements in
+[l]. Requires, at type-checking time, [f] to be a pure total function,
+and [l1] and [l2] to have the same length. Named as in: OCaml, Coq, F#
+*)
+val map2:
+  ('a -> 'b -> Tot 'c) ->
+  (l1: list 'a) ->
+  (l2: list 'b) ->
+  Pure (list 'c)
+   (requires (length l1 == length l2))
+   (ensures (fun _ -> True)) (decreases l1)
+let rec map2 f l1 l2 = match l1, l2 with
+  | [], [] -> []
+  | a1::tl1, a2::tl2 -> f a1 a2::map2 f tl1 tl2
+
 (** [mapi_init f n l] applies, for each [k], [f (n+k)] to the [k]-th
 element of [l] and returns the list of results, in the order of the
 original elements in [l]. Requires, at type-checking time, [f] to be a

@@ -252,6 +252,90 @@ let rec map_lemma f l =
     | [] -> ()
     | h::t -> map_lemma f t
 
+let rec map_index
+  (#a #b: Type)
+  (f: a -> Tot b)
+  (l: list a)
+  (i: (i: nat {i < length l}))
+: Lemma
+  (ensures (index (map f l) i == f (index l i)))
+  (decreases l)
+= match l with
+  | [] -> ()
+  | _ :: q -> if i = 0 then () else map_index f q (i - 1)
+
+let map_index_unit
+  (#a #b: Type)
+  (f: a -> Tot b)
+  (l: list a)
+  (i: nat)
+  (h: unit {i < length l})
+: Lemma
+  (ensures (index (map f l) i == f (index l i)))
+= map_index f l i
+
+let rec map2_length
+  (#a #b #c: Type)
+  (f: a -> b -> Tot c)
+  (la: list a)
+  (lb: list b)
+: Lemma
+  (requires True)
+  (ensures (length la == length lb ==> length (map2 f la lb) == length la))
+  [SMTPat (length (map2 f la lb))]
+  (decreases la)
+= match la, lb with
+  | _ :: la' , _ :: lb' -> map2_length f la' lb'
+  | _ -> ()
+
+let rec map2_length_unit
+  (#a #b #c: Type)
+  (f: a -> b -> Tot c)
+  (la: list a)
+  (lb: list b)
+  (h: (h: unit {length la == length lb}))
+: Lemma
+  (ensures (length (map2 f la lb) == length la))
+= map2_length f la lb
+
+private let rec map2_index_aux
+  (#a #b #c: Type)
+  (f: a -> b -> Tot c)
+  (la: list a)
+  (lb: list b)
+  (x: (i: nat {i < length la}))
+: Lemma
+  (requires True)
+  (ensures (length la == length lb ==> index (map2 f la lb) x == f (index la x) (index lb x)))
+  (decreases la)
+= match la, lb with
+  | _ :: la' , _ :: lb' -> if x = 0 then () else map2_index_aux f la' lb' (x - 1)
+  | _ -> ()
+
+let map2_index_unit
+  (#a #b #c: Type)
+  (f: a -> b -> Tot c)
+  (la: list a)
+  (lb: list b)
+  (i: nat)
+  (hlen: (hlen: unit { length la == length lb }))
+  (hi: (hi: unit {i < length la}))
+: Lemma
+  (ensures (index (map2 f la lb) i == f (index la i) (index lb i)))
+= map2_index_aux f la lb i
+
+let map2_index
+  (#a #b #c: Type)
+  (f: a -> b -> Tot c)
+  (la: list a)
+  (lb: list b)
+: Lemma
+  (requires True)
+  (ensures ( forall (i: nat) . length la == length lb ==> i < length la ==> index (map2 f la lb) i == f (index la i) (index lb i)))
+  (decreases la)
+=
+  FStar.Classical.forall_intro (map2_index_aux f la lb)
+
 (** Properties about partition **)
 
 (** If [partition f l = (l1, l2)], then for any [x], [x] is in [l] if
