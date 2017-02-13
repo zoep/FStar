@@ -408,6 +408,245 @@ let rec memP_existsb #a f xs =
   | [] -> ()
   | hd::tl -> memP_existsb f tl
 
+let rec memP_map_intro
+  (#a #b: Type)
+  (f: a -> Tot b)
+  (x: a)
+  (l: list a)
+: Lemma
+  (requires True)
+  (ensures (memP x l ==> memP (f x) (map f l)))
+  (decreases l)
+= match l with
+  | [] -> ()
+  | _ :: q -> memP_map_intro f x q (* NOTE: would fail if [requires memP x l] instead of [ ==> ] *)
+
+let rec memP_map_elim
+  (#a #b: Type)
+  (f: a -> Tot b)
+  (y: b)
+  (l: list a)
+: Lemma
+  (requires True)
+  (ensures (memP y (map f l) ==> (exists (x : a) . memP x l /\ f x == y)))
+  (decreases l)
+= match l with
+  | [] -> ()
+  | _ :: q -> memP_map_elim f y q
+
+(** Properties of [noRepeats] *)
+let noRepeats_nil
+  (#a: eqtype)
+: Lemma
+  (ensures (noRepeats #a []))
+= ()
+
+let noRepeats_cons
+  (#a: eqtype)
+  (h: a)
+  (tl: list a)
+: Lemma
+  (requires ((~ (mem h tl)) /\ noRepeats tl))
+  (ensures (noRepeats #a (h::tl)))
+= ()
+
+let rec noRepeats_append_elim
+  (#a: eqtype)
+  (l1 l2: list a)
+: Lemma
+  (requires (noRepeats (l1 @ l2)))
+  (ensures (noRepeats l1 /\ noRepeats l2 /\ (forall x . mem x l1 ==> ~ (mem x l2))))
+  (decreases l1)
+= match l1 with
+  | [] -> ()
+  | x :: q1 ->
+    append_mem q1 l2 x;
+    noRepeats_append_elim q1 l2
+
+let rec noRepeats_append_intro
+  (#a: eqtype)
+  (l1 l2: list a)
+: Lemma
+  (requires (noRepeats l1 /\ noRepeats l2 /\ (forall x . mem x l1 ==> ~ (mem x l2))))
+  (ensures (noRepeats (l1 @ l2)))
+  (decreases l1)
+= match l1 with
+  | [] -> ()
+  | x :: q1 ->
+    append_mem q1 l2 x;
+    noRepeats_append_intro q1 l2
+
+(** Properties of [assoc] *)
+
+let assoc_nil
+  (#a: eqtype)
+  (#b: Type)
+  (x: a)
+: Lemma
+  (ensures (assoc #a #b x [] == None))
+= ()
+
+let assoc_cons_eq
+  (#a: eqtype)
+  (#b: Type)
+  (x: a)
+  (y: b)
+  (q: list (a * b))
+: Lemma
+  (ensures (assoc x ((x, y) :: q) == Some y))
+= ()
+
+let assoc_cons_not_eq
+  (#a: eqtype)
+  (#b: Type)
+  (x x': a)
+  (y: b)
+  (q: list (a * b))
+: Lemma
+  (requires (x <> x'))
+  (ensures (assoc x' ((x, y) :: q) == assoc x' q))
+= ()
+
+let rec assoc_append_elim_r
+  (#a: eqtype)
+  (#b: Type)
+  (x: a)
+  (l1 l2: list (a * b))
+: Lemma
+  (requires (assoc x l2 == None \/ ~ (assoc x l1 == None)))
+  (ensures (assoc x (l1 @ l2) == assoc x l1))
+  (decreases l1)
+= match l1 with
+  | [] -> ()
+  | (x', _) :: q -> if x = x' then () else assoc_append_elim_r x q l2
+
+let rec assoc_append_elim_l
+  (#a: eqtype)
+  (#b: Type)
+  (x: a)
+  (l1 l2: list (a * b))
+: Lemma
+  (requires (assoc x l1 == None))
+  (ensures (assoc x (l1 @ l2) == assoc x l2))
+  (decreases l1)
+= match l1 with
+  | [] -> ()
+  | (x', _) :: q -> if x = x' then assert False else assoc_append_elim_l x q l2
+
+let rec assoc_memP_some
+  (#a: eqtype)
+  (#b: Type)
+  (x: a)
+  (y: b)
+  (l: list (a * b))
+: Lemma
+  (requires (assoc x l == Some y))
+  (ensures (memP (x, y) l))
+  (decreases l)
+= match l with
+  | [] -> ()
+  | (x', _) :: q -> if x = x' then () else assoc_memP_some x y q
+
+let rec assoc_memP_none
+  (#a: eqtype)
+  (#b: Type)
+  (x: a)
+  (l: list (a * b))
+: Lemma
+  (requires (assoc x l == None))
+  (ensures (forall y . ~ (memP (x, y) l)))
+  (decreases l)
+= match l with
+  | [] -> ()
+  | (x', _) :: q -> if x = x' then assert False else assoc_memP_none x q
+
+let assoc_mem
+  (#a: eqtype)
+  (#b: Type)
+  (x: a)
+  (l: list (a * b))
+: Lemma
+  (ensures (mem x (map fst l) <==> (exists y . assoc x l == Some y)))
+= match assoc x l with
+  | None ->
+    assoc_memP_none x l;
+    mem_memP x (map fst l);
+    memP_map_elim fst x l
+  | Some y ->
+    assoc_memP_some x y l;
+    memP_map_intro fst (x, y) l;
+    mem_memP x (map fst l)
+
+(** Properties of [remove_assoc] *)
+
+let remove_assoc_nil
+  (#a: eqtype)
+  (#b: Type)
+  (x: a)
+: Lemma
+  (ensures (remove_assoc #a #b x [] == []))
+= ()
+
+let remove_assoc_cons_eq
+  (#a: eqtype)
+  (#b: Type)
+  (x: a)
+  (y: b)
+  (q: list (a * b))
+: Lemma
+  (ensures (remove_assoc x ((x, y) :: q) == remove_assoc x q))
+= ()
+
+let remove_assoc_cons_not_eq
+  (#a: eqtype)
+  (#b: Type)
+  (x x': a)
+  (y: b)
+  (q: list (a * b))
+: Lemma
+  (requires (x <> x'))
+  (ensures (remove_assoc x' ((x, y) :: q) == (x, y) :: remove_assoc x' q))
+= ()
+
+let rec assoc_remove_assoc_eq
+  (#a: eqtype)
+  (#b: Type)
+  (x: a)
+  (l: list (a * b))
+: Lemma
+  (requires True)
+  (ensures (assoc x (remove_assoc x l) == None))
+  (decreases l)
+= match l with
+  | [] -> ()
+  | (x', _) :: q -> assoc_remove_assoc_eq x q
+
+let rec assoc_remove_assoc_not_eq
+  (#a: eqtype)
+  (#b: Type)
+  (x x': a)
+  (l: list (a * b))
+: Lemma
+  (requires (x <> x'))
+  (ensures (assoc x (remove_assoc x' l) == assoc x l))
+  (decreases l)
+= match l with
+  | [] -> ()
+  | (x'', _) :: q -> if x = x'' then () else assoc_remove_assoc_not_eq x x' q
+
+let rec remove_assoc_append
+  (#a: eqtype)
+  (#b: Type)
+  (x: a)
+  (l1 l2: list (a * b))
+: Lemma
+  (requires True)
+  (ensures (remove_assoc x (l1 @ l2) == remove_assoc x l1 @ remove_assoc x l2))
+  (decreases l1)
+= match l1 with
+  | [] -> ()
+  | _ :: q -> remove_assoc_append x q l2
+
 (** Properties of [fold_left] *)
 
 let rec fold_left_invar

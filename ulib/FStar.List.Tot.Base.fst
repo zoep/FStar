@@ -347,7 +347,8 @@ let rec subset #a la lb =
 
 (** [noRepeats l] returns [true] if, and only if, no element of [l]
 appears in [l] more than once. Requires, at type-checking time, the
-type of elements of [la] and [lb] to have decidable equality. *)
+type of elements of [la] and [lb] to have decidable equality. Similar
+to: List.NoDup in Coq (which is propositional) *)
 val noRepeats : #a:eqtype -> list a -> Tot bool
 let rec noRepeats #a la =
   match la with
@@ -364,6 +365,17 @@ val assoc: #a:eqtype -> #b:Type -> a -> list (a * b) -> Tot (option b)
 let rec assoc #a #b x = function
   | [] -> None
   | (x', y)::tl -> if x=x' then Some y else assoc x tl
+
+
+(** [remove_assoc x l] returns a list [l'] where all pairs of the form
+[(x, y)] for some [y] are removed, and the remaining pairs are in the
+same order and number of occurrences in [l'] as in [l]. Requires, at
+type-checking time, the type of [x] to have decidable equality. Named
+as in: OCaml. *)
+val remove_assoc: #a:eqtype -> #b: Type -> a -> list (a * b) -> Tot (list (a * b))
+let rec remove_assoc #a #b x = function
+  | [] -> []
+  | (x', y) :: tl -> if x = x' then remove_assoc x tl else ((x', y) :: remove_assoc x tl)
 
 (** [split] takes a list of pairs [(x1, y1), ..., (xn, yn)] and
 returns the pair of lists ([x1, ..., xn], [y1, ..., yn]). Named as in:
