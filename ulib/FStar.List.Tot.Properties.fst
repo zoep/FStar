@@ -256,7 +256,7 @@ let rec map_index
   (#a #b: Type)
   (f: a -> Tot b)
   (l: list a)
-  (i: (i: nat {i < length l}))
+  (i: nat {i < length l})
 : Lemma
   (ensures (index (map f l) i == f (index l i)))
   (decreases l)
@@ -264,77 +264,33 @@ let rec map_index
   | [] -> ()
   | _ :: q -> if i = 0 then () else map_index f q (i - 1)
 
-let map_index_unit
-  (#a #b: Type)
-  (f: a -> Tot b)
-  (l: list a)
-  (i: nat)
-  (h: unit {i < length l})
-: Lemma
-  (ensures (index (map f l) i == f (index l i)))
-= map_index f l i
-
 let rec map2_length
   (#a #b #c: Type)
   (f: a -> b -> Tot c)
   (la: list a)
-  (lb: list b)
+  (lb: list b {length la == length lb})
 : Lemma
   (requires True)
-  (ensures (length la == length lb ==> length (map2 f la lb) == length la))
+  (ensures (length (map2 f la lb) == length la))
   [SMTPat (length (map2 f la lb))]
   (decreases la)
 = match la, lb with
   | _ :: la' , _ :: lb' -> map2_length f la' lb'
   | _ -> ()
 
-let rec map2_length_unit
+let rec map2_index
   (#a #b #c: Type)
   (f: a -> b -> Tot c)
   (la: list a)
-  (lb: list b)
-  (h: (h: unit {length la == length lb}))
-: Lemma
-  (ensures (length (map2 f la lb) == length la))
-= map2_length f la lb
-
-private let rec map2_index_aux
-  (#a #b #c: Type)
-  (f: a -> b -> Tot c)
-  (la: list a)
-  (lb: list b)
+  (lb: list b {length la == length lb})
   (x: (i: nat {i < length la}))
 : Lemma
   (requires True)
-  (ensures (length la == length lb ==> index (map2 f la lb) x == f (index la x) (index lb x)))
+  (ensures (index (map2 f la lb) x == f (index la x) (index lb x)))
   (decreases la)
 = match la, lb with
-  | _ :: la' , _ :: lb' -> if x = 0 then () else map2_index_aux f la' lb' (x - 1)
+  | _ :: la' , _ :: lb' -> if x = 0 then () else map2_index f la' lb' (x - 1)
   | _ -> ()
-
-let map2_index_unit
-  (#a #b #c: Type)
-  (f: a -> b -> Tot c)
-  (la: list a)
-  (lb: list b)
-  (i: nat)
-  (hlen: (hlen: unit { length la == length lb }))
-  (hi: (hi: unit {i < length la}))
-: Lemma
-  (ensures (index (map2 f la lb) i == f (index la i) (index lb i)))
-= map2_index_aux f la lb i
-
-let map2_index
-  (#a #b #c: Type)
-  (f: a -> b -> Tot c)
-  (la: list a)
-  (lb: list b)
-: Lemma
-  (requires True)
-  (ensures ( forall (i: nat) . length la == length lb ==> i < length la ==> index (map2 f la lb) i == f (index la i) (index lb i)))
-  (decreases la)
-=
-  FStar.Classical.forall_intro (map2_index_aux f la lb)
 
 (** Properties about partition **)
 
@@ -579,18 +535,18 @@ let fold_left_append_monoid
 
 private let rec index_extensionality_aux
   (#a: Type)
-  (l1 l2: list a)
-  (l_len: (l_len: unit { length l1 == length l2 } ))
-  (l_index: (i: (i: nat {i < length l1})) -> Tot (l_index: unit {index l1 i == index l2 i}))
+  (l1: list a)
+  (l2: list a {length l1 == length l2})
+  (l_index: (i: nat {i < length l1}) -> Lemma (index l1 i == index l2 i))
 : Lemma
   (ensures (l1 == l2))
 = match (l1, l2) with
   | (a1::q1, a2::q2) ->
-    let a_eq : (a_eq : unit {a1 == a2}) = l_index 0 in
-    let q_len : (q_len: unit {length q1 == length q2}) = () in
-    let q_index (i: (i: nat {i < length q1})) : Tot (q_index: unit {index q1 i == index q2 i}) =
-      l_index (i + 1) in
-    let q_eq : (q_eq : unit {l1 == l2}) = index_extensionality_aux q1 q2 q_len q_index in
+    let a_eq : squash (a1 == a2) = l_index 0 in
+    let q_index (i: nat {i < length q1}) : Lemma (index q1 i == index q2 i) =
+      l_index (i + 1)
+    in
+    let q_eq : squash (q1 == q2) = index_extensionality_aux q1 q2 q_index in
     ()
   | _ -> ()
 
@@ -602,4 +558,4 @@ let index_extensionality
     (length l1 == length l2 /\
     (forall (i: nat) . i < length l1 ==> index l1 i == index l2 i)))
   (ensures (l1 == l2))
-= index_extensionality_aux l1 l2 () (fun i -> ())
+= index_extensionality_aux l1 l2 (fun i -> ())

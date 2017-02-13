@@ -130,10 +130,8 @@ and [l1] and [l2] to have the same length. Named as in: OCaml, Coq, F#
 val map2:
   ('a -> 'b -> Tot 'c) ->
   (l1: list 'a) ->
-  (l2: list 'b) ->
-  Pure (list 'c)
-   (requires (length l1 == length l2))
-   (ensures (fun _ -> True)) (decreases l1)
+  (l2: list 'b {length l1 == length l2}) ->
+  Tot (list 'c)
 let rec map2 f l1 l2 = match l1, l2 with
   | [], [] -> []
   | a1::tl1, a2::tl2 -> f a1 a2::map2 f tl1 tl2

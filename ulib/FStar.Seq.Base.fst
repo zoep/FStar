@@ -200,28 +200,6 @@ abstract val lemma_eq_intro: #a:Type -> s1:seq a -> s2:seq a -> Lemma
      [SMTPatT (equal s1 s2)]
 let lemma_eq_intro #a s1 s2 = ()
 
-abstract let equal_intro_unit
-  (#a: Type)
-  (s1 s2: seq a)
-  (hlen: (hlen: unit {length s1 = length s2}))
-  (hindex: (i: nat) -> (hi: (hi: unit {i < length s1})) -> Tot (hindex: unit {index s1 i == index s2 i}))
-: Lemma
-  (ensures (equal s1 s2))
-= 
-  let f (i: nat) : Lemma ( i < length s1 ==> index s1 i == index s2 i ) =
-      FStar.Classical.impl_intro_gen
-        #(i < length s1)
-	#(fun (h: (h: unit {i < length s1})) -> index s1 i == index s2 i)
-	(hindex i)
-  in
-  let g () : Lemma (forall (i : nat) . i < length s1 ==> (index s1 i == index s2 i)) =
-   FStar.Classical.forall_intro
-    #nat
-    #(fun (i : nat) -> i < length s1 ==> index s1 i == index s2 i)
-    f
-  in
-  g ()
-
 abstract val lemma_eq_refl: #a:Type -> s1:seq a -> s2:seq a -> Lemma
      (requires (s1 == s2))
      (ensures (equal s1 s2))
@@ -289,63 +267,22 @@ abstract let map2
   (#a #b #c: Type)
   (f: a -> b -> Tot c)
   (sa: seq a)
-  (sb: seq b)
-: Pure (seq c)
-  (requires (length sa == length sb))
-  (ensures (fun _ -> True))
+  (sb: seq b {length sa == length sb})
+: Tot (seq c)
 =
   MkSeq (List.Tot.map2 f (MkSeq?.l sa) (MkSeq?.l sb))
-
-private let map2_charac_aux_unit
-  (#a #b #c: Type)
-  (f: a -> b -> Tot c)
-  (sa: seq a)
-  (sb: seq b)
-  (sc: seq c)
-  (hlen_ab: (hlen_ab: unit {length sa == length sb}))
-  (hlen_ac: (hlen_ac: unit {length sa == length sc}))
-  (hf: (i: nat) -> (hi: (hi: unit {i < length sa})) -> Tot (hf: unit {index sc i == f (index sa i) (index sb i)}))
-: Lemma
-  (ensures equal sc (map2 f sa sb)) 
-=
-  let hlen_c () : Lemma ( length sc == length (map2 f sa sb) ) = () in
-  let hindex_c (i: nat) (hi: (hi: unit {i < length sa} ) ) : Tot (hindex: unit { index sc i == index (map2 f sa sb) i } ) =
-    hf i hi;
-    List.map2_index_unit f (MkSeq?.l sa) (MkSeq?.l sb) i hlen_ab hi
-  in
-  equal_intro_unit
-   sc
-   (map2 f sa sb)
-   (hlen_c ())
-   hindex_c
-
-private val map2_charac_aux
-  (#a #b #c: Type)
-  (f: a -> b -> Tot c)
-  (sa: seq a)
-  (sb: seq b)
-  (sc: seq c)
-: Lemma
-  (ensures (length sa == length sb /\ length sa == length sc /\ (forall (i : nat) . i < length sa ==> index sc i == f (index sa i) (index sb i))) ==> equal sc (map2 f sa sb))
-let map2_charac_aux #a #b #c f sa sb sc =
-  FStar.Classical.impl_intro_gen
-    #(length sa == length sb /\ length sa == length sc /\ (forall (i : nat) . i < length sa ==> index sc i == f (index sa i) (index sb i)))
-    #(fun h -> equal sc (map2 f sa sb))
-   (fun h ->
-     map2_charac_aux_unit f sa sb sc () () (fun i hi -> ()))
 
 abstract let map2_charac
   (#a #b #c: Type)
   (f: a -> b -> Tot c)
   (sa: seq a)
-  (sb: seq b)
+  (sb: seq b {length sa == length sb})
   (sc: seq c)
 : Lemma
-  (ensures (length sa == length sb ==> 
+  (ensures
     ((length sa == length sc /\
      (forall (i : nat) . i < length sa ==> index sc i == f (index sa i) (index sb i)))
-    <==> equal sc (map2 f sa sb))))
+    <==> equal sc (map2 f sa sb)))
 =
  List.map2_length f (MkSeq?.l sa) (MkSeq?.l sb);
- List.map2_index f (MkSeq?.l sa) (MkSeq?.l sb);
- map2_charac_aux f sa sb sc
+ FStar.Classical.forall_intro (List.map2_index f (MkSeq?.l sa) (MkSeq?.l sb))
