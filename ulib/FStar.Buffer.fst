@@ -1,4 +1,11 @@
 module FStar.Buffer
+
+(** Note: if you're editing this file in interactive mode, Emacs changes its
+current directory to ulib, meaning that even though you may have hyperstack in
+your fstar-subp-prover-args, it will still pick the wrong FStar.ST.fst. The way
+to fix this is i) customize your fstar-subp-prover-args to include "--include"
+"path/to/hyperstack", and ii) M-x cd as you start editing this file, before you
+start the F* process. *)
  
 open FStar.Seq
 open FStar.UInt32
@@ -870,7 +877,7 @@ let upd #a b n z =
   Seq.lemma_eq_intro (as_seq h b) (Seq.slice s (idx b) (idx b + length b));
   Seq.upd_slice s0 (idx b) (idx b + length b) (v n) z
 
-val sub: #a:Type -> b:buffer a -> i:UInt32.t{v i + v b.idx < pow2 n}
+val sub: #a:Type -> b:buffer a -> i:UInt32.t
   -> len:UInt32.t{v i + v len <= length b}
   -> Tot (b':buffer a{b `includes` b' /\ length b' = v len})
 let sub #a b i len =
