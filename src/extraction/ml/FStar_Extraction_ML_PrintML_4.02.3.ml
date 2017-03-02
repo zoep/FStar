@@ -35,7 +35,7 @@ let mk_sym_lident s: Longident.t Location.loc = {txt=s; loc=no_location}
 
 let mk_lident name = Lident name |> mk_sym_lident
 
-let mk_typ_name s = 
+let mk_typ_name s =
   (* remove an apostrophe from beginning of type name *)
   match (BatString.sub s 0 1) with
   | "'" -> BatString.tail s 1
