@@ -114,6 +114,7 @@ boot_fstis/FStar.util.fsti: basic/util.fsi
 	$(SED) -i 's/open System.IO/module ALL_TMP = FStar.All/g' $@
 	$(SED) -i 's/type time.*/assume new type time/g'  $@
 	$(SED) -i 's/type smap.*/assume new type smap : Type0 -> Type0/g'  $@
+	$(SED) -i 's/type imap.*/assume new type imap : Type0 -> Type0/g'  $@
 	$(SED) -i 's/type out_channel.*/assume new type out_channel/g'  $@
 	$(SED) -i 's/type file_handle.*/assume new type file_handle/g'  $@
 	$(SED) -i 's/type stream_reader.*/assume new type stream_reader/g'  $@
@@ -203,9 +204,15 @@ u_extract_smtencoding: u_extract_smtencoding_base u_extract_encode u_extract_sol
 u_extract_fstar: $(addprefix u_boot_fsts/FStar., Dependencies.fst Interactive.fst Universal.fst Indent.fst Main.fst)
 	$(FSTARBOOT) $^ --extract_module FStar.Dependencies --extract_module FStar.Interactive --extract_module FStar.Universal --extract_module FStar.Indent --extract_module FStar.Main
 
-u_extract_all: u_extract_misc u_extract_syntax u_extract_parser \
-	       u_extract_typechecker u_extract_tosyntax u_extract_smtencoding \
-	       u_extract_extraction u_extract_fstar
+u_extract_all:
+	u_extract_misc \
+	u_extract_syntax \
+	u_extract_parser \
+	u_extract_typechecker \
+	u_extract_tosyntax \
+	u_extract_smtencoding \
+	u_extract_extraction \
+	u_extract_fstar
 
 uz:
 	make prep
