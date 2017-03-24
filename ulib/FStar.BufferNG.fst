@@ -1766,3 +1766,127 @@ let bwrite
     
   )))
 = write (pointer_of_buffer_cell b i) v
+
+(* The modifies class *)
+
+noeq type object =
+| ObjectBuffer:
+    (#t: Type) ->
+    (obj: buffer t) ->
+    object
+| ObjectPointer:
+    (#t: Type) ->
+    (obj: pointer t) ->
+    object
+
+abstract
+let pointer_ancestor
+  (#t: Type)
+  (p: pointer t)
+: Tot HyperStack.object
+= HyperStack.Object _ (Pointer?.content p)
+
+let as_aref_object_pointer_ancestor
+  (#t: Type)
+  (p: pointer t)
+: Lemma
+  (requires True)
+  (ensures (HyperStack.as_aref (HyperStack.Object?.r (pointer_ancestor p)) == as_aref p))
+= ()
+
+let pointer_ancestor_gfield
+  (#key: eqtype)
+  (#value: (key -> Tot Type))
+  (p: pointer (DM.t key value))
+  (fd: key)
+: Lemma
+  (requires True)
+  (ensures (pointer_ancestor (gfield p fd) == pointer_ancestor p))
+  [SMTPat (pointer_ancestor (gfield p fd))]
+= ()
+
+let pointer_ancestor_gcell
+  (#length: UInt32.t)
+  (#value: Type)
+  (p: pointer (array length value))
+  (i: UInt32.t {UInt32.v i < UInt32.v length})
+: Lemma
+  (requires True)
+  (ensures (pointer_ancestor (gcell p i) == pointer_ancestor p))
+  [SMTPat (pointer_ancestor (gcell p i))]
+= ()
+
+private
+let buffer_root_ancestor
+  (#t: Type)
+  (b: buffer_root t)
+: Tot HyperStack.object
+= match b with
+  | BufferRootSingleton p -> pointer_ancestor p
+  | BufferRootArray p -> pointer_ancestor p
+
+abstract
+let buffer_ancestor
+  (#t: Type)
+  (b: buffer t)
+: Tot HyperStack.object
+= buffer_root_ancestor (Buffer?.broot b)
+
+let ancestor_singleton_buffer_of_pointer
+  (#t: Type)
+  (p: pointer t)
+: Lemma
+  (requires True)
+  (ensures (buffer_ancestor (singleton_buffer_of_pointer p) == pointer_ancestor p))
+  [SMTPat (buffer_ancestor (singleton_buffer_of_pointer p))]
+= ()
+
+let ancestor_buffer_of_array_pointer
+  (#t: Type)
+  (#length: UInt32.t)
+  (p: pointer (array length t))
+: Lemma
+  (requires True)
+  (ensures (buffer_ancestor (buffer_of_array_pointer p) == pointer_ancestor p))
+  [SMTPat (buffer_ancestor (buffer_of_array_pointer p) == pointer_ancestor p)]
+= ()
+
+let object_ancestor
+  (o: object)
+: Tot HyperStack.object
+= match o with
+  | ObjectBuffer b -> buffer_ancestor b
+  | ObjectPointer p -> pointer_ancestor p
+
+let objects_disjoint
+  (o1 o2: object)
+: Tot Type0
+= match o1 with
+  | ObjectBuffer b1 ->
+    begin match o2 with
+    | ObjectBuffer b2 -> disjoint_buffer_vs_buffer b1 b2
+    | ObjectPointer p2 -> disjoint_buffer_vs_pointer b1 p2
+    end
+  | ObjectPointer p1 ->
+    begin match o2 with
+    | ObjectBuffer b2 -> disjoint_buffer_vs_pointer b2 p1
+    | ObjectPointer p2 -> disjoint p1 p2
+    end
+
+(*
+
+let class': Modifies.class HyperStack.mem 1 object =
+  Modifies.Class
+    (* heap  *)                 mem
+    (* level *)                 1
+    (* carrier *)               object
+    (* disjoint *)              objects_disjoint
+    (* live *)                  object_live
+    (* contains *)              object_contains
+    (* preserved *)             object_preserved
+    (* ancestor_count *)        (fun x -> 0)
+    (* ancestor_types *)        (fun x y -> false_elim ())
+    (* ancestor_class_levels *) (fun x y -> false_elim ())
+    (* ancestor_classes *)      (fun x y -> false_elim ())
+    (* ancestor_objects *)      (fun x y -> false_elim ())
+  
