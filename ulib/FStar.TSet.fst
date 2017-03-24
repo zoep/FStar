@@ -106,3 +106,212 @@ abstract val lemma_equal_refl: #a:Type -> s1:set a -> s2:set a -> Lemma
 let lemma_equal_intro #a s1 s2 = ()
 let lemma_equal_elim  #a s1 s2 = PredicateExtensionality.predicateExtensionality a s1 s2
 let lemma_equal_refl  #a s1 s2 = ()
+
+(* NOTE: the following lemmas should be provable abstractly *)
+
+let union_comm
+  (#a: Type)
+  (x y: set a)
+: Lemma
+  (requires True)
+  (ensures (union x y == union y x))
+//  [SMTPat (union x y)]
+= lemma_equal_elim (union x y) (union y x)
+
+let union_empty_l
+  (#a: Type)
+  (x: set a)
+: Lemma
+  (requires True)
+  (ensures (union empty x == x))
+  [SMTPat (union empty x)]
+= lemma_equal_elim (union empty x) x
+
+let union_empty_r
+  (#a: Type)
+  (x: set a)
+: Lemma
+  (requires True)
+  (ensures (union x empty == x))
+  [SMTPat (union x empty)]
+= lemma_equal_elim (union x empty) x
+
+let union_assoc
+  (#a: Type)
+  (x y z: set a)
+: Lemma
+  (requires True)
+  (ensures (union x (union y z) == union (union x y) z))
+//  [SMTPat (union (union x y) z)]
+= lemma_equal_elim (union x (union y z)) (union (union x y) z)
+
+let intersect_comm
+  (#a: Type)
+  (x y: set a)
+: Lemma
+  (requires True)
+  (ensures (intersect x y == intersect y x))
+//  [SMTPat (intersect x y)]
+= lemma_equal_elim (intersect x y) (intersect y x)
+
+let intersect_empty_l
+  (#a: Type)
+  (x: set a)
+: Lemma
+  (requires True)
+  (ensures (intersect empty x == empty))
+  [SMTPat (intersect empty x)]
+= lemma_equal_elim (intersect empty x) empty
+
+let intersect_empty_r
+  (#a: Type)
+  (x: set a)
+: Lemma
+  (requires True)
+  (ensures (intersect x empty == empty))
+  [SMTPat (intersect x empty)]
+= lemma_equal_elim (intersect x empty) empty
+
+let intersect_assoc
+  (#a: Type)
+  (x y z: set a)
+: Lemma
+  (requires True)
+  (ensures (intersect x (intersect y z) == intersect (intersect x y) z))
+//  [SMTPat (intersect (intersect x y) z)]
+= lemma_equal_elim (intersect x (intersect y z)) (intersect (intersect x y) z)
+
+let union_intersect
+  (#a: Type)
+  (x y z: set a)
+: Lemma
+  (requires True)
+  (ensures (x `union` (y `intersect` z) == (x `union` y) `intersect` (x `union` z)))
+//  [SMTPat (x `union` (y `intersect` z))] // TODO: resolve conflict with union_subset_simpl below
+= lemma_equal_elim (x `union` (y `intersect` z)) ((x `union` y) `intersect` (x `union` z))
+
+let intersect_union
+  (#a: Type)
+  (x y z: set a)
+: Lemma
+  (requires True)
+  (ensures (x `intersect` (y `union` z) == (x `intersect` y) `union` (x `intersect` z)))
+//  [SMTPat (x `intersect` (y `union` z))] // TODO: resolve conflict with intersect_subset_simpl below
+= lemma_equal_elim (x `intersect` (y `union` z)) ((x `intersect` y) `union` (x `intersect` z))
+
+let complement_complement
+  (#a: Type)
+  (x: set a)
+: Lemma
+  (requires True)
+  (ensures (complement (complement x) == x))
+  [SMTPat (complement (complement x))]
+= lemma_equal_elim (complement (complement x)) x
+
+let complement_union
+  (#a: Type)
+  (x y: set a)
+: Lemma
+  (requires True)
+  (ensures (complement (x `union` y) == complement x `intersect` complement y))
+  [SMTPat (complement (x `union` y))]
+= lemma_equal_elim (complement (x `union` y)) (complement x `intersect` complement y)
+
+let complement_intersect
+  (#a: Type)
+  (x y: set a)
+: Lemma
+  (requires True)
+  (ensures (complement (x `intersect` y) == complement x `union` complement y))
+  [SMTPat (complement (x `intersect` y))]
+= lemma_equal_elim (complement (x `intersect` y)) (complement x `union` complement y)
+
+let subset_refl
+  (#a: Type)
+  (x: set a)
+: Lemma
+  (requires True)
+  (ensures (x `subset` x))
+  [SMTPat (x `subset` x)]
+= ()
+
+let subset_trans
+  (#a: Type)
+  (x y z: set a)
+: Lemma
+  (requires (x `subset` y /\ y `subset` z))
+  (ensures (x `subset` z))
+  [SMTPatT (x `subset` y); SMTPatT (y `subset` z)]
+= ()
+
+let subset_antisym
+  (#a: Type)
+  (x y: set a)
+: Lemma
+  (requires (x `subset` y /\ y `subset` x))
+  (ensures (x == y))
+  [SMTPatT (x `subset` y); SMTPatT (y `subset` x)]
+= lemma_equal_elim x y
+
+let subset_empty
+  (#a: Type)
+  (x: set a)
+: Lemma
+  (requires True)
+  (ensures (empty `subset` x))
+  [SMTPat (empty `subset` x)]
+= ()
+
+let subset_union_l
+  (#a: Type)
+  (x y z: set a)
+: Lemma
+  (requires (x `subset` z /\ y `subset` z))
+  (ensures ((x `union` y) `subset` z))
+  [SMTPat ((x `union` y) `subset` z)]
+= ()
+
+let subset_union_r
+  (#a: Type)
+  (x y z: set a)
+: Lemma
+  (requires (x `subset` y \/ x `subset` z))
+  (ensures (x `subset` (y `union` z)))
+  [SMTPat (x `subset` (y `union` z))]
+= ()
+
+let subset_intersect_l
+  (#a: Type)
+  (x y z: set a)
+: Lemma
+  (requires (x `subset` z \/ y `subset` z))
+  (ensures ((x `intersect` y) `subset` z))
+  [SMTPat ((x `intersect` y) `subset` z)]
+= ()
+
+let subset_intersect_r
+  (#a: Type)
+  (x y z: set a)
+: Lemma
+  (requires (x `subset` y /\ x `subset` z))
+  (ensures (x `subset` (y `intersect` z)))
+  [SMTPat (x `subset` (y `intersect` z))]
+= ()
+
+let union_subset_simpl
+  (#a: Type)
+  (x y: set a)
+: Lemma
+  (requires (x `subset` y))
+  (ensures (x `union` y == y))
+  [SMTPatT (x `subset` y); SMTPat (x `union` y)]
+= lemma_equal_elim (x `union` y) y
+
+let intersect_subset_simpl
+  (#a: Type)
+  (x y: set a)
+: Lemma
+  (requires (x `subset` y))
+  (ensures (x `intersect` y == x))
+  [SMTPatT (x `subset` y); SMTPat (x `intersect` y)]
+= lemma_equal_elim (x `intersect` y) x
