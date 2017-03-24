@@ -1,25 +1,74 @@
 module FStar.Modifies
 
-noeq type class' (heap: Type) : (level: nat) -> (carrier: Type) -> Tot Type =
+noeq type class' : (heap: (Type u#a)) -> (level: nat) -> (carrier: (Type u#b)) -> (Type u#(1 + max a b)) =
 | Class:
+  (heap: (Type u#a)) ->
   (level: nat) ->
-  (carrier: Type) ->
+  (carrier: (Type u#b)) ->
   (disjoint: (carrier -> carrier -> Tot Type0)) ->
   (live: (heap -> carrier -> Tot Type0)) ->
   (contains: (heap -> carrier -> Tot Type0)) ->
   (preserved: (carrier -> heap -> heap -> Tot Type0)) ->
   (ancestor_count: (carrier -> Tot (x: nat { level > 0 ==> x > 0 } ))) ->
-  (ancestor_types: ((x: carrier) -> (i: nat {i < ancestor_count x}) -> Tot Type)) ->
+  (ancestor_types: ((x: carrier) -> (i: nat {i < ancestor_count x}) -> Tot (Type u#b))) ->
   (ancestor_class_levels: ((x: carrier) -> (i: nat {i < ancestor_count x}) -> Tot (y:nat { y < level } ))) ->
   (ancestor_classes: ((x: carrier) -> (i: nat {i < ancestor_count x}) -> Tot (class' heap (ancestor_class_levels x i) (ancestor_types x i)))) ->
   (ancestor_objects: ((x: carrier) -> (i: nat {i < ancestor_count x}) -> Tot (ancestor_types x i))) ->
   class' heap level carrier
 
+let hetero_id
+  (#a: Type)
+  (#b: Type)
+  (x: a)
+: Pure b
+  (requires (a == b))
+  (ensures (fun y -> a == b /\ y == x))
+= x
+
+(*
+
+
+let carrier_eq
+  (#heap: (Type 'ua))
+  (#level: nat)
+  (#carrier: (Type 'ub))
+  (c: class'  heap level carrier)
+: Lemma
+  (requires True)
+  (ensures (Class?.carrier c == carrier))
+  [SMTPat (Class?.carrier c)]
+= ()
+
+let carrier_ancestor_classes
+  (#heap: (Type 'ua))
+  (#level: nat)
+  (#carrier: (Type 'ub))
+  (c: class'  heap level carrier)
+  (x: carrier)
+  (i: nat {i < Class?.ancestor_count c x})
+: Lemma
+  (requires True)
+  (ensures (Class?.carrier (Class?.ancestor_classes c x i) == Class?.ancestor_types c x i))
+  [SMTPat (Class?.carrier (Class?.ancestor_classes c x i))]
+= ()
+*)
+
+unfold
+let ancestor_objects
+  (#heap: (Type u#a))
+  (#level: nat)
+  (#carrier: (Type u#b))
+  (c: class'  heap level carrier)
+  (x: carrier)
+  (i: nat {i < Class?.ancestor_count c x})
+: Tot (Class?.carrier (Class?.ancestor_classes c x i))
+= hetero_id (Class?.ancestor_objects c x i)
+
 unfold
 let preserved_refl_t
-  (#heap: Type)
-  (#level: nat) (#ty: Type) (c: class' heap level ty) 
-  : Tot Type
+  (#heap: Type u#a)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty) 
+  : Tot (Type u#(max a b))
 = (x: ty) ->
   (h : heap) ->
   Lemma
@@ -28,9 +77,9 @@ let preserved_refl_t
 
 unfold
 let preserved_trans_t
-  (#heap: Type)
-  (#level: nat) (#ty: Type) (c: class' heap level ty) 
-  : Tot Type
+  (#heap: Type u#a)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty) 
+  : Tot (Type u#(max a b))
 = (x: ty) ->
   (h1: heap) ->
   (h2: heap) ->
@@ -41,9 +90,9 @@ let preserved_trans_t
 
 unfold
 let preserved_ancestors_preserved_t
-  (#heap: Type)
-  (#level: nat) (#ty: Type) (c: class' heap level ty) 
-  : Tot Type
+  (#heap: (Type u#a))
+  (#level: nat) (#ty: (Type u#b)) (c: class' heap level ty) 
+  : Tot (Type u#(max a b))
 = (x: ty) ->
   (h: heap) ->
   (h' : heap) ->
@@ -51,16 +100,16 @@ let preserved_ancestors_preserved_t
   (f: (
     (i: nat { i < Class?.ancestor_count c x } ) ->
     Lemma
-    (ensures (Class?.preserved (Class?.ancestor_classes c x i) (Class?.ancestor_objects c x i) h h'))
+    (Class?.preserved (Class?.ancestor_classes c x i) (ancestor_objects c x i) h h')
   )) ->
   Lemma
   (ensures (Class?.preserved c x h h'))
 
 unfold
 let class_disjoint_sym_t
-  (#heap: Type)
-  (#level: nat) (#ty: Type) (c: class' heap level ty) 
-  : Tot Type
+  (#heap: Type u#a)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty) 
+  : Tot (Type u#b)
 = (x1: ty) ->
   (x2: ty) ->
   Lemma
@@ -69,17 +118,17 @@ let class_disjoint_sym_t
 
 unfold
 let level_0_class_eq_root_t
-  (#heap: Type)
-  (#root_type: Type) (root_class: class' heap 0 root_type)
-  (#level: nat) (#ty: Type) (c: class' heap level ty) 
-  : Tot Type
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (root_class: class' heap 0 root_type)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty) 
+  : Tot Type0
 = squash (level == 0 ==> ty == root_type /\ c == root_class)
 
 unfold
 let level_0_fresh_disjoint_t
-  (#heap: Type)
-  (#level: nat) (#ty: Type) (c: class' heap level ty)
-: Tot Type
+  (#heap: Type u#a)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty)
+: Tot (Type u#(max a b))
 = (oold: ty) ->
   (onew: ty) ->
   (hbefore: heap) ->
@@ -96,9 +145,9 @@ let level_0_fresh_disjoint_t
   
 unfold
 let preserved_live_t
-  (#heap: Type)
-  (#level: nat) (#ty: Type) (c: class' heap level ty)
-: Tot Type
+  (#heap: Type u#a)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty)
+: Tot (Type u#(max a b))
 = (hbefore: heap) ->
   (hafter: heap) ->
   (o: ty) ->
@@ -110,9 +159,9 @@ let preserved_live_t
 
 unfold
 let preserved_contains_t
-  (#heap: Type)
-  (#level: nat) (#ty: Type) (c: class' heap level ty)
-: Tot Type
+  (#heap: Type u#a)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty)
+: Tot (Type u#(max a b))
 = (hbefore: heap) ->
   (hafter: heap) ->
   (o: ty) ->
@@ -124,9 +173,9 @@ let preserved_contains_t
 
 unfold
 let live_contains_t
-  (#heap: Type)
-  (#level: nat) (#ty: Type) (c: class' heap level ty)
-: Tot Type
+  (#heap: Type u#a)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty)
+: Tot (Type u#(max a b))
 = (h: heap) ->
   (o: ty) ->
   Lemma
@@ -135,41 +184,41 @@ let live_contains_t
 
 unfold
 let ancestors_contains_t
-  (#heap: Type)
-  (#level: nat) (#ty: Type) (c: class' heap level ty)
-: Tot Type
+  (#heap: Type u#a)
+  (#level: nat) (#ty: (Type u#b)) (c: class' heap level ty)
+: Tot (Type u#(max a b))
 = (h: heap) ->
   (o: ty) ->
   (s: squash (Class?.ancestor_count c o > 0)) ->
   (f: (
     (i: nat {i < Class?.ancestor_count c o } ) ->
     Lemma
-    (ensures (Class?.contains (Class?.ancestor_classes c o i) h (Class?.ancestor_objects c o i)))
+    (Class?.contains (Class?.ancestor_classes c o i) h (ancestor_objects c o i))
   )) ->
   Lemma
   (ensures (Class?.contains c h o))
 
 unfold
 let live_ancestors_t
-  (#heap: Type)
-  (#level: nat) (#ty: Type) (c: class' heap level ty)
-: Tot Type
+  (#heap: Type u#a)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty)
+: Tot (Type u#(max a b))
 = (h: heap) ->
   (o: ty) ->
   (i: nat {i < Class?.ancestor_count c o } ) ->
   Lemma
   (requires (Class?.live c h o))
   (ensures (
-    Class?.live (Class?.ancestor_classes c o i) h (Class?.ancestor_objects c o i)
+    Class?.live (Class?.ancestor_classes c o i) h (ancestor_objects c o i)
   ))
 
 noeq
 type class_invariant_body
-  (#heap: Type)
-  (#root_type: Type)
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
   (root_class: class' heap 0 root_type)
   (#level: nat)
-  (#ty: Type)
+  (#ty: Type u#b)
   (c: class' heap level ty)
 = {
   preserved_refl: preserved_refl_t c;
@@ -181,15 +230,15 @@ type class_invariant_body
   preserved_live: preserved_live_t c;
   preserved_contains: preserved_contains_t c;
   live_contains: live_contains_t c;
-  ancestors_contains: ancestors_contains_t c;
+  ancestors_contains: ancestors_contains_t u#a u#b c;
   live_ancestors: live_ancestors_t c
 }
 
 abstract
 let rec class_invariant
-  (#heap: Type)
-  (#root_type: Type) (root_class: class' heap 0 root_type)
-  (#level: nat) (#ty: Type) (c: class' heap level ty)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (root_class: class' heap 0 root_type)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty)
 : Pure Type0
   (requires True)
   (ensures (fun _ -> True))
@@ -201,9 +250,9 @@ let rec class_invariant
   ))
 
 let class_invariant_intro
-  (#heap: Type)
-  (#root_type: Type) (root_class: class' heap 0 root_type)
-  (#level: nat) (#ty: Type) (c: class' heap level ty)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (#level: nat) (#ty: Type u#b) (#c: class' heap level ty)
   (b: class_invariant_body root_class c)
 : Lemma
   (requires (forall
@@ -215,17 +264,17 @@ let class_invariant_intro
 = Squash.return_squash b
 
 type class
-  (#heap: Type)
-  (#root_type: Type) (root_class: class' heap 0 root_type)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (root_class: class' heap 0 root_type)
   (level: nat)
-  (ty: Type)
+  (ty: Type u#b)
 = (c: class' heap level ty { class_invariant root_class c } )
 
 let class_invariant_ancestor_classes
-  (#heap: Type)
-  (#root_type: Type) (root_class: class' heap 0 root_type)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (root_class: class' heap 0 root_type)
   (#level: nat)
-  (#ty: Type)
+  (#ty: Type u#b)
   (c: class root_class level ty)
   (x: ty)
   (i: nat {i < Class?.ancestor_count c x})
@@ -238,9 +287,9 @@ let class_invariant_ancestor_classes
 (** FIXME: statements are duplicated here due to the SMT patterns *)
 
 let preserved_refl
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
-  (#level: nat) (#ty: Type) (c: class root_class level ty)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (#level: nat) (#ty: Type u#b) (c: class root_class level ty)
   (x: ty)
   (h : heap)
 : Lemma
@@ -250,9 +299,9 @@ let preserved_refl
 = Squash.bind_squash #_ #(Class?.preserved c x h h) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_refl x h)
 
 let preserved_trans
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
-  (#level: nat) (#ty: Type) (c: class root_class level ty)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (#level: nat) (#ty: Type u#b) (c: class root_class level ty)
   (x: ty)
   (h1: heap)
   (h2: heap)
@@ -260,29 +309,29 @@ let preserved_trans
 : Lemma
   (requires (Class?.preserved c x h1 h2 /\ Class?.preserved c x h2 h3))
   (ensures (Class?.preserved c x h1 h3))
-  [SMTPatT (Class?.preserved c x h1 h2); SMTPatT (Class?.preserved c x h2 h3)]
+  [SMTPatT u#(max a b) (Class?.preserved c x h1 h2); SMTPatT (Class?.preserved c x h2 h3)]
 = Squash.bind_squash #_ #(Class?.preserved c x h1 h3) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_trans x h1 h2 h3)
 
-let preserved_ancestors_preserved
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
-  (#level: nat) (#ty: Type) (c: class root_class level ty) 
-  (x: ty)
-  (h: heap)
-  (h' : heap)
-: Lemma
-  (requires (
-    Class?.ancestor_count c x > 0 /\ (forall
-    (i: nat { i < Class?.ancestor_count c x } ) .
-    (Class?.preserved (Class?.ancestor_classes c x i) (Class?.ancestor_objects c x i) h h')
-  )))
-  (ensures (Class?.preserved c x h h'))
-= Squash.bind_squash #_ #(Class?.preserved c x h h') (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_ancestors_preserved x h h' () (fun _ -> ()))
+(* let preserved_ancestors_preserved *)
+(*   (#heap: Type u#a) *)
+(*   (#root_type: Type u#b) (#root_class: class' heap 0 root_type) *)
+(*   (#level: nat) (#ty: Type u#b) (c: class root_class level ty) *)
+(*   (x: ty) *)
+(*   (h: heap) *)
+(*   (h' : heap) *)
+(* : Lemma *)
+(*   (requires ( *)
+(*     Class?.ancestor_count c x > 0 /\ (forall *)
+(*     (i: nat { i < Class?.ancestor_count c x } ) . *)
+(*     (Class?.preserved (Class?.ancestor_classes c x i) (Class?.ancestor_objects c x i) h h') *)
+(*   ))) *)
+(*   (ensures (Class?.preserved c x h h')) *)
+(* = Squash.bind_squash #_ #(Class?.preserved c x h h') (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_ancestors_preserved x h h' () (fun _ -> ())) *)
 
 let class_disjoint_sym
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
-  (#level: nat) (#ty: Type) (c: class root_class level ty) 
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (#level: nat) (#ty: Type u#b) (c: class root_class level ty) 
   (x1: ty)
   (x2: ty)
 : Lemma
@@ -292,16 +341,16 @@ let class_disjoint_sym
 = Squash.bind_squash #_ #(Class?.disjoint c x2 x1) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.class_disjoint_sym x1 x2)
 
 let level_0_class_eq_root
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
-  (#ty: Type) (c: class root_class 0 ty)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (#ty: Type u#b) (c: class root_class 0 ty)
 : Lemma
   (ensures (ty == root_type /\ c == root_class))
 = Squash.bind_squash #_ #(0 == 0 ==> ty == root_type /\ c == root_class) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.level_0_class_eq_root)
 
 let level_0_fresh_disjoint
-  (#heap: Type)
-  (#root_type: Type) (root_class: class' heap 0 root_type { class_invariant root_class root_class } )
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (root_class: class' heap 0 root_type { class_invariant root_class root_class } )
   (oold: root_type)
   (onew: root_type)
   (hbefore: heap)
@@ -314,68 +363,68 @@ let level_0_fresh_disjoint
     Class?.live root_class hafter onew
   ))
   (ensures (Class?.disjoint root_class oold onew))
-  [SMTPatT (Class?.live root_class hbefore oold); SMTPatT (~ (Class?.contains root_class hbefore onew)); SMTPatT (Class?.live root_class hafter oold); SMTPatT (Class?.live root_class hafter onew)]
+  [SMTPatT u#(max a b) (Class?.live root_class hbefore oold); SMTPatT (~ (Class?.contains root_class hbefore onew)); SMTPatT (Class?.live root_class hafter oold); SMTPatT (Class?.live root_class hafter onew)]
 = Squash.bind_squash #_ #(Class?.disjoint root_class oold onew) (Squash.join_squash ()) (fun (i: class_invariant_body root_class root_class) -> i.level_0_fresh_disjoint oold onew hbefore hafter)
 
-let preserved_live
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
-  (#level: nat) (#ty: Type) (c: class root_class level ty)
-  (hbefore: heap)
-  (hafter: heap)
-  (o: ty)
-: Lemma
-  (requires (
-    Class?.preserved c o hbefore hafter /\
-    Class?.live c hbefore o
-  ))
-  (ensures (Class?.live c hafter o))
-  [SMTPatT (Class?.preserved c o hbefore hafter); SMTPatT (Class?.live c hbefore o)]
-= Squash.bind_squash #_ #(Class?.live c hafter o) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_live hbefore hafter o)
+(* let preserved_live *)
+(*   (#heap: Type) *)
+(*   (#root_type: Type) (#root_class: class' heap 0 root_type) *)
+(*   (#level: nat) (#ty: Type) (c: class root_class level ty) *)
+(*   (hbefore: heap) *)
+(*   (hafter: heap) *)
+(*   (o: ty) *)
+(* : Lemma *)
+(*   (requires ( *)
+(*     Class?.preserved c o hbefore hafter /\ *)
+(*     Class?.live c hbefore o *)
+(*   )) *)
+(*   (ensures (Class?.live c hafter o)) *)
+(*   [SMTPatT (Class?.preserved c o hbefore hafter); SMTPatT (Class?.live c hbefore o)] *)
+(* = Squash.bind_squash #_ #(Class?.live c hafter o) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_live hbefore hafter o) *)
 
-let preserved_contains
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
-  (#level: nat) (#ty: Type) (c: class root_class level ty)
-  (hbefore: heap)
-  (hafter: heap)
-  (o: ty)
-: Lemma
-  (requires (
-    Class?.preserved c o hbefore hafter /\
-    Class?.contains c hbefore o
-  ))
-  (ensures (Class?.contains c hafter o))
-  [SMTPatT (Class?.preserved c o hbefore hafter); SMTPatT (Class?.contains c hbefore o)]
-= Squash.bind_squash #_ #(Class?.contains c hafter o) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_contains hbefore hafter o)
+(* let preserved_contains *)
+(*   (#heap: Type) *)
+(*   (#root_type: Type) (#root_class: class' heap 0 root_type) *)
+(*   (#level: nat) (#ty: Type) (c: class root_class level ty) *)
+(*   (hbefore: heap) *)
+(*   (hafter: heap) *)
+(*   (o: ty) *)
+(* : Lemma *)
+(*   (requires ( *)
+(*     Class?.preserved c o hbefore hafter /\ *)
+(*     Class?.contains c hbefore o *)
+(*   )) *)
+(*   (ensures (Class?.contains c hafter o)) *)
+(*   [SMTPatT (Class?.preserved c o hbefore hafter); SMTPatT (Class?.contains c hbefore o)] *)
+(* = Squash.bind_squash #_ #(Class?.contains c hafter o) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_contains hbefore hafter o) *)
 
-let live_contains
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
-  (#level: nat) (#ty: Type) (c: class root_class level ty)
-  (h: heap)
-  (o: ty)
-: Lemma
-  (requires (Class?.live c h o))
-  (ensures (Class?.contains c h o))
-  [SMTPatT (Class?.live c h o)]
-= Squash.bind_squash #_ #(Class?.contains c h o) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.live_contains h o)
+(* let live_contains *)
+(*   (#heap: Type) *)
+(*   (#root_type: Type) (#root_class: class' heap 0 root_type) *)
+(*   (#level: nat) (#ty: Type) (c: class root_class level ty) *)
+(*   (h: heap) *)
+(*   (o: ty) *)
+(* : Lemma *)
+(*   (requires (Class?.live c h o)) *)
+(*   (ensures (Class?.contains c h o)) *)
+(*   [SMTPatT (Class?.live c h o)] *)
+(* = Squash.bind_squash #_ #(Class?.contains c h o) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.live_contains h o) *)
 
-let ancestors_contains
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
-  (#level: nat) (#ty: Type) (c: class root_class level ty)
-  (h: heap)
-  (o: ty)
-  (s: squash (Class?.ancestor_count c o > 0))
-: Lemma
-  (requires (forall 
-    (i: nat {i < Class?.ancestor_count c o } )
-    .
-    (Class?.contains (Class?.ancestor_classes c o i) h (Class?.ancestor_objects c o i))
-  ))
-  (ensures (Class?.contains c h o))
-=  Squash.bind_squash #_ #(Class?.contains c h o) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.ancestors_contains h o s (fun _ -> ()))
+(* let ancestors_contains *)
+(*   (#heap: Type) *)
+(*   (#root_type: Type) (#root_class: class' heap 0 root_type) *)
+(*   (#level: nat) (#ty: Type) (c: class root_class level ty) *)
+(*   (h: heap) *)
+(*   (o: ty) *)
+(*   (s: squash (Class?.ancestor_count c o > 0)) *)
+(* : Lemma *)
+(*   (requires (forall  *)
+(*     (i: nat {i < Class?.ancestor_count c o } ) *)
+(*     . *)
+(*     (Class?.contains (Class?.ancestor_classes c o i) h (Class?.ancestor_objects c o i)) *)
+(*   )) *)
+(*   (ensures (Class?.contains c h o)) *)
+(* =  Squash.bind_squash #_ #(Class?.contains c h o) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.ancestors_contains h o s (fun _ -> ())) *)
 
 let live_ancestors
   (#heap: Type)
@@ -387,27 +436,32 @@ let live_ancestors
 : Lemma
   (requires (Class?.live c h o))
   (ensures (
-    Class?.live (Class?.ancestor_classes c o i) h (Class?.ancestor_objects c o i)
+    Class?.live (Class?.ancestor_classes c o i) h (ancestor_objects c o i)
   ))
-  [SMTPat (Class?.live (Class?.ancestor_classes c o i) h (Class?.ancestor_objects c o i))]
-= Squash.bind_squash #_ #(Class?.live (Class?.ancestor_classes c o i) h (Class?.ancestor_objects c o i)) (Squash.join_squash ()) (fun (j: class_invariant_body root_class c) -> j.live_ancestors h o i)
+  [SMTPat (Class?.live (Class?.ancestor_classes c o i) h (ancestor_objects c o i))]
+= Squash.bind_squash #_ #(Class?.live (Class?.ancestor_classes c o i) h (ancestor_objects c o i)) (Squash.join_squash ()) (fun (j: class_invariant_body root_class c) -> j.live_ancestors h o i)
 
 private
-noeq type disjoint_t  (#heap: Type) : (#level1: nat) -> (#level2: nat) -> (#t1: Type) -> (#t2: Type) -> class' heap level1 t1 -> class' heap level2 t2 -> t1 -> t2 -> Tot Type =
+noeq type disjoint_t:  (#heap: Type u#a) -> (#level1: nat) -> (#level2: nat) -> (#t1: (Type u#b)) -> (#t2: (Type u#b)) -> class' heap level1 t1 -> class' heap level2 t2 -> t1 -> t2 -> Tot (Type u#(1 + max a b)) =
 | DisjointObjects:
+  (#heap: (Type u#a)) ->
   (#level: nat) ->
-  (#t: Type) ->
+  (#t: (Type u#b)) ->
   (c: class' heap level t) ->
   (o1: t) ->
   (o2: t) ->
-  squash (Class?.disjoint c o1 o2) ->
+  squash (Class?.disjoint c (hetero_id o1) (hetero_id o2)) ->
   disjoint_t c c o1 o2
 | DisjointAncestors:
+  (#heap: (Type u#a)) ->
   (#level: (bool -> Tot nat)) ->
-  (#t: (bool -> Tot Type)) ->
+  (#t: (bool -> Tot (Type u#b))) ->
   (c: ((b: bool) -> Tot (class' heap (level b) (t b)))) ->
   (o: ((b: bool) -> Tot (t b))) ->
-  (h: ((i: nat { i < Class?.ancestor_count (c true) (o true) } ) -> Tot (disjoint_t (Class?.ancestor_classes (c true) (o true) i) (c false) (Class?.ancestor_objects (c true) (o true) i) (o false)))) ->
+  (h: (
+    (i: nat { i < Class?.ancestor_count (c true) (hetero_id (o true)) } ) ->
+    Tot (disjoint_t (Class?.ancestor_classes (c true) (hetero_id (o true)) i) (c false) (Class?.ancestor_objects (c true) (hetero_id (o true)) i) (o false))
+  )) ->
   (b: bool) ->
   disjoint_t (c b) (c (not b)) (o b) (o (not b))  
 
@@ -468,17 +522,17 @@ let disjoint_sym
 = Squash.bind_squash (Squash.join_squash ()) (fun (d: disjoint_t c1 c2 o1 o2) -> Squash.return_squash (disjoint_t_sym c1 c2 o1 o2 d))
 
 let disjoint_objects
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
   (#level: nat)
-  (#t: Type)
+  (#t: Type u#b)
   (c: class root_class level t)
   (o1: t)
   (o2: t)
 : Lemma
   (requires (Class?.disjoint c o1 o2))
   (ensures (disjoint c c o1 o2))
-  [SMTPatT (Class?.disjoint c o1 o2)]
+  [SMTPatT u#(1 + max a b) (Class?.disjoint c o1 o2)]
 = Squash.return_squash (DisjointObjects c o1 o2 ())
 
 let disjoint_ancestors_left
@@ -544,17 +598,17 @@ let disjoint_ancestors_right
     Squash.return_squash d
   )
 
-noeq type object (#heap: Type) (#root_type: Type) (root_class: class' heap 0 root_type) : Type =
+noeq type object (#heap: Type u#a) (#root_type: Type u#b) (root_class: class' heap 0 root_type) : Type u#(1 + max a b) =
 | Object:
-  (ty: Type) ->
+  (ty: Type u#b) ->
   (level: nat) ->
   (class: class root_class level ty) ->
   (obj: ty) ->
   object root_class
 
 let modifies
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
   (s: TSet.set (object root_class))
   (h h': heap)
 : Tot Type0
@@ -563,8 +617,8 @@ let modifies
     Class?.preserved c o h h'
 
 let modifies_refl
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
   (s: TSet.set (object root_class))
   (h: heap)
 : Lemma
@@ -574,31 +628,31 @@ let modifies_refl
 = ()
 
 let modifies_trans
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
   (s: TSet.set (object root_class) )
   (h1 h2 h3: heap)
 : Lemma
   (requires (modifies s h1 h2 /\ modifies s h2 h3))
   (ensures (modifies s h1 h3))
-  [SMTPatT (modifies s h1 h2); SMTPatT (modifies s h2 h3)]
+  [SMTPatT u#(max a b) (modifies s h1 h2); SMTPatT (modifies s h2 h3)]
 = ()
 
 let modifies_subset
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
   (s1 s2: TSet.set (object root_class))
   (h h': heap)
 : Lemma
   (requires (modifies s1 h h' /\ TSet.subset s1 s2))
   (ensures (modifies s2 h h'))
-  [SMTPatT (modifies s1 h h'); SMTPatT (TSet.subset s1 s2)]
+  [SMTPatT u#(max a b) (modifies s1 h h'); SMTPatT (TSet.subset s1 s2)]
 = ()
 
 let singleton
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
-  (#ty: Type)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (#ty: Type u#b)
   (#level: nat)
   (class: class root_class level ty)
   (obj: ty)
@@ -607,12 +661,12 @@ let singleton
 
 private
 let modifies_test_1
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
-  (#ty: Type)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (#ty: Type u#b)
   (#level: nat)
   (c: class root_class level ty)
-  (#ty2: Type)
+  (#ty2: Type u#b)
   (#level2: nat)
   (c2: class root_class level2 ty2)
   (o1 o3: ty)
@@ -624,9 +678,9 @@ let modifies_test_1
 = ()
 
 let rec fresh
-  (#heap: Type)
+  (#heap: Type u#a)
   (#level: nat)
-  (#ty: Type)
+  (#ty: Type u#b)
   (c: class' heap level ty)
   (o: ty)
   (h h': heap)
@@ -640,9 +694,9 @@ let rec fresh
   )
 
 let fresh_ancestor
-  (#heap: Type)
+  (#heap: Type u#a)
   (#level: nat)
-  (#ty: Type)
+  (#ty: Type u#b)
   (c: class' heap level ty)
   (o: ty)
   (h h': heap)
@@ -655,17 +709,17 @@ let fresh_ancestor
 
 abstract
 let rec fresh_live
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
   (#level: nat)
-  (#ty: Type)
+  (#ty: Type u#b)
   (c: class root_class level ty)
   (o: ty)
   (h0 h1 h2: heap)
 : Lemma
   (requires (fresh c o h0 h1 /\ Class?.live c h2 o))
   (ensures (fresh c o h0 h2))
-  [SMTPatT (fresh c o h0 h1); SMTPatT (Class?.live c h2 o)]
+  [SMTPatT u#(max a b) (fresh c o h0 h1); SMTPatT (Class?.live c h2 o)]
 = let f
     (i: nat {i < Class?.ancestor_count c o})
   : Lemma
@@ -679,10 +733,10 @@ let rec fresh_live
 
 abstract
 let rec fresh_disjoint
-  (#heap: Type)
-  (#root_type: Type) (#root_class: class' heap 0 root_type)
-  (#levelold: nat) (#tyold: Type)
-  (#levelnew: nat) (#tynew: Type)
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (#levelold: nat) (#tyold: Type u#b)
+  (#levelnew: nat) (#tynew: Type u#b)
   (cold: class root_class levelold tyold)
   (cnew: class root_class levelnew tynew)
   (oold: tyold)
@@ -697,7 +751,7 @@ let rec fresh_disjoint
   ))
   (ensures (disjoint cold cnew oold onew))
   (decreases (levelold + levelnew))
-  [SMTPatT (Class?.live cold hbefore oold); SMTPatT (Class?.live cold hafter oold); SMTPatT (fresh cnew onew hbefore hafter)]
+  [SMTPatT u#(max a b) (Class?.live cold hbefore oold); SMTPatT (Class?.live cold hafter oold); SMTPatT (fresh cnew onew hbefore hafter)]
 = if
     levelold = 0
   then
