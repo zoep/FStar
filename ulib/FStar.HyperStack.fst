@@ -320,3 +320,159 @@ let f (a:Type0) (b:Type0) (x:reference a) (x':reference a)
 (*   assume (mods_2 [Ref x] h0 h1); *)
 (*  //-------------------------------------------------------------------------------- *)
 (*   assert (modifies_ref x.id (TSet.singleton (as_aref x)) h0 h1) *)
+
+unopteq type object : Type =
+| Object:
+    (ty: Type) ->
+    (r: reference ty) ->
+    object
+
+unfold
+let objects_disjoint (o1 o2: object): Tot Type0 =
+  frameOf (Object?.r o1) <> frameOf (Object?.r o2) \/
+  (
+    frameOf (Object?.r o1) == frameOf (Object?.r o2) /\
+    ~ (as_ref (Object?.r o1) === as_ref (Object?.r o2))
+  )
+
+unfold
+let object_live (m: mem) (o: object): Tot Type0 =
+  contains m (Object?.r o)
+
+unfold
+let object_contains = object_live
+
+unfold
+let object_preserved (o: object) (m m': mem): Tot Type0 =
+  (object_live m o ==> (object_live m' o /\ sel m' (Object?.r o) == sel m (Object?.r o)))
+
+let class': Modifies.class' u#0 u#1 mem 0 object =
+  Modifies.Class
+    (* heap  *)                 mem
+    (* level *)                 0
+    (* carrier *)               object
+    (* disjoint *)              objects_disjoint
+    (* live *)                  object_live
+    (* contains *)              object_contains
+    (* preserved *)             object_preserved
+    (* ancestor_count *)        (fun x -> 0)
+    (* ancestor_types *)        (fun x y -> false_elim ())
+    (* ancestor_class_levels *) (fun x y -> false_elim ())
+    (* ancestor_classes *)      (fun x y -> false_elim ())
+    (* ancestor_objects *)      (fun x y -> false_elim ())
+
+abstract
+let class_invariant
+  ()
+: Lemma
+  (requires True)
+  (ensures (Modifies.class_invariant class' class'))
+  [SMTPat (Modifies.class_invariant class' class')]
+= let s: Modifies.class_invariant_body u#0 u#1 class' class' = {
+    Modifies.preserved_refl =  (fun _ _ -> ());
+    Modifies.preserved_trans = (fun _ _ _ _ -> ());
+    Modifies.preserved_ancestors_preserved = begin
+      let g
+        (x: object)
+	(h: mem)
+	(h' : mem)
+	(s: squash (Modifies.Class?.ancestor_count class' x > 0))
+	(f: (
+	  (i: nat { i < Modifies.Class?.ancestor_count class' x } ) ->
+	  Lemma
+	  (Modifies.Class?.preserved (Modifies.Class?.ancestor_classes class' x i) (Modifies.ancestor_objects class' x i) h h')
+	))
+      : Lemma
+	(ensures (Modifies.Class?.preserved class' x h h'))
+      = ()
+      in
+      g
+    end;
+    Modifies.class_disjoint_sym = (fun _ _ -> ());
+    Modifies.level_0_class_eq_root = ();
+    Modifies.level_0_fresh_disjoint = (fun _ _ _ _ -> ());
+    Modifies.preserved_live = (fun _ _ _ -> ());
+    Modifies.preserved_contains = (fun _ _ _ -> ());
+    Modifies.live_contains = (fun _ _ -> ());
+    Modifies.ancestors_contains = begin
+      let g
+	(h: mem)
+	(o: object)
+	(s: squash (Modifies.Class?.ancestor_count class' o > 0))
+	(f: (
+	  (i: nat {i < Modifies.Class?.ancestor_count class' o } ) ->
+	  Lemma
+	  (Modifies.Class?.contains (Modifies.Class?.ancestor_classes class' o i) h (Modifies.ancestor_objects class' o i))
+	))
+      : Lemma
+	(ensures (Modifies.Class?.contains class' h o))
+      = ()
+      in
+      g
+    end;
+    Modifies.live_ancestors = (fun _ _ _ -> ());
+  }
+  in
+  (Modifies.class_invariant_intro s)
+
+let class: Modifies.class class' 0 object = class'
+
+let class_eq
+  ()
+: Lemma
+  (requires True)
+  (ensures (class == class'))
+  [SMTPatOr [[SMTPat class]; [SMTPat class']]]
+= ()
+
+let singleton
+  (#t: Type)
+  (r: reference t)
+: Tot (TSet.set (Modifies.object class))
+= Modifies.singleton class (Object t r)
+
+assume val whole_region (r: rid): Tot (TSet.set (Modifies.object class))
+
+assume val mem_whole_region
+  (r: rid)
+  (o: Modifies.object class)
+: Lemma
+  (requires True)
+  (ensures (TSet.mem o (whole_region r) <==> (
+    Modifies.Object?.ty o == object /\
+    Modifies.Object?.level o == 0 /\
+    Modifies.Object?.class o == class' /\ (
+    let (o': object) = Modifies.Object?.obj o in (frameOf (Object?.r o') == r)
+  ))))
+  [SMTPat (TSet.mem o (whole_region r))]
+
+let singleton_subset_whole_region
+  (#t: Type)
+  (reg: rid)
+  (ref: reference t)
+: Lemma
+  (requires (frameOf ref == reg))
+  (ensures (singleton ref `TSet.subset` whole_region reg))
+  [SMTPatOr [[SMTPatT (frameOf ref == reg)]; [SMTPat (singleton ref `TSet.subset` whole_region reg)]]]
+= ()
+
+let singleton_inter_whole_region
+  (#t: Type)
+  (reg: rid)
+  (ref: reference t)
+: Lemma
+  (requires (~ (frameOf ref == reg)))
+  (ensures ((singleton ref `TSet.intersect` whole_region reg) `TSet.subset` TSet.empty))
+  [SMTPatOr [[SMTPatT (~ (frameOf ref == reg))]; [SMTPat (singleton ref `TSet.intersect` whole_region reg)]]]
+= ()
+
+private let test
+  (#t1 #t2: Type)
+  (reg: rid)
+  (r1: reference t1)
+  (r2: reference t2)
+  (h1 h2 h3: mem)
+: Lemma
+  (requires (Modifies.modifies u#0 u#1 (singleton r1) h1 h2 /\ Modifies.modifies u#0 u#1 (singleton r2) h2 h3 /\ frameOf r1 == reg /\ frameOf r2 == reg))
+  (ensures (Modifies.modifies u#0 u#1 (whole_region reg) h1 h3))
+= ()
