@@ -1008,6 +1008,51 @@ let modifies_equiv
   [SMTPat (modifies s h h')]
 = ()
 
+let modifies_intro
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (s: locset root_class)
+  (h h': heap)
+  (f: (
+    (ty: Type u#b) ->
+    (l: nat) ->
+    (c: class root_class l ty ) ->
+    (o: ty) ->
+    (g: (
+      (o' : loc root_class { TSet.mem o' s } ) ->
+      Lemma
+      (loc_disjoint (loc_of_object c o) o')
+    )) ->
+    Lemma
+    (Class?.preserved c o h h')
+  ))
+: Lemma
+  (modifies s h h')
+= let f'
+    (ty: Type u#b)
+    (l: nat)
+    (c: class root_class l ty )
+    (o: ty)
+  : Lemma
+    ((forall (o' : loc root_class { TSet.mem o' s } ) . (loc_disjoint (loc_of_object c o) o')) ==>
+      (Class?.preserved c o h h')
+    )
+  = Classical.impl_intro_gen #(forall (o' : loc root_class { TSet.mem o' s } ) . (loc_disjoint (loc_of_object c o) o')) #(fun _ -> Class?.preserved c o h h') (fun _ -> f ty l c o (fun _ -> ()))
+  in
+  let g
+    (ty: Type u#b)
+  : Lemma  (forall 
+      (l: nat)
+      (c: class root_class l ty )
+      (o: ty)
+      .
+	((forall (o' : loc root_class { TSet.mem o' s } ) . (loc_disjoint (loc_of_object c o) o')) ==>
+	  (Class?.preserved c o h h')
+    ))
+  = Classical.forall_intro_3 (f' ty)
+  in
+  Classical.forall_intro g
+
 let modifies_refl
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
@@ -1532,7 +1577,7 @@ let loc_disjoint_object_includes_intro
     l1
     l2
 
-let rec loc_disjoint_locset_includes_loc
+let loc_disjoint_locset_includes_loc
   (#heap: Type u#a)
   (#root_type: Type u#b)
   (#root_class: class' heap 0 root_type)
@@ -1559,3 +1604,59 @@ let rec loc_disjoint_locset_includes_loc
       loc_disjoint_ancestors_right l c o f
     )
     l2
+
+let locset_disjoint_locset_includes
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (ls1: locset root_class)
+  (ls2: locset root_class { locset_disjoint ls1 ls2 } )
+  (ls2': locset root_class { locset_includes ls2 ls2' } )  
+: Lemma
+  (locset_disjoint ls1 ls2')
+= let f
+    (l1: loc root_class { TSet.mem l1 ls1 } )
+  : Lemma
+    (forall (l2' : loc root_class { TSet.mem l2' ls2' } ) . loc_disjoint l1 l2' )
+  = let g
+      (l2' : loc root_class { TSet.mem l2' ls2' } )
+    : Lemma
+      (loc_disjoint l1 l2')
+    = loc_disjoint_locset_includes_loc l1 ls2 (fun _ -> ()) l2'
+    in
+    Classical.forall_intro g
+  in
+  Classical.forall_intro f
+
+let modifies_locset_includes
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (s1 s2: locset root_class)
+  (h h': heap)
+: Lemma
+  (requires (modifies s2 h h' /\ locset_includes s1 s2))
+  (ensures (modifies s1 h h'))
+  [SMTPatT u#(max a b) (modifies s2 h h'); SMTPatT (locset_includes s1 s2)]
+= modifies_equiv s1 h h';
+  modifies_equiv s2 h h';
+  let f
+    (ty: Type u#b)
+    (l: nat)
+    (c: class root_class l ty )
+    (o: ty)
+    (g: (
+      (o' : loc root_class { TSet.mem o' s1 } ) ->
+      Lemma
+      (loc_disjoint (loc_of_object c o) o')
+    ))
+  : Lemma
+    (Class?.preserved c o h h')
+  = let k
+      (o' : loc root_class { TSet.mem o' s2 } ) 
+    : Lemma
+      (loc_disjoint (loc_of_object c o) o')
+    = loc_disjoint_locset_includes_loc (loc_of_object c o) s1 g o'
+    in
+    Classical.forall_intro k
+  in
+  modifies_intro s1 h h' f
