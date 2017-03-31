@@ -271,6 +271,19 @@ let contains_live_t
   (requires (Class?.live c h o2 /\ Class?.includes c o1 o2))
   (ensures (Class?.live c h o1))
 
+let includes_ancestors_t_prop
+  (#heap: Type u#a)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty )
+  (o1: ty)
+  (o2: ty {Class?.includes c o1 o2 } )
+  (i2: nat {i2 < Class?.ancestor_count c o2 } )
+  (i1 : nat {i1 < Class?.ancestor_count c o1} )
+: Tot Type0
+=   Class?.ancestor_types c o1 i1 == Class?.ancestor_types c o2 i2 /\
+    Class?.ancestor_class_levels c o1 i1 == Class?.ancestor_class_levels c o2 i2 /\
+    Class?.ancestor_classes c o1 i1 == Class?.ancestor_classes c o2 i2 /\
+    Class?.includes (Class?.ancestor_classes c o1 i1) (Class?.ancestor_objects c o1 i1) (Class?.ancestor_objects c o2 i2)
+
 let includes_ancestors_t
   (#heap: Type u#a)
   (#level: nat) (#ty: Type u#b) (c: class' heap level ty )
@@ -279,10 +292,7 @@ let includes_ancestors_t
   (o2: ty {Class?.includes c o1 o2 } ) ->
   (i2: nat {i2 < Class?.ancestor_count c o2 } ) ->
   Tot (squash (i1: (i1 : nat {i1 < Class?.ancestor_count c o1} ) {
-    Class?.ancestor_types c o1 i1 == Class?.ancestor_types c o2 i2 /\
-    Class?.ancestor_class_levels c o1 i1 == Class?.ancestor_class_levels c o2 i2 /\
-    Class?.ancestor_classes c o1 i1 == Class?.ancestor_classes c o2 i2 /\
-    Class?.includes (Class?.ancestor_classes c o1 i1) (Class?.ancestor_objects c o1 i1) (Class?.ancestor_objects c o2 i2)
+    includes_ancestors_t_prop c o1 o2 i2 i1
   } ))
 
 let disjoint_includes_t
@@ -560,16 +570,10 @@ let object_includes_ancestors
   (o2: ty {Class?.includes c o1 o2 } )
   (i2: nat {i2 < Class?.ancestor_count c o2 } )
 : Tot (squash (i1: (i1 : nat {i1 < Class?.ancestor_count c o1} ) {
-    Class?.ancestor_types c o1 i1 == Class?.ancestor_types c o2 i2 /\
-    Class?.ancestor_class_levels c o1 i1 == Class?.ancestor_class_levels c o2 i2 /\
-    Class?.ancestor_classes c o1 i1 == Class?.ancestor_classes c o2 i2 /\
-    Class?.includes (Class?.ancestor_classes c o1 i1) (Class?.ancestor_objects c o1 i1) (Class?.ancestor_objects c o2 i2)
+    includes_ancestors_t_prop c o1 o2 i2 i1
   } ))
 = Squash.bind_squash #_ #(i1: (i1 : nat {i1 < Class?.ancestor_count c o1} ) {
-    Class?.ancestor_types c o1 i1 == Class?.ancestor_types c o2 i2 /\
-    Class?.ancestor_class_levels c o1 i1 == Class?.ancestor_class_levels c o2 i2 /\
-    Class?.ancestor_classes c o1 i1 == Class?.ancestor_classes c o2 i2 /\
-    Class?.includes (Class?.ancestor_classes c o1 i1) (Class?.ancestor_objects c o1 i1) (Class?.ancestor_objects c o2 i2)
+    includes_ancestors_t_prop c o1 o2 i2 i1
   } ) (Squash.join_squash ()) (fun (j: class_invariant_body root_class c) -> j.includes_ancestors o1 o2 i2)
 
 let object_disjoint_includes
@@ -606,7 +610,7 @@ noeq type disjoint_t: (#heap: Type u#a) -> (#level1: nat) -> (#level2: nat) -> (
   (#level: (bool -> Tot nat)) ->
   (#t: (bool -> Tot (Type u#b))) ->
   (c: ((b: bool) -> Tot (class' heap (level b) (t b)))) ->
-  (o: ((b: bool) -> Tot (t b))) ->
+  (o: ((b: bool) -> Tot (t b)) { Class?.ancestor_count (c true) (o true) > 0 } ) ->
   (h: (
     (i: nat { i < Class?.ancestor_count (c true) (hetero_id (o true)) } ) ->
     Tot (disjoint_t (Class?.ancestor_classes (c true) (hetero_id (o true)) i) (c false) (Class?.ancestor_objects (c true) (hetero_id (o true)) i) (o false))
@@ -708,21 +712,22 @@ let loc_disjoint_ancestors_left
   (#level1: nat)
   (#t1: Type u#b)
   (c1: class root_class level1 t1)
-  (#level2: nat)
-  (#t2: Type u#b)
-  (c2: class root_class level2 t2)
   (o1: t1)
-  (o2: t2)
+  (l2: loc root_class)
   (h: (
     (i: nat { i < Class?.ancestor_count c1 o1 } ) ->
-    Lemma (loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) (loc_of_object c2 o2))
+    Lemma (loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2)
   ))
 : Lemma
   (requires (
     Class?.ancestor_count c1 o1 > 0
   ))
-  (ensures (loc_disjoint (loc_of_object c1 o1) (loc_of_object c2 o2)))
-= let f
+  (ensures (loc_disjoint (loc_of_object c1 o1) l2))
+= let c2 = Location?.class l2 in
+  let o2 = Location?.obj l2 in
+  let level2 = Location?.level l2 in
+  let t2 = Location?.ty l2 in
+  let f
     (i: nat { i < Class?.ancestor_count c1 o1 } )
   : Tot (squash (disjoint_t (Class?.ancestor_classes c1 o1 i) c2 (Class?.ancestor_objects c1 o1 i) o2))
   = Squash.join_squash (h i)
@@ -736,24 +741,25 @@ let loc_disjoint_ancestors_left
 let loc_disjoint_ancestors_right
   (#heap: Type)
   (#root_type: Type) (#root_class: class' heap 0 root_type)
-  (#level1: nat)
-  (#t1: Type)
-  (c1: class root_class level1 t1)
+  (l1: loc root_class)
   (#level2: nat)
   (#t2: Type)
   (c2: class root_class level2 t2)
-  (o1: t1)
   (o2: t2)
   (h: (
     (i: nat { i < Class?.ancestor_count c2 o2 } ) ->
-    Lemma (loc_disjoint (loc_of_object c1 o1) (loc_of_object (Class?.ancestor_classes c2 o2 i) (Class?.ancestor_objects c2 o2 i)))
+    Lemma (loc_disjoint l1 (loc_of_object (Class?.ancestor_classes c2 o2 i) (Class?.ancestor_objects c2 o2 i)))
   ))
 : Lemma
   (requires (
     Class?.ancestor_count c2 o2 > 0
   ))
-  (ensures (loc_disjoint (loc_of_object c1 o1) (loc_of_object c2 o2)))
-= let f
+  (ensures (loc_disjoint l1 (loc_of_object c2 o2)))
+= let c1 = Location?.class l1 in
+  let o1 = Location?.obj l1 in
+  let level1 = Location?.level l1 in
+  let t1 = Location?.ty l1 in
+  let f
     (i: nat { i < Class?.ancestor_count c2 o2 } )
   : Tot (squash (disjoint_t (Class?.ancestor_classes c2 o2 i) c1 (Class?.ancestor_objects c2 o2 i) o1))
   = let _ : squash (disjoint_t c1 (Class?.ancestor_classes c2 o2 i) o1 (Class?.ancestor_objects c2 o2 i)) = Squash.join_squash (h i) in
@@ -797,7 +803,7 @@ let loc_disjoint_ind
       Lemma
       (loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ loc_disjoint l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) /\ p (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ p l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)))
     )) ->
-    squash (loc_disjoint (loc_of_object c1 o1) l2 /\ loc_disjoint l2 (loc_of_object c1 o1)) ->
+    squash (Class?.ancestor_count c1 o1 > 0 /\ loc_disjoint (loc_of_object c1 o1) l2 /\ loc_disjoint l2 (loc_of_object c1 o1)) ->
     Lemma
     (p (loc_of_object c1 o1) l2 \/ p l2 (loc_of_object c1 o1))
   ))
@@ -877,7 +883,6 @@ let loc_disjoint_ind
   let h : squash (disjoint_t c1 c2 o1 o2) = Squash.join_squash () in
   Squash.bind_squash #_ #(p l1 l2) h (fun h -> g c1 o1 c2 o2 h (Class?.level c1 + Class?.level c2))
 
-(*
 let loc_disjoint_ind2
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -907,11 +912,10 @@ let loc_disjoint_ind2
     (l2: loc root_class) ->
     (h: (
       (i: nat { i < Class?.ancestor_count c1 o1 } ) ->
-      squash (loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ loc_disjoint l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i))) ->
       Lemma
-      (p (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ p l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)))
+      (loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ loc_disjoint l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) /\ p (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ p l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)))
     )) ->
-    squash (loc_disjoint (loc_of_object c1 o1) l2 /\ loc_disjoint l2 (loc_of_object c1 o1)) ->
+    squash (Class?.ancestor_count c1 o1 > 0 /\ loc_disjoint (loc_of_object c1 o1) l2 /\ loc_disjoint l2 (loc_of_object c1 o1)) ->
     Lemma
     (p (loc_of_object c1 o1) l2 /\ p l2 (loc_of_object c1 o1))
   ))
@@ -940,19 +944,17 @@ let loc_disjoint_ind2
     (l2: loc root_class)
     (h: (
       (i: nat { i < Class?.ancestor_count c1 o1 } ) ->
-      squash (loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ loc_disjoint l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i))) ->
       Lemma
-      (p' (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ p' l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)))
+      (loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ loc_disjoint l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) /\ p' (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ p' l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)))
     ))
-    (h_: squash (loc_disjoint (loc_of_object c1 o1) l2 /\ loc_disjoint l2 (loc_of_object c1 o1)))
+    (h_: squash (Class?.ancestor_count c1 o1 > 0 /\ loc_disjoint (loc_of_object c1 o1) l2 /\ loc_disjoint l2 (loc_of_object c1 o1)))
   : Lemma
     (p' (loc_of_object c1 o1) l2 \/ p' l2 (loc_of_object c1 o1))
   = let h'
       (i: nat { i < Class?.ancestor_count c1 o1 } )
-      (h_: squash (loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ loc_disjoint l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i))))
     : Lemma
-      (p (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ p l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)))
-    = h i ()
+      (loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ loc_disjoint l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) /\ p (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ p l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)))
+    = h i
     in
     h_ancestors c1 o1 l2 h' ()
   in
@@ -965,7 +967,6 @@ let loc_disjoint_ind2
   = ()
   in
   loc_disjoint_ind p' h_object' h_ancestors' h_sym' l1 l2
-*)
 
 unfold
 type locset (#heap: Type u#a) (#root_type: Type u#b) (root_class: class' heap 0 root_type) = TSet.set (loc root_class)
@@ -1152,7 +1153,7 @@ let rec fresh_disjoint
 	let onew' = Class?.ancestor_objects cnew onew i in
 	fresh_disjoint cold cnew' oold onew' hbefore hafter
       in
-      loc_disjoint_ancestors_right cold cnew oold onew f
+      loc_disjoint_ancestors_right (loc_of_object cold oold) cnew onew f
   else
     let f
       (i: nat { i < Class?.ancestor_count cold oold } )
@@ -1162,7 +1163,7 @@ let rec fresh_disjoint
       let oold' = Class?.ancestor_objects cold oold i in
       fresh_disjoint cold' cnew oold' onew hbefore hafter
     in
-    loc_disjoint_ancestors_left cold cnew oold onew f
+    loc_disjoint_ancestors_left cold oold (loc_of_object cnew onew) f
 
 let locset_disjoint
   (#heap: Type u#a)
@@ -1333,9 +1334,8 @@ let locset_includes_loc_ind
     (o: ty { Class?.ancestor_count c o > 0 /\ locset_includes_loc ls (loc_of_object c o) } ) ->
     (f: (
       (i: nat {i < Class?.ancestor_count c o } ) ->
-      squash (locset_includes_loc ls (loc_of_object (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i))) ->
       Lemma
-      (p (loc_of_object (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i)))
+      (locset_includes_loc ls (loc_of_object (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i)) /\ p (loc_of_object (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i)))
     )) ->
     Lemma
     (p (loc_of_object c o))
@@ -1360,9 +1360,8 @@ let locset_includes_loc_ind
     | LocsetIncludesAncestors _ c' o' f ->
       let f'
 	(i: nat {i < Class?.ancestor_count c' o' } )
-	(_: squash (locset_includes_loc ls (loc_of_object (Class?.ancestor_classes c' o' i) (Class?.ancestor_objects c' o' i))))
       : Lemma
-        (p (loc_of_object (Class?.ancestor_classes c' o' i) (Class?.ancestor_objects c' o' i)))
+        (locset_includes_loc ls (loc_of_object (Class?.ancestor_classes c' o' i) (Class?.ancestor_objects c' o' i)) /\ p (loc_of_object (Class?.ancestor_classes c' o' i) (Class?.ancestor_objects c' o' i)))
       = g (Class?.ancestor_classes c' o' i) (Class?.ancestor_objects c' o' i) (f i)
       in
       h_ancestors c' o' f'
@@ -1373,26 +1372,71 @@ let locset_includes_loc_ind
     let h' : squash (p l) = g c o h in h'
   )
 
+unfold
 private
-let rec loc_disjoint_object_includes_t
+let loc_disjoint_object_includes_t
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (l1: loc root_class)
+  (l2: loc root_class { loc_disjoint l1 l2 } )
+: Tot (Type u#b)
+= (o1: Location?.ty l1 { Class?.includes (Location?.class l1) (Location?.obj l1) o1 } ) ->
+  (o2: Location?.ty l2 { Class?.includes (Location?.class l2) (Location?.obj l2) o2 } ) ->
+  Lemma
+    (loc_disjoint (loc_of_object (Location?.class l1) o1) (loc_of_object (Location?.class l2) o2))
+
+private
+let loc_disjoint_object_includes
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (l1: loc root_class)
+  (l2: loc root_class { loc_disjoint l1 l2 } )
+: Tot Type0
+= squash (loc_disjoint_object_includes_t l1 l2)
+
+private
+let loc_disjoint_object_includes_sym
   (#heap: Type u#a)
   (#root_type: Type u#b)
   (#root_class: class' heap 0 root_type)
   (l1: loc root_class)
   (l2: loc root_class)
-: Pure Type0
-  (requires (loc_disjoint l1 l2))
-  (ensures (fun _ -> True))
-= squash (
-    (o1: Location?.ty l1 { Class?.includes (Location?.class l1) (Location?.obj l1) o1 } ) ->
-    (o2: Location?.ty l2 { Class?.includes (Location?.class l2) (Location?.obj l2) o2 } ) ->
-    Lemma
-    (loc_disjoint (loc_of_object (Location?.class l1) o1) (loc_of_object (Location?.class l2) o2))
-  )
+: Lemma
+  (requires (loc_disjoint l1 l2 /\ loc_disjoint_object_includes l1 l2))
+  (ensures (loc_disjoint l2 l1 /\ loc_disjoint_object_includes l2 l1))
+= let (l2: loc root_class { loc_disjoint l1 l2 } ) = l2 in
+  loc_disjoint_sym l1 l2;
+  let (l1: loc root_class { loc_disjoint l2 l1 } ) = l1 in
+  Squash.bind_squash #_ #(loc_disjoint_object_includes_t l2 l1) (Squash.join_squash ()) (fun (f: loc_disjoint_object_includes_t l1 l2) ->
+    Squash.return_squash (
+      let g
+	(o2: Location?.ty l2 { Class?.includes (Location?.class l2) (Location?.obj l2) o2 } )
+	(o1: Location?.ty l1 { Class?.includes (Location?.class l1) (Location?.obj l1) o1 } )
+      : Lemma
+    (loc_disjoint (loc_of_object (Location?.class l2) o2) (loc_of_object (Location?.class l1) o1))
+      = f o1 o2; loc_disjoint_sym (loc_of_object (Location?.class l2) o2) (loc_of_object (Location?.class l1) o1)
+      in g
+  ))
 
-(*
 private
-let rec loc_disjoint_object_includes
+let loc_disjoint_object_includes_elim
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (l1: loc root_class)
+  (l2: loc root_class)
+  (o1: Location?.ty l1 { Class?.includes (Location?.class l1) (Location?.obj l1) o1 } )
+  (o2: Location?.ty l2 { Class?.includes (Location?.class l2) (Location?.obj l2) o2 } )  
+: Lemma
+  (requires (loc_disjoint l1 l2 /\ loc_disjoint_object_includes l1 l2))
+  (ensures  (loc_disjoint (loc_of_object (Location?.class l1) o1) (loc_of_object (Location?.class l2) o2)))
+= let (l2: loc root_class { loc_disjoint l1 l2 } ) = l2 in
+  Squash.bind_squash #_ #(loc_disjoint (loc_of_object (Location?.class l1) o1) (loc_of_object (Location?.class l2) o2)) (Squash.join_squash ()) (fun (f: loc_disjoint_object_includes_t l1 l2) -> f o1 o2)
+
+private
+let loc_disjoint_object_includes_intro
   (#heap: Type u#a)
   (#root_type: Type u#b)
   (#root_class: class' heap 0 root_type)
@@ -1400,19 +1444,93 @@ let rec loc_disjoint_object_includes
   (l2: loc root_class)
 : Lemma
   (requires (loc_disjoint l1 l2))
-  (ensures (loc_disjoint l1 l2 /\ loc_disjoint_object_includes_t l1 l2))
-= loc_disjoint_ind
-    (loc_disjoint_object_includes_t #heap #root_type #root_class)
-    (fun #level #ty c o1 o2 _ ->
-      Squash.return_squash (fun o1' o2' ->
-	object_disjoint_includes c o1 o2 o1' o2';
-	loc_disjoint_objects c o1' o2'
+  (ensures (loc_disjoint l1 l2 /\ loc_disjoint_object_includes l1 l2))
+= let p
+    (l1: loc root_class)
+    (l2: loc root_class)
+  : Ghost Type0
+    (requires (loc_disjoint l1 l2))
+    (ensures (fun _ -> True))
+  = loc_disjoint_object_includes #heap #root_type #root_class l1 l2
+  in
+  let h_object
+    (#level: nat)
+    (#ty: Type u#b)
+    (c: class root_class level ty)
+    (o1: ty)
+    (o2: ty)
+    (h: squash (Class?.disjoint c o1 o2 /\ Class?.disjoint c o2 o1 /\ loc_disjoint (loc_of_object c o1) (loc_of_object c o2) /\ loc_disjoint (loc_of_object c o2) (loc_of_object c o1)))
+  : Lemma
+    (p (loc_of_object c o1) (loc_of_object c o2) \/ p (loc_of_object c o2) (loc_of_object c o1))
+  = let f
+      (o1': ty { Class?.includes c o1 o1' } )
+      (o2': ty { Class?.includes c o2 o2' } )
+    : Lemma
+      (loc_disjoint (loc_of_object c o1') (loc_of_object c o2'))
+    = object_disjoint_includes c o1 o2 o1' o2' ;
+      loc_disjoint_objects c o1' o2'
+    in
+    let f' : squash (loc_disjoint_object_includes_t (loc_of_object c o1) (loc_of_object c o2)) = Squash.return_squash f in
+    let g : squash (loc_disjoint_object_includes (loc_of_object c o1) (loc_of_object c o2)) =
+      Squash.return_squash f'
+    in
+    g
+  in
+  let h_ancestors
+    (#level1: nat)
+    (#t1: Type u#b)
+    (c1: class root_class level1 t1)
+    (o1: t1)
+    (l2: loc root_class)
+    (h: (
+      (i: nat { i < Class?.ancestor_count c1 o1 } ) ->
+      Lemma
+      (loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ loc_disjoint l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) /\ p (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) l2 /\ p l2 (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)))
     ))
-    (fun #level1 #t1 c1 o1 l2 h _ ->
-      Squash.return_squash (fun o1' o2' ->
-	
-    ))
-
+    (h': squash (Class?.ancestor_count c1 o1 > 0 /\ loc_disjoint (loc_of_object c1 o1) l2 /\ loc_disjoint l2 (loc_of_object c1 o1)))
+  : Lemma
+    (p (loc_of_object c1 o1) l2 \/ p l2 (loc_of_object c1 o1))
+  = let (Location t2 level2 c2 o2) = l2 in
+    let f
+      (o1': t1 { Class?.includes c1 o1 o1' } )
+      (o2': t2 { Class?.includes c2 o2 o2' } )
+    : Lemma
+      (loc_disjoint (loc_of_object c1 o1') (loc_of_object c2 o2'))
+    = let _ : squash (Class?.level c1 > 0) =
+	if Class?.level c1 = 0
+	then let (y: nat {y < 0}) = Class?.ancestor_class_levels c1 o1 0 in assert False
+	else ()
+      in
+      assert (Class?.ancestor_count c1 o1' > 0);
+      let g
+	(i': nat {i' < Class?.ancestor_count c1 o1'})
+      : Lemma
+	(loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1' i') (Class?.ancestor_objects c1 o1' i')) (loc_of_object c2 o2'))
+      = Squash.bind_squash
+	  #_
+	  #(loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1' i') (Class?.ancestor_objects c1 o1' i')) (loc_of_object c2 o2'))
+	  (object_includes_ancestors c1 o1 o1' i')
+	  (fun (i: (i: nat {i < Class?.ancestor_count c1 o1}) { includes_ancestors_t_prop c1 o1 o1' i' i } ) ->
+	    h i;
+	    loc_disjoint_object_includes_elim (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) (loc_of_object c2 o2) (Class?.ancestor_objects c1 o1' i') o2'
+	  )
+      in
+      loc_disjoint_ancestors_left c1 o1' (loc_of_object c2 o2') g
+    in
+    let (l2: loc root_class { loc_disjoint (loc_of_object c1 o1) l2 } ) = l2 in
+    let f' : squash (loc_disjoint_object_includes_t (loc_of_object c1 o1) l2) = Squash.return_squash f in
+    let g : squash (loc_disjoint_object_includes (loc_of_object c1 o1) l2) =
+      Squash.return_squash f'
+    in
+    g    
+  in
+  loc_disjoint_ind
+    p
+    h_object
+    h_ancestors
+    (fun l1 l2 _ -> loc_disjoint_object_includes_sym l1 l2)
+    l1
+    l2
 
 let rec loc_disjoint_locset_includes_loc
   (#heap: Type u#a)
@@ -1432,9 +1550,12 @@ let rec loc_disjoint_locset_includes_loc
     ls
     (fun l' -> loc_disjoint l l')
     (fun #level #ty c o1 o2 ->
-      assume (loc_disjoint l (loc_of_object c o2))
+      let _ : squash (loc_disjoint l (loc_of_object c o1)) = h (loc_of_object c o1) in
+      let j : squash (loc_disjoint_object_includes l (loc_of_object c o1)) = loc_disjoint_object_includes_intro l (loc_of_object c o1) in
+      object_includes_refl (Location?.class l) (Location?.obj l);
+      loc_disjoint_object_includes_elim l (loc_of_object c o1) (Location?.obj l) o2
     )
     (fun #level #ty c o f ->
-      assume (loc_disjoint l (loc_of_object c o))
+      loc_disjoint_ancestors_right l c o f
     )
     l2
