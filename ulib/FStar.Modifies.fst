@@ -829,7 +829,7 @@ let loc_disjoint_ind
     (c2: class root_class level2 ty2)
     (o2: ty2)
     (h: disjoint_t c1 c2 o1 o2)
-    (z: int)
+    (z: nat)
   : Lemma
     (requires (z == level1 + level2))
     (ensures (loc_disjoint (loc_of_object c1 o1) (loc_of_object c2 o2) /\ p (loc_of_object c1 o1) (loc_of_object c2 o2)))
@@ -1493,10 +1493,8 @@ let loc_disjoint_object_includes_intro
 = let p
     (l1: loc root_class)
     (l2: loc root_class)
-  : Ghost Type0
-    (requires (loc_disjoint l1 l2))
-    (ensures (fun _ -> True))
-  = loc_disjoint_object_includes #heap #root_type #root_class l1 l2
+  : Tot Type0
+  = loc_disjoint l1 l2 ==> loc_disjoint_object_includes #heap #root_type #root_class l1 l2
   in
   let h_object
     (#level: nat)
