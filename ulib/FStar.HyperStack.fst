@@ -322,31 +322,54 @@ let f (a:Type0) (b:Type0) (x:reference a) (x':reference a)
 (*   assert (modifies_ref x.id (TSet.singleton (as_aref x)) h0 h1) *)
 
 unopteq type object : Type =
-| Object:
+| ObjectReference:
     (ty: Type) ->
     (r: reference ty) ->
+    object
+| ObjectRegionLiveness (* change "live_region" *) :
+    (r: rid) ->
     object
 
 unfold
 let objects_disjoint (o1 o2: object): Tot Type0 =
-  frameOf (Object?.r o1) <> frameOf (Object?.r o2) \/
-  (
-    frameOf (Object?.r o1) == frameOf (Object?.r o2) /\
-    ~ (as_ref (Object?.r o1) === as_ref (Object?.r o2))
-  )
+  match o1 with
+  | ObjectReference _ r1 ->
+    begin match o2 with
+    | ObjectReference _ r2 ->
+      frameOf r1 <> frameOf r2 \/
+      (
+	frameOf r1 == frameOf r2 /\
+	~ (as_ref r1 === as_ref r2)
+      )
+    | _ -> True
+    end
+  | ObjectRegionLiveness r1 ->
+    begin match o2 with
+    | ObjectRegionLiveness r2 -> r1 <> r2
+    | _ -> True
+    end
 
 unfold
 let object_live (m: mem) (o: object): Tot Type0 =
-  contains m (Object?.r o)
+  match o with
+  | ObjectReference _ r -> contains m r
+  | ObjectRegionLiveness r -> live_region m r
 
 unfold
 let object_contains = object_live
 
 unfold
 let object_preserved (o: object) (m m': mem): Tot Type0 =
-  (object_live m o ==> (object_live m' o /\ sel m' (Object?.r o) == sel m (Object?.r o)))
+  match o with
+  | ObjectReference _ r ->
+    contains m r ==> (contains m' r /\ sel m' r == sel m r)
+  | ObjectRegionLiveness r ->
+    live_region m r ==> live_region m' r
 
-let class': Modifies.class' u#0 u#1 mem 0 object =
+unfold
+let object_includes (o1 o2: object) : Tot Type0 = o1 == o2
+
+let root_class: Modifies.class' u#0 u#1 mem 0 object =
   Modifies.Class
     (* heap  *)                 mem
     (* level *)                 0
@@ -355,6 +378,7 @@ let class': Modifies.class' u#0 u#1 mem 0 object =
     (* live *)                  object_live
     (* contains *)              object_contains
     (* preserved *)             object_preserved
+    (* includes *)              object_includes
     (* ancestor_count *)        (fun x -> 0)
     (* ancestor_types *)        (fun x y -> false_elim ())
     (* ancestor_class_levels *) (fun x y -> false_elim ())
@@ -366,9 +390,9 @@ let class_invariant
   ()
 : Lemma
   (requires True)
-  (ensures (Modifies.class_invariant class' class'))
-  [SMTPat (Modifies.class_invariant class' class')]
-= let s: Modifies.class_invariant_body u#0 u#1 class' class' = {
+  (ensures (Modifies.class_invariant root_class root_class))
+  [SMTPat (Modifies.class_invariant root_class root_class)]
+= let s: Modifies.class_invariant_body u#0 u#1 root_class root_class = {
     Modifies.preserved_refl =  (fun _ _ -> ());
     Modifies.preserved_trans = (fun _ _ _ _ -> ());
     Modifies.preserved_ancestors_preserved = begin
@@ -376,19 +400,19 @@ let class_invariant
         (x: object)
 	(h: mem)
 	(h' : mem)
-	(s: squash (Modifies.Class?.ancestor_count class' x > 0))
+	(s: squash (Modifies.Class?.ancestor_count root_class x > 0))
 	(f: (
-	  (i: nat { i < Modifies.Class?.ancestor_count class' x } ) ->
+	  (i: nat { i < Modifies.Class?.ancestor_count root_class x } ) ->
 	  Lemma
-	  (Modifies.Class?.preserved (Modifies.Class?.ancestor_classes class' x i) (Modifies.ancestor_objects class' x i) h h')
+	  (Modifies.Class?.preserved (Modifies.Class?.ancestor_classes root_class x i) (Modifies.ancestor_objects root_class x i) h h')
 	))
       : Lemma
-	(ensures (Modifies.Class?.preserved class' x h h'))
+	(ensures (Modifies.Class?.preserved root_class x h h'))
       = ()
       in
       g
     end;
-    Modifies.class_disjoint_sym = (fun _ _ -> ());
+    Modifies.disjoint_sym = (fun _ _ -> ());
     Modifies.level_0_class_eq_root = ();
     Modifies.level_0_fresh_disjoint = (fun _ _ _ _ -> ());
     Modifies.preserved_live = (fun _ _ _ -> ());
@@ -398,81 +422,155 @@ let class_invariant
       let g
 	(h: mem)
 	(o: object)
-	(s: squash (Modifies.Class?.ancestor_count class' o > 0))
+	(s: squash (Modifies.Class?.ancestor_count root_class o > 0))
 	(f: (
-	  (i: nat {i < Modifies.Class?.ancestor_count class' o } ) ->
+	  (i: nat {i < Modifies.Class?.ancestor_count root_class o } ) ->
 	  Lemma
-	  (Modifies.Class?.contains (Modifies.Class?.ancestor_classes class' o i) h (Modifies.ancestor_objects class' o i))
+	  (Modifies.Class?.contains (Modifies.Class?.ancestor_classes root_class o i) h (Modifies.ancestor_objects root_class o i))
 	))
       : Lemma
-	(ensures (Modifies.Class?.contains class' h o))
+	(ensures (Modifies.Class?.contains root_class h o))
       = ()
       in
       g
     end;
     Modifies.live_ancestors = (fun _ _ _ -> ());
+    Modifies.includes_refl = (fun _ -> ());
+    Modifies.includes_trans = (fun _ _ _ -> ());
+    Modifies.preserved_includes = (fun _ _ _ _ -> ());
+    Modifies.includes_contains = (fun _ _ _ -> ());
+    Modifies.contains_live = (fun _ _ _ -> ());
+    Modifies.includes_ancestors = (fun _ _ _ -> ());
+    Modifies.disjoint_includes = (fun _ _ _ -> ());
   }
   in
   (Modifies.class_invariant_intro s)
 
-let class: Modifies.class class' 0 object = class'
+let class: Modifies.class root_class 0 object = root_class
 
 let class_eq
   ()
 : Lemma
   (requires True)
-  (ensures (class == class'))
-  [SMTPatOr [[SMTPat class]; [SMTPat class']]]
+  (ensures (class == root_class))
+  [SMTPatOr [[SMTPat class]; [SMTPat root_class]]]
 = ()
 
-let singleton
+let locset_of_reference
   (#t: Type)
   (r: reference t)
-: Tot (TSet.set (Modifies.object class))
-= Modifies.singleton class (Object t r)
+: Tot (Modifies.locset u#0 u#1 root_class)
+= Modifies.locset_of_object class (ObjectReference t r)
 
-assume val whole_region (r: rid): Tot (TSet.set (Modifies.object class))
-
-assume val mem_whole_region
+unfold
+let object_is_reference_of_region
+  (o': object)
   (r: rid)
-  (o: Modifies.object class)
+: Tot Type0
+= match o' with
+  | ObjectReference _ re -> frameOf re == r
+  | _ -> False
+
+assume val locset_of_region (r: rid): Tot (Modifies.locset u#0 u#1 root_class)
+
+assume val mem_locset_of_region
+  (r: rid)
+  (o: Modifies.loc root_class)
 : Lemma
   (requires True)
-  (ensures (TSet.mem o (whole_region r) <==> (
-    Modifies.Object?.ty o == object /\
-    Modifies.Object?.level o == 0 /\
-    Modifies.Object?.class o == class' /\ (
-    let (o': object) = Modifies.Object?.obj o in (frameOf (Object?.r o') == r)
-  ))))
-  [SMTPat (TSet.mem o (whole_region r))]
+  (ensures (TSet.mem o (locset_of_region r) <==> (
+    exists (o' : object) .
+      o == Modifies.loc_of_object class o' /\
+      o' `object_is_reference_of_region` r
+  )))
+  [SMTPat (TSet.mem o (locset_of_region r))]
 
-let singleton_subset_whole_region
+let locset_of_reference_subset_locset_of_region
   (#t: Type)
   (reg: rid)
   (ref: reference t)
 : Lemma
   (requires (frameOf ref == reg))
-  (ensures (singleton ref `TSet.subset` whole_region reg))
-  [SMTPatOr [[SMTPatT (frameOf ref == reg)]; [SMTPat (singleton ref `TSet.subset` whole_region reg)]]]
+  (ensures (locset_of_reference ref `TSet.subset` locset_of_region reg))
+  [SMTPatOr [[SMTPatT (frameOf ref == reg)]; [SMTPat (locset_of_reference ref `TSet.subset` locset_of_region reg)]]]
 = ()
 
-let singleton_inter_whole_region
-  (#t: Type)
-  (reg: rid)
-  (ref: reference t)
+let locset_of_region_liveness_tag
+  (r: rid)
+: Tot (Modifies.locset u#0 u#1 root_class)
+= Modifies.locset_of_object class (ObjectRegionLiveness r)
+
+let locset_of_region_with_liveness
+  (r: rid)
+: Tot (Modifies.locset u#0 u#1 root_class)
+= TSet.union (locset_of_region r) (locset_of_region_liveness_tag r)
+
+let locset_of_region_subset_locset_of_region_with_liveness
+  (r: rid)
 : Lemma
-  (requires (~ (frameOf ref == reg)))
-  (ensures ((singleton ref `TSet.intersect` whole_region reg) `TSet.subset` TSet.empty))
-  [SMTPatOr [[SMTPatT (~ (frameOf ref == reg))]; [SMTPat (singleton ref `TSet.intersect` whole_region reg)]]]
+  (requires True)
+  (ensures (locset_of_region r `TSet.subset` locset_of_region_with_liveness r))
 = ()
 
-private let test
+let locset_of_region_with_liveness_disjoint
+  (#t: Type)
+  (reg1 reg2: rid)
+: Lemma
+  (requires (reg1 <> reg2))
+  (ensures (Modifies.locset_disjoint u#0 u#1 (locset_of_region_with_liveness reg1) (locset_of_region_with_liveness reg2)))
+  [SMTPatT (reg1 <> reg2)]
+= ()
+
+let locset_of_region_liveness_tag_subset_locset_of_region_with_liveness
+  (r: rid)
+: Lemma
+  (requires True)
+  (ensures (locset_of_region_liveness_tag r `TSet.subset` locset_of_region_with_liveness r))
+= ()
+
+let locset_of_region_liveness_tag_disjoint_locset_of_region
+  (r1 r2: rid)
+: Lemma
+  (requires True)
+  (ensures (locset_of_region_liveness_tag r1 `Modifies.locset_disjoint` locset_of_region r2))
+= ()
+
+private let test_1
   (#t1 #t2: Type)
   (reg: rid)
   (r1: reference t1)
   (r2: reference t2)
   (h1 h2 h3: mem)
 : Lemma
-  (requires (Modifies.modifies u#0 u#1 (singleton r1) h1 h2 /\ Modifies.modifies u#0 u#1 (singleton r2) h2 h3 /\ frameOf r1 == reg /\ frameOf r2 == reg))
-  (ensures (Modifies.modifies u#0 u#1 (whole_region reg) h1 h3))
+  (requires (Modifies.modifies u#0 u#1 (locset_of_reference r1) h1 h2 /\ Modifies.modifies u#0 u#1 (locset_of_reference r2) h2 h3 /\ frameOf r1 == reg /\ frameOf r2 == reg))
+  (ensures (Modifies.modifies u#0 u#1 (locset_of_region reg) h1 h3))
+= ()
+
+let modifies_locset_of_reference_intro #a (h:mem) (x:reference a) (v:a) : Lemma
+  (requires (contains h x))
+  (ensures (contains h x
+	    /\ Modifies.modifies u#0 u#1 (locset_of_reference x) h (upd h x v)
+	    /\ sel (upd h x v) x == v ))
+  [SMTPat (upd h x v); SMTPatT (contains h x)]
+  = Modifies.modifies_intro u#0 u#1 (locset_of_reference x) h (upd h x v) (fun ty l c o g ->
+      Modifies.modifies_loc_refines_0 u#0 u#1 class (ObjectReference _ x) h (upd h x v) (fun o' _ -> ()) c o (g (Modifies.loc_of_object class (ObjectReference _ x)))
+    )
+
+let modifies_locset_of_reference_elim
+  #a
+  (x: reference a)
+  (s: Modifies.locset root_class)
+  (h h': mem)
+: Lemma
+  (requires (Modifies.modifies s h h' /\ Modifies.locset_disjoint (locset_of_reference x) s))
+  (ensures (contains h x ==> (contains h' x /\ sel h' x == sel h x)))
+= ()
+
+let modifies_locset_of_region_liveness_tag_elim
+  (x: rid)
+  (s: Modifies.locset root_class)
+  (h h': mem)
+: Lemma
+  (requires (Modifies.modifies s h h' /\ Modifies.locset_disjoint (locset_of_region_liveness_tag x) s))
+  (ensures (live_region h x ==> live_region h' x))
 = ()
