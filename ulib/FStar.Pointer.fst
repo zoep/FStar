@@ -1781,7 +1781,6 @@ let locset_of_region_includes_locset_of_pointer
   HS.locset_of_reference_subset_locset_of_region (frameOf p) (HS.ObjectReference?.r (object_ancestor (Object p)));
   Modifies.subset_locset_includes (HS.locset_of_region (frameOf p)) (HS.locset_of_reference (HS.ObjectReference?.r (object_ancestor (Object p))))
 
-(*
 abstract val write': #a:Type -> b:pointer a -> z:a -> Stack unit
   (requires (fun h -> live h b))
   (ensures (fun h0 _ h1 -> live h0 b /\ live h1 b
@@ -1790,15 +1789,47 @@ abstract val write': #a:Type -> b:pointer a -> z:a -> Stack unit
 let write' #a b z =
   let s0 = !b.content in
   let s = path_upd s0 (Pointer?.p b) z in
-  let h0 = HST.get () in
+  let h = HST.get () in
   let _ = b.content := s in
-  let h1 = HST.get () in
-  let _ : squash (Modifies.modifies u#0 u#1 (HS.locset_of_reference b.content) h0 h1) = HS.modifies_locset_of_reference_intro h0 b.content s in
-  let _ : squash (Modifies.modifies u#0 u#1 (locset_of_pointer b) h0 h1) =
-  Modifies.modifies_intro (locset_of_pointer b) h0 h1
-    (fun ty l c o g ->
-      Modifies.modifies_loc_refines class (Object b) h0 h1 (fun #l #t _ _ f -> Classical.forall_intro f) (fun _ _ -> ()) #l #ty c o (g (Modifies.loc_of_object class (Object b)))
-    )
+  let h' = HST.get () in
+  let _ : squash (Modifies.modifies u#0 u#1 (HS.locset_of_reference b.content) h h') = HS.modifies_locset_of_reference_intro h b.content s in
+  let _ : squash (Modifies.modifies u#0 u#1 (locset_of_pointer b) h h') =
+    let f
+      (ty: Type u#1)
+      (l: nat)
+      (c: Modifies.class HS.root_class l ty )
+      (o: ty)
+      (g: (
+	(o' : Modifies.loc HS.root_class { TSet.mem o' (locset_of_pointer b) } ) ->
+	Lemma
+	(Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
+      ))
+    : Lemma
+      (Modifies.Class?.preserved c o h h')
+    =
+      let f0
+	(#level: nat)
+	(#ty: Type u#1)
+	(c: Modifies.class HS.root_class level ty)
+	(o: ty)
+	(f: (
+	  (i: nat { i < Modifies.Class?.ancestor_count class (Object b) } ) ->
+	  Lemma
+	  (Modifies.loc_disjoint (Modifies.loc_of_object c o) (Modifies.loc_of_object (Modifies.Class?.ancestor_classes class (Object b) i) (Modifies.Class?.ancestor_objects class (Object b) i)))
+        ))
+      : Lemma
+	(Modifies.Class?.preserved c o h h')
+      = Modifies.modifies_elim (HS.locset_of_reference b.content) h h' () c o (fun _ -> f 0)
+      in  
+      let f1
+        (o1': object)
+        (j: squash (Modifies.Class?.disjoint class (Object b) o1'))
+      : Lemma
+        (Modifies.Class?.preserved class o1' h h')
+      = ()
+      in
+      Modifies.modifies_loc_refines class (Object b) h h' f0 f1 c o (g (Modifies.loc_of_object class (Object b)))
+    in
+    Modifies.modifies_intro (locset_of_pointer b) h h' f
   in
   ()
-*)

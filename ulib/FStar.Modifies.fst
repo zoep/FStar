@@ -1062,6 +1062,27 @@ let modifies_equiv
   [SMTPat (modifies s h h')]
 = ()
 
+abstract
+let modifies_elim
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (s: locset root_class)
+  (h h': heap)
+  (mod: squash (modifies s h h'))
+  (#ty: Type u#b)
+  (#l: nat)
+  (c: class root_class l ty)
+  (o: ty)
+  (f: (
+    (o': loc root_class { TSet.mem o' s }) ->
+    Lemma
+    (loc_disjoint (loc_of_object c o) o')
+  ))
+: Lemma
+  (Class?.preserved c o h h')
+= Classical.forall_intro f
+
+abstract
 let modifies_intro
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
