@@ -483,7 +483,7 @@ assume val mem_locset_of_region
       o == Modifies.loc_of_object class o' /\
       o' `object_is_reference_of_region` r
   )))
-  [SMTPat (TSet.mem o (locset_of_region r))]
+//  [SMTPat (TSet.mem o (locset_of_region r))]
 
 let locset_of_reference_subset_locset_of_region
   (#t: Type)
@@ -493,7 +493,7 @@ let locset_of_reference_subset_locset_of_region
   (requires (frameOf ref == reg))
   (ensures (locset_of_reference ref `TSet.subset` locset_of_region reg))
   [SMTPatOr [[SMTPatT (frameOf ref == reg)]; [SMTPat (locset_of_reference ref `TSet.subset` locset_of_region reg)]]]
-= ()
+= Classical.forall_intro (mem_locset_of_region reg)
 
 let locset_of_region_liveness_tag
   (r: rid)
@@ -519,7 +519,8 @@ let locset_of_region_with_liveness_disjoint
   (requires (reg1 <> reg2))
   (ensures (Modifies.locset_disjoint u#0 u#1 (locset_of_region_with_liveness reg1) (locset_of_region_with_liveness reg2)))
   [SMTPatT (reg1 <> reg2)]
-= ()
+= Classical.forall_intro (mem_locset_of_region reg1);
+  Classical.forall_intro (mem_locset_of_region reg2)
 
 let locset_of_region_liveness_tag_subset_locset_of_region_with_liveness
   (r: rid)
@@ -533,7 +534,7 @@ let locset_of_region_liveness_tag_disjoint_locset_of_region
 : Lemma
   (requires True)
   (ensures (locset_of_region_liveness_tag r1 `Modifies.locset_disjoint` locset_of_region r2))
-= ()
+= Classical.forall_intro (mem_locset_of_region r2)
 
 private let test_1
   (#t1 #t2: Type)
