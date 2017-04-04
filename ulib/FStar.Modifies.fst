@@ -1471,6 +1471,179 @@ let locset_includes_loc_ind
     let h' : squash (p l) = g c o h in h'
   )
 
+private
+let locset_includes_loc_includes_p_t
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (ls: locset root_class)
+  (l: loc root_class { locset_includes_loc ls l } )
+: Tot Type
+= (o: Location?.ty l { Class?.includes (Location?.class l) (Location?.obj l) o } ) ->
+  Lemma
+  (locset_includes_loc ls (Location _ _ (Location?.class l) o))
+
+private
+let locset_includes_loc_includes
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (ls: locset root_class)
+  (l: loc root_class { locset_includes_loc ls l } )
+  (o: Location?.ty l { Class?.includes (Location?.class l) (Location?.obj l) o } )
+: Lemma
+  (locset_includes_loc ls (Location _ _ (Location?.class l) o))
+= let p
+    (l: loc root_class { locset_includes_loc ls l })
+  : Tot Type0
+  = squash (locset_includes_loc_includes_p_t ls l)
+  in
+  let h_object
+    (#level: nat)
+    (#ty: Type u#b)
+    (c: class root_class level ty)
+    (o1: ty { TSet.mem (loc_of_object c o1) ls } )
+    (o2: ty { Class?.includes c o1 o2 /\ locset_includes_loc ls (loc_of_object c o2) } )
+  : Lemma
+    (p (loc_of_object c o2))
+  = let f
+      (o3: ty { Class?.includes c o2 o3 } )
+    : Lemma
+      (locset_includes_loc ls (loc_of_object c o3))
+    = object_includes_trans c o1 o2 o3;
+      locset_includes_loc_object ls c o1 o3
+    in
+    let g : locset_includes_loc_includes_p_t ls (loc_of_object c o2) = f in
+    Squash.return_squash g
+  in
+  let h_ancestors
+    (#level: nat)
+    (#ty: Type u#b)
+    (c: class root_class level ty)
+    (o: ty { Class?.ancestor_count c o > 0 /\ locset_includes_loc ls (loc_of_object c o) } )
+    (f: (
+      (i: nat {i < Class?.ancestor_count c o } ) ->
+      Lemma
+      (locset_includes_loc ls (loc_of_object (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i)) /\ p (loc_of_object (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i)))
+    ))
+  : Lemma
+    (p (loc_of_object c o))
+  = let g
+      (o': ty {Class?.includes c o o'})
+    : Lemma
+      (locset_includes_loc ls (loc_of_object c o'))
+    = let _ : squash (Class?.ancestor_count c o' > 0) =
+	if Class?.level c = 0
+	then let (n: nat) = Class?.ancestor_class_levels c o 0 in
+	     let _ = assert (n < 0) in
+	     false_elim ()
+	else ()
+      in
+      let k
+	(i': nat {i' < Class?.ancestor_count c o' } )
+      : Lemma
+	(locset_includes_loc ls (loc_of_object (Class?.ancestor_classes c o' i') (Class?.ancestor_objects c o' i')))
+      = Squash.bind_squash
+          #_
+	  #(locset_includes_loc ls (loc_of_object (Class?.ancestor_classes c o' i') (Class?.ancestor_objects c o' i')))
+	  (object_includes_ancestors c o o' i')
+	  (fun (i: (i : nat {i < Class?.ancestor_count c o} ) {
+	    includes_ancestors_t_prop c o o' i' i
+	  } ) ->
+	    f i;
+	    let (o_ : loc root_class { locset_includes_loc ls o_ } ) =
+	      loc_of_object (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i)
+	    in
+            Squash.bind_squash
+	      #(locset_includes_loc_includes_p_t ls o_)
+	      #(locset_includes_loc ls (loc_of_object (Class?.ancestor_classes c o' i') (Class?.ancestor_objects c o' i')))
+	      (Squash.join_squash ())
+	      (fun (j: locset_includes_loc_includes_p_t ls (loc_of_object (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i))) ->
+		j (Class?.ancestor_objects c o' i')
+        ))
+      in
+      locset_includes_loc_ancestors ls c o' k
+    in
+    let g' : locset_includes_loc_includes_p_t ls (loc_of_object c o) = g in
+    Squash.return_squash (Squash.return_squash g')
+  in
+  let _ : squash (p l) =
+    locset_includes_loc_ind ls p h_object h_ancestors l
+  in
+  Squash.bind_squash #_ #(locset_includes_loc ls (Location _ _ (Location?.class l) o)) (Squash.join_squash ()) (fun (f: locset_includes_loc_includes_p_t ls l) ->
+    f o
+  )
+
+let locset_includes_loc_trans
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (ls0: locset root_class)
+  (ls: locset root_class { locset_includes ls0 ls } )
+  (l: loc root_class { locset_includes_loc ls l } )
+: Lemma
+  (locset_includes_loc ls0 l)
+= let p
+    (l: loc root_class { locset_includes_loc ls l })
+  : Tot Type0
+  = locset_includes_loc ls0 l
+  in
+  let h_object
+    (#level: nat)
+    (#ty: Type u#b)
+    (c: class root_class level ty)
+    (o1: ty { TSet.mem (loc_of_object c o1) ls } )
+    (o2: ty { Class?.includes c o1 o2 /\ locset_includes_loc ls (loc_of_object c o2) } )
+  : Lemma
+    (p (loc_of_object c o2))
+  = locset_includes_loc_includes ls0 (loc_of_object c o1) o2
+  in
+  let h_ancestors
+    (#level: nat)
+    (#ty: Type u#b)
+    (c: class root_class level ty)
+    (o: ty { Class?.ancestor_count c o > 0 /\ locset_includes_loc ls (loc_of_object c o) } )
+    (f: (
+      (i: nat {i < Class?.ancestor_count c o } ) ->
+      Lemma
+      (locset_includes_loc ls (loc_of_object (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i)) /\ p (loc_of_object (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i)))
+    ))
+  : Lemma
+    (p (loc_of_object c o))
+  = locset_includes_loc_ancestors ls0 c o f
+  in
+  locset_includes_loc_ind ls p h_object h_ancestors l
+
+let locset_includes_trans
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (ls0: locset root_class)
+  (ls1: locset root_class)
+  (ls2: locset root_class)
+: Lemma
+  (requires (locset_includes ls0 ls1 /\ locset_includes ls1 ls2))
+  (ensures (locset_includes ls0 ls2))
+  [SMTPatT u#b (locset_includes ls0 ls1); SMTPatT (locset_includes ls1 ls2)]
+= let f
+    (l: loc root_class { TSet.mem l ls2 } )
+  : Lemma
+    (locset_includes_loc ls0 l)
+  = locset_includes_loc_trans ls0 ls1 l
+  in
+  Classical.forall_intro f
+
+let locset_includes_refl
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (ls0: locset root_class)
+: Lemma
+  (requires True)
+  (ensures (locset_includes ls0 ls0))
+  [SMTPat (locset_includes ls0 ls0)]
+= ()
+
 unfold
 private
 let loc_disjoint_object_includes_t
