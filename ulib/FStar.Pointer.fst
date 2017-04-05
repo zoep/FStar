@@ -1626,7 +1626,7 @@ let class_invariant ()
 : Lemma 
   (requires True)
   (ensures (Modifies.class_invariant HS.class class'))
-  [SMTPat (Modifies.class_invariant HS.class class')]
+//  [SMTPat (Modifies.class_invariant HS.class class')]
 = let s: Modifies.class_invariant_body u#0 u#1 HS.class class' = {
     Modifies.preserved_refl = (let f _ _ = () in f);
     Modifies.preserved_trans = (let f _ _ _ _ = () in f);
@@ -1744,8 +1744,9 @@ let class_invariant ()
   in
   (Modifies.class_invariant_intro s)
 
-let class: Modifies.class HS.class 1 object = class'
+let class: Modifies.class HS.class 1 object = class_invariant () ; class'
 
+(*
 let class_eq
   ()
 : Lemma
@@ -1753,6 +1754,7 @@ let class_eq
   (ensures (class == class'))
   [SMTPatOr [[SMTPat class]; [SMTPat class']]]
 = ()
+*)
 
 let locset_of_pointer
   (#t: Type)
@@ -1764,7 +1766,9 @@ let locset_of_reference_ancestor_includes_locset_of_pointer
   (#t: Type)
   (p: pointer t)
 : Lemma
-  (Modifies.locset_of_object HS.class (object_ancestor (Object p)) `Modifies.locset_includes` (locset_of_pointer p))
+  (requires True)
+  (ensures (Modifies.locset_of_object HS.class (object_ancestor (Object p)) `Modifies.locset_includes` (locset_of_pointer p)))
+  [SMTPat (Modifies.locset_of_object HS.class (object_ancestor (Object p)) `Modifies.locset_includes` (locset_of_pointer p))]
 = let o = object_ancestor (Object p) in
   let s = Modifies.locset_of_object HS.class o in
   Modifies.locset_includes_loc_ancestors s class (Object p) (fun _ ->
@@ -1775,11 +1779,11 @@ let locset_of_region_includes_locset_of_pointer
   (#t: Type u#0)
   (p: pointer t)
 : Lemma
-  (Modifies.locset_includes u#0 u#1 #(HS.mem) #(HS.object) #(HS.root_class)
-  (HS.locset_of_region (frameOf p)) (locset_of_pointer p))
-= locset_of_reference_ancestor_includes_locset_of_pointer p;
-  HS.locset_of_reference_subset_locset_of_region (frameOf p) (HS.ObjectReference?.r (object_ancestor (Object p)));
-  Modifies.subset_locset_includes (HS.locset_of_region (frameOf p)) (HS.locset_of_reference (HS.ObjectReference?.r (object_ancestor (Object p))))
+  (requires True)
+  (ensures (Modifies.locset_includes (HS.locset_of_region (frameOf p)) (locset_of_pointer p)))
+  [SMTPat (Modifies.locset_includes (HS.locset_of_region (frameOf p)) (locset_of_pointer p))]
+= HS.locset_of_reference_subset_locset_of_region (frameOf p) (HS.ObjectReference?.r (object_ancestor (Object p)));
+  locset_of_reference_ancestor_includes_locset_of_pointer p
 
 abstract val write': #a:Type -> b:pointer a -> z:a -> Stack unit
   (requires (fun h -> live h b))
@@ -1833,3 +1837,24 @@ let write' #a b z =
     Modifies.modifies_intro (locset_of_pointer b) h h' f
   in
   ()
+
+let modifies_pointer_elim
+  (#t: Type)
+  (p: pointer t)
+  (s: Modifies.locset HS.root_class)
+  (h h': HS.mem)
+: Lemma
+  (requires (Modifies.modifies s h h' /\ Modifies.locset_disjoint (locset_of_pointer p) s))
+  (ensures (live h p ==> live h' p /\ gread h' p == gread h p))
+  [SMTPat (Modifies.modifies s h h'); SMTPat (Modifies.locset_disjoint (locset_of_pointer p) s)]
+= ()
+
+let locset_of_pointer_disjoint
+  (#t: Type)
+  (p1 p2: pointer t)
+: Lemma
+  (requires (disjoint p1 p2))
+  (ensures (Modifies.locset_disjoint (locset_of_pointer p1) (locset_of_pointer p2)))
+  [SMTPatOr [[SMTPat (disjoint p1 p2)]; [SMTPat (Modifies.locset_disjoint (locset_of_pointer p1) (locset_of_pointer p2))]]]
+= ()
+  

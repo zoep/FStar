@@ -688,5 +688,6 @@ abstract let normalize (a:Type0) = a
 val assert_norm : p:Type -> Pure unit (requires (normalize p)) (ensures (fun _ -> p))
 let assert_norm p = ()
 
+abstract // otherwise, loops during normalization!
 val false_elim : #a:Type -> u:unit{false} -> Tot a
 let rec false_elim #a u = false_elim ()

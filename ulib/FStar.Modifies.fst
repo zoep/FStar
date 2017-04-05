@@ -314,6 +314,7 @@ type class_invariant_body
   (#level: nat)
   (#ty: Type u#b)
   (c: class' heap level ty)
+: Type u#(max a b)
 = {
   preserved_refl: preserved_refl_t c;
   preserved_trans: preserved_trans_t c;
@@ -667,7 +668,7 @@ noeq type _location (#heap: Type u#a) (#root_type: Type u#b) (root_class: class'
   (obj: ty) ->
   _location root_class
 
-abstract let loc = _location
+abstract let loc (#heap: Type u#a) (#root_type: Type u#b) (root_class: class' heap 0 root_type) : Tot (Type u#(1 + max a b))  = _location #heap #root_type root_class
 
 abstract
 let loc_of_object
@@ -1022,8 +1023,12 @@ let loc_disjoint_ind2
   in
   loc_disjoint_ind p' h_object' h_ancestors' h_sym' l1 l2
 
-unfold
-type locset (#heap: Type u#a) (#root_type: Type u#b) (root_class: class' heap 0 root_type) = TSet.set (loc root_class)
+let locset
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (root_class: class' heap 0 root_type)
+: GTot (Type u#(1 + max a b))
+= TSet.set (loc root_class)
 
 let locset_of_object
   (#heap: Type u#a)
@@ -1032,7 +1037,7 @@ let locset_of_object
   (#level: nat)
   (class: class root_class level ty)
   (obj: ty)
-: locset root_class
+: Tot (locset root_class)
 = TSet.singleton (loc_of_object class obj)
 
 abstract
@@ -1150,6 +1155,7 @@ let modifies_trans
   [SMTPatT u#(max a b) (modifies s h1 h2); SMTPatT (modifies s h2 h3)]
 = ()
 
+(*
 let modifies_subset
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
@@ -1161,6 +1167,7 @@ let modifies_subset
   [SMTPatT u#(max a b) (modifies s1 h h'); SMTPatT (TSet.subset s1 s2)]
 = modifies_equiv s1 h h';
   modifies_equiv s2 h h'
+*)
 
 private
 let modifies_test_1
@@ -1305,6 +1312,7 @@ let locset_disjoint_sym
 : Lemma
   (requires (locset_disjoint ls1 ls2))
   (ensures (locset_disjoint ls2 ls1))
+  [SMTPatT u#0 (locset_disjoint ls1 ls2)]
 = let f
     (x: loc root_class { TSet.mem x ls2 } )
   : Lemma
@@ -1317,7 +1325,18 @@ let locset_disjoint_sym
     Classical.forall_intro g
   in
   Classical.forall_intro f
-     
+
+let locset_disjoint_loc_disjoint
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (l1 l2: loc root_class)
+: Lemma
+  (requires (loc_disjoint l1 l2))
+  (ensures (locset_disjoint (TSet.singleton l1) (TSet.singleton l2)))
+  [SMTPat (locset_disjoint (TSet.singleton l1) (TSet.singleton l2))]
+= ()
+
 noeq
 private
 type locset_includes_object_t
@@ -1371,7 +1390,7 @@ let mem_locset_includes_loc
 : Lemma
   (requires (TSet.mem l ls))
   (ensures (locset_includes_loc ls l))
-  [SMTPatT u#0 (TSet.mem l ls)]
+  [SMTPat (TSet.mem l ls)]
 = let (Location _ _ c o) = l in
   object_includes_refl c o;
   Squash.return_squash (LocsetIncludesObject ls c o o)
@@ -1392,6 +1411,7 @@ let subset_locset_includes
 : Lemma
   (requires (TSet.subset ls_small ls_big))
   (ensures (locset_includes ls_big ls_small))
+  [SMTPat (TSet.subset ls_small ls_big)]
 = ()
 
 let locset_includes_loc_object
@@ -1402,11 +1422,12 @@ let locset_includes_loc_object
   (#level: nat)
   (#ty: Type u#b)
   (c: class root_class level ty)
-  (o1: ty { TSet.mem (loc_of_object c o1) ls } )
-  (o2: ty { Class?.includes c o1 o2 } )
+  (o1: ty )
+  (o2: ty )
 : Lemma
-  (requires True)
+  (requires (TSet.mem (loc_of_object c o1) ls /\ Class?.includes c o1 o2))
   (ensures (locset_includes_loc ls (loc_of_object c o2)))
+  [SMTPat (TSet.mem (loc_of_object c o1)); SMTPatT (Class?.includes c o1 o2)]
 = Squash.return_squash (LocsetIncludesObject ls c o1 o2)
 
 let locset_includes_loc_ancestors
@@ -1645,7 +1666,7 @@ let locset_includes_trans
 : Lemma
   (requires (locset_includes ls0 ls1 /\ locset_includes ls1 ls2))
   (ensures (locset_includes ls0 ls2))
-  [SMTPatT u#b (locset_includes ls0 ls1); SMTPatT (locset_includes ls1 ls2)]
+  [SMTPat (locset_includes ls0 ls1); SMTPat (locset_includes ls1 ls2)]
 = let f
     (l: loc root_class { TSet.mem l ls2 } )
   : Lemma
@@ -1654,6 +1675,7 @@ let locset_includes_trans
   in
   Classical.forall_intro f
 
+(*
 let locset_includes_refl
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -1664,6 +1686,7 @@ let locset_includes_refl
   (ensures (locset_includes ls0 ls0))
   [SMTPat (locset_includes ls0 ls0)]
 = ()
+*)
 
 unfold
 private
@@ -1856,10 +1879,12 @@ let locset_disjoint_locset_includes
   (#root_type: Type u#b)
   (#root_class: class' heap 0 root_type)
   (ls1: locset root_class)
-  (ls2: locset root_class { locset_disjoint ls1 ls2 } )
-  (ls2': locset root_class { locset_includes ls2 ls2' } )  
+  (ls2: locset root_class)
+  (ls2': locset root_class)
 : Lemma
-  (locset_disjoint ls1 ls2')
+  (requires (locset_disjoint ls1 ls2 /\ locset_includes ls2 ls2'))
+  (ensures  (locset_disjoint ls1 ls2'))
+  [SMTPat (locset_disjoint ls1 ls2); SMTPat (locset_includes ls2 ls2')]
 = let f
     (l1: loc root_class { TSet.mem l1 ls1 } )
   : Lemma
@@ -1882,7 +1907,7 @@ let modifies_locset_includes
 : Lemma
   (requires (modifies s2 h h' /\ locset_includes s1 s2))
   (ensures (modifies s1 h h'))
-  [SMTPatT u#(max a b) (modifies s2 h h'); SMTPatT (locset_includes s1 s2)]
+  [SMTPat (modifies s2 h h'); SMTPatT (locset_includes s1 s2)]
 = modifies_equiv s1 h h';
   modifies_equiv s2 h h';
   let f

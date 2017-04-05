@@ -18,7 +18,7 @@
 module FStar.TSet
 #set-options "--initial_fuel 0 --max_fuel 0 --initial_ifuel 0 --max_ifuel 0"
 
-abstract type set a = a -> Tot prop
+abstract let set (a: Type): Tot Type = a -> Tot prop
 abstract type equal (#a:Type) (s1:set a) (s2:set a) = forall x. s1 x <==> s2 x
 
 (* destructors *)
@@ -27,20 +27,20 @@ abstract val mem : 'a -> set 'a -> Tot Type0
 let mem x s = s x
 
 (* constructors *)
-abstract val empty      : #a:Type -> Tot (set a)
+abstract let empty (#a: Type) : Tot (set a) = let p (x: a) : Tot prop = False in p
+
 abstract val singleton  : 'a -> Tot (set 'a)
 abstract val union      : set 'a -> set 'a -> Tot (set 'a)
 abstract val intersect  : set 'a -> set 'a -> Tot (set 'a)
 abstract val complement : set 'a -> Tot (set 'a)
 
-let empty           = fun #a x -> False
-let singleton x     = fun y -> y == x
-let union s1 s2     = fun x -> s1 x \/ s2 x
-let intersect s1 s2 = fun x -> s1 x /\ s2 x
-let complement s    = fun x -> ~ (s x)
+let singleton x     = let p y : Tot prop = y == x in p
+let union s1 s2     = let p x : Tot prop = s1 x \/ s2 x in p
+let intersect s1 s2 = let p x : Tot prop = s1 x /\ s2 x in p
+let complement s    = let p x : Tot prop = ~ (s x) in p
 
 (* ops *)
-type subset (#a:Type) (s1:set a) (s2:set a) :Type0 = forall x. mem x s1 ==> mem x s2
+let subset (#a:Type) (s1:set a) (s2:set a) : Tot Type0 = forall x. mem x s1 ==> mem x s2
 
 (* Properties *)
 abstract val mem_empty: #a:Type -> x:a -> Lemma

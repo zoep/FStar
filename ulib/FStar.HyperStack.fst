@@ -321,7 +321,7 @@ let f (a:Type0) (b:Type0) (x:reference a) (x':reference a)
 (*  //-------------------------------------------------------------------------------- *)
 (*   assert (modifies_ref x.id (TSet.singleton (as_aref x)) h0 h1) *)
 
-unopteq type object : Type =
+noeq type object : Type =
 | ObjectReference:
     (ty: Type) ->
     (r: reference ty) ->
@@ -391,7 +391,7 @@ let class_invariant
 : Lemma
   (requires True)
   (ensures (Modifies.class_invariant root_class root_class))
-  [SMTPat (Modifies.class_invariant root_class root_class)]
+//  [SMTPat (Modifies.class_invariant root_class root_class)]
 = let s: Modifies.class_invariant_body u#0 u#1 root_class root_class = {
     Modifies.preserved_refl =  (fun _ _ -> ());
     Modifies.preserved_trans = (fun _ _ _ _ -> ());
@@ -446,8 +446,9 @@ let class_invariant
   in
   (Modifies.class_invariant_intro s)
 
-let class: Modifies.class root_class 0 object = root_class
+let class: Modifies.class root_class 0 object = class_invariant () ; root_class
 
+(*
 let class_eq
   ()
 : Lemma
@@ -455,6 +456,7 @@ let class_eq
   (ensures (class == root_class))
   [SMTPatOr [[SMTPat class]; [SMTPat root_class]]]
 = ()
+*)
 
 let locset_of_reference
   (#t: Type)
@@ -518,7 +520,7 @@ let locset_of_region_with_liveness_disjoint
 : Lemma
   (requires (reg1 <> reg2))
   (ensures (Modifies.locset_disjoint u#0 u#1 (locset_of_region_with_liveness reg1) (locset_of_region_with_liveness reg2)))
-  [SMTPatT (reg1 <> reg2)]
+  [SMTPat (reg1 <> reg2)]
 = Classical.forall_intro (mem_locset_of_region reg1);
   Classical.forall_intro (mem_locset_of_region reg2)
 
@@ -527,6 +529,7 @@ let locset_of_region_liveness_tag_subset_locset_of_region_with_liveness
 : Lemma
   (requires True)
   (ensures (locset_of_region_liveness_tag r `TSet.subset` locset_of_region_with_liveness r))
+  [SMTPat (locset_of_region_liveness_tag r `TSet.subset` locset_of_region_with_liveness r)]
 = ()
 
 let locset_of_region_liveness_tag_disjoint_locset_of_region
@@ -534,6 +537,7 @@ let locset_of_region_liveness_tag_disjoint_locset_of_region
 : Lemma
   (requires True)
   (ensures (locset_of_region_liveness_tag r1 `Modifies.locset_disjoint` locset_of_region r2))
+  [SMTPat (locset_of_region_liveness_tag r1 `Modifies.locset_disjoint` locset_of_region r2)]
 = Classical.forall_intro (mem_locset_of_region r2)
 
 private let test_1
@@ -543,18 +547,18 @@ private let test_1
   (r2: reference t2)
   (h1 h2 h3: mem)
 : Lemma
-  (requires (Modifies.modifies u#0 u#1 (locset_of_reference r1) h1 h2 /\ Modifies.modifies u#0 u#1 (locset_of_reference r2) h2 h3 /\ frameOf r1 == reg /\ frameOf r2 == reg))
-  (ensures (Modifies.modifies u#0 u#1 (locset_of_region reg) h1 h3))
+  (requires (Modifies.modifies (locset_of_reference r1) h1 h2 /\ Modifies.modifies (locset_of_reference r2) h2 h3 /\ frameOf r1 == reg /\ frameOf r2 == reg))
+  (ensures (Modifies.modifies (locset_of_region reg) h1 h3))
 = ()
 
 let modifies_locset_of_reference_intro #a (h:mem) (x:reference a) (v:a) : Lemma
   (requires (contains h x))
   (ensures (contains h x
-	    /\ Modifies.modifies u#0 u#1 (locset_of_reference x) h (upd h x v)
+	    /\ Modifies.modifies (locset_of_reference x) h (upd h x v)
 	    /\ sel (upd h x v) x == v ))
   [SMTPat (upd h x v); SMTPatT (contains h x)]
-  = Modifies.modifies_intro u#0 u#1 (locset_of_reference x) h (upd h x v) (fun ty l c o g ->
-      Modifies.modifies_loc_refines_0 u#0 u#1 class (ObjectReference _ x) h (upd h x v) (fun o' _ -> ()) c o (g (Modifies.loc_of_object class (ObjectReference _ x)))
+  = Modifies.modifies_intro (locset_of_reference x) h (upd h x v) (fun ty l c o g ->
+      Modifies.modifies_loc_refines_0 class (ObjectReference _ x) h (upd h x v) (fun o' _ -> ()) c o (g (Modifies.loc_of_object class (ObjectReference _ x)))
     )
 
 let modifies_locset_of_reference_elim
@@ -574,4 +578,15 @@ let modifies_locset_of_region_liveness_tag_elim
 : Lemma
   (requires (Modifies.modifies s h h' /\ Modifies.locset_disjoint (locset_of_region_liveness_tag x) s))
   (ensures (live_region h x ==> live_region h' x))
+= ()
+
+let modifies_reference_elim
+  (#t: Type)
+  (r: reference t)
+  (s: Modifies.locset root_class)
+  (h h': mem)
+: Lemma
+  (requires (Modifies.modifies s h h' /\ Modifies.locset_disjoint (locset_of_reference r) s))
+  (ensures (contains h r ==> (contains h' r /\ sel h' r == sel h r)))
+  [SMTPatT (Modifies.modifies s h h'); SMTPatT (Modifies.locset_disjoint (locset_of_reference r) s)]
 = ()
