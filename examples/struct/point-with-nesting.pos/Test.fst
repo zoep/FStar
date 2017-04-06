@@ -1,7 +1,7 @@
 module Test
 
 module DM = FStar.DependentMap
-module S  = FStar.BufferNG
+module S  = FStar.Pointer
 module HST = FStar.ST
 
 type point_fd =
@@ -35,7 +35,7 @@ let flip
   (ensures (fun h0 _ h1 -> 
       S.live h0 p
     /\ S.live h1 p
-    /\ S.modifies_1 p h0 h1
+    /\ Modifies.modifies (S.locset_of_pointer p) h0 h1
     /\ S.gread h1 (S.gfield (S.gfield p Carrier) X) == S.gread h0 (S.gfield (S.gfield p Carrier) Y)
     /\ S.gread h1 (S.gfield (S.gfield p Carrier) Y) == S.gread h0 (S.gfield (S.gfield p Carrier) X)
     /\ S.gread h1 (S.gfield p Color) == not (S.gread h0 (S.gfield p Color))
@@ -44,9 +44,9 @@ let flip
   let x = S.read (S.field pt X) in
   let y = S.read (S.field pt Y) in
   let color = S.read (S.field p Color) in
-  S.write (S.field pt X) y;
-  S.write (S.field pt Y) x;
-  S.write (S.field p Color) (not color)
+  S.write' (S.field pt X) y;
+  S.write' (S.field pt Y) x;
+  S.write' (S.field p Color) (not color)
 
 let flip'
   (p: colored_point)
@@ -55,7 +55,7 @@ let flip'
   (ensures (fun h0 _ h1 -> 
       S.live h0 p
     /\ S.live h1 p
-    /\ S.modifies_1 p h0 h1
+    /\ Modifies.modifies (S.locset_of_pointer p) h0 h1
     /\ S.gread h1 (S.gfield (S.gfield p Carrier) X) == S.gread h0 (S.gfield (S.gfield p Carrier) Y)
     /\ S.gread h1 (S.gfield (S.gfield p Carrier) Y) == S.gread h0 (S.gfield (S.gfield p Carrier) X)
     /\ S.gread h1 (S.gfield p Color) == not (S.gread h0 (S.gfield p Color))
@@ -63,7 +63,7 @@ let flip'
 = let pt = S.field p Carrier in
   let x = S.read (S.field pt X) in
   let y = S.read (S.field pt Y) in
-  S.write (S.field pt X) y;
-  S.write (S.field pt Y) x;
+  S.write' (S.field pt X) y;
+  S.write' (S.field pt Y) x;
   let color = S.read (S.field p Color) in
-  S.write (S.field p Color) (not color)
+  S.write' (S.field p Color) (not color)

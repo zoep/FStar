@@ -2,6 +2,7 @@ module JSONParser.Impl
 
 module Spec = JSONParser.Spec
 
+(*
 type char = Spec.char
 type string = Spec.string
 

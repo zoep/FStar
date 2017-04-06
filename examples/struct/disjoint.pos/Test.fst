@@ -1,8 +1,7 @@
 module Test
 
-
 module DM = FStar.DependentMap
-module S  = FStar.BufferNG
+module S  = FStar.Pointer
 module HST = FStar.ST
 
 type fields =
@@ -24,10 +23,10 @@ let callee
   (ensures (fun h z h' ->
     S.live h pfrom /\ S.live h pto /\
     S.live h' pfrom /\ S.live h' pto /\
-    S.modifies_1 (S.gfield pto I) h h' /\
+    Modifies.modifies (S.locset_of_pointer (S.gfield pto I)) h h' /\
     S.gread h (S.gfield pfrom I) == z /\
     S.gread h' (S.gfield pto I) == z + 1))
-= S.write (S.field pto I) (S.read (S.field pfrom I) + 1);
+= S.write' (S.field pto I) (S.read (S.field pfrom I) + 1);
   S.read (S.field pfrom I)
 
 type more_fields =
