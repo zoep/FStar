@@ -1846,7 +1846,7 @@ let modifies_pointer_elim
 : Lemma
   (requires (Modifies.modifies s h h' /\ Modifies.locset_disjoint (locset_of_pointer p) s))
   (ensures (live h p ==> live h' p /\ gread h' p == gread h p))
-  [SMTPat (Modifies.modifies s h h'); SMTPat (Modifies.locset_disjoint (locset_of_pointer p) s)]
+  [SMTPatOr [ [ SMTPatT (Modifies.modifies s h h') ; SMTPatT (gread h' p) ] ; [ SMTPatT (Modifies.modifies s h h') ; SMTPatT (live h p) ] ] ] // inspired froj no_upd_lemma_1
 = ()
 
 let locset_of_pointer_disjoint
@@ -1858,3 +1858,13 @@ let locset_of_pointer_disjoint
   [SMTPatOr [[SMTPat (disjoint p1 p2)]; [SMTPat (Modifies.locset_disjoint (locset_of_pointer p1) (locset_of_pointer p2))]]]
 = ()
   
+let locset_of_pointer_includes
+  (#t1: Type)
+  (p1: pointer t1)
+  (#t2: Type)
+  (p2: pointer t2)
+: Lemma
+  (requires (includes p1 p2))
+  (ensures (Modifies.locset_includes (locset_of_pointer p1) (locset_of_pointer p2)))
+  [SMTPatOr [[SMTPatT (includes p1 p2)]; [SMTPat (Modifies.locset_includes (locset_of_pointer p1) (locset_of_pointer p2))]]]
+= ()
