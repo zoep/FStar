@@ -1532,6 +1532,7 @@ noeq type object =
 | Object:
     (#t: Type) ->
     (obj: pointer t) ->
+    (with_contents: bool) ->
     object
 
 abstract
@@ -1539,6 +1540,14 @@ let object_ancestor
   (o: object)
 : Tot HyperStack.object
 = HyperStack.ObjectReference _ (Pointer?.content (Object?.obj o))
+
+abstract
+let object_ancestor_with_contents_eq
+  (#t: Type)
+  (p: pointer t)
+: Lemma
+  (object_ancestor (Object p true) == object_ancestor (Object p false))
+= ()
 
 let as_aref_object_ancestor
   (o: object)
@@ -1563,10 +1572,11 @@ let object_ancestor_gfield
   (#value: (key -> Tot Type))
   (p: pointer (DM.t key value))
   (fd: key)
+  (b: bool)
 : Lemma
   (requires True)
-  (ensures (object_ancestor (Object (gfield p fd)) == object_ancestor (Object p)))
-  [SMTPat (object_ancestor (Object (gfield p fd)))]
+  (ensures (object_ancestor (Object (gfield p fd) b) == object_ancestor (Object p b)))
+  [SMTPat (object_ancestor (Object (gfield p fd) b))]
 = ()
 
 let object_ancestor_gcell
@@ -1574,16 +1584,17 @@ let object_ancestor_gcell
   (#value: Type)
   (p: pointer (array length value))
   (i: UInt32.t {UInt32.v i < UInt32.v length})
+  (b: bool)
 : Lemma
   (requires True)
-  (ensures (object_ancestor (Object (gcell p i)) == object_ancestor (Object p)))
-  [SMTPat (object_ancestor (Object (gcell p i)))]
+  (ensures (object_ancestor (Object (gcell p i) b) == object_ancestor (Object p b)))
+  [SMTPat (object_ancestor (Object (gcell p i) b))]
 = ()
 
 let object_disjoint
   (o1 o2: object)
 : Tot Type0
-= disjoint (Object?.obj o1) (Object?.obj o2)
+= disjoint (Object?.obj o1) (Object?.obj o2) \/ Object?.with_contents o1 <> Object?.with_contents o2
 
 let object_live
   (h: HS.mem)
@@ -1599,11 +1610,11 @@ let object_preserved
   (p: object)
   (h1 h2: HS.mem)
 : Tot Type0
-= (object_live h1 p ==> (object_live h2 p /\ gread h2 (Object?.obj p) == gread h1 (Object?.obj p)))
+= (object_live h1 p ==> (object_live h2 p /\ (Object?.with_contents p ==> gread h2 (Object?.obj p) == gread h1 (Object?.obj p))))
 
 let object_includes
   (o1 o2: object)
-= includes (Object?.obj o1) (Object?.obj o2)
+= includes (Object?.obj o1) (Object?.obj o2) /\ Object?.with_contents o1 == Object?.with_contents o2
 
 let class': Modifies.class' HS.mem 1 object =
   Modifies.Class
@@ -1687,7 +1698,7 @@ let class_invariant ()
 	  (p1: pointer t1)
 	  (p2: pointer t2 { includes p1 p2 } )
 	: GTot Type0
-	= (Modifies.Class?.preserved class' (Object p1) hbefore hafter ==> Modifies.Class?.preserved class' (Object p2) hbefore hafter)
+	= (forall b . Modifies.Class?.preserved class' (Object p1 b) hbefore hafter ==> Modifies.Class?.preserved class' (Object p2 b) hbefore hafter)
 	in
 	let h_field
 	  (#key: eqtype)
@@ -1760,30 +1771,77 @@ let locset_of_pointer
   (#t: Type)
   (p: pointer t)
 : Tot (Modifies.locset HS.root_class)
-= Modifies.locset_of_object class (Object p)
+= Modifies.locset_of_object class (Object p true)
 
-let locset_of_reference_ancestor_includes_locset_of_pointer
+let locset_of_pointer_liveness_tag
+  (#t: Type)
+  (p: pointer t)
+: Tot (Modifies.locset HS.root_class)
+= Modifies.locset_of_object class (Object p false)
+
+let locset_of_pointer_disjoint_locset_of_pointer_liveness_tag
+  (#t1: Type)
+  (p1: pointer t1)
+  (#t2: Type)
+  (p2: pointer t2)
+: Lemma
+  (requires True)
+  (ensures (Modifies.locset_disjoint (locset_of_pointer p1) (locset_of_pointer_liveness_tag p2)))
+  [SMTPat (Modifies.locset_disjoint (locset_of_pointer p1) (locset_of_pointer_liveness_tag p2))]
+= ()
+
+let locset_of_pointer_with_liveness
+  (#t: Type)
+  (p: pointer t)
+: Tot (Modifies.locset HS.root_class)
+= TSet.union (locset_of_pointer p) (locset_of_pointer_liveness_tag p)
+
+let locset_of_pointer_with_liveness_includes_locset_of_pointer
   (#t: Type)
   (p: pointer t)
 : Lemma
   (requires True)
-  (ensures (Modifies.locset_of_object HS.class (object_ancestor (Object p)) `Modifies.locset_includes` (locset_of_pointer p)))
-  [SMTPat (Modifies.locset_of_object HS.class (object_ancestor (Object p)) `Modifies.locset_includes` (locset_of_pointer p))]
-= let o = object_ancestor (Object p) in
+  (ensures (Modifies.locset_includes (locset_of_pointer_with_liveness p) (locset_of_pointer p)))
+  [SMTPat (Modifies.locset_includes (locset_of_pointer_with_liveness p) (locset_of_pointer p))]
+= ()
+
+let locset_of_pointer_with_liveness_includes_locset_of_pointer_liveness_tag
+  (#t: Type)
+  (p: pointer t)
+: Lemma
+  (requires True)
+  (ensures (Modifies.locset_includes (locset_of_pointer_with_liveness p) (locset_of_pointer_liveness_tag p)))
+  [SMTPat (Modifies.locset_includes (locset_of_pointer_with_liveness p) (locset_of_pointer_liveness_tag p))]
+= ()
+
+let locset_of_reference_ancestor_includes_locset_of_pointer_with_liveness
+  (#t: Type)
+  (p: pointer t)
+  (b: bool)
+: Lemma
+  (requires True)
+  (ensures (Modifies.locset_of_object HS.class (object_ancestor (Object p b)) `Modifies.locset_includes` (locset_of_pointer_with_liveness p)))
+  [SMTPat (Modifies.locset_of_object HS.class (object_ancestor (Object p b)) `Modifies.locset_includes` (locset_of_pointer_with_liveness p))]
+= let o = object_ancestor (Object p b) in
   let s = Modifies.locset_of_object HS.class o in
-  Modifies.locset_includes_loc_ancestors s class (Object p) (fun _ ->
+  let f b' : Lemma
+  (Modifies.locset_includes_loc (Modifies.locset_of_object HS.class (object_ancestor (Object p b))) (Modifies.loc_of_object class (Object p b')))
+  =
+  Modifies.locset_includes_loc_ancestors s class (Object p b') (fun _ ->
     Modifies.locset_includes_loc_object s HS.class o o
   )
+  in
+  f false; f true
 
-let locset_of_region_includes_locset_of_pointer
+let locset_of_region_includes_locset_of_pointer_with_liveness
   (#t: Type u#0)
   (p: pointer t)
 : Lemma
   (requires True)
-  (ensures (Modifies.locset_includes (HS.locset_of_region (frameOf p)) (locset_of_pointer p)))
-  [SMTPat (Modifies.locset_includes (HS.locset_of_region (frameOf p)) (locset_of_pointer p))]
-= HS.locset_of_reference_subset_locset_of_region (frameOf p) (HS.ObjectReference?.r (object_ancestor (Object p)));
-  locset_of_reference_ancestor_includes_locset_of_pointer p
+  (ensures (Modifies.locset_includes (HS.locset_of_region (frameOf p)) (locset_of_pointer_with_liveness p)))
+  [SMTPat (Modifies.locset_includes (HS.locset_of_region (frameOf p)) (locset_of_pointer_with_liveness p))]
+= HS.locset_of_reference_subset_locset_of_region (frameOf p) (HS.ObjectReference?.r (object_ancestor (Object p false)));
+  locset_of_reference_ancestor_includes_locset_of_pointer_with_liveness p false
 
 abstract val write': #a:Type -> b:pointer a -> z:a -> Stack unit
   (requires (fun h -> live h b))
@@ -1817,9 +1875,9 @@ let write' #a b z =
 	(c: Modifies.class HS.root_class level ty)
 	(o: ty)
 	(f: (
-	  (i: nat { i < Modifies.Class?.ancestor_count class (Object b) } ) ->
+	  (i: nat { i < Modifies.Class?.ancestor_count class (Object b true) } ) ->
 	  Lemma
-	  (Modifies.loc_disjoint (Modifies.loc_of_object c o) (Modifies.loc_of_object (Modifies.Class?.ancestor_classes class (Object b) i) (Modifies.Class?.ancestor_objects class (Object b) i)))
+	  (Modifies.loc_disjoint (Modifies.loc_of_object c o) (Modifies.loc_of_object (Modifies.Class?.ancestor_classes class (Object b true) i) (Modifies.Class?.ancestor_objects class (Object b true) i)))
         ))
       : Lemma
 	(Modifies.Class?.preserved c o h h')
@@ -1827,12 +1885,12 @@ let write' #a b z =
       in  
       let f1
         (o1': object)
-        (j: squash (Modifies.Class?.disjoint class (Object b) o1'))
+        (j: squash (Modifies.Class?.disjoint class (Object b true) o1'))
       : Lemma
         (Modifies.Class?.preserved class o1' h h')
       = ()
       in
-      Modifies.modifies_loc_refines class (Object b) h h' f0 f1 c o (g (Modifies.loc_of_object class (Object b)))
+      Modifies.modifies_loc_refines class (Object b true) h h' f0 f1 c o (g (Modifies.loc_of_object class (Object b true)))
     in
     Modifies.modifies_intro (locset_of_pointer b) h h' f
   in
@@ -1849,13 +1907,13 @@ let modifies_pointer_elim
   [SMTPatOr [ [ SMTPatT (Modifies.modifies s h h') ; SMTPatT (gread h' p) ] ; [ SMTPatT (Modifies.modifies s h h') ; SMTPatT (live h p) ] ] ] // inspired froj no_upd_lemma_1
 = ()
 
-let locset_of_pointer_disjoint
+let locset_of_pointer_with_liveness_disjoint
   (#t: Type)
   (p1 p2: pointer t)
 : Lemma
   (requires (disjoint p1 p2))
-  (ensures (Modifies.locset_disjoint (locset_of_pointer p1) (locset_of_pointer p2)))
-  [SMTPatOr [[SMTPat (disjoint p1 p2)]; [SMTPat (Modifies.locset_disjoint (locset_of_pointer p1) (locset_of_pointer p2))]]]
+  (ensures (Modifies.locset_disjoint (locset_of_pointer_with_liveness p1) (locset_of_pointer_with_liveness p2)))
+  [SMTPatOr [[SMTPat (disjoint p1 p2)]; [SMTPat (Modifies.locset_disjoint (locset_of_pointer_with_liveness p1) (locset_of_pointer_with_liveness p2))]]]
 = ()
   
 let locset_of_pointer_includes
@@ -1868,3 +1926,27 @@ let locset_of_pointer_includes
   (ensures (Modifies.locset_includes (locset_of_pointer p1) (locset_of_pointer p2)))
   [SMTPatOr [[SMTPatT (includes p1 p2)]; [SMTPat (Modifies.locset_includes (locset_of_pointer p1) (locset_of_pointer p2))]]]
 = ()
+
+let locset_of_pointer_liveness_tag_includes
+  (#t1: Type)
+  (p1: pointer t1)
+  (#t2: Type)
+  (p2: pointer t2)
+: Lemma
+  (requires (includes p1 p2))
+  (ensures (Modifies.locset_includes (locset_of_pointer_liveness_tag p1) (locset_of_pointer_liveness_tag p2)))
+  [SMTPatOr [[SMTPatT (includes p1 p2)]; [SMTPat (Modifies.locset_includes (locset_of_pointer_liveness_tag p1) (locset_of_pointer_liveness_tag p2))]]]
+= ()
+
+let locset_of_pointer_with_liveness_includes
+  (#t1: Type)
+  (p1: pointer t1)
+  (#t2: Type)
+  (p2: pointer t2)
+: Lemma
+  (requires (includes p1 p2))
+  (ensures (Modifies.locset_includes (locset_of_pointer_with_liveness p1) (locset_of_pointer_with_liveness p2)))
+  [SMTPatOr [[SMTPatT (includes p1 p2)]; [SMTPat (Modifies.locset_includes (locset_of_pointer_with_liveness p1) (locset_of_pointer_with_liveness p2))]]]
+= assert (Modifies.locset_includes (locset_of_pointer_with_liveness p1) (locset_of_pointer p1));
+  assert (Modifies.locset_includes (locset_of_pointer_with_liveness p1) (locset_of_pointer_liveness_tag p1))
+  // FIXME: WHY WHY WHY not automatic?

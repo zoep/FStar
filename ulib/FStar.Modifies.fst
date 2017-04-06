@@ -1422,7 +1422,7 @@ let subset_locset_includes
 : Lemma
   (requires (TSet.subset ls_small ls_big))
   (ensures (locset_includes ls_big ls_small))
-  [SMTPat (TSet.subset ls_small ls_big)]
+  [SMTPatOr [ [SMTPatT (TSet.subset ls_small ls_big)] ; [ SMTPat (locset_includes ls_big ls_small) ] ] ]
 = ()
 
 let locset_includes_union
