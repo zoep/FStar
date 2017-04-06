@@ -1430,6 +1430,21 @@ let locset_includes_loc_object
   [SMTPat (TSet.mem (loc_of_object c o1)); SMTPatT (Class?.includes c o1 o2)]
 = Squash.return_squash (LocsetIncludesObject ls c o1 o2)
 
+let locset_includes_locset_of_object
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (#level: nat)
+  (#ty: Type u#b)
+  (c: class root_class level ty)
+  (o1: ty )
+  (o2: ty )
+: Lemma
+  (requires (Class?.includes c o1 o2))
+  (ensures (locset_includes (locset_of_object c o1) (locset_of_object c o2)))
+  [SMTPat (locset_includes (locset_of_object c o1) (locset_of_object c o2))]
+= locset_includes_loc_object (locset_of_object c o1) c o1 o2
+
 let locset_includes_loc_ancestors
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -1674,6 +1689,51 @@ let locset_includes_trans
   = locset_includes_loc_trans ls0 ls1 l
   in
   Classical.forall_intro f
+
+(* Same thing, to provide the witness *)
+
+let locset_includes_trans'
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (ls1: locset root_class)
+: Lemma
+  (requires True)
+  (ensures (forall
+    (ls0: locset root_class)
+    (ls2: locset root_class)
+  .
+    (locset_includes ls0 ls1 /\ locset_includes ls1 ls2) ==>
+    locset_includes ls0 ls2
+  ))
+= let f
+    (ls0: locset root_class)
+  : Tot (
+      (ls2: locset root_class) ->
+      Lemma (
+	(locset_includes ls0 ls1 /\ locset_includes ls1 ls2) ==>
+	locset_includes ls0 ls2
+  ))
+  = let p
+      (ls2: locset root_class)
+    : Tot Type0
+    = (locset_includes ls0 ls1 /\ locset_includes ls1 ls2)
+    in
+    let q
+      (ls2: locset root_class)
+    : Tot Type0
+    = locset_includes ls0 ls2
+    in
+    let g
+      (ls2: locset root_class)
+    : Lemma
+      (requires (p ls2))
+      (ensures (q ls2))
+    = locset_includes_trans ls0 ls1 ls2
+    in
+    Classical.move_requires #_ #p #q g
+  in
+  Classical.forall_intro_2 f
 
 (*
 let locset_includes_refl
