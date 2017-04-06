@@ -385,7 +385,7 @@ let upd'
 (* Or, we can also define: *)
 
 abstract
-let rec locset_of_buffer
+let rec locset_of_buffer_contents
   (#t: Type)
   (b: buffer t)
 : Ghost (Modifies.locset HS.root_class)
@@ -397,16 +397,16 @@ let rec locset_of_buffer
   then TSet.empty
   else 
     let l' = FStar.UInt32.(l -^ 1ul) in
-    TSet.union (P.locset_of_pointer (gpointer_of_buffer_cell b 0ul)) (locset_of_buffer (gsub b 1ul l'))
+    TSet.union (P.locset_of_pointer (gpointer_of_buffer_cell b 0ul)) (locset_of_buffer_contents (gsub b 1ul l'))
 
 private
-let rec mem_locset_of_buffer_elim
+let rec mem_locset_of_buffer_contents_elim
   (#t: Type)
   (b: buffer t)
   (o: Modifies.loc HS.root_class)
 : Lemma
   (requires True)
-  (ensures (TSet.mem o (locset_of_buffer b) ==> (
+  (ensures (TSet.mem o (locset_of_buffer_contents b) ==> (
     exists i . TSet.mem o (P.locset_of_pointer (gpointer_of_buffer_cell b i))
   )))
   (decreases (UInt32.v (length b)))
@@ -415,52 +415,52 @@ let rec mem_locset_of_buffer_elim
   then ()
   else
     let l' = FStar.UInt32.(l -^ 1ul) in
-    mem_locset_of_buffer_elim (gsub b 1ul l') o
+    mem_locset_of_buffer_contents_elim (gsub b 1ul l') o
 
 private
-let rec mem_locset_of_buffer_intro
+let rec mem_locset_of_buffer_contents_intro
   (#t: Type)
   (b: buffer t)
   (i: UInt32.t { UInt32.v i < UInt32.v (length b) } )
   (o: Modifies.loc HS.root_class)
 : Lemma
   (requires True)
-  (ensures (TSet.mem o (P.locset_of_pointer (gpointer_of_buffer_cell b i)) ==> TSet.mem o (locset_of_buffer b)))
+  (ensures (TSet.mem o (P.locset_of_pointer (gpointer_of_buffer_cell b i)) ==> TSet.mem o (locset_of_buffer_contents b)))
   (decreases (UInt32.v (length b)))
 = let l = length b in
   if l = 0ul
   then ()
   else if i = 0ul
   then ()
-  else mem_locset_of_buffer_intro (gsub b 1ul (FStar.UInt32.(l -^ 1ul))) (FStar.UInt32.(i -^ 1ul)) o
+  else mem_locset_of_buffer_contents_intro (gsub b 1ul (FStar.UInt32.(l -^ 1ul))) (FStar.UInt32.(i -^ 1ul)) o
 
 abstract
-let mem_locset_of_buffer
+let mem_locset_of_buffer_contents
   (#t: Type)
   (b: buffer t)
   (o: Modifies.loc HS.root_class)
 : Lemma
   (requires True)
-  (ensures (TSet.mem o (locset_of_buffer b) <==> (
+  (ensures (TSet.mem o (locset_of_buffer_contents b) <==> (
     exists i . TSet.mem o (P.locset_of_pointer (gpointer_of_buffer_cell b i))
   )))
-  [SMTPat (TSet.mem o (locset_of_buffer b))]
-= mem_locset_of_buffer_elim b o;
+  [SMTPat (TSet.mem o (locset_of_buffer_contents b))]
+= mem_locset_of_buffer_contents_elim b o;
   Classical.forall_intro (let f i : Lemma (ensures (
-    TSet.mem o (P.locset_of_pointer (gpointer_of_buffer_cell b i)) ==> TSet.mem o (locset_of_buffer b)
+    TSet.mem o (P.locset_of_pointer (gpointer_of_buffer_cell b i)) ==> TSet.mem o (locset_of_buffer_contents b)
   ))
-  = mem_locset_of_buffer_intro b i o in f)
+  = mem_locset_of_buffer_contents_intro b i o in f)
 
 abstract
-let locset_of_buffer_includes_locset_of_pointer_gpointer_of_buffer_cell
+let locset_of_buffer_contents_includes_locset_of_pointer_gpointer_of_buffer_cell
   (#t: Type)
   (b: buffer t)
   (i: UInt32.t { UInt32.v i < UInt32.v (length b) } )
 : Lemma
   (requires True)
-  (ensures (Modifies.locset_includes (locset_of_buffer b) (P.locset_of_pointer (gpointer_of_buffer_cell b i))))
-  [SMTPat (Modifies.locset_includes (locset_of_buffer b) (P.locset_of_pointer (gpointer_of_buffer_cell b i)))]
-= Classical.forall_intro (mem_locset_of_buffer_intro b i)
+  (ensures (Modifies.locset_includes (locset_of_buffer_contents b) (P.locset_of_pointer (gpointer_of_buffer_cell b i))))
+  [SMTPat (Modifies.locset_includes (locset_of_buffer_contents b) (P.locset_of_pointer (gpointer_of_buffer_cell b i)))]
+= Classical.forall_intro (mem_locset_of_buffer_contents_intro b i)
 
 #reset-options "--z3rlimit 32"
 
@@ -474,7 +474,7 @@ let upd''
   (requires (fun h -> live h b))
   (ensures (fun h _ h' ->
     live h b /\    
-    Modifies.modifies (locset_of_buffer b) h h' /\
+    Modifies.modifies (locset_of_buffer_contents b) h h' /\
     gindex h' b i == v /\ (
       forall (i': UInt32.t { UInt32.v i' < UInt32.v (length b) } ) .
       i' <> i ==> gindex h' b i' == gindex h b i'
@@ -482,17 +482,17 @@ let upd''
  = upd' b i v
 
 abstract
-let locset_includes_singleton_buffer_of_pointer
+let locset_includes_locset_of_buffer_contents_singleton_buffer_of_pointer
   (#t: Type)
   (p: P.pointer t)
 : Lemma
   (requires True)
-  (ensures (Modifies.locset_includes (P.locset_of_pointer p) (locset_of_buffer (singleton_buffer_of_pointer p))))
-  [SMTPat (Modifies.locset_includes (P.locset_of_pointer p) (locset_of_buffer (singleton_buffer_of_pointer p)))]
+  (ensures (Modifies.locset_includes (P.locset_of_pointer p) (locset_of_buffer_contents (singleton_buffer_of_pointer p))))
+  [SMTPat (Modifies.locset_includes (P.locset_of_pointer p) (locset_of_buffer_contents (singleton_buffer_of_pointer p)))]
 = ()
 
 private
-let rec locset_includes_buffer_of_array_pointer_aux
+let rec locset_includes_locset_of_buffer_contents_buffer_of_array_pointer_aux
   (#t: Type)
   (#length: UInt32.t)
   (p: P.pointer (P.array length t))
@@ -500,24 +500,84 @@ let rec locset_includes_buffer_of_array_pointer_aux
   (len' : UInt32.t { UInt32.v i' + UInt32.v len' <= UInt32.v length } )
 : Lemma
   (requires True)
-  (ensures (Modifies.locset_includes (P.locset_of_pointer p) (locset_of_buffer (gsub (buffer_of_array_pointer p) i' len'))))
+  (ensures (Modifies.locset_includes (P.locset_of_pointer p) (locset_of_buffer_contents (gsub (buffer_of_array_pointer p) i' len'))))
   (decreases (UInt32.v len'))
 = if len' = 0ul
   then ()
   else let len'' = FStar.UInt32.(len' -^ 1ul) in
        let i'' = FStar.UInt32.(i' +^ 1ul) in
-       locset_includes_buffer_of_array_pointer_aux p i'' len''
+       locset_includes_locset_of_buffer_contents_buffer_of_array_pointer_aux p i'' len''
 
 abstract
-let locset_includes_buffer_of_array_pointer
+let locset_includes_locset_of_buffer_contents_buffer_of_array_pointer
   (#t: Type)
   (#length: UInt32.t)
   (p: P.pointer (P.array length t))
 : Lemma
   (requires True)
-  (ensures (Modifies.locset_includes (P.locset_of_pointer p) (locset_of_buffer (buffer_of_array_pointer p))))
-  [SMTPat (Modifies.locset_includes  (P.locset_of_pointer p) (locset_of_buffer (buffer_of_array_pointer p)))]
-= locset_includes_buffer_of_array_pointer_aux p 0ul length  
+  (ensures (Modifies.locset_includes (P.locset_of_pointer p) (locset_of_buffer_contents (buffer_of_array_pointer p))))
+  [SMTPat (Modifies.locset_includes  (P.locset_of_pointer p) (locset_of_buffer_contents (buffer_of_array_pointer p)))]
+= locset_includes_locset_of_buffer_contents_buffer_of_array_pointer_aux p 0ul length  
+
+abstract
+let locset_of_buffer_liveness_tag
+  (#t: Type)
+  (b: buffer t)
+: GTot (Modifies.locset HS.root_class)
+= match b.broot with
+  | BufferRootSingleton p -> P.locset_of_pointer_liveness_tag p
+  | BufferRootArray p -> P.locset_of_pointer_liveness_tag p
+
+abstract
+let locset_disjoint_locset_of_buffer_liveness_tag_locset_of_buffer_contents
+  (#t1: Type)
+  (b1: buffer t1)
+  (#t2: Type)
+  (b2: buffer t2)
+: Lemma
+  (requires True)
+  (ensures (Modifies.locset_disjoint (locset_of_buffer_contents b1) (locset_of_buffer_liveness_tag b2)))
+  [SMTPat (Modifies.locset_disjoint (locset_of_buffer_contents b1) (locset_of_buffer_liveness_tag b2))]
+= ()
+
+abstract
+let locset_of_buffer_liveness_tag_singleton_buffer_of_pointer
+  (#t: Type)
+  (p: P.pointer t)
+: Lemma
+  (requires True)
+  (ensures (locset_of_buffer_liveness_tag (singleton_buffer_of_pointer p) == P.locset_of_pointer_liveness_tag p))
+  [SMTPat (locset_of_buffer_liveness_tag (singleton_buffer_of_pointer p))]
+= ()
+
+abstract
+let locset_includes_locset_of_buffer_contents_buffer_of_array_pointer
+  (#t: Type)
+  (#length: UInt32.t)
+  (p: P.pointer (P.array length t))
+: Lemma
+  (requires True)
+  (ensures (locset_of_buffer_liveness_tag (buffer_of_array_pointer p) == P.locset_of_pointer_liveness_tag p))
+  [SMTPat (locset_of_buffer_liveness_tag (buffer_of_array_pointer p))]
+= ()
+
+abstract
+let locset_of_buffer_liveness_tag_gsub
+  (#t: Type)
+  (b: buffer t)
+  (i: UInt32.t)
+  (len: UInt32.t { UInt32.v i + UInt32.v len <= UInt32.v (length b) } )
+: Lemma
+  (requires True)
+  (ensures (locset_of_buffer_liveness_tag (gsub b i len) == locset_of_buffer_liveness_tag b))
+  [SMTPat (locset_of_buffer_liveness_tag (gsub b i len))]
+= ()
+
+let locset_of_buffer
+  (#t: Type)
+  (b: buffer t)
+: GTot (Modifies.locset HS.root_class)
+= TSet.union (locset_of_buffer_contents b) (locset_of_buffer_liveness_tag b)
 
 abstract
 let includes
@@ -569,45 +629,59 @@ let includes_elim
 = assert (b_small == gsub b_big FStar.UInt32.(b_small.bidx -^ b_big.bidx) b_small.blength)
 
 private
-let rec locset_includes_gsub_aux
+let rec locset_includes_locset_of_buffer_contents_gsub_aux
   (#t: Type)
   (b: buffer t)
   (i: UInt32.t)
   (len: UInt32.t { UInt32.v i + UInt32.v len <= UInt32.v (length b) } )
 : Lemma
   (requires True)
-  (ensures (Modifies.locset_includes (locset_of_buffer b) (locset_of_buffer (gsub b i len))))
+  (ensures (Modifies.locset_includes (locset_of_buffer_contents b) (locset_of_buffer_contents (gsub b i len))))
   (decreases (UInt32.v len))
 = if len = 0ul
   then ()
-  else locset_includes_gsub_aux b FStar.UInt32.(i +^ 1ul) FStar.UInt32.(len -^ 1ul)
+  else locset_includes_locset_of_buffer_contents_gsub_aux b FStar.UInt32.(i +^ 1ul) FStar.UInt32.(len -^ 1ul)
 
 abstract
-let locset_includes_gsub
+let locset_includes_locset_of_buffer_contents_gsub
   (#t: Type)
   (b: buffer t)
   (i: UInt32.t)
   (len: UInt32.t { UInt32.v i + UInt32.v len <= UInt32.v (length b) } )
 : Lemma
   (requires True)
-  (ensures (Modifies.locset_includes (locset_of_buffer b) (locset_of_buffer (gsub b i len))))
-  [SMTPat (Modifies.locset_includes (locset_of_buffer b) (locset_of_buffer (gsub b i len)))]
-= locset_includes_gsub_aux b i len
+  (ensures (Modifies.locset_includes (locset_of_buffer_contents b) (locset_of_buffer_contents (gsub b i len))))
+  [SMTPat (Modifies.locset_includes (locset_of_buffer_contents b) (locset_of_buffer_contents (gsub b i len)))]
+= locset_includes_locset_of_buffer_contents_gsub_aux b i len
 
 abstract
-let includes_locset_includes
+let includes_locset_includes_locset_of_buffer_contents
+  (#t: Type)
+  (b_big b_small: buffer t)
+: Lemma
+  (requires (includes b_big b_small))
+  (ensures (Modifies.locset_includes (locset_of_buffer_contents b_big) (locset_of_buffer_contents b_small)))
+  [SMTPatOr [ [ SMTPat (Modifies.locset_includes (locset_of_buffer_contents b_big) (locset_of_buffer_contents b_small)) ] ; [ SMTPatT (includes b_big b_small) ] ] ]
+= includes_elim b_big b_small
+
+abstract
+let includes_locset_includes_locset_of_buffer
   (#t: Type)
   (b_big b_small: buffer t)
 : Lemma
   (requires (includes b_big b_small))
   (ensures (Modifies.locset_includes (locset_of_buffer b_big) (locset_of_buffer b_small)))
-  [SMTPatOr [ [ SMTPat (Modifies.locset_includes (locset_of_buffer b_big) (locset_of_buffer b_small)) ] ; [ SMTPatT (includes b_big b_small) ] ] ]
-= includes_elim b_big b_small
+//  [SMTPat (Modifies.locset_includes (locset_of_buffer b_big) (locset_of_buffer b_small))]
+= assert (Modifies.locset_includes (locset_of_buffer b_big) (locset_of_buffer_contents b_big));
+  assert (Modifies.locset_includes (locset_of_buffer b_big) (locset_of_buffer_liveness_tag b_big))
+  // FIXME: WHY WHY WHY not automatic?
 
 (* Let's not define disjointness, and use the general definition instead. *)
 
+// FIXME: WHY WHY WHY does the following take SO long to verify?
+
 private
-let rec locset_disjoint_gsub_gpointer_of_buffer_cell
+let rec locset_disjoint_gpointer_of_buffer_cell_locset_of_buffer_contents_gsub
   (#t: Type)
   (b: buffer t)
   (i1: UInt32.t)
@@ -615,11 +689,11 @@ let rec locset_disjoint_gsub_gpointer_of_buffer_cell
   (i2: UInt32.t)
 : Lemma
   (requires (UInt32.v i1 + UInt32.v len1 <= UInt32.v i2 /\ UInt32.v i2 < UInt32.v (length b)))
-  (ensures (UInt32.v i1 + UInt32.v len1 <= UInt32.v i2 /\ UInt32.v i2 < UInt32.v (length b)) /\ Modifies.locset_disjoint (P.locset_of_pointer (gpointer_of_buffer_cell b i2)) (locset_of_buffer (gsub b i1 len1)))
+  (ensures (UInt32.v i1 + UInt32.v len1 <= UInt32.v i2 /\ UInt32.v i2 < UInt32.v (length b)) /\ Modifies.locset_disjoint (P.locset_of_pointer (gpointer_of_buffer_cell b i2)) (locset_of_buffer_contents (gsub b i1 len1)))
   (decreases (UInt32.v len1))
 = if len1 = 0ul
   then ()
-  else locset_disjoint_gsub_gpointer_of_buffer_cell b  FStar.UInt32.(i1 +^ 1ul) FStar.UInt32.(len1 -^ 1ul) i2
+  else locset_disjoint_gpointer_of_buffer_cell_locset_of_buffer_contents_gsub b FStar.UInt32.(i1 +^ 1ul) FStar.UInt32.(len1 -^ 1ul) i2
 
 private
 let rec locset_disjoint_gsub_aux
@@ -631,7 +705,7 @@ let rec locset_disjoint_gsub_aux
   (len2: UInt32.t)
 : Lemma
   (requires (UInt32.v i1 + UInt32.v len1 <= UInt32.v i2 /\ UInt32.v i2 + UInt32.v len2 <= UInt32.v (length b)))
-  (ensures (UInt32.v i1 + UInt32.v len1 <= UInt32.v i2 /\ UInt32.v i2 + UInt32.v len2 <= UInt32.v (length b) /\ Modifies.locset_disjoint (locset_of_buffer (gsub b i1 len1)) (locset_of_buffer (gsub b i2 len2))))
+  (ensures (UInt32.v i1 + UInt32.v len1 <= UInt32.v i2 /\ UInt32.v i2 + UInt32.v len2 <= UInt32.v (length b) /\ Modifies.locset_disjoint (locset_of_buffer_contents (gsub b i1 len1)) (locset_of_buffer_contents (gsub b i2 len2))))
   (decreases (UInt32.v len2))
 = if len2 = 0ul
   then ()
@@ -648,8 +722,8 @@ let rec locset_disjoint_gsub_right
   (len2: UInt32.t { UInt32.v i2 + UInt32.v len2 <= UInt32.v (length b) })
 : Lemma
   (requires (UInt32.v i1 + UInt32.v len1 <= UInt32.v i2 \/ UInt32.v i2 + UInt32.v len2 <= UInt32.v i1))
-  (ensures (Modifies.locset_disjoint (locset_of_buffer (gsub b i1 len1)) (locset_of_buffer (gsub b i2 len2))))
-  [SMTPat (Modifies.locset_disjoint (locset_of_buffer (gsub b i1 len1)) (locset_of_buffer (gsub b i2 len2)))]
+  (ensures (Modifies.locset_disjoint (locset_of_buffer_contents (gsub b i1 len1)) (locset_of_buffer_contents (gsub b i2 len2))))
+  [SMTPat (Modifies.locset_disjoint (locset_of_buffer_contents (gsub b i1 len1)) (locset_of_buffer_contents (gsub b i2 len2)))]
 = Classical.move_requires (locset_disjoint_gsub_aux b i1 len1 i2) len2;
   Classical.move_requires (locset_disjoint_gsub_aux b i2 len2 i1) len1
 
@@ -660,7 +734,7 @@ let modifies_buffer_elim
   (s: Modifies.locset HS.root_class)
   (h h': HS.mem)
 : Lemma
-  (requires (Modifies.modifies s h h' /\ Modifies.locset_disjoint (locset_of_buffer b) s))
+  (requires (Modifies.modifies s h h' /\ Modifies.locset_disjoint (locset_of_buffer_contents b) s))
   (ensures (live h b ==> live h' b /\ as_seq h' b == as_seq h b))
   [ SMTPatT (Modifies.modifies s h h') ; SMTPatT (live h b) ] // inspired froj no_upd_lemma_1
 = Seq.lemma_eq_elim (as_seq h' b) (as_seq h b)
