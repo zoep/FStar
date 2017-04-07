@@ -272,3 +272,11 @@ let modifies_reference_elim
   (ensures (contains h r ==> (contains h' r /\ sel h' r == sel h r)))
   [SMTPatT (Modifies.modifies s h h'); SMTPatT (Modifies.locset_disjoint (locset_of_reference r) s)]
 = ()
+
+(* For the purpose of universe resolution, etc. *)
+
+let modifies'
+  (s: Modifies.locset root_class)
+  (h h': mem)
+: Tot Type0
+= Modifies.modifies s h h'

@@ -1152,7 +1152,7 @@ let modifies_trans
 : Lemma
   (requires (modifies s h1 h2 /\ modifies s h2 h3))
   (ensures (modifies s h1 h3))
-  [SMTPatT u#c (modifies s h1 h2); SMTPatT (modifies s h2 h3)]
+//  [SMTPatT u#c (modifies s h1 h2); SMTPatT (modifies s h2 h3)]
 = ()
 
 (*
@@ -2014,6 +2014,19 @@ let modifies_locset_includes
   in
   modifies_intro s1 h h' f
 
+let modifies_trans_gen
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (s12 s23: locset root_class )
+  (h1 h2 h3: heap)
+: Lemma
+  (requires (modifies s12 h1 h2 /\ modifies s23 h2 h3))
+  (ensures (modifies (TSet.union s12 s23) h1 h3))
+  [SMTPatT u#c (modifies s12 h1 h2); SMTPatT (modifies s23 h2 h3)]
+= assert (locset_includes (TSet.union s12 s23) s12);
+  assert (locset_includes (TSet.union s12 s23) s23);
+  modifies_trans (TSet.union s12 s23) h1 h2 h3
+  
 (* How to refine ancestors with
 their immediate child if we know that all siblings of the child (in the
 same class) are preserved. *)
