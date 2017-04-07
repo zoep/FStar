@@ -4,7 +4,7 @@ module FStar.BufferNG
 
 module DM = FStar.DependentMap
 module HH = FStar.HyperHeap
-module HS = FStar.HyperStack
+module HS = FStar.HyperStackNG
 module HST = FStar.ST
 module P = FStar.Pointer
 

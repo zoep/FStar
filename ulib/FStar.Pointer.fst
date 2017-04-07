@@ -4,7 +4,7 @@ module FStar.Pointer
 
 module DM = FStar.DependentMap
 module HH = FStar.HyperHeap
-module HS = FStar.HyperStack
+module HS = FStar.HyperStackNG
 module HST = FStar.ST
 
 type array (length: UInt32.t) (t: Type) = (s: Seq.seq t {Seq.length s == UInt32.v length})
@@ -699,7 +699,7 @@ abstract let disjoint_roots_intro_pointer_vs_pointer
 : Lemma
   (requires (contains h p1 /\ (~ (contains h p2))))
   (ensures (frameOf p1 <> frameOf p2 \/ as_aref p1 =!= as_aref p2))
-= HyperStack.lemma_live_1 h (Pointer?.content p1) (Pointer?.content p2)
+= HS.lemma_live_1 h (Pointer?.content p1) (Pointer?.content p2)
 
 abstract let disjoint_roots_intro_pointer_vs_reference
   (#value1 value2: Type)
@@ -709,7 +709,7 @@ abstract let disjoint_roots_intro_pointer_vs_reference
 : Lemma
   (requires (contains h p1 /\ (~ (HS.contains h p2))))
   (ensures (frameOf p1 <> p2.HS.id \/ as_aref p1 =!= HS.as_aref p2))
-= HyperStack.lemma_live_1 h (Pointer?.content p1) p2
+= HS.lemma_live_1 h (Pointer?.content p1) p2
 
 abstract let disjoint_roots_intro_reference_vs_pointer
   (#value1 value2: Type)
@@ -719,7 +719,7 @@ abstract let disjoint_roots_intro_reference_vs_pointer
 : Lemma
   (requires (HS.contains h p1 /\ (~ (contains h p2))))
   (ensures (p1.HS.id <> frameOf p2 \/ HS.as_aref p1 =!= as_aref p2))
-= HyperStack.lemma_live_1 h p1 (Pointer?.content p2)
+= HS.lemma_live_1 h p1 (Pointer?.content p2)
 
 let memory_managed
   (#value: Type)
@@ -1036,7 +1036,7 @@ abstract let disjoint
   (p1: pointer value1)
   (p2: pointer value2)
 : GTot Type0
-= (frameOf p1 <> frameOf p2 \/ as_aref p1 =!= as_aref p2) \/ // disjoint references; see HyperStack.lemma_live_1
+= (frameOf p1 <> frameOf p2 \/ as_aref p1 =!= as_aref p2) \/ // disjoint references; see HS.lemma_live_1
   (Pointer?.from p1 == Pointer?.from p2 /\ Pointer?.content p1 == Pointer?.content p2 /\ path_disjoint (Pointer?.p p1) (Pointer?.p p2))
 
 abstract let disjoint_root
@@ -1538,8 +1538,8 @@ noeq type object =
 abstract
 let object_ancestor
   (o: object)
-: Tot HyperStack.object
-= HyperStack.ObjectReference _ (Pointer?.content (Object?.obj o))
+: Tot HS.object
+= HS.ObjectReference _ (Pointer?.content (Object?.obj o))
 
 abstract
 let object_ancestor_with_contents_eq
@@ -1553,7 +1553,7 @@ let as_aref_object_ancestor
   (o: object)
 : Lemma
   (requires True)
-  (ensures (HyperStack.ObjectReference? (object_ancestor o) /\ HyperStack.as_aref (HyperStack.ObjectReference?.r (object_ancestor o)) == as_aref (Object?.obj o)))
+  (ensures (HS.ObjectReference? (object_ancestor o) /\ HS.as_aref (HS.ObjectReference?.r (object_ancestor o)) == as_aref (Object?.obj o)))
 = ()
 
 (*
@@ -1562,7 +1562,7 @@ let object_ancestor_pointer_of_reference
   (r: HS.reference t)
 : Lemma
   (requires True)
-  (ensures (object_ancestor (Object (pointer_of_reference r)) == HyperStack.ObjectReference _ r))
+  (ensures (object_ancestor (Object (pointer_of_reference r)) == HS.ObjectReference _ r))
   [SMTPat (object_ancestor (Object (pointer_of_reference r)))]
 = ()
 *)
