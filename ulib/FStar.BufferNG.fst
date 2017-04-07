@@ -551,7 +551,7 @@ let locset_of_buffer_liveness_tag_singleton_buffer_of_pointer
 = ()
 
 abstract
-let locset_includes_locset_of_buffer_contents_buffer_of_array_pointer
+let locset_of_buffer_liveness_tag_buffer_of_array_pointer
   (#t: Type)
   (#length: UInt32.t)
   (p: P.pointer (P.array length t))
@@ -696,7 +696,7 @@ let rec locset_disjoint_gpointer_of_buffer_cell_locset_of_buffer_contents_gsub
   else locset_disjoint_gpointer_of_buffer_cell_locset_of_buffer_contents_gsub b FStar.UInt32.(i1 +^ 1ul) FStar.UInt32.(len1 -^ 1ul) i2
 
 private
-let rec locset_disjoint_gsub_aux
+let rec locset_disjoint_locset_of_buffer_contents_gsub_aux
   (#t: Type)
   (b: buffer t)
   (i1: UInt32.t)
@@ -709,11 +709,11 @@ let rec locset_disjoint_gsub_aux
   (decreases (UInt32.v len2))
 = if len2 = 0ul
   then ()
-  else let _ = locset_disjoint_gsub_gpointer_of_buffer_cell b i1 len1 i2 in
-       locset_disjoint_gsub_aux b i1 len1 (FStar.UInt32.(i2 +^ 1ul)) (FStar.UInt32.(len2 -^ 1ul))
+  else let _ = locset_disjoint_gpointer_of_buffer_cell_locset_of_buffer_contents_gsub b i1 len1 i2 in
+       locset_disjoint_locset_of_buffer_contents_gsub_aux b i1 len1 (FStar.UInt32.(i2 +^ 1ul)) (FStar.UInt32.(len2 -^ 1ul))
   
 abstract
-let rec locset_disjoint_gsub_right
+let rec locset_disjoint_locset_of_buffer_contents_gsub
   (#t: Type)
   (b: buffer t)
   (i1: UInt32.t)
@@ -724,17 +724,54 @@ let rec locset_disjoint_gsub_right
   (requires (UInt32.v i1 + UInt32.v len1 <= UInt32.v i2 \/ UInt32.v i2 + UInt32.v len2 <= UInt32.v i1))
   (ensures (Modifies.locset_disjoint (locset_of_buffer_contents (gsub b i1 len1)) (locset_of_buffer_contents (gsub b i2 len2))))
   [SMTPat (Modifies.locset_disjoint (locset_of_buffer_contents (gsub b i1 len1)) (locset_of_buffer_contents (gsub b i2 len2)))]
-= Classical.move_requires (locset_disjoint_gsub_aux b i1 len1 i2) len2;
-  Classical.move_requires (locset_disjoint_gsub_aux b i2 len2 i1) len1
+= Classical.move_requires (locset_disjoint_locset_of_buffer_contents_gsub_aux b i1 len1 i2) len2;
+  Classical.move_requires (locset_disjoint_locset_of_buffer_contents_gsub_aux b i2 len2 i1) len1
 
-(* # The following does not hold for buffers of length 0
-let modifies_buffer_elim
+let modifies_gindex
+  (#t: Type)
+  (b: buffer t)
+  (s: Modifies.locset HS.root_class)
+  (h h': HS.mem)
+  (i: UInt32.t { UInt32.v i < UInt32.v (length b) } )
+: Lemma
+  (requires (Modifies.modifies s h h' /\ Modifies.locset_disjoint (locset_of_buffer_contents b) s))
+  (ensures (live h b ==> live h' b /\ gindex h' b i == gindex h b i))
+  [ SMTPatT (Modifies.modifies s h h') ; SMTPat (gindex h' b) ] // inspired froj no_upd_lemma_1
+= ()
+
+abstract
+let modifies_as_seq
   (#t: Type)
   (b: buffer t)
   (s: Modifies.locset HS.root_class)
   (h h': HS.mem)
 : Lemma
-  (requires (Modifies.modifies s h h' /\ Modifies.locset_disjoint (locset_of_buffer_contents b) s))
+  (requires (Modifies.modifies s h h' /\ Modifies.locset_disjoint (locset_of_buffer b) s))
   (ensures (live h b ==> live h' b /\ as_seq h' b == as_seq h b))
-  [ SMTPatT (Modifies.modifies s h h') ; SMTPatT (live h b) ] // inspired froj no_upd_lemma_1
-= Seq.lemma_eq_elim (as_seq h' b) (as_seq h b)
+  [ SMTPatT (Modifies.modifies s h h') ; SMTPat (as_seq h' b) ] // inspired froj no_upd_lemma_1
+= assert (Modifies.locset_disjoint (locset_of_buffer_contents b) s);
+  let g
+    (i: UInt32.t { UInt32.v i < UInt32.v (length b) } )
+  : Lemma
+    (live h b ==> live h' b /\ gindex h' b i == gindex h b i)
+  = modifies_gindex b s h h' i
+  in
+  let f
+    ()
+  : Lemma
+    (requires (live h b))
+    (ensures (live h' b /\ as_seq h' b == as_seq h b))
+  =
+    assert (live h' b);
+    let u : squash (forall (i: UInt32.t { UInt32.v i < UInt32.v (length b) } ) . gindex h' b i == gindex h b i) =
+      Classical.forall_intro g
+    in
+    let v : squash (forall (i: nat { i < UInt32.v (length b) } ) . Seq.index (as_seq h' b) i == Seq.index (as_seq h b) i) =
+      assert (forall (i: nat { i < UInt32.v (length b) } ) . Seq.index (as_seq h' b) i == gindex h' b (UInt32.uint_to_t i));
+      assert (forall (i: nat { i < UInt32.v (length b) } ) . Seq.index (as_seq h b) i == gindex h b (UInt32.uint_to_t i));
+      ()
+    in
+    Seq.lemma_eq_intro (as_seq h' b) (as_seq h b);
+    Seq.lemma_eq_elim (as_seq h' b) (as_seq h b)
+  in
+  Classical.move_requires f ()
