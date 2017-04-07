@@ -5,7 +5,7 @@ include $(FSTAR_HOME)/src/gmake/fstar.mk
 
 FLAKY=FStar.Int31.fst FStar.UInt31.fst FStar.Relational.State.fst
 
-HYPERSTACK=FStar.Buffer.fst FStar.Buffer.Quantifiers.fst FStar.Monotonic.RRef.fst FStar.Monotonic.Seq.fst FStar.Struct.fst FStar.BufferNG.fst
+HYPERSTACK=FStar.Buffer.fst FStar.Buffer.Quantifiers.fst FStar.Monotonic.RRef.fst FStar.Monotonic.Seq.fst FStar.Struct.fst FStar.Pointer.fst FStar.BufferNG.fst
 
 ALL=$(filter-out $(FLAKY) $(HYPERSTACK) $(MATH),$(wildcard FStar.*.fst FStar.*.fsti))
 
@@ -57,7 +57,7 @@ m_rref:
 	$(FSTAR) FStar.Map.fst FStar.HyperStack.fst hyperstack/FStar.ST.fst hyperstack/FStar.All.fst FStar.Monotonic.RRef.fst FStar.Monotonic.Seq.fst
 
 buffer:
-	$(FSTAR) FStar.Map.fst FStar.HyperStack.fst hyperstack/FStar.ST.fst hyperstack/FStar.All.fst FStar.BufferNG.fst
+	$(FSTAR) FStar.Map.fst FStar.Modifies.fst FStar.HyperStack.fst hyperstack/FStar.ST.fst hyperstack/FStar.All.fst FStar.Pointer.fst FStar.BufferNG.fst
 
 struct:
 	$(FSTAR) hyperstack/FStar.ST.fst hyperstack/FStar.All.fst FStar.Struct.fst
