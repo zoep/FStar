@@ -28,7 +28,7 @@ let colored_object (t: Type) = S.pointer (colored_object_struct t)
 
 let colored_point = colored_object point_struct
 
-#reset-options "--z3rlimit 16"
+#reset-options "--z3rlimit 32"
 
 let flip
   (p: colored_point)
