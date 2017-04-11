@@ -2286,3 +2286,66 @@ let modifies_loc_refines_0
     loc_disjoint_ind2 p h_object h_ancestors (loc_of_object c_ o_) (loc_of_object c1_ o1_)
   in
   modifies_loc_refines_p_elim c1_ o1_ h h' (loc_of_object c_ o_) (loc_of_object c1_ o1_) f' ()
+
+abstract
+let level_0_no_ancestors
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (#level: nat)
+  (#t: Type u#b)
+  (c: class root_class level t)
+  (o: t)
+: Lemma
+  (requires (level == 0))
+  (ensures (Class?.ancestor_count c o == 0))
+= if Class?.ancestor_count c o = 0
+  then ()
+  else let j : nat = Class?.ancestor_class_levels c o 0 in
+       assert False
+
+private
+let disjoint_t_level_zero
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type )
+  (#level1 #level2: nat)
+  (#t1 #t2: Type u#b)
+  (c1: class root_class level1 t1)
+  (c2: class root_class level2 t2)
+  (o1: t1)
+  (o2: t2)
+  (h: disjoint_t c1 c2 o1 o2)
+: Tot (squash (level2 == 0 ==> (forall (i: nat { i < Class?.ancestor_count c1 o1 } ) . squash (disjoint_t (Class?.ancestor_classes c1 o1 i) c2 (Class?.ancestor_objects c1 o1 i) o2))))
+  (decreases h)
+= match h with
+  | DisjointObjects #heap #level #t c o1 o2 k ->
+    let c: class root_class level t = c in
+    Classical.move_requires (level_0_no_ancestors c) o2
+  | DisjointAncestors #heap #level #t c o h b ->
+    if b
+    then
+      let f
+        (i: nat { i < Class?.ancestor_count (c true) (o true) } ) 
+      : Lemma (squash (disjoint_t (Class?.ancestor_classes (c true) (o true) i) (c false) (Class?.ancestor_objects (c true) (o true) i) (o false)))
+      = Squash.return_squash (h i)
+      in
+      Classical.forall_intro f
+    else
+      let ct: class root_class (level true) (t true) = c true in
+      Classical.move_requires (level_0_no_ancestors ct) (o true)
+
+let loc_disjoint_level_zero
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type )
+  (#level1 #level2: nat)
+  (#t1 #t2: Type u#b)
+  (c1: class root_class level1 t1)
+  (c2: class root_class level2 t2)
+  (o1: t1)
+  (o2: t2)
+: Lemma
+  (requires (loc_disjoint (loc_of_object c1 o1) (loc_of_object c2 o2)))
+  (ensures (level2 == 0 ==> (forall (i: nat { i < Class?.ancestor_count c1 o1 } ) . loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) (loc_of_object c2 o2))))
+= Squash.bind_squash (Squash.join_squash ()) (fun (h: disjoint_t c1 c2 o1 o2) -> disjoint_t_level_zero c1 c2 o1 o2 h)

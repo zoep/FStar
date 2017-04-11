@@ -273,6 +273,104 @@ let modifies_reference_elim
   [SMTPatT (Modifies.modifies s h h'); SMTPatT (Modifies.locset_disjoint (locset_of_reference r) s)]
 = ()
 
+(* Prove that regions that were not live before and are not live after can be ignored by modifies. *)
+
+
+#reset-options "--z3rlimit 32"
+
+let modifies_not_live_region
+  (r: HH.rid)
+  (s: Modifies.locset root_class)
+  (h h': mem)
+: Lemma
+  (requires (Modifies.modifies u#0 u#1 (TSet.union s (locset_of_region_with_liveness r)) h h' /\ (~ (live_region h r)) /\ (~ (live_region h' r))))
+  (ensures (Modifies.modifies s h h'))
+= let z : squash (Modifies.modifies u#0 u#1 (TSet.union s (locset_of_region_with_liveness r)) h h') = () in
+  let f
+    (ty: Type u#1)
+    (l: nat)
+    (c: Modifies.class root_class l ty )
+    (o: ty)
+    (g: (
+      (o' : Modifies.loc root_class { TSet.mem o' s } ) ->
+      Lemma
+      (Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
+    ))
+  : Lemma
+    (requires True)
+    (ensures (Modifies.Class?.preserved c o h h'))
+    (decreases l)
+  = if l = 0
+    then begin
+      Modifies.level_0_class_eq_root c;
+      let c: Modifies.class root_class 0 object = c in
+      let o: object = o in
+      match o with
+      | ObjectReference _ rf ->
+        let k
+          ()
+        : Lemma
+          (requires (contains h rf))
+          (ensures (contains h' rf /\ sel h' rf == sel h rf))
+        = let rg = frameOf rf in
+          assert (Modifies.locset_disjoint (locset_of_region_with_liveness rg) (locset_of_region_with_liveness r)); // TODO: WHY needed?
+          locset_of_reference_subset_locset_of_region rg rf; // TODO: WHY not triggered?
+          let g'
+            (o': Modifies.loc root_class { TSet.mem o' (TSet.union s (locset_of_region_with_liveness r)) } )
+          : Lemma
+            (Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
+          = Classical.or_elim
+              #(TSet.mem o' s)
+              #(TSet.mem o' (locset_of_region_with_liveness r))
+              #(fun _ -> Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
+              (fun _ -> g o')
+              (fun _ -> ())
+          in
+          Modifies.modifies_elim (TSet.union s (locset_of_region_with_liveness r)) h h' () c o g'
+        in
+        let v : squash (Modifies.Class?.preserved c o h h') =
+          Classical.move_requires k ()
+        in
+        v
+      | ObjectRegionLiveness rg ->
+        let k
+          ()
+        : Lemma
+          (requires (live_region h rg))
+          (ensures (live_region h' rg))
+        = assert (Modifies.locset_disjoint (locset_of_region_with_liveness rg) (locset_of_region_with_liveness r)); // TODO: WHY WHY WHY is this assert needed?
+          let g'
+            (o': Modifies.loc root_class { TSet.mem o' (TSet.union s (locset_of_region_with_liveness r)) } )
+          : Lemma
+            (Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
+          = Classical.or_elim
+              #(TSet.mem o' s)
+              #(TSet.mem o' (locset_of_region_with_liveness r))
+              #(fun _ -> Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
+              (fun _ -> g o')
+              (fun _ -> ())
+          in
+          Modifies.modifies_elim (TSet.union s (locset_of_region_with_liveness r)) h h' z c o g'
+        in
+        let v : squash (Modifies.Class?.preserved c o h h') =
+          Classical.move_requires k ()
+        in
+        v
+    end else begin
+    (*
+      let g'
+        (i: nat { i < Modifies.Class?.ancestor_count c o } )
+        (o' : Modifies.loc root_class { TSet.mem o' s } )
+      : Lemma
+        (Modifies.loc_disjoint (Modifies.loc_of_object (Modifies.Class?.ancestor_classes c o i) (Modifies.Class?.ancestor_objects c o i)) o')
+      =        
+      in
+      *)
+      assume (Modifies.Class?.preserved c o h h')
+    end
+  in
+  Modifies.modifies_intro s h h' f
+
 (* For the purpose of universe resolution, etc. *)
 
 let modifies'
