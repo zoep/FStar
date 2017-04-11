@@ -143,7 +143,21 @@ let level_0_fresh_disjoint_t
     Class?.live c hafter onew
   ))
   (ensures (Class?.disjoint c oold onew))
-  
+
+unfold
+let live_preserved_preserved_t
+  (#heap: Type u#a)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty)
+: Tot (Type u#(max a b))
+= (hbefore: heap) ->
+  (hafter: heap) ->
+  (o: ty) ->
+  Lemma
+  (requires (
+    Class?.live c hbefore o ==> Class?.preserved c o hbefore hafter
+  ))
+  (ensures (Class?.preserved c o hbefore hafter))
+
 unfold
 let preserved_live_t
   (#heap: Type u#a)
@@ -322,6 +336,7 @@ type class_invariant_body
   disjoint_sym: disjoint_sym_t c;
   level_0_class_eq_root: level_0_class_eq_root_t root_class c;
   level_0_fresh_disjoint: level_0_fresh_disjoint_t c;
+  live_preserved_preserved: live_preserved_preserved_t c;
   preserved_live: preserved_live_t c;
   preserved_contains: preserved_contains_t c;
   live_contains: live_contains_t c;
@@ -484,6 +499,20 @@ let level_0_fresh_disjoint
   (ensures (Class?.disjoint root_class oold onew))
   [SMTPatT u#c (Class?.live root_class hbefore oold); SMTPatT (~ (Class?.contains root_class hbefore onew)); SMTPatT (Class?.live root_class hafter oold); SMTPatT (Class?.live root_class hafter onew)]
 = Squash.bind_squash #_ #(Class?.disjoint root_class oold onew) (Squash.join_squash ()) (fun (i: class_invariant_body root_class root_class) -> i.level_0_fresh_disjoint oold onew hbefore hafter)
+
+let live_preserved_preserved
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (#level: nat) (#ty: Type u#b) (c: class root_class level ty) 
+  (hbefore: heap)
+  (hafter: heap)
+  (o: ty)
+: Lemma
+  (requires (
+    Class?.live c hbefore o ==> Class?.preserved c o hbefore hafter
+  ))
+  (ensures (Class?.preserved c o hbefore hafter))
+= Squash.bind_squash #_ #(Class?.preserved c o hbefore hafter) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.live_preserved_preserved hbefore hafter o)
 
 (* let preserved_live *)
 (*   (#heap: Type) *)

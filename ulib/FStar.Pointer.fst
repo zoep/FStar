@@ -1661,6 +1661,7 @@ let class_invariant ()
     Modifies.disjoint_sym = (let f _ _ = () in f);
     Modifies.level_0_class_eq_root = ();
     Modifies.level_0_fresh_disjoint = (let f _ _ _ _ = () in f);
+    Modifies.live_preserved_preserved = (fun _ _ _ -> ());
     Modifies.preserved_live = (let f _ _ _ = () in f);
     Modifies.preserved_contains = (let f _ _ _ = () in f);
     Modifies.live_contains = (let f _ _ = () in f);
