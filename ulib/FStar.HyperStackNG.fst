@@ -431,3 +431,196 @@ let modifies'
   (h h': mem)
 : Tot Type0
 = Modifies.modifies s h h'
+
+
+(* Allocators and deallocators for regions and references fit into the general modifies clause *)
+
+abstract
+let fresh_frame_modifies
+  (m0 m1: mem)
+: Lemma
+  (requires (fresh_frame m0 m1))
+  (ensures (Modifies.modifies locset_of_tip m0 m1))
+= let _ : squash (~ (live_region m0 m1.tip)) =
+    if Map.contains m0.h m1.tip then () else ()
+  in
+  let _ : squash (m1.h == Map.upd m0.h m1.tip Heap.emp) = () in
+  let rec f'
+    (ty: Type u#1)
+    (l: nat)
+    (c: Modifies.class root_class l ty )
+    (o: ty)
+    (g: (
+      (o' : Modifies.loc root_class { TSet.mem o' locset_of_tip } ) ->
+      Lemma
+      (Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
+    ))
+    ()
+  : Lemma
+    (requires (Modifies.Class?.live c m0 o))
+    (ensures (Modifies.Class?.preserved c o m0 m1))
+    (decreases l)
+  = g (Modifies.loc_of_object class ObjectTip);
+    if l = 0
+    then begin
+      Modifies.level_0_class_eq_root c;
+      Modifies.loc_disjoint_level_zero_same c class o ObjectTip
+    end else begin
+      Modifies.loc_disjoint_level_zero c class o ObjectTip;
+      let k
+        (i: nat { i < Modifies.Class?.ancestor_count c o } )
+      : Lemma
+        (Modifies.Class?.preserved (Modifies.Class?.ancestor_classes c o i) (Modifies.Class?.ancestor_objects c o i) m0 m1)
+      = Modifies.live_ancestors c m0 o i;
+        f' _ _ (Modifies.Class?.ancestor_classes c o i) (Modifies.Class?.ancestor_objects c o i) (fun _ -> ()) ()
+      in
+      Modifies.preserved_ancestors_preserved c o m0 m1 k
+    end
+  in
+  let f
+    (ty: Type u#1)
+    (l: nat)
+    (c: Modifies.class root_class l ty )
+    (o: ty)
+    (g: (
+      (o' : Modifies.loc root_class { TSet.mem o' locset_of_tip } ) ->
+      Lemma
+      (Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
+    ))
+  : Lemma
+    (Modifies.Class?.preserved c o m0 m1)
+  = Classical.move_requires (f' ty l c o g) ();
+    Modifies.live_preserved_preserved c m0 m1 o    
+  in
+  Modifies.modifies_intro locset_of_tip m0 m1 f
+
+let locset_of_region_with_liveness_mem_elim
+  (r: HH.rid)
+  (o: Modifies.loc root_class)
+: Lemma
+  (requires (TSet.mem o (locset_of_region_with_liveness r)))
+  (ensures (exists (o' : object) . (
+    o == Modifies.loc_of_object class o' /\ (
+    match o' with
+    | ObjectReference _ rf -> frameOf rf == r
+    | ObjectRegionLiveness rg -> r == rg
+    | ObjectTip -> False
+  ))))
+= Classical.or_elim
+    #(TSet.mem o (locset_of_region r))
+    #(TSet.mem o (locset_of_region_liveness_tag r))
+    #(fun _ -> exists (o' : object) . (
+      o == Modifies.loc_of_object class o' /\ (
+      match o' with
+      | ObjectReference _ rf -> frameOf rf == r
+      | ObjectRegionLiveness rg -> r == rg
+      | ObjectTip -> False
+    )))
+    (fun _ -> mem_locset_of_region r o)
+    (fun _ -> ())
+
+let locset_of_region_with_liveness_mem_object_elim
+  (r: HH.rid)
+  (o': object)
+: Lemma
+  (requires (TSet.mem (Modifies.loc_of_object class o') (locset_of_region_with_liveness r)))
+  (ensures (match o' with
+    | ObjectReference _ rf -> frameOf rf == r
+    | ObjectRegionLiveness rg -> r == rg
+    | ObjectTip -> False
+  ))
+= Modifies.loc_of_object_inj_forall root_class;
+  locset_of_region_with_liveness_mem_elim r (Modifies.loc_of_object class o')
+
+let modifies_pop
+  (m0: mem)
+: Lemma
+  (requires (poppable m0))
+  (ensures (poppable m0 /\ Modifies.modifies u#0 u#1 (TSet.union locset_of_tip (locset_of_region_with_liveness m0.tip)) m0 (pop m0)))
+= let s : Modifies.locset root_class = TSet.union locset_of_tip (locset_of_region_with_liveness m0.tip) in
+  let m1 : mem = pop m0 in
+  let dom = remove_elt (Map.domain m0.h) m0.tip in
+  let _ : squash (m1.h == Map.restrict dom m0.h) = () in
+  let _ : squash (~ (live_region m1 m0.tip)) = () in
+  let rec f'
+    (ty: Type u#1)
+    (l: nat)
+    (c: Modifies.class root_class l ty )
+    (o: ty)
+    (g: (
+      (o' : Modifies.loc root_class { TSet.mem o' s } ) ->
+      Lemma
+      (Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
+    ))
+    ()
+  : Lemma
+    (requires (Modifies.Class?.live c m0 o))
+    (ensures (Modifies.Class?.preserved c o m0 m1))
+    (decreases l)
+  = g (Modifies.loc_of_object class ObjectTip);
+    if l = 0
+    then begin
+      Modifies.level_0_class_eq_root c;
+      match o with
+        | ObjectReference _ rf ->
+          if frameOf rf = m0.tip
+          then begin
+            mem_locset_of_region m0.tip (Modifies.loc_of_object c o);
+            g (Modifies.loc_of_object c o);
+            Modifies.loc_disjoint_level_zero_same c c o o
+          end else
+            ()
+        | ObjectRegionLiveness _ ->
+          g (Modifies.loc_of_object class (ObjectRegionLiveness m0.tip));
+          Modifies.loc_disjoint_level_zero_same c class o (ObjectRegionLiveness m0.tip)
+        | ObjectTip -> 
+          Modifies.loc_disjoint_level_zero_same c class o ObjectTip
+    end else begin
+      Modifies.loc_disjoint_level_zero c class o ObjectTip;
+      let k
+        (i: nat { i < Modifies.Class?.ancestor_count c o } )
+      : Lemma
+        (Modifies.Class?.preserved (Modifies.Class?.ancestor_classes c o i) (Modifies.Class?.ancestor_objects c o i) m0 m1)
+      = Modifies.live_ancestors c m0 o i;
+        let g'
+          (o' : Modifies.loc root_class { TSet.mem o' s } )
+        : Lemma
+          (Modifies.loc_disjoint (Modifies.loc_of_object (Modifies.Class?.ancestor_classes c o i) (Modifies.Class?.ancestor_objects c o i)) o')
+        = Classical.or_elim
+            #(TSet.mem o' locset_of_tip)
+            #(TSet.mem o' (locset_of_region_with_liveness m0.tip))
+            #(fun _ -> Modifies.loc_disjoint (Modifies.loc_of_object (Modifies.Class?.ancestor_classes c o i) (Modifies.Class?.ancestor_objects c o i)) o')
+            (fun _ -> ())
+            (fun _ -> begin
+              locset_of_region_with_liveness_mem_elim m0.tip o';
+              let f
+                (o': object { TSet.mem (Modifies.loc_of_object class o') s } )
+              : Lemma
+                (Modifies.loc_disjoint (Modifies.loc_of_object (Modifies.Class?.ancestor_classes c o i) (Modifies.Class?.ancestor_objects c o i)) (Modifies.loc_of_object class o'))
+              = g (Modifies.loc_of_object class o');
+                Modifies.loc_disjoint_level_zero c class o o'
+              in
+              Classical.forall_intro f
+            end)
+        in
+        f' _ _ (Modifies.Class?.ancestor_classes c o i) (Modifies.Class?.ancestor_objects c o i) g' ()
+      in
+      Modifies.preserved_ancestors_preserved c o m0 m1 k
+    end
+  in
+  let f
+    (ty: Type u#1)
+    (l: nat)
+    (c: Modifies.class root_class l ty )
+    (o: ty)
+    (g: (
+      (o' : Modifies.loc root_class { TSet.mem o' s } ) ->
+      Lemma
+      (Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
+    ))
+  : Lemma
+    (Modifies.Class?.preserved c o m0 m1)
+  = Classical.move_requires (f' ty l c o g) ();
+    Modifies.live_preserved_preserved c m0 m1 o    
+  in
+  Modifies.modifies_intro s m0 m1 f

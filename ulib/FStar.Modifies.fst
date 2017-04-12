@@ -2426,3 +2426,39 @@ let loc_disjoint_level_zero
   (requires (loc_disjoint (loc_of_object c1 o1) (loc_of_object c2 o2)))
   (ensures (level2 == 0 ==> (forall (i: nat { i < Class?.ancestor_count c1 o1 } ) . loc_disjoint (loc_of_object (Class?.ancestor_classes c1 o1 i) (Class?.ancestor_objects c1 o1 i)) (loc_of_object c2 o2))))
 = Squash.bind_squash (Squash.join_squash ()) (fun (h: disjoint_t c1 c2 o1 o2) -> disjoint_t_level_zero c1 c2 o1 o2 h)
+
+private
+let disjoint_t_level_zero_same
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type )
+  (#level1 #level2: nat)
+  (#t1 #t2: Type u#b)
+  (c1: class root_class level1 t1)
+  (c2: class root_class level2 t2)
+  (o1: t1)
+  (o2: t2)
+  (h: disjoint_t c1 c2 o1 o2)
+: Tot (squash ((level1 == 0 /\ level2 == 0) ==> (t1 == t2 /\ c1 == hetero_id c2 /\ Class?.disjoint c1 o1 o2)))
+  (decreases h)
+= match h with
+  | DisjointObjects #heap #level #t c o1 o2 k ->
+    ()
+  | DisjointAncestors #heap #level #t c o h b ->
+    let ct: class root_class (level true) (t true) = c true in
+    Classical.move_requires (level_0_no_ancestors ct) (o true)
+
+let loc_disjoint_level_zero_same
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type )
+  (#level1 #level2: nat)
+  (#t1 #t2: Type u#b)
+  (c1: class root_class level1 t1)
+  (c2: class root_class level2 t2)
+  (o1: t1)
+  (o2: t2)
+: Lemma
+  (requires (loc_disjoint (loc_of_object c1 o1) (loc_of_object c2 o2)))
+  (ensures ((level1 == 0 /\ level2 == 0) ==> (t1 == t2 /\ c1 == hetero_id c2 /\ Class?.disjoint c1 o1 o2)))
+= Squash.bind_squash (Squash.join_squash ()) (fun (h: disjoint_t c1 c2 o1 o2) -> disjoint_t_level_zero_same c1 c2 o1 o2 h)
