@@ -1377,6 +1377,51 @@ let locset_disjoint_union
   [SMTPat (locset_disjoint ls (TSet.union ls1 ls2))]
 = ()
 
+let locset_live
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (h: heap)
+  (ls: locset root_class)
+: Tot Type0
+= forall (level: nat) (ty: Type u#b) (c: class root_class level ty) (o: ty) .
+  TSet.mem (loc_of_object c o) ls ==>
+  Class?.live c h o
+
+let locset_fresh
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (ls: locset root_class)
+  (h h': heap)
+: Tot Type0
+= forall (level: nat) (ty: Type u#b) (c: class root_class level ty) (o: ty) .
+  TSet.mem (loc_of_object c o) ls ==>
+  fresh c o h h'
+
+abstract
+let locset_fresh_locset_disjoint
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (lsold lsnew: locset root_class)
+  (hbefore: heap)
+  (hafter: heap)
+: Lemma
+  (requires (
+    locset_live hbefore lsold /\
+    locset_live hafter lsold /\
+    locset_fresh lsnew hbefore hafter
+  ))
+  (ensures (locset_disjoint lsold lsnew))
+= let f
+    (lold: loc root_class { TSet.mem lold lsold } )
+    (lnew: loc root_class { TSet.mem lnew lsnew } )
+  : Lemma
+    (loc_disjoint lold lnew)
+  = fresh_disjoint (Location?.class lold) (Location?.class lnew) (Location?.obj lold) (Location?.obj lnew) hbefore hafter
+  in
+  Classical.forall_intro_2 f
+
 noeq
 private
 type locset_includes_object_t
