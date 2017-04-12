@@ -200,8 +200,9 @@
         "refinement_interpretation_Test_Tm_refine_ce948322b5192a8b1eca29395d26ccff",
         "token_correspondence_FStar.List.Tot.Base.map.fuel_instrumented",
         "token_correspondence_JSONParser.Spec.gparse_whitespace.fuel_instrumented",
-        "token_correspondence_Prims.fst", "typing_FStar.Seq.Base.create",
-        "typing_FStar.Seq.Base.createEmpty", "typing_FStar.Seq.Base.length",
+        "token_correspondence_Prims.fst", "typing_FStar.List.Tot.Base.map",
+        "typing_FStar.Seq.Base.create", "typing_FStar.Seq.Base.createEmpty",
+        "typing_FStar.Seq.Base.length",
         "typing_JSONParser.Spec.is_whitespace",
         "typing_JSONParser.Spec.string_of_char"
       ],
