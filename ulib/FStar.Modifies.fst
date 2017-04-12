@@ -1995,7 +1995,10 @@ let locset_disjoint_locset_includes
 : Lemma
   (requires (locset_disjoint ls1 ls2 /\ locset_includes ls2 ls2'))
   (ensures  (locset_disjoint ls1 ls2'))
-  [SMTPat (locset_disjoint ls1 ls2); SMTPat (locset_includes ls2 ls2')]
+  [SMTPatOr [
+    [SMTPat (locset_disjoint ls1 ls2); SMTPat (locset_includes ls2 ls2')];
+    [SMTPat (locset_disjoint ls1 ls2'); SMTPat (locset_includes ls2 ls2')]
+  ]]  
 = let f
     (l1: loc root_class { TSet.mem l1 ls1 } )
   : Lemma
