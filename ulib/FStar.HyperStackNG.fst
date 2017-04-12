@@ -11,6 +11,7 @@ noeq type object : Type =
 | ObjectRegionLiveness (* change "live_region" *) :
     (r: HH.rid) ->
     object
+| ObjectTip
 
 unfold
 let objects_disjoint (o1 o2: object): Tot Type0 =
@@ -30,12 +31,14 @@ let objects_disjoint (o1 o2: object): Tot Type0 =
     | ObjectRegionLiveness r2 -> r1 <> r2
     | _ -> True
     end
+  | ObjectTip -> ~ (o2 == ObjectTip)
 
 unfold
 let object_live (m: mem) (o: object): Tot Type0 =
   match o with
   | ObjectReference _ r -> contains m r
   | ObjectRegionLiveness r -> live_region m r
+  | ObjectTip -> True
 
 unfold
 let object_contains = object_live
@@ -47,6 +50,8 @@ let object_preserved (o: object) (m m': mem): Tot Type0 =
     contains m r ==> (contains m' r /\ sel m' r == sel m r)
   | ObjectRegionLiveness r ->
     live_region m r ==> live_region m' r
+  | ObjectTip ->
+    m'.tip == m.tip
 
 unfold
 let object_includes (o1 o2: object) : Tot Type0 = o1 == o2
@@ -274,6 +279,53 @@ let modifies_reference_elim
   [SMTPatT (Modifies.modifies s h h'); SMTPatT (Modifies.locset_disjoint (locset_of_reference r) s)]
 = ()
 
+(* The tip as a memory location *)
+
+let locset_of_tip : Modifies.locset root_class = Modifies.locset_of_object class ObjectTip
+
+let locset_disjoint_locset_of_tip_locset_of_reference
+  (#t: Type)
+  (r: reference t)
+: Lemma
+  (requires True)
+  (ensures (Modifies.locset_disjoint locset_of_tip (locset_of_reference r)))
+  [SMTPat (Modifies.locset_disjoint locset_of_tip (locset_of_reference r))]
+= ()
+
+let locset_disjoint_locset_of_tip_locset_of_region
+  (r: HH.rid)
+: Lemma
+  (requires True)
+  (ensures (Modifies.locset_disjoint locset_of_tip (locset_of_region r)))
+  [SMTPat (Modifies.locset_disjoint locset_of_tip (locset_of_region r))]
+= Classical.forall_intro (mem_locset_of_region r)
+
+let locset_disjoint_locset_of_tip_locset_of_region_liveness_tag
+  (r: HH.rid)
+: Lemma
+  (requires True)
+  (ensures (Modifies.locset_disjoint locset_of_tip (locset_of_region_liveness_tag r)))
+  [SMTPat (Modifies.locset_disjoint locset_of_tip (locset_of_region_liveness_tag r))]
+= ()
+
+let locset_disjoint_locset_of_tip_locset_of_region_with_liveness
+  (r: HH.rid)
+: Lemma
+  (requires True)
+  (ensures (Modifies.locset_disjoint locset_of_tip (locset_of_region_with_liveness r)))
+  [SMTPat (Modifies.locset_disjoint locset_of_tip (locset_of_region_with_liveness r))]
+= ()
+
+let modifies_tip_elim
+  (#t: Type)
+  (s: Modifies.locset root_class)
+  (h h': mem)
+: Lemma
+  (requires (Modifies.modifies s h h' /\ Modifies.locset_disjoint locset_of_tip s))
+  (ensures (h'.tip == h.tip))
+  [SMTPatT (Modifies.modifies s h h'); SMTPatT (Modifies.locset_disjoint locset_of_tip s)]
+= ()
+
 (* Prove that regions that were not live before and are not live after can be ignored by modifies. *)
 
 abstract
@@ -294,17 +346,20 @@ let rec live_not_live_region_loc_disjoint
     let _ = Modifies.level_0_class_eq_root c in
     let c: Modifies.class root_class 0 object = c in
     let o: object = o in
-    let rg = match o with
-    | ObjectReference _ rf -> frameOf rf
-    | ObjectRegionLiveness rg -> rg
-    in
-    let _ = assert (Modifies.locset_disjoint (locset_of_region_with_liveness rg) (locset_of_region_with_liveness r)) in // TODO: WHY needed?
-    let _ : squash (TSet.mem (Modifies.loc_of_object c o) (locset_of_region_with_liveness rg)) = match o with
-    | ObjectReference _ rf ->
-      locset_of_reference_subset_locset_of_region rg rf // TODO: WHY not triggered?
-    | _ -> ()
-    in
-    ()
+    if ObjectTip? o
+    then locset_disjoint_locset_of_tip_locset_of_region_with_liveness r
+    else
+      let rg = match o with
+      | ObjectReference _ rf -> frameOf rf
+      | ObjectRegionLiveness rg -> rg
+      in
+      let _ = assert (Modifies.locset_disjoint (locset_of_region_with_liveness rg) (locset_of_region_with_liveness r)) in // TODO: WHY needed?
+      let _ : squash (TSet.mem (Modifies.loc_of_object c o) (locset_of_region_with_liveness rg)) = match o with
+      | ObjectReference _ rf ->
+        locset_of_reference_subset_locset_of_region rg rf // TODO: WHY not triggered?
+      | _ -> ()
+      in
+      ()
   else
     let k
       (i: nat { i < Modifies.Class?.ancestor_count c o } )

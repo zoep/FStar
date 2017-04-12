@@ -1951,3 +1951,30 @@ let locset_of_pointer_with_liveness_includes
 = assert (Modifies.locset_includes (locset_of_pointer_with_liveness p1) (locset_of_pointer p1));
   assert (Modifies.locset_includes (locset_of_pointer_with_liveness p1) (locset_of_pointer_liveness_tag p1))
   // FIXME: WHY WHY WHY not automatic?
+
+let locset_disjoint_locset_of_tip_locset_of_pointer_with_liveness
+  (#t: Type)
+  (p: pointer t)
+: Lemma
+  (requires True)
+  (ensures (Modifies.locset_disjoint HS.locset_of_tip (locset_of_pointer_with_liveness p)))
+  [SMTPat (Modifies.locset_disjoint HS.locset_of_tip (locset_of_pointer_with_liveness p))]
+= assert (Modifies.locset_includes (HS.locset_of_region (frameOf p)) (locset_of_pointer_with_liveness p))
+
+let locset_disjoint_locset_of_tip_locset_of_pointer
+  (#t: Type)
+  (p: pointer t)
+: Lemma
+  (requires True)
+  (ensures (Modifies.locset_disjoint HS.locset_of_tip (locset_of_pointer p)))
+  [SMTPat (Modifies.locset_disjoint HS.locset_of_tip (locset_of_pointer p))]
+= assert (Modifies.locset_includes (locset_of_pointer_with_liveness p) (locset_of_pointer p))
+
+let locset_disjoint_locset_of_tip_locset_of_pointer_liveness_tag
+  (#t: Type)
+  (p: pointer t)
+: Lemma
+  (requires True)
+  (ensures (Modifies.locset_disjoint HS.locset_of_tip (locset_of_pointer_liveness_tag p)))
+  [SMTPat (Modifies.locset_disjoint HS.locset_of_tip (locset_of_pointer_liveness_tag p))]
+= assert (Modifies.locset_includes (locset_of_pointer_with_liveness p) (locset_of_pointer_liveness_tag p))
