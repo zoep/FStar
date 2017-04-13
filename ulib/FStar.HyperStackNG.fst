@@ -158,6 +158,14 @@ let locset_of_reference
 : Tot (Modifies.locset u#0 u#1 root_class)
 = Modifies.locset_of_object class (ObjectReference t r)
 
+let locset_live_locset_of_reference
+  (#t: Type)
+  (h: mem)
+  (r: reference t)
+: Lemma
+  (ensures (contains h r <==> Modifies.locset_live h (locset_of_reference r)))
+= Modifies.loc_of_object_inj_forall root_class
+
 unfold
 let object_is_reference_of_region
   (o': object)

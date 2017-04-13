@@ -1842,6 +1842,30 @@ let locset_of_reference_ancestor_includes_locset_of_pointer_with_liveness
   in
   f false; f true
 
+let locset_live_locset_of_pointer
+  (#t: Type)
+  (h: HS.mem)
+  (p: pointer t)
+: Lemma
+  (live h p <==> Modifies.locset_live h (locset_of_pointer p))
+= Modifies.loc_of_object_inj_forall HS.root_class
+
+let locset_live_locset_of_pointer_liveness_tag
+  (#t: Type)
+  (h: HS.mem)
+  (p: pointer t)
+: Lemma
+  (live h p <==> Modifies.locset_live h (locset_of_pointer_liveness_tag p))
+= Modifies.loc_of_object_inj_forall HS.root_class
+
+let locset_live_locset_of_pointer_with_liveness
+  (#t: Type)
+  (h: HS.mem)
+  (p: pointer t)
+: Lemma
+  (live h p <==> Modifies.locset_live h (locset_of_pointer_with_liveness p))
+= Modifies.loc_of_object_inj_forall HS.root_class
+
 let locset_of_region_includes_locset_of_pointer_with_liveness
   (#t: Type u#0)
   (p: pointer t)
