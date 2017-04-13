@@ -1483,6 +1483,49 @@ let locset_fresh_locset_disjoint
   in
   Classical.forall_intro_2 f
 
+let modifies_fresh_elim
+  (#heap: Type u#a)
+  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
+  (lsold lsnew: locset root_class)
+  (hbefore: heap)
+  (hafter: heap)
+: Lemma
+  (requires (modifies (TSet.union lsold lsnew) hbefore hafter /\ locset_fresh lsnew hbefore hafter))
+  (ensures (modifies lsold hbefore hafter))
+= let f'
+    (ty: Type u#b)
+    (l: nat)
+    (c: class root_class l ty )
+    (o: ty)
+    (g: (
+      (o' : loc root_class { TSet.mem o' lsold } ) ->
+      Lemma
+      (loc_disjoint (loc_of_object c o) o')
+    ))
+  : Lemma
+    (requires (Class?.live c hbefore o))
+    (ensures (Class?.preserved c o hbefore hafter))
+  = let g'
+      (o' : loc root_class { TSet.mem o' (TSet.union lsold lsnew) } )
+    : Lemma
+      (loc_disjoint (loc_of_object c o) o')
+    = Classical.or_elim
+        #(TSet.mem o' lsold)
+        #(TSet.mem o' lsnew)
+        #(fun _ -> loc_disjoint (loc_of_object c o) o')
+        (fun _ -> g o')
+        (fun _ ->
+          let (Location _ _ cnew onew) = o' in
+          fresh_disjoint c cnew o onew hbefore hafter
+        )
+    in
+    modifies_elim (TSet.union lsold lsnew) hbefore hafter () c o g'
+  in
+  modifies_intro lsold hbefore hafter (fun ty l c o g ->
+    Classical.move_requires (f' ty l c o) g;
+    live_preserved_preserved c hbefore hafter o
+  )
+
 noeq
 private
 type locset_includes_object_t
