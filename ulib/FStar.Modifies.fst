@@ -1346,7 +1346,7 @@ let rec fresh_disjoint
   (onew: tynew)
   (hbefore: heap)
   (hafter: heap)
-: Lemma
+:  Lemma
   (requires (
     Class?.live cold hbefore oold /\
     Class?.live cold hafter oold /\
@@ -2574,8 +2574,6 @@ let rec final_disjoint
   in
   loc_disjoint_ancestors_right (loc_of_object c1 o1) c2 o2 f
 
-#reset-options "--z3rlimit 16"
-
 abstract
 let final_equal_or_disjoint_gen
   (#heap: Type u#a)
@@ -2594,7 +2592,10 @@ let final_equal_or_disjoint_gen
   then begin
     level_0_class_eq_root c1;
     level_0_class_eq_root c2;
-    final_equal_or_disjoint c1 o1 o2
+    let _ : squash (loc_of_object c1 o1 == loc_of_object c2 o2 \/ loc_disjoint (loc_of_object c1 o1) (loc_of_object c2 o2)) =
+      final_equal_or_disjoint c1 o1 o2
+    in
+    ()
   end else
     final_disjoint c1 c2 o1 o2
 
