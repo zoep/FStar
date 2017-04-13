@@ -57,7 +57,7 @@ m_rref:
 	$(FSTAR) FStar.Map.fst FStar.HyperStack.fst hyperstack/FStar.ST.fst hyperstack/FStar.All.fst FStar.Monotonic.RRef.fst FStar.Monotonic.Seq.fst
 
 buffer:
-	$(FSTAR) FStar.Map.fst FStar.HyperStack.fst FStar.Modifies.fst FStar.HyperStackNG.fst hyperstack/FStar.ST.fst hyperstack/FStar.All.fst FStar.Pointer.fst FStar.BufferNG.fst
+	$(FSTAR) FStar.Map.fst FStar.HyperStack.fst FStar.Modifies.fst FStar.HyperStackNG.fst hyperstack/FStar.ST.fst hyperstack/FStar.STNG.fst hyperstack/FStar.All.fst FStar.Pointer.fst FStar.BufferNG.fst
 
 struct:
 	$(FSTAR) hyperstack/FStar.ST.fst hyperstack/FStar.All.fst FStar.Struct.fst
