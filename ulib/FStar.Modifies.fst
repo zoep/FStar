@@ -140,7 +140,6 @@ let level_0_fresh_disjoint_t
     level == 0 /\
     Class?.live c hbefore oold /\
     (~ (Class?.contains c hbefore onew)) /\
-    Class?.live c hafter oold /\
     Class?.live c hafter onew
   ))
   (ensures (Class?.disjoint c oold onew))
@@ -522,7 +521,6 @@ let level_0_fresh_disjoint
   (requires (
     Class?.live root_class hbefore oold /\
     (~ (Class?.contains root_class hbefore onew)) /\
-    Class?.live root_class hafter oold /\
     Class?.live root_class hafter onew
   ))
   (ensures (Class?.disjoint root_class oold onew))
@@ -1349,12 +1347,11 @@ let rec fresh_disjoint
 :  Lemma
   (requires (
     Class?.live cold hbefore oold /\
-    Class?.live cold hafter oold /\
     fresh cnew onew hbefore hafter
   ))
   (ensures (loc_disjoint (loc_of_object cold oold) (loc_of_object cnew onew)))
   (decreases (levelold + levelnew))
-  [SMTPatT u#c (Class?.live cold hbefore oold); SMTPatT (Class?.live cold hafter oold); SMTPatT (fresh cnew onew hbefore hafter)]
+  [SMTPatT u#c (Class?.live cold hbefore oold); SMTPatT (fresh cnew onew hbefore hafter)]
 = if
     levelold = 0
   then
@@ -1474,7 +1471,6 @@ let locset_fresh_locset_disjoint
 : Lemma
   (requires (
     locset_live hbefore lsold /\
-    locset_live hafter lsold /\
     locset_fresh lsnew hbefore hafter
   ))
   (ensures (locset_disjoint lsold lsnew))
