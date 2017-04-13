@@ -2574,6 +2574,8 @@ let rec final_disjoint
   in
   loc_disjoint_ancestors_right (loc_of_object c1 o1) c2 o2 f
 
+#reset-options "--z3rlimit 16"
+
 abstract
 let final_equal_or_disjoint_gen
   (#heap: Type u#a)
