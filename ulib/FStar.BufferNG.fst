@@ -775,3 +775,51 @@ let modifies_as_seq
     Seq.lemma_eq_elim (as_seq h' b) (as_seq h b)
   in
   Classical.move_requires f ()
+
+abstract
+let locset_live_locset_of_buffer_liveness_tag
+  (#t: Type)
+  (h: HS.mem)
+  (b: buffer t)
+: Lemma
+  (ensures (Modifies.locset_live h (locset_of_buffer_liveness_tag b) <==> live h b))
+= Modifies.loc_of_object_inj_forall HS.root_class
+
+abstract
+let locset_live_locset_of_buffer
+  (#t: Type)
+  (h: HS.mem)
+  (b: buffer t)
+: Lemma
+  (ensures (Modifies.locset_live h (locset_of_buffer b) <==> live h b))
+= Modifies.loc_of_object_inj_forall HS.root_class
+
+abstract
+let locset_live_locset_of_buffer_contents
+  (#t: Type)
+  (h: HS.mem)
+  (b: buffer t)
+: Lemma
+  (requires (live h b))
+  (ensures (Modifies.locset_live h (locset_of_buffer b)))
+= Modifies.loc_of_object_inj_forall HS.root_class
+
+(* Allocators *)
+
+abstract
+val create: #a:Type -> init:a -> len:UInt32.t -> StackInline (buffer a)
+  (requires (fun h -> True))
+  (ensures (fun (h0: HS.mem) b h1 -> ~(contains h0 b)
+     /\ live h1 b /\ length b = len
+//     /\ frameOf b = h0.tip // TODO: support frameOf
+     /\ Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) h0 h1
+     /\ Modifies.locset_dead (locset_of_buffer b) h0
+     /\ as_seq h1 b == Seq.create (UInt32.v len) init))
+let create #a init len =
+  let h0 = HST.get () in
+  let content: Pointer.pointer (Pointer.array len a) =
+    Pointer.screate' (Seq.create (UInt32.v len) init)
+  in
+  let b = buffer_of_array_pointer content in  
+  assume (Modifies.locset_dead (locset_of_buffer b) h0); // TODO
+  b
