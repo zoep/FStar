@@ -334,47 +334,53 @@ let modifies_tip_elim
 
 (* Prove that regions that were not live before and are not live after can be ignored by modifies. *)
 
+let locset_of_region_with_liveness_mem_elim
+  (r: HH.rid)
+  (o: Modifies.loc root_class)
+: Lemma
+  (requires (TSet.mem o (locset_of_region_with_liveness r)))
+  (ensures (exists (o' : object) . (
+    o == Modifies.loc_of_object class o' /\ (
+    match o' with
+    | ObjectReference _ rf -> frameOf rf == r
+    | ObjectRegionLiveness rg -> r == rg
+    | ObjectTip -> False
+  ))))
+= Classical.or_elim
+    #(TSet.mem o (locset_of_region r))
+    #(TSet.mem o (locset_of_region_liveness_tag r))
+    #(fun _ -> exists (o' : object) . (
+      o == Modifies.loc_of_object class o' /\ (
+      match o' with
+      | ObjectReference _ rf -> frameOf rf == r
+      | ObjectRegionLiveness rg -> r == rg
+      | ObjectTip -> False
+    )))
+    (fun _ -> mem_locset_of_region r o)
+    (fun _ -> ())
+
+let locset_of_region_with_liveness_mem_object_elim
+  (r: HH.rid)
+  (o': object)
+: Lemma
+  (requires (TSet.mem (Modifies.loc_of_object class o') (locset_of_region_with_liveness r)))
+  (ensures (match o' with
+    | ObjectReference _ rf -> frameOf rf == r
+    | ObjectRegionLiveness rg -> r == rg
+    | ObjectTip -> False
+  ))
+= Modifies.loc_of_object_inj_forall root_class;
+  locset_of_region_with_liveness_mem_elim r (Modifies.loc_of_object class o')
+
 abstract
-let rec live_not_live_region_loc_disjoint
+let rec not_live_region_locset_dead
   (r: HH.rid)
   (h: mem)
-  (#t: Type u#1)
-  (#l: nat)
-  (c: Modifies.class root_class l t)
-  (o: t)
-  (lo: Modifies.loc root_class { TSet.mem lo (locset_of_region_with_liveness r) } )
 : Lemma
-  (requires (Modifies.Class?.live c h o /\ (~ (live_region h r))))
-  (ensures (Modifies.loc_disjoint (Modifies.loc_of_object c o) lo))
-  (decreases l)
-= if l = 0
-  then
-    let _ = Modifies.level_0_class_eq_root c in
-    let c: Modifies.class root_class 0 object = c in
-    let o: object = o in
-    if ObjectTip? o
-    then locset_disjoint_locset_of_tip_locset_of_region_with_liveness r
-    else
-      let rg = match o with
-      | ObjectReference _ rf -> frameOf rf
-      | ObjectRegionLiveness rg -> rg
-      in
-      let _ = assert (Modifies.locset_disjoint (locset_of_region_with_liveness rg) (locset_of_region_with_liveness r)) in // TODO: WHY needed?
-      let _ : squash (TSet.mem (Modifies.loc_of_object c o) (locset_of_region_with_liveness rg)) = match o with
-      | ObjectReference _ rf ->
-        locset_of_reference_subset_locset_of_region rg rf // TODO: WHY not triggered?
-      | _ -> ()
-      in
-      ()
-  else
-    let k
-      (i: nat { i < Modifies.Class?.ancestor_count c o } )
-    : Lemma
-      (Modifies.loc_disjoint (Modifies.loc_of_object (Modifies.Class?.ancestor_classes c o i) (Modifies.Class?.ancestor_objects c o i)) lo)
-    = Modifies.live_ancestors c h o i;
-      live_not_live_region_loc_disjoint r h (Modifies.Class?.ancestor_classes c o i) (Modifies.Class?.ancestor_objects c o i) lo
-    in
-    Modifies.loc_disjoint_ancestors_left c o lo k
+  (requires (~ (live_region h r)))
+  (ensures (Modifies.locset_dead (locset_of_region_with_liveness r) h))
+= Modifies.loc_of_object_inj_forall root_class;
+  Classical.forall_intro (Classical.move_requires (locset_of_region_with_liveness_mem_elim r))
 
 abstract
 let modifies_not_live_region
@@ -384,51 +390,8 @@ let modifies_not_live_region
 : Lemma
   (requires (Modifies.modifies u#0 u#1 (TSet.union s (locset_of_region_with_liveness r)) h h' /\ (~ (live_region h r))))
   (ensures (Modifies.modifies s h h'))
-= let z : squash (Modifies.modifies u#0 u#1 (TSet.union s (locset_of_region_with_liveness r)) h h') = () in
-  let f'
-    (ty: Type u#1)
-    (l: nat)
-    (c: Modifies.class root_class l ty )
-    (o: ty)
-    (g: (
-      (o' : Modifies.loc root_class { TSet.mem o' s } ) ->
-      Lemma
-      (Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
-    ))
-    ()
-  : Lemma
-    (requires (Modifies.Class?.live c h o))
-    (ensures (Modifies.Class?.preserved c o h h'))
-  = let g'
-      (o': Modifies.loc root_class { TSet.mem o' (TSet.union s (locset_of_region_with_liveness r)) } )
-    : Lemma
-      (Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
-    = Classical.or_elim
-        #(TSet.mem o' s)
-        #(TSet.mem o' (locset_of_region_with_liveness r))
-        #(fun _ -> Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
-        (fun _ -> g o')
-        (fun _ -> live_not_live_region_loc_disjoint r h c o o')
-    in
-    Modifies.modifies_elim (TSet.union s (locset_of_region_with_liveness r)) h h' () c o g'
-  in
-  let f
-    (ty: Type u#1)
-    (l: nat)
-    (c: Modifies.class root_class l ty )
-    (o: ty)
-    (g: (
-      (o' : Modifies.loc root_class { TSet.mem o' s } ) ->
-      Lemma
-      (Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
-    ))
-  : Lemma
-    (requires True)
-    (ensures (Modifies.Class?.preserved c o h h'))
-  = Classical.move_requires (f' ty l c o g) ();
-    Modifies.live_preserved_preserved c h h' o
-  in
-  Modifies.modifies_intro s h h' f
+= not_live_region_locset_dead r h;
+  Modifies.modifies_locset_dead s (locset_of_region_with_liveness r) h h'
 
 (* For the purpose of universe resolution, etc. *)
 
@@ -499,44 +462,6 @@ let fresh_frame_modifies
     Modifies.live_preserved_preserved c m0 m1 o    
   in
   Modifies.modifies_intro locset_of_tip m0 m1 f
-
-let locset_of_region_with_liveness_mem_elim
-  (r: HH.rid)
-  (o: Modifies.loc root_class)
-: Lemma
-  (requires (TSet.mem o (locset_of_region_with_liveness r)))
-  (ensures (exists (o' : object) . (
-    o == Modifies.loc_of_object class o' /\ (
-    match o' with
-    | ObjectReference _ rf -> frameOf rf == r
-    | ObjectRegionLiveness rg -> r == rg
-    | ObjectTip -> False
-  ))))
-= Classical.or_elim
-    #(TSet.mem o (locset_of_region r))
-    #(TSet.mem o (locset_of_region_liveness_tag r))
-    #(fun _ -> exists (o' : object) . (
-      o == Modifies.loc_of_object class o' /\ (
-      match o' with
-      | ObjectReference _ rf -> frameOf rf == r
-      | ObjectRegionLiveness rg -> r == rg
-      | ObjectTip -> False
-    )))
-    (fun _ -> mem_locset_of_region r o)
-    (fun _ -> ())
-
-let locset_of_region_with_liveness_mem_object_elim
-  (r: HH.rid)
-  (o': object)
-: Lemma
-  (requires (TSet.mem (Modifies.loc_of_object class o') (locset_of_region_with_liveness r)))
-  (ensures (match o' with
-    | ObjectReference _ rf -> frameOf rf == r
-    | ObjectRegionLiveness rg -> r == rg
-    | ObjectTip -> False
-  ))
-= Modifies.loc_of_object_inj_forall root_class;
-  locset_of_region_with_liveness_mem_elim r (Modifies.loc_of_object class o')
 
 let modifies_pop
   (m0: mem)

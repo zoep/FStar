@@ -97,6 +97,71 @@ let new_region_modifies
   let _ = Modifies.modifies_intro TSet.empty m0 m1 f in
   ()
 
+let remove_reference_modifies
+  (#a:Type)
+  (r: HS.reference a{r.HS.mm})
+  (m: HS.mem{r.HS.id `HS.is_in` m.HS.h})
+: Lemma
+  (ensures (
+    Modifies.modifies (HS.locset_of_reference r) m (remove_reference r m) /\
+    (~ ((remove_reference r m) `HS.contains` r)) /\
+    Modifies.locset_dead (HS.locset_of_reference r) (remove_reference r m)
+  ))
+= (* for locset_dead: *)
+  Modifies.loc_of_object_inj_forall HS.root_class;
+  (* for modifies: *)
+  let m0 = m in
+  let m1 = remove_reference r m in
+  let rec f'
+    (ty: Type u#1)
+    (l: nat)
+    (c: Modifies.class HS.root_class l ty )
+    (o: ty)
+    (g: (
+      (o' : Modifies.loc HS.root_class { TSet.mem o' (HS.locset_of_reference r) } ) ->
+      Lemma
+      (Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
+    ))
+    ()
+  : Lemma
+    (requires (Modifies.Class?.live c m0 o))
+    (ensures (Modifies.Class?.preserved c o m0 m1))
+    (decreases l)
+  = g (Modifies.loc_of_object HS.class (HS.ObjectReference _ r));
+    if l = 0
+    then begin
+      Modifies.level_0_class_eq_root c;
+      Modifies.loc_disjoint_level_zero_same c HS.class o (HS.ObjectReference _ r)
+    end else begin
+      Modifies.loc_disjoint_level_zero c HS.class o (HS.ObjectReference _ r);
+      let k
+        (i: nat { i < Modifies.Class?.ancestor_count c o } )
+      : Lemma
+        (Modifies.Class?.preserved (Modifies.Class?.ancestor_classes c o i) (Modifies.Class?.ancestor_objects c o i) m0 m1)
+      = Modifies.live_ancestors c m0 o i;
+        f' _ _ (Modifies.Class?.ancestor_classes c o i) (Modifies.Class?.ancestor_objects c o i) (fun _ -> ()) ()
+      in
+      Modifies.preserved_ancestors_preserved c o m0 m1 k
+    end
+  in
+  let f
+    (ty: Type u#1)
+    (l: nat)
+    (c: Modifies.class HS.root_class l ty )
+    (o: ty)
+    (g: (
+      (o' : Modifies.loc HS.root_class { TSet.mem o' (HS.locset_of_reference r) } ) ->
+      Lemma
+      (Modifies.loc_disjoint (Modifies.loc_of_object c o) o')
+    ))
+  : Lemma
+    (Modifies.Class?.preserved c o m0 m1)
+  = Classical.move_requires (f' ty l c o g) ();
+    Modifies.live_preserved_preserved c m0 m1 o    
+  in
+  let _ = Modifies.modifies_intro (HS.locset_of_reference r) m0 m1 f in
+  ()
+
 let new_region'
   (r0:HH.rid)
 : ST HH.rid
