@@ -5,7 +5,7 @@ module FStar.Pointer
 module DM = FStar.DependentMap
 module HH = FStar.HyperHeap
 module HS = FStar.HyperStackNG
-module HST = FStar.ST
+module HST = FStar.STNG
 
 type array (length: UInt32.t) (t: Type) = (s: Seq.seq t {Seq.length s == UInt32.v length})
 
@@ -2010,3 +2010,47 @@ let locset_disjoint_locset_of_tip_locset_of_pointer_liveness_tag
   (ensures (Modifies.locset_disjoint HS.locset_of_tip (locset_of_pointer_liveness_tag p)))
   [SMTPat (Modifies.locset_disjoint HS.locset_of_tip (locset_of_pointer_liveness_tag p))]
 = assert (Modifies.locset_includes (locset_of_pointer_with_liveness p) (locset_of_pointer_liveness_tag p))
+
+(* Concrete allocators *)
+
+abstract let screate'
+  (#value:Type)
+  (s: value)
+: StackInline (pointer value)
+  (requires (fun h -> True))
+  (ensures (fun (h0:HS.mem) b h1 ->
+       ~(contains h0 b)
+     /\ live h1 b
+     /\ frameOf b = h0.HS.tip
+     /\ Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) h0 h1
+     /\ Modifies.locset_dead (locset_of_pointer_with_liveness b) h0
+     /\ gread h1 b == s))
+= let h0 = HST.get () in
+  let content: HS.reference value =
+     HST.salloc s
+  in
+  let h1 = HST.get () in
+  HST.salloc_post_modifies s h0 content h1;
+  Modifies.loc_of_object_inj_forall HS.root_class;
+  Pointer content PathBase
+
+abstract let ecreate'
+  (#t:Type)
+  (r:HH.rid)
+  (s: t)
+: ST (pointer t)
+  (requires (fun h -> HS.is_eternal_region r))
+  (ensures (fun (h0:HS.mem) b h1 -> ~(contains h0 b)
+    /\ live h1 b
+    /\ Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) h0 h1
+    /\ Modifies.locset_dead (locset_of_pointer_with_liveness b) h0
+    /\ gread h1 b == s
+    /\ ~(memory_managed b)))
+= let h0 = HST.get() in
+  let content: HS.reference t = ralloc r s in
+  let b = Pointer content PathBase in
+  let h1 = HST.get() in
+  HST.ralloc_post_modifies r s h0 content h1;
+  Modifies.loc_of_object_inj_forall HS.root_class;
+  domain_upd h0 content s;
+  b
