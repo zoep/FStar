@@ -56,6 +56,9 @@ let object_preserved (o: object) (m m': mem): Tot Type0 =
 unfold
 let object_includes (o1 o2: object) : Tot Type0 = o1 == o2
 
+unfold
+let object_final (o: object): Tot Type0 = ObjectTip? o
+
 let root_class: Modifies.class' u#0 u#1 mem 0 object =
   Modifies.Class
     (* heap  *)                 mem
@@ -66,6 +69,7 @@ let root_class: Modifies.class' u#0 u#1 mem 0 object =
     (* contains *)              object_contains
     (* preserved *)             object_preserved
     (* includes *)              object_includes
+    (* final *)                 object_final
     (* ancestor_count *)        (fun x -> 0)
     (* ancestor_types *)        (fun x y -> false_elim ())
     (* ancestor_class_levels *) (fun x y -> false_elim ())
@@ -130,6 +134,8 @@ let class_invariant
     Modifies.contains_live = (fun _ _ _ -> ());
     Modifies.includes_ancestors = (fun _ _ _ -> ());
     Modifies.disjoint_includes = (fun _ _ _ -> ());
+    Modifies.final_equal_or_disjoint = (fun _ _ -> ());
+    Modifies.ancestor_not_final = (fun _ _ -> ());
   }
   in
   (Modifies.class_invariant_intro s)
@@ -624,3 +630,15 @@ let modifies_pop
     Modifies.live_preserved_preserved c m0 m1 o    
   in
   Modifies.modifies_intro s m0 m1 f
+
+let modifies_equal_tip
+  (ls: Modifies.locset root_class)
+  (h h' : mem)
+: Lemma
+  (requires (
+    Modifies.modifies u#0 u#1 (TSet.union locset_of_tip ls) h h' /\
+    h'.tip == h.tip
+  ))
+  (ensures (Modifies.modifies ls h h'))
+= Modifies.loc_of_object_inj_forall root_class;
+  Modifies.modifies_final locset_of_tip ls h h'

@@ -1616,6 +1616,11 @@ let object_includes
   (o1 o2: object)
 = includes (Object?.obj o1) (Object?.obj o2) /\ Object?.with_contents o1 == Object?.with_contents o2
 
+let object_final
+  (o: object)
+: Tot Type0
+= False
+
 let class': Modifies.class' HS.mem 1 object =
   Modifies.Class
     (* heap  *)                 HS.mem
@@ -1626,6 +1631,7 @@ let class': Modifies.class' HS.mem 1 object =
     (* contains *)              object_contains
     (* preserved *)             object_preserved
     (* includes *)              object_includes
+    (* final *)                 object_final
     (* ancestor_count *)        (fun x -> 1)
     (* ancestor_types *)        (fun x y -> HS.object)
     (* ancestor_class_levels *) (fun x y -> 0)
@@ -1752,6 +1758,8 @@ let class_invariant ()
       g
     end;
     Modifies.disjoint_includes = (let f _ _ _ = () in f);
+    Modifies.final_equal_or_disjoint = (fun _ _ -> ());
+    Modifies.ancestor_not_final = (fun _ _ -> ());
   }
   in
   (Modifies.class_invariant_intro s)

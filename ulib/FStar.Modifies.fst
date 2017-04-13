@@ -10,6 +10,7 @@ noeq type class' : (heap: (Type u#a)) -> (level: nat) -> (carrier: (Type u#b)) -
   (contains: (heap -> carrier -> Tot Type0)) ->
   (preserved: (carrier -> heap -> heap -> Tot Type0)) ->
   (includes: (carrier -> carrier -> Tot Type0)) ->
+  (final: (carrier -> Pure Type0 (requires (level == 0)) (ensures (fun _ -> True)))) ->
   (ancestor_count: (carrier -> Tot (x: nat { level > 0 ==> x > 0 } ))) ->
   (ancestor_types: ((x: carrier) -> (i: nat {i < ancestor_count x}) -> Tot (Type u#b))) ->
   (ancestor_class_levels: ((x: carrier) -> (i: nat {i < ancestor_count x}) -> Tot (y:nat { y < level } ))) ->
@@ -320,6 +321,26 @@ let disjoint_includes_t
   (requires (Class?.disjoint c o1 o2 /\ Class?.includes c o1 o1'))
   (ensures (Class?.disjoint c o1' o2))
 
+let final_equal_or_disjoint_t
+  (#heap: Type u#a)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty )
+: Tot (Type u#b)
+= (x: ty) ->
+  (y: ty) ->
+  Lemma
+  (requires (level == 0 /\ Class?.final c x))
+  (ensures (y == x \/ Class?.disjoint c x y))
+
+let ancestor_not_final_t
+  (#heap: Type u#a)
+  (#level: nat) (#ty: Type u#b) (c: class' heap level ty )
+: Tot (Type u#b)
+= (x: ty) ->
+  (i: nat { i < Class?.ancestor_count c x } ) ->
+  Lemma
+  (requires (Class?.ancestor_class_levels c x i == 0))
+  (ensures (Class?.ancestor_class_levels c x i == 0 /\ ~ (Class?.final (Class?.ancestor_classes c x i) (Class?.ancestor_objects c x i))))
+
 noeq
 type class_invariant_body
   (#heap: Type u#a)
@@ -348,7 +369,9 @@ type class_invariant_body
   includes_contains: includes_contains_t c;
   contains_live: contains_live_t c;
   includes_ancestors: includes_ancestors_t c;
-  disjoint_includes: disjoint_includes_t c
+  disjoint_includes: disjoint_includes_t c;
+  final_equal_or_disjoint: final_equal_or_disjoint_t c;
+  ancestor_not_final: ancestor_not_final_t c;
 }
 
 abstract
@@ -404,6 +427,7 @@ let class_invariant_ancestor_classes
 
 (** FIXME: statements are duplicated here due to the SMT patterns *)
 
+abstract
 let preserved_refl
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
@@ -416,6 +440,7 @@ let preserved_refl
   [SMTPat (Class?.preserved c x h h)]
 = Squash.bind_squash #_ #(Class?.preserved c x h h) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_refl x h)
 
+abstract
 let preserved_trans
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
@@ -446,6 +471,7 @@ let preserved_trans
 (*   (ensures (Class?.preserved c x h h')) *)
 (* = Squash.bind_squash #_ #(Class?.preserved c x h h') (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_ancestors_preserved x h h' () (fun _ -> ())) *)
 
+abstract
 let preserved_ancestors_preserved
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
@@ -462,6 +488,7 @@ let preserved_ancestors_preserved
   (ensures (Class?.preserved c x h h'))
 = Squash.bind_squash #_ #(Class?.preserved c x h h') (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_ancestors_preserved x h h' () f)
 
+abstract
 let object_disjoint_sym
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
@@ -474,6 +501,7 @@ let object_disjoint_sym
   [SMTPat (Class?.disjoint c x2 x1)]
 = Squash.bind_squash #_ #(Class?.disjoint c x2 x1) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.disjoint_sym x1 x2)
 
+abstract
 let level_0_class_eq_root
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
@@ -482,6 +510,7 @@ let level_0_class_eq_root
   (ensures (ty == root_type /\ c == root_class))
 = Squash.bind_squash #_ #(0 == 0 ==> ty == root_type /\ c == root_class) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.level_0_class_eq_root)
 
+abstract
 let level_0_fresh_disjoint
   (#heap: Type u#a)
   (#root_type: Type u#b) (root_class: class' heap 0 root_type { class_invariant root_class root_class } )
@@ -500,6 +529,7 @@ let level_0_fresh_disjoint
   [SMTPatT u#c (Class?.live root_class hbefore oold); SMTPatT (~ (Class?.contains root_class hbefore onew)); SMTPatT (Class?.live root_class hafter oold); SMTPatT (Class?.live root_class hafter onew)]
 = Squash.bind_squash #_ #(Class?.disjoint root_class oold onew) (Squash.join_squash ()) (fun (i: class_invariant_body root_class root_class) -> i.level_0_fresh_disjoint oold onew hbefore hafter)
 
+abstract
 let live_preserved_preserved
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
@@ -574,6 +604,7 @@ let live_preserved_preserved
 (*   (ensures (Class?.contains c h o)) *)
 (* =  Squash.bind_squash #_ #(Class?.contains c h o) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.ancestors_contains h o s (fun _ -> ())) *)
 
+abstract
 let live_ancestors
   (#heap: Type)
   (#root_type: Type) (#root_class: class' heap 0 root_type)
@@ -589,6 +620,7 @@ let live_ancestors
   [SMTPat (Class?.live (Class?.ancestor_classes c o i) h (ancestor_objects c o i))]
 = Squash.bind_squash #_ #(Class?.live (Class?.ancestor_classes c o i) h (ancestor_objects c o i)) (Squash.join_squash ()) (fun (j: class_invariant_body root_class c) -> j.live_ancestors h o i)
 
+abstract
 let object_includes_refl
   (#heap: Type)
   (#root_type: Type) (#root_class: class' heap 0 root_type)
@@ -598,6 +630,7 @@ let object_includes_refl
   (ensures (Class?.includes c o o))
 = Squash.bind_squash #_ #(Class?.includes c o o) (Squash.join_squash ()) (fun (j: class_invariant_body root_class c) -> j.includes_refl o)
 
+abstract
 let object_includes_trans
   (#heap: Type)
   (#root_type: Type) (#root_class: class' heap 0 root_type)
@@ -608,6 +641,7 @@ let object_includes_trans
   (ensures (Class?.includes c o1 o3))
 = Squash.bind_squash #_ #(Class?.includes c o1 o3) (Squash.join_squash ()) (fun (j: class_invariant_body root_class c) -> j.includes_trans o1 o2 o3)
 
+abstract
 let object_includes_ancestors
   (#heap: Type u#a)
   (#root_type: Type) (#root_class: class' heap 0 root_type)
@@ -622,6 +656,7 @@ let object_includes_ancestors
     includes_ancestors_t_prop c o1 o2 i2 i1
   } ) (Squash.join_squash ()) (fun (j: class_invariant_body root_class c) -> j.includes_ancestors o1 o2 i2)
 
+abstract
 let object_disjoint_includes
   (#heap: Type u#a)
   (#root_type: Type) (#root_class: class' heap 0 root_type)
@@ -639,6 +674,30 @@ let object_disjoint_includes
     j.disjoint_includes o2 o1' o2';
     j.disjoint_sym o2' o1'
   )
+
+abstract
+let final_equal_or_disjoint
+  (#heap: Type u#a)
+  (#root_type: Type) (#root_class: class' heap 0 root_type)
+  (#level: nat) (#ty: Type u#b) (c: class root_class level ty )
+  (x: ty)
+  (y: ty)
+: Lemma
+  (requires (level == 0 /\ Class?.final c x))
+  (ensures (y == x \/ Class?.disjoint c x y))
+= Squash.bind_squash #_ #(y == x \/ Class?.disjoint c x y) (Squash.join_squash ()) (fun (j: class_invariant_body root_class c) -> j.final_equal_or_disjoint x y)
+
+abstract
+let ancestor_not_final
+  (#heap: Type u#a)
+  (#root_type: Type) (#root_class: class' heap 0 root_type)
+  (#level: nat) (#ty: Type u#b) (c: class root_class level ty )
+  (x: ty)
+  (i: nat { i < Class?.ancestor_count c x } )
+: Lemma
+  (requires (Class?.ancestor_class_levels c x i == 0))
+  (ensures (Class?.ancestor_class_levels c x i == 0 /\ ~ (Class?.final (Class?.ancestor_classes c x i) (Class?.ancestor_objects c x i))))
+= Squash.bind_squash #_ #(~ (Class?.final (Class?.ancestor_classes c x i) (Class?.ancestor_objects c x i))) (Squash.join_squash ()) (fun (j: class_invariant_body root_class c) -> j.ancestor_not_final x i)
 
 private
 noeq type disjoint_t: (#heap: Type u#a) -> (#level1: nat) -> (#level2: nat) -> (#t1: (Type u#b)) -> (#t2: (Type u#b)) -> class' heap level1 t1 -> class' heap level2 t2 -> t1 -> t2 -> Tot (Type u#(1 + max a b)) =
@@ -776,6 +835,7 @@ let loc_disjoint_sym
   let o2 = Location?.obj l2 in
   Squash.bind_squash (Squash.join_squash ()) (fun (d: disjoint_t c1 c2 o1 o2) -> Squash.return_squash (disjoint_t_sym c1 c2 o1 o2 d))
 
+abstract
 let loc_disjoint_objects
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
@@ -790,6 +850,7 @@ let loc_disjoint_objects
   [SMTPatT u#c (Class?.disjoint c o1 o2)]
 = Squash.return_squash (DisjointObjects c o1 o2 ())
 
+abstract
 let loc_disjoint_ancestors_left
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
@@ -822,6 +883,7 @@ let loc_disjoint_ancestors_left
     Squash.return_squash d
   )
 
+abstract
 let loc_disjoint_ancestors_right
   (#heap: Type)
   (#root_type: Type) (#root_class: class' heap 0 root_type)
@@ -855,6 +917,7 @@ let loc_disjoint_ancestors_right
     Squash.return_squash d
   )
 
+abstract
 let loc_disjoint_ind
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -967,6 +1030,7 @@ let loc_disjoint_ind
   let h : squash (disjoint_t c1 c2 o1 o2) = Squash.join_squash () in
   Squash.bind_squash #_ #(p l1 l2) h (fun h -> g c1 o1 c2 o2 h (Class?.level c1 + Class?.level c2))
 
+abstract
 let loc_disjoint_ind2
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -1333,6 +1397,7 @@ let locset_disjoint
   .
     loc_disjoint l1 l2
 
+abstract
 let locset_disjoint_sym
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -1466,6 +1531,7 @@ let locset_includes_loc
 : Tot Type0
 = squash (locset_includes_object_t ls (Location?.class l) (Location?.obj l))
 
+abstract
 let mem_locset_includes_loc
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -1510,6 +1576,7 @@ let locset_includes_union
   [SMTPat (locset_includes ls_big (TSet.union ls_small_1 ls_small_2))]
 = ()
 
+abstract
 let locset_includes_loc_object
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -1526,6 +1593,7 @@ let locset_includes_loc_object
   [SMTPat (TSet.mem (loc_of_object c o1)); SMTPatT (Class?.includes c o1 o2)]
 = Squash.return_squash (LocsetIncludesObject ls c o1 o2)
 
+abstract
 let locset_includes_locset_of_object
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -1541,6 +1609,7 @@ let locset_includes_locset_of_object
   [SMTPatOr [ [ SMTPat (locset_includes (locset_of_object c o1) (locset_of_object c o2))] ; [ SMTPat (Class?.includes c o1 o2) ] ] ]
 = locset_includes_loc_object (locset_of_object c o1) c o1 o2
 
+abstract
 let locset_includes_loc_ancestors
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -1564,6 +1633,7 @@ let locset_includes_loc_ancestors
   let g = SquashProperties.squash_arrow g in
   Squash.bind_squash g (fun (h: ((i: nat {i < Class?.ancestor_count c o } ) -> Tot (locset_includes_object_t ls (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i)))) -> Squash.return_squash (LocsetIncludesAncestors ls c o h))
 
+abstract
 let locset_includes_loc_ind
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -1727,6 +1797,7 @@ let locset_includes_loc_includes
     f o
   )
 
+abstract
 let locset_includes_loc_trans
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -1767,6 +1838,7 @@ let locset_includes_loc_trans
   in
   locset_includes_loc_ind ls p h_object h_ancestors l
 
+abstract
 let locset_includes_trans
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -1788,6 +1860,7 @@ let locset_includes_trans
 
 (* Same thing, to provide the witness *)
 
+abstract
 let locset_includes_trans'
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -2002,6 +2075,7 @@ let loc_disjoint_object_includes_intro
     l1
     l2
 
+abstract
 let loc_disjoint_locset_includes_loc
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -2030,6 +2104,7 @@ let loc_disjoint_locset_includes_loc
     )
     l2
 
+abstract
 let locset_disjoint_locset_includes
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -2058,6 +2133,7 @@ let locset_disjoint_locset_includes
   in
   Classical.forall_intro f
 
+abstract
 let modifies_locset_includes
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
@@ -2091,6 +2167,7 @@ let modifies_locset_includes
   in
   modifies_intro s1 h h' f
 
+abstract
 let modifies_trans_gen
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
@@ -2270,6 +2347,7 @@ let modifies_loc_refines
 
 (* Special case for level 0 (needed because argument f above is not provable for level 0) *)
 
+abstract
 let modifies_loc_refines_0
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -2412,6 +2490,7 @@ let disjoint_t_level_zero
       let ct: class root_class (level true) (t true) = c true in
       Classical.move_requires (level_0_no_ancestors ct) (o true)
 
+abstract
 let loc_disjoint_level_zero
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -2448,6 +2527,7 @@ let disjoint_t_level_zero_same
     let ct: class root_class (level true) (t true) = c true in
     Classical.move_requires (level_0_no_ancestors ct) (o true)
 
+abstract
 let loc_disjoint_level_zero_same
   (#heap: Type u#a)
   (#root_type: Type u#b)
@@ -2462,3 +2542,116 @@ let loc_disjoint_level_zero_same
   (requires (loc_disjoint (loc_of_object c1 o1) (loc_of_object c2 o2)))
   (ensures ((level1 == 0 /\ level2 == 0) ==> (t1 == t2 /\ c1 == hetero_id c2 /\ Class?.disjoint c1 o1 o2)))
 = Squash.bind_squash (Squash.join_squash ()) (fun (h: disjoint_t c1 c2 o1 o2) -> disjoint_t_level_zero_same c1 c2 o1 o2 h)
+
+abstract
+let rec final_disjoint
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type )
+  (#level1 #level2: nat)
+  (#t1 #t2: Type u#b)
+  (c1: class root_class level1 t1)
+  (c2: class root_class level2 t2)
+  (o1: t1)
+  (o2: t2)
+: Lemma
+  (requires (level1 == 0 /\ Class?.final c1 o1 /\ level2 > 0))
+  (ensures (loc_disjoint (loc_of_object c1 o1) (loc_of_object c2 o2)))
+  (decreases level2)
+= level_0_class_eq_root c1;
+  let f
+    (i: nat { i < Class?.ancestor_count c2 o2 } )
+  : Lemma
+    (loc_disjoint (loc_of_object c1 o1) (loc_of_object (Class?.ancestor_classes c2 o2 i) (Class?.ancestor_objects c2 o2 i)))
+  = if Class?.ancestor_class_levels c2 o2 i = 0
+    then begin
+      let c2_ : class root_class 0 (Class?.ancestor_types c2 o2 i) = Class?.ancestor_classes c2 o2 i in
+      level_0_class_eq_root c2_;
+      ancestor_not_final c2 o2 i;
+      final_equal_or_disjoint c1 o1 (Class?.ancestor_objects c2 o2 i)
+    end else
+      final_disjoint c1 (Class?.ancestor_classes c2 o2 i) o1 (Class?.ancestor_objects c2 o2 i)
+  in
+  loc_disjoint_ancestors_right (loc_of_object c1 o1) c2 o2 f
+
+abstract
+let final_equal_or_disjoint_gen
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type )
+  (#level1: nat)
+  (#t1: Type u#b)
+  (c1: class root_class level1 t1)
+  (o1: t1)
+  (l2: loc root_class)
+: Lemma
+  (requires (level1 == 0 /\ Class?.final c1 o1))
+  (ensures (loc_of_object c1 o1 == l2 \/ loc_disjoint (loc_of_object c1 o1) l2))
+= let (Location _ level2 c2 o2) = l2 in
+  if level2 = 0
+  then begin
+    level_0_class_eq_root c1;
+    level_0_class_eq_root c2;
+    final_equal_or_disjoint c1 o1 o2
+  end else
+    final_disjoint c1 c2 o1 o2
+
+abstract
+let modifies_final
+  (#heap: Type u#a)
+  (#root_type: Type u#b)
+  (#root_class: class' heap 0 root_type)
+  (ls_final ls: locset root_class)
+  (h h': heap)
+: Lemma
+  (requires (
+    modifies (TSet.union ls_final ls) h h' /\ (
+    forall
+      (level: nat)
+      (t: Type u#b)
+      (c: class root_class level t)
+      (o: t)
+    .
+      TSet.mem (loc_of_object c o) ls_final ==> (
+      level == 0 /\
+      Class?.final c o /\
+      Class?.preserved c o h h'
+  ))))
+  (ensures (modifies ls h h'))
+= let f
+    (ty: Type u#b)
+    (l: nat)
+    (c: class root_class l ty )
+    (o: ty)
+    (g: (
+      (o' : loc root_class { TSet.mem o' ls } ) ->
+      Lemma
+      (loc_disjoint (loc_of_object c o) o')
+    ))
+  : Lemma
+    (Class?.preserved c o h h')
+  = Classical.excluded_middle (TSet.mem (loc_of_object c o) ls_final);
+    Classical.or_elim
+      #(TSet.mem (loc_of_object c o) ls_final)
+      #(~ (TSet.mem (loc_of_object c o) ls_final))
+      #(fun _ -> Class?.preserved c o h h')
+      (fun _ -> ())
+      (fun _ ->
+	let g'
+	  (o': loc root_class { TSet.mem o' (TSet.union ls_final ls) } )
+	: Lemma
+	  (loc_disjoint (loc_of_object c o) o')
+	= Classical.or_elim
+	    #(TSet.mem o' ls_final)
+	    #(TSet.mem o' ls)
+	    #(fun _ -> loc_disjoint (loc_of_object c o) o')
+	    (fun _ ->
+	      let (Location _ _ c' o') = o' in
+	      final_equal_or_disjoint_gen c' o' (loc_of_object c o)
+	    )
+	    (fun _ -> g o')
+	in
+	modifies_elim (TSet.union ls_final ls) h h' () c o g'
+      )
+  in
+  modifies_intro ls h h' f
