@@ -127,20 +127,18 @@ let level_0_class_eq_root_t
 = squash (level == 0 ==> ty == root_type /\ c == root_class)
 
 unfold
-let level_0_fresh_disjoint_t
+let level_0_live_dead_disjoint_t
   (#heap: Type u#a)
   (#level: nat) (#ty: Type u#b) (c: class' heap level ty)
 : Tot (Type u#(max a b))
 = (oold: ty) ->
   (onew: ty) ->
   (hbefore: heap) ->
-  (hafter: heap) ->
   Lemma
   (requires (
     level == 0 /\
     Class?.live c hbefore oold /\
-    (~ (Class?.contains c hbefore onew)) /\
-    Class?.live c hafter onew
+    (~ (Class?.contains c hbefore onew))
   ))
   (ensures (Class?.disjoint c oold onew))
 
@@ -355,7 +353,7 @@ type class_invariant_body
   preserved_ancestors_preserved: preserved_ancestors_preserved_t c;
   disjoint_sym: disjoint_sym_t c;
   level_0_class_eq_root: level_0_class_eq_root_t root_class c;
-  level_0_fresh_disjoint: level_0_fresh_disjoint_t c;
+  level_0_live_dead_disjoint: level_0_live_dead_disjoint_t c;
   live_preserved_preserved: live_preserved_preserved_t c;
   preserved_live: preserved_live_t c;
   preserved_contains: preserved_contains_t c;
@@ -510,22 +508,20 @@ let level_0_class_eq_root
 = Squash.bind_squash #_ #(0 == 0 ==> ty == root_type /\ c == root_class) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.level_0_class_eq_root)
 
 abstract
-let level_0_fresh_disjoint
+let level_0_live_dead_disjoint
   (#heap: Type u#a)
   (#root_type: Type u#b) (root_class: class' heap 0 root_type { class_invariant root_class root_class } )
   (oold: root_type)
   (onew: root_type)
   (hbefore: heap)
-  (hafter: heap)
 : Lemma
   (requires (
     Class?.live root_class hbefore oold /\
-    (~ (Class?.contains root_class hbefore onew)) /\
-    Class?.live root_class hafter onew
+    (~ (Class?.contains root_class hbefore onew))
   ))
   (ensures (Class?.disjoint root_class oold onew))
-  [SMTPatT u#c (Class?.live root_class hbefore oold); SMTPatT (~ (Class?.contains root_class hbefore onew)); SMTPatT (Class?.live root_class hafter oold); SMTPatT (Class?.live root_class hafter onew)]
-= Squash.bind_squash #_ #(Class?.disjoint root_class oold onew) (Squash.join_squash ()) (fun (i: class_invariant_body root_class root_class) -> i.level_0_fresh_disjoint oold onew hbefore hafter)
+  [SMTPatT u#c (Class?.live root_class hbefore oold); SMTPatT (~ (Class?.contains root_class hbefore onew)); ]
+= Squash.bind_squash #_ #(Class?.disjoint root_class oold onew) (Squash.join_squash ()) (fun (i: class_invariant_body root_class root_class) -> i.level_0_live_dead_disjoint oold onew hbefore)
 
 abstract
 let live_preserved_preserved
@@ -1278,62 +1274,37 @@ let modifies_test_1
   (ensures (Class?.preserved c o3 h h'))
 = ()
 
-let rec fresh
+let rec dead
   (#heap: Type u#a)
   (#level: nat)
   (#ty: Type u#b)
   (c: class' heap level ty)
   (o: ty)
-  (h h': heap)
+  (h: heap)
 : Pure Type0
   (requires True)
   (ensures (fun _ -> True))
   (decreases level)
-= (~ ( Class?.contains c h o )) /\
-  Class?.live c h' o /\ (
-    forall (i: nat {i < Class?.ancestor_count c o}) . fresh (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i) h h'
+= (~ ( Class?.contains c h o )) /\ (
+    forall (i: nat {i < Class?.ancestor_count c o}) . dead (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i) h
   )
 
-let fresh_ancestor
+let dead_ancestor
   (#heap: Type u#a)
   (#level: nat)
   (#ty: Type u#b)
   (c: class' heap level ty)
   (o: ty)
-  (h h': heap)
+  (h: heap)
   (i: nat {i < Class?.ancestor_count c o})
 : Lemma
-  (requires (fresh c o h h'))
-  (ensures (fresh (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i) h h'))
-  [SMTPat (fresh (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i) h h')]
+  (requires (dead c o h))
+  (ensures (dead (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i) h))
+  [SMTPat (dead (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i) h)]
 = ()
 
 abstract
-let rec fresh_live
-  (#heap: Type u#a)
-  (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
-  (#level: nat)
-  (#ty: Type u#b)
-  (c: class root_class level ty)
-  (o: ty)
-  (h0 h1 h2: heap)
-: Lemma
-  (requires (fresh c o h0 h1 /\ Class?.live c h2 o))
-  (ensures (fresh c o h0 h2))
-  [SMTPatT u#c (fresh c o h0 h1); SMTPatT (Class?.live c h2 o)]
-= let f
-    (i: nat {i < Class?.ancestor_count c o})
-  : Lemma
-    (ensures (
-      fresh (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i) h0 h2
-    ))
-  = let (c': class root_class (Class?.ancestor_class_levels c o i) (Class?.ancestor_types c o i)) = (Class?.ancestor_classes c o i) in
-    fresh_live c' (Class?.ancestor_objects c o i) h0 h1 h2
-  in
-  Classical.forall_intro f
-
-abstract
-let rec fresh_disjoint
+let rec live_dead_disjoint
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
   (#levelold: nat) (#tyold: Type u#b)
@@ -1343,15 +1314,14 @@ let rec fresh_disjoint
   (oold: tyold)
   (onew: tynew)
   (hbefore: heap)
-  (hafter: heap)
 :  Lemma
   (requires (
     Class?.live cold hbefore oold /\
-    fresh cnew onew hbefore hafter
+    dead cnew onew hbefore
   ))
   (ensures (loc_disjoint (loc_of_object cold oold) (loc_of_object cnew onew)))
   (decreases (levelold + levelnew))
-  [SMTPatT u#c (Class?.live cold hbefore oold); SMTPatT (fresh cnew onew hbefore hafter)]
+  [SMTPatT u#c (Class?.live cold hbefore oold); SMTPatT (dead cnew onew hbefore)]
 = if
     levelold = 0
   then
@@ -1360,7 +1330,7 @@ let rec fresh_disjoint
       levelnew = 0
     then
       let _ : squash (tynew == root_type /\ cnew == root_class) = level_0_class_eq_root #heap #root_type #root_class #tynew cnew in
-      level_0_fresh_disjoint cold oold onew hbefore hafter
+      level_0_live_dead_disjoint cold oold onew hbefore
     else
       let f
 	(i: nat { i < Class?.ancestor_count cnew onew } )
@@ -1368,7 +1338,7 @@ let rec fresh_disjoint
 	(loc_disjoint (loc_of_object cold oold) (loc_of_object (Class?.ancestor_classes cnew onew i) (Class?.ancestor_objects cnew onew i)))
       = let cnew' = Class?.ancestor_classes cnew onew i in
 	let onew' = Class?.ancestor_objects cnew onew i in
-	fresh_disjoint cold cnew' oold onew' hbefore hafter
+	live_dead_disjoint cold cnew' oold onew' hbefore
       in
       loc_disjoint_ancestors_right (loc_of_object cold oold) cnew onew f
   else
@@ -1378,7 +1348,7 @@ let rec fresh_disjoint
       (loc_disjoint (loc_of_object (Class?.ancestor_classes cold oold i) (Class?.ancestor_objects cold oold i)) (loc_of_object cnew onew))
     = let cold' = Class?.ancestor_classes cold oold i in
       let oold' = Class?.ancestor_objects cold oold i in
-      fresh_disjoint cold' cnew oold' onew hbefore hafter
+      live_dead_disjoint cold' cnew oold' onew hbefore
     in
     loc_disjoint_ancestors_left cold oold (loc_of_object cnew onew) f
 
@@ -1450,28 +1420,27 @@ let locset_live
   TSet.mem (loc_of_object c o) ls ==>
   Class?.live c h o
 
-let locset_fresh
+let locset_dead
   (#heap: Type u#a)
   (#root_type: Type u#b)
   (#root_class: class' heap 0 root_type)
   (ls: locset root_class)
-  (h h': heap)
+  (h: heap)
 : Tot Type0
 = forall (level: nat) (ty: Type u#b) (c: class root_class level ty) (o: ty) .
   TSet.mem (loc_of_object c o) ls ==>
-  fresh c o h h'
+  dead c o h
 
 abstract
-let locset_fresh_locset_disjoint
+let locset_live_locset_dead_locset_disjoint
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
   (lsold lsnew: locset root_class)
   (hbefore: heap)
-  (hafter: heap)
 : Lemma
   (requires (
     locset_live hbefore lsold /\
-    locset_fresh lsnew hbefore hafter
+    locset_dead lsnew hbefore
   ))
   (ensures (locset_disjoint lsold lsnew))
 = let f
@@ -1479,18 +1448,18 @@ let locset_fresh_locset_disjoint
     (lnew: loc root_class { TSet.mem lnew lsnew } )
   : Lemma
     (loc_disjoint lold lnew)
-  = fresh_disjoint (Location?.class lold) (Location?.class lnew) (Location?.obj lold) (Location?.obj lnew) hbefore hafter
+  = live_dead_disjoint (Location?.class lold) (Location?.class lnew) (Location?.obj lold) (Location?.obj lnew) hbefore
   in
   Classical.forall_intro_2 f
 
-let modifies_fresh_elim
+let modifies_locset_dead
   (#heap: Type u#a)
   (#root_type: Type u#b) (#root_class: class' heap 0 root_type)
   (lsold lsnew: locset root_class)
   (hbefore: heap)
   (hafter: heap)
 : Lemma
-  (requires (modifies (TSet.union lsold lsnew) hbefore hafter /\ locset_fresh lsnew hbefore hafter))
+  (requires (modifies (TSet.union lsold lsnew) hbefore hafter /\ locset_dead lsnew hbefore))
   (ensures (modifies lsold hbefore hafter))
 = let f'
     (ty: Type u#b)
@@ -1516,7 +1485,7 @@ let modifies_fresh_elim
         (fun _ -> g o')
         (fun _ ->
           let (Location _ _ cnew onew) = o' in
-          fresh_disjoint c cnew o onew hbefore hafter
+          live_dead_disjoint c cnew o onew hbefore
         )
     in
     modifies_elim (TSet.union lsold lsnew) hbefore hafter () c o g'

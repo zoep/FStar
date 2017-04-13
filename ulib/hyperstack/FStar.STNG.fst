@@ -14,8 +14,8 @@ let salloc_post_modifies
   (m1: HS.mem)
 : Lemma
   (requires (salloc_post init m0 s m1))
-  (ensures (Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_fresh (HS.locset_of_reference s) m0 m1))
-= (* for Modifies.locset_fresh: *)
+  (ensures (Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_dead (HS.locset_of_reference s) m0))
+= (* for Modifies.locset_dead: *)
   Modifies.loc_of_object_inj_forall HS.root_class;
   (* for Modifies.modifies: 
      1. first prove that s is modified *)
@@ -25,8 +25,8 @@ let salloc_post_modifies
   Modifies.modifies_intro (HS.locset_of_reference s) m0 (HS.upd m0 s init) (fun ty l c o g ->
     Modifies.modifies_loc_refines_0 HS.class (HS.ObjectReference _ s) m0 (HS.upd m0 s init) (fun o' _ -> ()) c o (g (Modifies.loc_of_object HS.class (HS.ObjectReference _ s)))
   );
-  (* 2. then remove it thanks to the fact that it is fresh *)
-  Modifies.modifies_fresh_elim TSet.empty (HS.locset_of_reference s) m0 m1
+  (* 2. then remove it thanks to the fact that it was dead before *)
+  Modifies.modifies_locset_dead TSet.empty (HS.locset_of_reference s) m0 m1
 
 (* Same proof as HyperStackNG.fresh_frame_modifies, except that tip does not change *)
 
@@ -146,8 +146,8 @@ let ralloc_post_modifies
   (m1: HS.mem)
 : Lemma
   (requires (ralloc_post i init m0 s m1))
-  (ensures (Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_fresh (HS.locset_of_reference s) m0 m1))
-= (* for Modifies.locset_fresh: *)
+  (ensures (Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_dead (HS.locset_of_reference s) m0))
+= (* for Modifies.locset_dead: *)
   Modifies.loc_of_object_inj_forall HS.root_class;
   (* for Modifies.modifies: 
      1. first prove that s is modified *)
@@ -157,5 +157,5 @@ let ralloc_post_modifies
   Modifies.modifies_intro (HS.locset_of_reference s) m0 (HS.upd m0 s init) (fun ty l c o g ->
     Modifies.modifies_loc_refines_0 HS.class (HS.ObjectReference _ s) m0 (HS.upd m0 s init) (fun o' _ -> ()) c o (g (Modifies.loc_of_object HS.class (HS.ObjectReference _ s)))
   );
-  (* 2. then remove it thanks to the fact that it is fresh *)
-  Modifies.modifies_fresh_elim TSet.empty (HS.locset_of_reference s) m0 m1
+  (* 2. then remove it thanks to the fact that it was dead before *)
+  Modifies.modifies_locset_dead TSet.empty (HS.locset_of_reference s) m0 m1

@@ -105,7 +105,7 @@ let class_invariant
     end;
     Modifies.disjoint_sym = (fun _ _ -> ());
     Modifies.level_0_class_eq_root = ();
-    Modifies.level_0_fresh_disjoint = (fun _ _ _ _ -> ());
+    Modifies.level_0_live_dead_disjoint = (fun _ _ _ -> ());
     Modifies.live_preserved_preserved = (fun _ _ _ -> ());
     Modifies.preserved_live = (fun _ _ _ -> ());
     Modifies.preserved_contains = (fun _ _ _ -> ());
