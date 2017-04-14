@@ -1871,7 +1871,7 @@ let locset_dead_locset_of_pointer
   (h: HS.mem)
   (p: pointer t)
 : Lemma
-  ((~ (contains h p)) <==> Modifies.locset_dead (locset_of_pointer p) h)
+  ((~ (contains h p)) <==> Modifies.locset_dead h (locset_of_pointer p))
 = Modifies.loc_of_object_inj_forall HS.root_class
 
 let locset_dead_locset_of_pointer_liveness_tag
@@ -1879,7 +1879,7 @@ let locset_dead_locset_of_pointer_liveness_tag
   (h: HS.mem)
   (p: pointer t)
 : Lemma
-  ((~ (contains h p)) <==> Modifies.locset_dead (locset_of_pointer_liveness_tag p) h)
+  ((~ (contains h p)) <==> Modifies.locset_dead h (locset_of_pointer_liveness_tag p))
 = Modifies.loc_of_object_inj_forall HS.root_class
 
 let locset_dead_locset_of_pointer_with_liveness
@@ -1887,7 +1887,7 @@ let locset_dead_locset_of_pointer_with_liveness
   (h: HS.mem)
   (p: pointer t)
 : Lemma
-  ((~ (contains h p)) <==> Modifies.locset_dead (locset_of_pointer_with_liveness p) h)
+  ((~ (contains h p)) <==> Modifies.locset_dead h (locset_of_pointer_with_liveness p))
 = Modifies.loc_of_object_inj_forall HS.root_class
 
 let locset_of_region_includes_locset_of_pointer_with_liveness
@@ -2047,7 +2047,7 @@ abstract let screate'
      /\ live h1 b
      /\ frameOf b = h0.HS.tip
      /\ Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) h0 h1
-     /\ Modifies.locset_dead (locset_of_pointer_with_liveness b) h0
+     /\ Modifies.locset_dead h0 (locset_of_pointer_with_liveness b)
      /\ gread h1 b == s))
 = let h0 = HST.get () in
   let content: HS.reference value =
@@ -2067,7 +2067,7 @@ abstract let ecreate'
   (ensures (fun (h0:HS.mem) b h1 -> ~(contains h0 b)
     /\ live h1 b
     /\ Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) h0 h1
-    /\ Modifies.locset_dead (locset_of_pointer_with_liveness b) h0
+    /\ Modifies.locset_dead h0 (locset_of_pointer_with_liveness b)
     /\ gread h1 b == s
     /\ ~(memory_managed b)))
 = let h0 = HST.get() in

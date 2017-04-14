@@ -1279,14 +1279,14 @@ let rec dead
   (#level: nat)
   (#ty: Type u#b)
   (c: class' heap level ty)
-  (o: ty)
   (h: heap)
+  (o: ty)
 : Pure Type0
   (requires True)
   (ensures (fun _ -> True))
   (decreases level)
 = (~ ( Class?.contains c h o )) /\ (
-    forall (i: nat {i < Class?.ancestor_count c o}) . dead (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i) h
+    forall (i: nat {i < Class?.ancestor_count c o}) . dead (Class?.ancestor_classes c o i) h (Class?.ancestor_objects c o i)
   )
 
 let dead_ancestor
@@ -1298,9 +1298,9 @@ let dead_ancestor
   (h: heap)
   (i: nat {i < Class?.ancestor_count c o})
 : Lemma
-  (requires (dead c o h))
-  (ensures (dead (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i) h))
-  [SMTPat (dead (Class?.ancestor_classes c o i) (Class?.ancestor_objects c o i) h)]
+  (requires (dead c h o))
+  (ensures (dead (Class?.ancestor_classes c o i) h (Class?.ancestor_objects c o i)))
+  [SMTPat (dead (Class?.ancestor_classes c o i) h (Class?.ancestor_objects c o i))]
 = ()
 
 abstract
@@ -1317,7 +1317,7 @@ let rec live_dead_disjoint
 :  Lemma
   (requires (
     Class?.live cold hbefore oold /\
-    dead cnew onew hbefore
+    dead cnew hbefore onew
   ))
   (ensures (loc_disjoint (loc_of_object cold oold) (loc_of_object cnew onew)))
   (decreases (levelold + levelnew))
@@ -1424,12 +1424,12 @@ let locset_dead
   (#heap: Type u#a)
   (#root_type: Type u#b)
   (#root_class: class' heap 0 root_type)
-  (ls: locset root_class)
   (h: heap)
+  (ls: locset root_class)
 : Tot Type0
 = forall (level: nat) (ty: Type u#b) (c: class root_class level ty) (o: ty) .
   TSet.mem (loc_of_object c o) ls ==>
-  dead c o h
+  dead c h o
 
 abstract
 let locset_live_locset_dead_locset_disjoint
@@ -1440,7 +1440,7 @@ let locset_live_locset_dead_locset_disjoint
 : Lemma
   (requires (
     locset_live hbefore lsold /\
-    locset_dead lsnew hbefore
+    locset_dead hbefore lsnew
   ))
   (ensures (locset_disjoint lsold lsnew))
 = let f
@@ -1459,7 +1459,7 @@ let modifies_locset_dead
   (hbefore: heap)
   (hafter: heap)
 : Lemma
-  (requires (modifies (TSet.union lsold lsnew) hbefore hafter /\ locset_dead lsnew hbefore))
+  (requires (modifies (TSet.union lsold lsnew) hbefore hafter /\ locset_dead hbefore lsnew))
   (ensures (modifies lsold hbefore hafter))
 = let f'
     (ty: Type u#b)

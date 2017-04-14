@@ -386,7 +386,7 @@ let rec not_live_region_locset_dead
   (h: mem)
 : Lemma
   (requires (~ (live_region h r)))
-  (ensures (Modifies.locset_dead (locset_of_region_with_liveness r) h))
+  (ensures (Modifies.locset_dead h (locset_of_region_with_liveness r)))
 = Modifies.loc_of_object_inj_forall root_class;
   Classical.forall_intro (Classical.move_requires (locset_of_region_with_liveness_mem_elim r))
 

@@ -14,7 +14,7 @@ let salloc_post_modifies
   (m1: HS.mem)
 : Lemma
   (requires (salloc_post init m0 s m1))
-  (ensures (Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_dead (HS.locset_of_reference s) m0))
+  (ensures (Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_dead m0 (HS.locset_of_reference s)))
 = (* for Modifies.locset_dead: *)
   Modifies.loc_of_object_inj_forall HS.root_class;
   (* for Modifies.modifies: 
@@ -105,7 +105,7 @@ let remove_reference_modifies
   (ensures (
     Modifies.modifies (HS.locset_of_reference r) m (remove_reference r m) /\
     (~ ((remove_reference r m) `HS.contains` r)) /\
-    Modifies.locset_dead (HS.locset_of_reference r) (remove_reference r m)
+    Modifies.locset_dead (remove_reference r m) (HS.locset_of_reference r)
   ))
 = (* for locset_dead: *)
   Modifies.loc_of_object_inj_forall HS.root_class;
@@ -211,7 +211,7 @@ let ralloc_post_modifies
   (m1: HS.mem)
 : Lemma
   (requires (ralloc_post i init m0 s m1))
-  (ensures (Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_dead (HS.locset_of_reference s) m0))
+  (ensures (Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_dead m0 (HS.locset_of_reference s)))
 = (* for Modifies.locset_dead: *)
   Modifies.loc_of_object_inj_forall HS.root_class;
   (* for Modifies.modifies: 
