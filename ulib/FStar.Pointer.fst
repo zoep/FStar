@@ -1848,7 +1848,7 @@ let locset_live_locset_of_pointer
   (p: pointer t)
 : Lemma
   (live h p <==> Modifies.locset_live h (locset_of_pointer p))
-= Modifies.loc_of_object_inj_forall HS.root_class
+= ()
 
 let locset_live_locset_of_pointer_liveness_tag
   (#t: Type)
@@ -1856,7 +1856,7 @@ let locset_live_locset_of_pointer_liveness_tag
   (p: pointer t)
 : Lemma
   (live h p <==> Modifies.locset_live h (locset_of_pointer_liveness_tag p))
-= Modifies.loc_of_object_inj_forall HS.root_class
+= ()
 
 let locset_live_locset_of_pointer_with_liveness
   (#t: Type)
@@ -1864,7 +1864,7 @@ let locset_live_locset_of_pointer_with_liveness
   (p: pointer t)
 : Lemma
   (live h p <==> Modifies.locset_live h (locset_of_pointer_with_liveness p))
-= Modifies.loc_of_object_inj_forall HS.root_class
+= ()
 
 let locset_dead_locset_of_pointer
   (#t: Type)
@@ -1872,7 +1872,7 @@ let locset_dead_locset_of_pointer
   (p: pointer t)
 : Lemma
   ((~ (contains h p)) <==> Modifies.locset_dead h (locset_of_pointer p))
-= Modifies.loc_of_object_inj_forall HS.root_class
+= ()
 
 let locset_dead_locset_of_pointer_liveness_tag
   (#t: Type)
@@ -1880,7 +1880,7 @@ let locset_dead_locset_of_pointer_liveness_tag
   (p: pointer t)
 : Lemma
   ((~ (contains h p)) <==> Modifies.locset_dead h (locset_of_pointer_liveness_tag p))
-= Modifies.loc_of_object_inj_forall HS.root_class
+= ()
 
 let locset_dead_locset_of_pointer_with_liveness
   (#t: Type)
@@ -1888,7 +1888,7 @@ let locset_dead_locset_of_pointer_with_liveness
   (p: pointer t)
 : Lemma
   ((~ (contains h p)) <==> Modifies.locset_dead h (locset_of_pointer_with_liveness p))
-= Modifies.loc_of_object_inj_forall HS.root_class
+= ()
 
 let locset_of_region_includes_locset_of_pointer_with_liveness
   (#t: Type u#0)
@@ -2055,7 +2055,6 @@ abstract let screate'
   in
   let h1 = HST.get () in
   HST.salloc_post_modifies s h0 content h1;
-  Modifies.loc_of_object_inj_forall HS.root_class;
   Pointer content PathBase
 
 abstract let ecreate'
@@ -2075,6 +2074,5 @@ abstract let ecreate'
   let b = Pointer content PathBase in
   let h1 = HST.get() in
   HST.ralloc_post_modifies r s h0 content h1;
-  Modifies.loc_of_object_inj_forall HS.root_class;
   domain_upd h0 content s;
   b

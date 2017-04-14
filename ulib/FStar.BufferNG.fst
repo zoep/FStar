@@ -783,7 +783,7 @@ let locset_live_locset_of_buffer_liveness_tag
   (b: buffer t)
 : Lemma
   (ensures (Modifies.locset_live h (locset_of_buffer_liveness_tag b) <==> live h b))
-= Modifies.loc_of_object_inj_forall HS.root_class
+= ()
 
 abstract
 let locset_live_locset_of_buffer
@@ -792,7 +792,7 @@ let locset_live_locset_of_buffer
   (b: buffer t)
 : Lemma
   (ensures (Modifies.locset_live h (locset_of_buffer b) <==> live h b))
-= Modifies.loc_of_object_inj_forall HS.root_class
+= ()
 
 abstract
 let locset_live_locset_of_buffer_contents
@@ -802,7 +802,7 @@ let locset_live_locset_of_buffer_contents
 : Lemma
   (requires (live h b))
   (ensures (Modifies.locset_live h (locset_of_buffer_contents b)))
-= Modifies.loc_of_object_inj_forall HS.root_class
+= ()
 
 abstract
 let locset_dead_locset_of_buffer_liveness_tag
@@ -820,8 +820,7 @@ let locset_dead_locset_of_buffer
   (b: buffer t)
 : Lemma
   (ensures (Modifies.locset_dead h (locset_of_buffer b) <==> (~ (contains h b))))
-= Modifies.loc_of_object_inj_forall HS.root_class;
-  Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer_liveness_tag #t);
+= Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer_liveness_tag #t);
   Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer #t)
 
 abstract
@@ -832,8 +831,7 @@ let locset_dead_locset_of_buffer_contents
 : Lemma
   (requires (~ (contains h b)))
   (ensures (Modifies.locset_dead h (locset_of_buffer_contents b)))
-= Modifies.loc_of_object_inj_forall HS.root_class;
-  Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer #t)
+= Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer #t)
 
 (* Allocators *)
 
@@ -853,7 +851,6 @@ let create #a init len =
   in
   let b = buffer_of_array_pointer content in  
   let _ : squash (Modifies.locset_dead h0 (locset_of_buffer b)) =
-    Modifies.loc_of_object_inj_forall HS.root_class;
     Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer_with_liveness #t)
   in
   b
@@ -876,7 +873,6 @@ let rcreate #a r init len =
   in
   let b = buffer_of_array_pointer content in
   let _ : squash (Modifies.locset_dead h0 (locset_of_buffer b)) =
-    Modifies.loc_of_object_inj_forall HS.root_class;
     Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer_with_liveness #t)
   in
   b

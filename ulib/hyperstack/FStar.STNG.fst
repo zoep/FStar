@@ -15,9 +15,7 @@ let salloc_post_modifies
 : Lemma
   (requires (salloc_post init m0 s m1))
   (ensures (Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_dead m0 (HS.locset_of_reference s)))
-= (* for Modifies.locset_dead: *)
-  Modifies.loc_of_object_inj_forall HS.root_class;
-  (* for Modifies.modifies: 
+= (* for Modifies.modifies: 
      1. first prove that s is modified *)
   (* TODO: this is the same proof as HyperStackNG.modifies_locset_of_reference_intro,
      except that HyperStack.contains does not hold;
@@ -107,9 +105,7 @@ let remove_reference_modifies
     (~ ((remove_reference r m) `HS.contains` r)) /\
     Modifies.locset_dead (remove_reference r m) (HS.locset_of_reference r)
   ))
-= (* for locset_dead: *)
-  Modifies.loc_of_object_inj_forall HS.root_class;
-  (* for modifies: *)
+= (* for modifies: *)
   let m0 = m in
   let m1 = remove_reference r m in
   let rec f'
@@ -212,9 +208,7 @@ let ralloc_post_modifies
 : Lemma
   (requires (ralloc_post i init m0 s m1))
   (ensures (Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_dead m0 (HS.locset_of_reference s)))
-= (* for Modifies.locset_dead: *)
-  Modifies.loc_of_object_inj_forall HS.root_class;
-  (* for Modifies.modifies: 
+= (* for Modifies.modifies: 
      1. first prove that s is modified *)
   (* TODO: this is the same proof as HyperStackNG.modifies_locset_of_reference_intro,
      except that HyperStack.contains does not hold;

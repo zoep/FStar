@@ -780,6 +780,7 @@ let loc_of_object_inj
 : Lemma
   (requires (loc_of_object class1 obj1 == loc_of_object class2 obj2))
   (ensures (ty1 == ty2 /\ level1 == level2 /\ class1 == (let class2 : class root_class level1 ty1 = class2 in class2) /\ obj1 == obj2))
+  [SMTPat (loc_of_object class1 obj1 == loc_of_object class2 obj2)]
 = ()
 
 abstract
@@ -800,6 +801,7 @@ let loc_of_object_inj_forall
     (loc_of_object class1 obj1 == loc_of_object class2 obj2) ==>
     (ty1 == ty2 /\ level1 == level2 /\ class1 == (let class2 : class root_class level1 ty1 = class2 in class2) /\ obj1 == obj2)
   )
+  [SMTPat (loc_of_object #_ #_ #root_class)]
 = ()
 
 abstract

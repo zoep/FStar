@@ -164,7 +164,7 @@ let locset_live_locset_of_reference
   (r: reference t)
 : Lemma
   (ensures (contains h r <==> Modifies.locset_live h (locset_of_reference r)))
-= Modifies.loc_of_object_inj_forall root_class
+= ()
 
 unfold
 let object_is_reference_of_region
@@ -377,8 +377,7 @@ let locset_of_region_with_liveness_mem_object_elim
     | ObjectRegionLiveness rg -> r == rg
     | ObjectTip -> False
   ))
-= Modifies.loc_of_object_inj_forall root_class;
-  locset_of_region_with_liveness_mem_elim r (Modifies.loc_of_object class o')
+= locset_of_region_with_liveness_mem_elim r (Modifies.loc_of_object class o')
 
 abstract
 let rec not_live_region_locset_dead
@@ -387,8 +386,7 @@ let rec not_live_region_locset_dead
 : Lemma
   (requires (~ (live_region h r)))
   (ensures (Modifies.locset_dead h (locset_of_region_with_liveness r)))
-= Modifies.loc_of_object_inj_forall root_class;
-  Classical.forall_intro (Classical.move_requires (locset_of_region_with_liveness_mem_elim r))
+= Classical.forall_intro (Classical.move_requires (locset_of_region_with_liveness_mem_elim r))
 
 abstract
 let modifies_not_live_region
@@ -573,5 +571,4 @@ let modifies_equal_tip
     h'.tip == h.tip
   ))
   (ensures (Modifies.modifies ls h h'))
-= Modifies.loc_of_object_inj_forall root_class;
-  Modifies.modifies_final locset_of_tip ls h h'
+= Modifies.modifies_final locset_of_tip ls h h'
