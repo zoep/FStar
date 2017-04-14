@@ -801,8 +801,39 @@ let locset_live_locset_of_buffer_contents
   (b: buffer t)
 : Lemma
   (requires (live h b))
-  (ensures (Modifies.locset_live h (locset_of_buffer b)))
+  (ensures (Modifies.locset_live h (locset_of_buffer_contents b)))
 = Modifies.loc_of_object_inj_forall HS.root_class
+
+abstract
+let locset_dead_locset_of_buffer_liveness_tag
+  (#t: Type)
+  (h: HS.mem)
+  (b: buffer t)
+: Lemma
+  (ensures (Modifies.locset_dead (locset_of_buffer_liveness_tag b) h <==> (~ (contains h b))))
+= Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer_liveness_tag #t)
+
+abstract
+let locset_dead_locset_of_buffer
+  (#t: Type)
+  (h: HS.mem)
+  (b: buffer t)
+: Lemma
+  (ensures (Modifies.locset_dead (locset_of_buffer b) h <==> (~ (contains h b))))
+= Modifies.loc_of_object_inj_forall HS.root_class;
+  Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer_liveness_tag #t);
+  Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer #t)
+
+abstract
+let locset_dead_locset_of_buffer_contents
+  (#t: Type)
+  (h: HS.mem)
+  (b: buffer t)
+: Lemma
+  (requires (~ (contains h b)))
+  (ensures (Modifies.locset_dead (locset_of_buffer_contents b) h))
+= Modifies.loc_of_object_inj_forall HS.root_class;
+  Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer #t)
 
 (* Allocators *)
 
@@ -821,5 +852,31 @@ let create #a init len =
     Pointer.screate' (Seq.create (UInt32.v len) init)
   in
   let b = buffer_of_array_pointer content in  
-  assume (Modifies.locset_dead (locset_of_buffer b) h0); // TODO
+  let _ : squash (Modifies.locset_dead (locset_of_buffer b) h0) =
+    Modifies.loc_of_object_inj_forall HS.root_class;
+    Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer_with_liveness #t)
+  in
+  b
+
+abstract
+val rcreate: #a:Type -> r:HH.rid -> init:a -> len:UInt32.t -> ST (buffer a)
+  (requires (fun h -> HS.is_eternal_region r))
+  (ensures (fun (h0: HS.mem) b h1 -> ~(contains h0 b)
+    /\ live h1 b /\ length b = len
+    /\ Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) h0 h1
+    /\ Modifies.locset_dead (locset_of_buffer b) h0
+    /\ as_seq h1 b == Seq.create (UInt32.v len) init
+//    /\ ~(b.Heap.content.HS.mm) // TODO: support mm
+  ))
+let rcreate #a r init len =
+  let h0 = HST.get() in
+  let s = Seq.create (UInt32.v len) init in
+  let content: Pointer.pointer (Pointer.array len a) =
+    Pointer.ecreate' r s
+  in
+  let b = buffer_of_array_pointer content in
+  let _ : squash (Modifies.locset_dead (locset_of_buffer b) h0) =
+    Modifies.loc_of_object_inj_forall HS.root_class;
+    Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer_with_liveness #t)
+  in
   b

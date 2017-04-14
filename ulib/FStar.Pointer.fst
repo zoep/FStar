@@ -1866,6 +1866,30 @@ let locset_live_locset_of_pointer_with_liveness
   (live h p <==> Modifies.locset_live h (locset_of_pointer_with_liveness p))
 = Modifies.loc_of_object_inj_forall HS.root_class
 
+let locset_dead_locset_of_pointer
+  (#t: Type)
+  (h: HS.mem)
+  (p: pointer t)
+: Lemma
+  ((~ (contains h p)) <==> Modifies.locset_dead (locset_of_pointer p) h)
+= Modifies.loc_of_object_inj_forall HS.root_class
+
+let locset_dead_locset_of_pointer_liveness_tag
+  (#t: Type)
+  (h: HS.mem)
+  (p: pointer t)
+: Lemma
+  ((~ (contains h p)) <==> Modifies.locset_dead (locset_of_pointer_liveness_tag p) h)
+= Modifies.loc_of_object_inj_forall HS.root_class
+
+let locset_dead_locset_of_pointer_with_liveness
+  (#t: Type)
+  (h: HS.mem)
+  (p: pointer t)
+: Lemma
+  ((~ (contains h p)) <==> Modifies.locset_dead (locset_of_pointer_with_liveness p) h)
+= Modifies.loc_of_object_inj_forall HS.root_class
+
 let locset_of_region_includes_locset_of_pointer_with_liveness
   (#t: Type u#0)
   (p: pointer t)
