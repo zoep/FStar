@@ -1750,10 +1750,10 @@ let class_invariant ()
 	(o1: object)
 	(o2: object {Modifies.Class?.includes class' o1 o2 } )
 	(i2: nat {i2 < Modifies.Class?.ancestor_count class' o2 } )
-      : Tot (squash (i1: (i1 : nat {i1 < Modifies.Class?.ancestor_count class' o1} ) {
+      : Lemma (exists (i1 : nat {i1 < Modifies.Class?.ancestor_count class' o1} ) .
 	  Modifies.includes_ancestors_t_prop class' o1 o2 i2 i1
-        } ))
-      = Squash.return_squash 0
+        )
+      = assert (Modifies.includes_ancestors_t_prop class' o1 o2 i2 0)
       in
       g
     end;
@@ -1762,7 +1762,10 @@ let class_invariant ()
     Modifies.ancestor_not_final = (fun _ _ -> ());
   }
   in
-  (Modifies.class_invariant_intro s)
+  let _ : squash (Modifies.class_invariant HS.class class') =
+    (Modifies.class_invariant_intro s)
+  in
+  ()
 
 let class: Modifies.class HS.class 1 object = class_invariant () ; class'
 
