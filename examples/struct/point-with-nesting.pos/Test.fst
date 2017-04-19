@@ -28,6 +28,8 @@ let colored_object (t: Type) = S.pointer (colored_object_struct t)
 
 let colored_point = colored_object point_struct
 
+// The following is necessary for Z3 4.5.0, but not for Z3 trunk
+// (0c4b792dac261faa3b28f30193afc4b8700e4435) which only needs 32
 #reset-options "--z3rlimit 64"
 
 let flip
@@ -49,6 +51,10 @@ let flip
   S.write' (S.field pt X) y;
   S.write' (S.field pt Y) x;
   S.write' (S.field p Color) (not color)
+
+// The following is necessary for Z3 4.5.0, but not for Z3 trunk
+// (0c4b792dac261faa3b28f30193afc4b8700e4435)
+#reset-options "--z3rlimit 256"
 
 let flip'
   (p: colored_point)
