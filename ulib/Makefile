@@ -1,11 +1,12 @@
 .PHONY: indent
 
 FSTAR_HOME=..
+include $(FSTAR_HOME)/src/gmake/z3.mk
 include $(FSTAR_HOME)/src/gmake/fstar.mk
 
 FLAKY=FStar.Int31.fst FStar.UInt31.fst FStar.Relational.State.fst
 
-HYPERSTACK=FStar.Buffer.fst FStar.Buffer.Quantifiers.fst FStar.Monotonic.RRef.fst FStar.Monotonic.Seq.fst FStar.Struct.fst FStar.HyperStackNG.fst FStar.Pointer.fst FStar.BufferNG.fst
+HYPERSTACK=FStar.Buffer.fst FStar.Buffer.Quantifiers.fst FStar.Monotonic.RRef.fst FStar.Monotonic.Seq.fst FStar.HyperStackNG.fst FStar.Pointer.fst FStar.BufferNG.fst
 
 ALL=$(filter-out $(FLAKY) $(HYPERSTACK) $(MATH),$(wildcard FStar.*.fst FStar.*.fsti))
 
@@ -57,10 +58,10 @@ m_rref:
 	$(FSTAR) FStar.Map.fst FStar.HyperStack.fst hyperstack/FStar.ST.fst hyperstack/FStar.All.fst FStar.Monotonic.RRef.fst FStar.Monotonic.Seq.fst
 
 buffer:
-	$(FSTAR) FStar.Map.fst FStar.HyperStack.fst FStar.Modifies.fst FStar.HyperStackNG.fst hyperstack/FStar.ST.fst hyperstack/FStar.STNG.fst hyperstack/FStar.All.fst FStar.Pointer.fst FStar.BufferNG.fst
+	$(FSTAR) FStar.Map.fst FStar.HyperStack.fst hyperstack/FStar.ST.fst hyperstack/FStar.All.fst FStar.Buffer.fst
 
 struct:
-	$(FSTAR) hyperstack/FStar.ST.fst hyperstack/FStar.All.fst FStar.Struct.fst
+	$(FSTAR) FStar.Map.fst FStar.HyperStack.fst hyperstack/FStar.ST.fst hyperstack/FStar.All.fst FStar.Pointer.fst FStar.BufferNG.fst
 
 bufferq:
 	$(FSTAR) FStar.Map.fst FStar.HyperStack.fst hyperstack/FStar.ST.fst FStar.Buffer.fst FStar.Buffer.Quantifiers.fst
@@ -84,4 +85,4 @@ wc:
 
 mgen:
 	mkdir -p ml/extracted
-	$(FSTAR) --lax --codegen OCaml --odir ml/extracted --no_extract FStar.List.Tot --no_extract FStar.List.Tot.Base --no_extract FStar.Heap --no_extract FStar.List.Tot.Properties FStar.Set.fst FStar.TSet.fst FStar.Map.fst FStar.HyperHeap.fst FStar.HyperStack.fst
+	$(FSTAR) --lax --codegen OCaml --odir ml/extracted --no_extract FStar.List.Tot --no_extract FStar.List.Tot.Base --no_extract FStar.Heap --no_extract FStar.List.Tot.Properties --no_extract FStar.Set FStar.TSet.fst FStar.Map.fst FStar.HyperHeap.fst FStar.HyperStack.fst

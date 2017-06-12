@@ -315,3 +315,33 @@ let intersect_subset_simpl
   (ensures (x `intersect` y == x))
   [SMTPatT (x `subset` y); SMTPat (x `intersect` y)]
 = lemma_equal_elim (x `intersect` y) x
+
+abstract let tset_of_set (#a:eqtype) (s:Set.set a) :set a =
+  fun (x:a) -> squash (b2t (Set.mem x s))
+
+private let lemma_mem_tset_of_set_l (#a:eqtype) (s:Set.set a) (x:a)
+  :Lemma (requires True)
+         (ensures (mem x (tset_of_set s) ==> Set.mem x s))
+  = if FStar.StrongExcludedMiddle.strong_excluded_middle (mem x (tset_of_set s)) then
+      let t1 = mem x (tset_of_set s) in
+      let t2 = b2t (Set.mem x s) in
+      let u:(squash t1) = FStar.Squash.get_proof t1 in
+      let u:(squash (squash t2)) = u in
+      let u:squash t2 = FStar.Squash.join_squash u in
+      FStar.Squash.give_proof u
+    else ()
+
+private let lemma_mem_tset_of_set_r (#a:eqtype) (s:Set.set a) (x:a)
+  :Lemma (requires True)
+         (ensures (Set.mem x s ==> mem x (tset_of_set s)))
+  = if Set.mem x s then
+      let u:squash (b2t (Set.mem x s)) = () in
+      let _ = assert (mem x (tset_of_set s) == squash (b2t (Set.mem x s))) in
+      FStar.Squash.give_proof u
+    else ()
+
+let lemma_mem_tset_of_set (#a:eqtype) (s:Set.set a) (x:a)
+  :Lemma (requires True)
+         (ensures  (Set.mem x s <==> mem x (tset_of_set s)))
+	 [SMTPat (mem x (tset_of_set s))]
+  = lemma_mem_tset_of_set_l #a s x; lemma_mem_tset_of_set_r #a s x

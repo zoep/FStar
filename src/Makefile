@@ -158,10 +158,10 @@ clean_u_extract_ocaml:
 
 u_extract_misc:$(addprefix u_boot_fsts/, FStar.Common.fst FStar.Options.fst FStar.Ident.fst FStar.Errors.fst FStar.Const.fst \
 					 FStar.Format.fst)
-	$(FSTARBOOT) $^ $(addprefix --extract_module , FStar.Common FStar.Options FStar.Ident FStar.Errors FStar.Const FStar.Format)
+	$(FSTARBOOT) $^ $(addprefix --extract_module , FStar.Pervasives FStar.Common FStar.Options FStar.Ident FStar.Errors FStar.Const FStar.Format)
 
 u_extract_syntax:$(addprefix u_boot_fsts/FStar.Syntax., Syntax.fst Const.fst Subst.fst Free.fst \
-							InstFV.fst Util.fst Print.fst MutRecTy.fst) \
+							InstFV.fst Util.fst Print.fst MutRecTy.fst Resugar.fst) \
                   u_boot_fsts/FStar.Fsdoc.Generator.fst
 	$(FSTARBOOT) $^ --extract_namespace FStar.Syntax --extract_namespace FStar.Fsdoc
 
@@ -198,9 +198,6 @@ u_extract_extraction:$(addprefix u_boot_fsts/FStar.Extraction., ML.Syntax.fst ML
 	$(FSTARBOOT) $^ --extract_namespace FStar.Extraction
 
 u_extract_tactics:$(addprefix u_boot_fsts/FStar.Tactics., Basic.fst Embedding.fst Interpreter.fst)
-	# cp tactics/FStar.Tactics.Basic.fs u_boot_fsts/FStar.Tactics.Basic.fst
-	# cp tactics/FStar.Tactics.Embedding.fs u_boot_fsts/FStar.Tactics.Embedding.fst
-	# cp tactics/FStar.Tactics.Interpreter.fs u_boot_fsts/FStar.Tactics.Interpreter.fst
 	$(FSTARBOOT) $^ --extract_namespace FStar.Tactics
 
 u_extract_smtencoding_base: $(addprefix u_boot_fsts/FStar.SMTEncoding., Term.fst Util.fst Z3.fst SplitQueryCases.fst ErrorReporting.fst)
@@ -249,6 +246,7 @@ boot-ocaml:
 # --------------------------------------------------------------------
 # Testing
 # --------------------------------------------------------------------
+OTHERFLAGS+=--hint_info
 
 utest:
 	make all
@@ -257,6 +255,7 @@ ifeq ($(OS),Windows_NT)
 endif
 	+make -C ocaml-output
 	+make fstar-ocaml
+	+make -C ../examples/hello ocaml #a basic regression test for extraction
 	+make uregressions interactive-test
 
 # Interactive mode regressions
