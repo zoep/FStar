@@ -19,11 +19,11 @@ verifythis \
 preorders \
 dm4free \
 incl \
-struct \
 micro-benchmarks \
 bytes \
 tactics
 
+# struct \   ... TR: removing from CI for this branch, temporarily
 
 # low-level \  ... NS: removing from CI for this branch
 
