@@ -38,7 +38,7 @@ let carrier_eq
 : Lemma
   (requires True)
   (ensures (Class?.carrier c == carrier))
-  [SMTPat (Class?.carrier c)]
+  [smt_pat (Class?.carrier c)]
 = ()
 
 let carrier_ancestor_classes
@@ -51,7 +51,7 @@ let carrier_ancestor_classes
 : Lemma
   (requires True)
   (ensures (Class?.carrier (Class?.ancestor_classes c x i) == Class?.ancestor_types c x i))
-  [SMTPat (Class?.carrier (Class?.ancestor_classes c x i))]
+  [smt_pat (Class?.carrier (Class?.ancestor_classes c x i))]
 = ()
 *)
 
@@ -428,7 +428,7 @@ let class_invariant_ancestor_classes
 : Lemma
   (requires True)
   (ensures (class_invariant root_class (Class?.ancestor_classes c x i)))
-  [SMTPat (class_invariant root_class (Class?.ancestor_classes c x i))]
+  [smt_pat (class_invariant root_class (Class?.ancestor_classes c x i))]
 = ()
 
 (** FIXME: statements are duplicated here due to the SMT patterns *)
@@ -448,7 +448,7 @@ let preserved_refl
 : Lemma
   (requires True)
   (ensures (Class?.preserved c x h h))
-  [SMTPat (Class?.preserved c x h h)]
+  [smt_pat (Class?.preserved c x h h)]
 = Squash.bind_squash #_ #(Class?.preserved c x h h) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_refl x h)
 
 abstract
@@ -463,7 +463,7 @@ let preserved_trans
 : Lemma
   (requires (Class?.preserved c x h1 h2 /\ Class?.preserved c x h2 h3))
   (ensures (Class?.preserved c x h1 h3))
-  [SMTPatT u#c (Class?.preserved c x h1 h2); SMTPatT (Class?.preserved c x h2 h3)]
+  [smt_pat (Class?.preserved c x h1 h2); smt_pat (Class?.preserved c x h2 h3)]
 = Squash.bind_squash #_ #(Class?.preserved c x h1 h3) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_trans x h1 h2 h3)
 
 (* let preserved_ancestors_preserved *)
@@ -509,7 +509,7 @@ let object_disjoint_sym
 : Lemma
   (requires (Class?.disjoint c x1 x2))
   (ensures (Class?.disjoint c x2 x1))
-  [SMTPat (Class?.disjoint c x2 x1)]
+  [smt_pat (Class?.disjoint c x2 x1)]
 = Squash.bind_squash #_ #(Class?.disjoint c x2 x1) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.disjoint_sym x1 x2)
 
 abstract
@@ -534,7 +534,7 @@ let level_0_live_dead_disjoint
     (~ (Class?.contains root_class hbefore onew))
   ))
   (ensures (Class?.disjoint root_class oold onew))
-  [SMTPatT u#c (Class?.live root_class hbefore oold); SMTPatT (~ (Class?.contains root_class hbefore onew)); ]
+  [smt_pat (Class?.live root_class hbefore oold); smt_pat (~ (Class?.contains root_class hbefore onew)); ]
 = Squash.bind_squash #_ #(Class?.disjoint root_class oold onew) (Squash.join_squash ()) (fun (i: class_invariant_body root_class root_class) -> i.level_0_live_dead_disjoint oold onew hbefore)
 
 abstract
@@ -565,7 +565,7 @@ let live_preserved_preserved
 (*     Class?.live c hbefore o *)
 (*   )) *)
 (*   (ensures (Class?.live c hafter o)) *)
-(*   [SMTPatT (Class?.preserved c o hbefore hafter); SMTPatT (Class?.live c hbefore o)] *)
+(*   [smt_pat (Class?.preserved c o hbefore hafter); smt_pat (Class?.live c hbefore o)] *)
 (* = Squash.bind_squash #_ #(Class?.live c hafter o) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_live hbefore hafter o) *)
 
 (* let preserved_contains *)
@@ -581,7 +581,7 @@ let live_preserved_preserved
 (*     Class?.contains c hbefore o *)
 (*   )) *)
 (*   (ensures (Class?.contains c hafter o)) *)
-(*   [SMTPatT (Class?.preserved c o hbefore hafter); SMTPatT (Class?.contains c hbefore o)] *)
+(*   [smt_pat (Class?.preserved c o hbefore hafter); smt_pat (Class?.contains c hbefore o)] *)
 (* = Squash.bind_squash #_ #(Class?.contains c hafter o) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.preserved_contains hbefore hafter o) *)
 
 (* let live_contains *)
@@ -593,7 +593,7 @@ let live_preserved_preserved
 (* : Lemma *)
 (*   (requires (Class?.live c h o)) *)
 (*   (ensures (Class?.contains c h o)) *)
-(*   [SMTPatT (Class?.live c h o)] *)
+(*   [smt_pat (Class?.live c h o)] *)
 (* = Squash.bind_squash #_ #(Class?.contains c h o) (Squash.join_squash ()) (fun (i: class_invariant_body root_class c) -> i.live_contains h o) *)
 
 (* let ancestors_contains *)
@@ -625,7 +625,7 @@ let live_ancestors
   (ensures (
     Class?.live (Class?.ancestor_classes c o i) h (ancestor_objects c o i)
   ))
-  [SMTPat (Class?.live (Class?.ancestor_classes c o i) h (ancestor_objects c o i))]
+  [smt_pat (Class?.live (Class?.ancestor_classes c o i) h (ancestor_objects c o i))]
 = Squash.bind_squash #_ #(Class?.live (Class?.ancestor_classes c o i) h (ancestor_objects c o i)) (Squash.join_squash ()) (fun (j: class_invariant_body root_class c) -> j.live_ancestors h o i)
 
 abstract
@@ -750,7 +750,7 @@ let loc_of_object_inj
 : Lemma
   (requires (loc_of_object class1 obj1 == loc_of_object class2 obj2))
   (ensures (ty1 == ty2 /\ level1 == level2 /\ class1 == (let class2 : class root_class level1 ty1 = class2 in class2) /\ obj1 == obj2))
-  [SMTPat (loc_of_object class1 obj1 == loc_of_object class2 obj2)]
+  [smt_pat (loc_of_object class1 obj1 == loc_of_object class2 obj2)]
 = ()
 
 abstract
@@ -758,7 +758,9 @@ let loc_of_object_inj_forall
   (#heap: Type u#a)
   (#root_type: Type u#b)
   (root_class: class' heap 0 root_type)
-: Lemma (forall
+: Lemma
+  (requires True)
+  (ensures (forall
     (ty1: Type u#b)
     (level1: nat)
     (class1: class root_class level1 ty1)
@@ -770,8 +772,8 @@ let loc_of_object_inj_forall
   .
     (loc_of_object class1 obj1 == loc_of_object class2 obj2) ==>
     (ty1 == ty2 /\ level1 == level2 /\ class1 == (let class2 : class root_class level1 ty1 = class2 in class2) /\ obj1 == obj2)
-  )
-  [SMTPat (loc_of_object #_ #_ #root_class)]
+  ))
+  [smt_pat (loc_of_object #_ #_ #root_class)]
 = ()
 
 private
@@ -779,12 +781,14 @@ let loc_of_object_eq
   (#heap: Type u#a)
   (#root_type: Type u#b)
   (root_class: class' heap 0 root_type)
-: Lemma (forall
+: Lemma
+  (requires True)
+  (ensures (forall
     (l: loc root_class)
     .
     l == loc_of_object (Location?.class l) (Location?.obj l)
-  )
-  [SMTPat (loc_of_object #_ #_ #root_class)]
+  ))
+  [smt_pat (loc_of_object #_ #_ #root_class)]
 = ()
 
 private
@@ -854,7 +858,7 @@ let loc_disjoint_sym
 : Lemma
   (requires (loc_disjoint l1 l2))
   (ensures (loc_disjoint l2 l1))
-  [SMTPat (loc_disjoint l1 l2)]
+  [smt_pat (loc_disjoint l1 l2)]
 = Squash.map_squash (Squash.join_squash ()) (fun (d: loc_disjoint_t l1 l2) -> loc_disjoint_t_sym l1 l2 d)
 
 abstract
@@ -869,7 +873,7 @@ let loc_disjoint_objects
 : Lemma
   (requires (Class?.disjoint c o1 o2))
   (ensures (loc_disjoint (loc_of_object c o1) (loc_of_object c o2)))
-  [SMTPatT u#c (Class?.disjoint c o1 o2)]
+  [smt_pat (Class?.disjoint c o1 o2)]
 = Squash.return_squash (DisjointObjects _ _ c o1 o2 ())
 
 abstract
@@ -980,7 +984,7 @@ let modifies_equiv
     (forall (o': loc root_class { TSet.mem o' s }) . loc_disjoint (loc_of_object c o) o') ==>
     Class?.preserved c o h h'  
   )))
-  [SMTPat (modifies s h h')]
+  [smt_pat (modifies s h h')]
 = ()
 
 abstract
@@ -1057,7 +1061,7 @@ let modifies_refl
 : Lemma
   (requires True)
   (ensures (modifies s h h))
-  [SMTPat (modifies s h h)]
+  [smt_pat (modifies s h h)]
 = ()
 
 let modifies_trans
@@ -1068,7 +1072,7 @@ let modifies_trans
 : Lemma
   (requires (modifies s h1 h2 /\ modifies s h2 h3))
   (ensures (modifies s h1 h3))
-//  [SMTPatT u#c (modifies s h1 h2); SMTPatT (modifies s h2 h3)]
+//  [smt_pat (modifies s h1 h2); smt_pat (modifies s h2 h3)]
 = ()
 
 (*
@@ -1080,7 +1084,7 @@ let modifies_subset
 : Lemma
   (requires (modifies s1 h h' /\ TSet.subset s1 s2))
   (ensures (modifies s2 h h'))
-  [SMTPatT u#(max a b) (modifies s1 h h'); SMTPatT (TSet.subset s1 s2)]
+  [smt_pat (modifies s1 h h'); smt_pat (TSet.subset s1 s2)]
 = modifies_equiv s1 h h';
   modifies_equiv s2 h h'
 *)
@@ -1129,7 +1133,7 @@ let dead_ancestor
 : Lemma
   (requires (dead c h o))
   (ensures (dead (Class?.ancestor_classes c o i) h (Class?.ancestor_objects c o i)))
-  [SMTPat (dead (Class?.ancestor_classes c o i) h (Class?.ancestor_objects c o i))]
+  [smt_pat (dead (Class?.ancestor_classes c o i) h (Class?.ancestor_objects c o i))]
 = ()
 
 abstract
@@ -1150,7 +1154,7 @@ let rec live_dead_disjoint
   ))
   (ensures (loc_disjoint (loc_of_object cold oold) (loc_of_object cnew onew)))
   (decreases (levelold + levelnew))
-  [SMTPatT u#c (Class?.live cold hbefore oold); SMTPatT (dead cnew onew hbefore)]
+  [smt_pat (Class?.live cold hbefore oold); smt_pat (dead cnew onew hbefore)]
 = if
     levelold = 0
   then
@@ -1202,7 +1206,7 @@ let locset_disjoint_sym
 : Lemma
   (requires (locset_disjoint ls1 ls2))
   (ensures (locset_disjoint ls2 ls1))
-  [SMTPatT u#c (locset_disjoint ls1 ls2)]
+  [smt_pat (locset_disjoint ls1 ls2)]
 = let f
     (x: loc root_class { TSet.mem x ls2 } )
   : Lemma
@@ -1224,7 +1228,7 @@ let locset_disjoint_loc_disjoint
 : Lemma
   (requires (loc_disjoint l1 l2))
   (ensures (locset_disjoint (TSet.singleton l1) (TSet.singleton l2)))
-  [SMTPat (locset_disjoint (TSet.singleton l1) (TSet.singleton l2))]
+  [smt_pat (locset_disjoint (TSet.singleton l1) (TSet.singleton l2))]
 = ()
 
 let locset_disjoint_union
@@ -1235,7 +1239,7 @@ let locset_disjoint_union
 : Lemma
   (requires (locset_disjoint ls ls1 /\ locset_disjoint ls ls2))
   (ensures (locset_disjoint ls (TSet.union ls1 ls2)))
-  [SMTPat (locset_disjoint ls (TSet.union ls1 ls2))]
+  [smt_pat (locset_disjoint ls (TSet.union ls1 ls2))]
 = ()
 
 let locset_live
@@ -1372,7 +1376,7 @@ let mem_locset_includes_loc
 : Lemma
   (requires (TSet.mem l ls))
   (ensures (locset_includes_loc ls l))
-  [SMTPat (TSet.mem l ls)]
+  [smt_pat (TSet.mem l ls)]
 = let (Location _ _ c o) = l in
   object_includes_refl c o;
   let k : locset_includes_loc_t ls l = LocsetIncludesObject _ _ c o o in
@@ -1394,7 +1398,7 @@ let subset_locset_includes
 : Lemma
   (requires (TSet.subset ls_small ls_big))
   (ensures (locset_includes ls_big ls_small))
-  [SMTPatOr [ [SMTPatT (TSet.subset ls_small ls_big)] ; [ SMTPat (locset_includes ls_big ls_small) ] ] ]
+  [smt_pat_or [ [smt_pat (TSet.subset ls_small ls_big)] ; [ smt_pat (locset_includes ls_big ls_small) ] ] ]
 = ()
 
 let locset_includes_union
@@ -1405,7 +1409,7 @@ let locset_includes_union
 : Lemma
   (requires (locset_includes ls_big ls_small_1 /\ locset_includes ls_big ls_small_2))
   (ensures (locset_includes ls_big (TSet.union ls_small_1 ls_small_2)))
-  [SMTPat (locset_includes ls_big (TSet.union ls_small_1 ls_small_2))]
+  [smt_pat (locset_includes ls_big (TSet.union ls_small_1 ls_small_2))]
 = ()
 
 abstract
@@ -1422,7 +1426,7 @@ let locset_includes_loc_object
 : Lemma
   (requires (TSet.mem (loc_of_object c o1) ls /\ Class?.includes c o1 o2))
   (ensures (locset_includes_loc ls (loc_of_object c o2)))
-  [SMTPat (TSet.mem (loc_of_object c o1)); SMTPatT (Class?.includes c o1 o2)]
+  [smt_pat (TSet.mem (loc_of_object c o1)); smt_pat (Class?.includes c o1 o2)]
 = let k : locset_includes_loc_t ls (loc_of_object c o2) = LocsetIncludesObject _ _ c o1 o2 in
   Squash.return_squash k
 
@@ -1439,7 +1443,7 @@ let locset_includes_locset_of_object
 : Lemma
   (requires (Class?.includes c o1 o2))
   (ensures (locset_includes (locset_of_object c o1) (locset_of_object c o2)))
-  [SMTPatOr [ [ SMTPat (locset_includes (locset_of_object c o1) (locset_of_object c o2))] ; [ SMTPat (Class?.includes c o1 o2) ] ] ]
+  [smt_pat_or [ [ smt_pat (locset_includes (locset_of_object c o1) (locset_of_object c o2))] ; [ smt_pat (Class?.includes c o1 o2) ] ] ]
 = locset_includes_loc_object (locset_of_object c o1) c o1 o2
 
 abstract
@@ -1576,7 +1580,7 @@ let locset_includes_trans
 : Lemma
   (requires (locset_includes ls0 ls1 /\ locset_includes ls1 ls2))
   (ensures (locset_includes ls0 ls2))
-  [SMTPat (locset_includes ls0 ls1); SMTPat (locset_includes ls1 ls2)]
+  [smt_pat (locset_includes ls0 ls1); smt_pat (locset_includes ls1 ls2)]
 = let f
     (l: loc root_class { TSet.mem l ls2 } )
   : Lemma
@@ -1640,7 +1644,7 @@ let locset_includes_refl
 : Lemma
   (requires True)
   (ensures (locset_includes ls0 ls0))
-  [SMTPat (locset_includes ls0 ls0)]
+  [smt_pat (locset_includes ls0 ls0)]
 = ()
 *)
 
@@ -1752,9 +1756,9 @@ let locset_disjoint_locset_includes
 : Lemma
   (requires (locset_disjoint ls1 ls2 /\ locset_includes ls2 ls2'))
   (ensures  (locset_disjoint ls1 ls2'))
-  [SMTPatOr [
-    [SMTPat (locset_disjoint ls1 ls2); SMTPat (locset_includes ls2 ls2')];
-    [SMTPat (locset_disjoint ls1 ls2'); SMTPat (locset_includes ls2 ls2')]
+  [smt_pat_or [
+    [smt_pat (locset_disjoint ls1 ls2); smt_pat (locset_includes ls2 ls2')];
+    [smt_pat (locset_disjoint ls1 ls2'); smt_pat (locset_includes ls2 ls2')]
   ]]  
 = let f
     (l1: loc root_class { TSet.mem l1 ls1 } )
@@ -1779,7 +1783,7 @@ let modifies_locset_includes
 : Lemma
   (requires (modifies s2 h h' /\ locset_includes s1 s2))
   (ensures (modifies s1 h h'))
-  [ SMTPatOr [  [SMTPatT (modifies s2 h h'); SMTPatT (locset_includes s1 s2)] ;   [SMTPatT (modifies s2 h h'); SMTPat (modifies s1 h h')] ] ]
+  [ smt_pat_or [  [smt_pat (modifies s2 h h'); smt_pat (locset_includes s1 s2)] ;   [smt_pat (modifies s2 h h'); smt_pat (modifies s1 h h')] ] ]
 = modifies_equiv s1 h h';
   modifies_equiv s2 h h';
   let f
@@ -1813,7 +1817,7 @@ let modifies_trans_gen
 : Lemma
   (requires (modifies s12 h1 h2 /\ modifies s23 h2 h3))
   (ensures (modifies (TSet.union s12 s23) h1 h3))
-  [SMTPatT u#c (modifies s12 h1 h2); SMTPatT (modifies s23 h2 h3)]
+  [smt_pat (modifies s12 h1 h2); smt_pat (modifies s23 h2 h3)]
 = assert (locset_includes (TSet.union s12 s23) s12);
   assert (locset_includes (TSet.union s12 s23) s23);
   modifies_trans (TSet.union s12 s23) h1 h2 h3

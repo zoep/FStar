@@ -1886,11 +1886,18 @@ let object_ancestor_with_contents_eq
   (object_ancestor (Object p true) == object_ancestor (Object p false))
 = ()
 
-let as_aref_object_ancestor
+let frameOf_object_ancestor
   (o: object)
 : Lemma
   (requires True)
-  (ensures (HS.ObjectReference? (object_ancestor o) /\ HS.as_aref (HS.ObjectReference?.r (object_ancestor o)) == as_aref (Object?.obj o)))
+  (ensures (HS.ObjectReference? (object_ancestor o) /\ HS.frameOf (HS.ObjectReference?.r (object_ancestor o)) == frameOf (Object?.obj o)))
+= ()
+
+let as_addr_object_ancestor
+  (o: object)
+: Lemma
+  (requires True)
+  (ensures (HS.ObjectReference? (object_ancestor o) /\ HS.as_addr (HS.ObjectReference?.r (object_ancestor o)) == as_addr (Object?.obj o)))
 = ()
 
 (*
@@ -1941,7 +1948,7 @@ let object_live
 let object_contains
   (h: HS.mem)
   (o: object)
-= contains h (Object?.obj o)
+= live h (Object?.obj o)
 
 let object_preserved
   (p: object)
@@ -1981,7 +1988,7 @@ let class_invariant ()
   (requires True)
   (ensures (Modifies.class_invariant HS.class class'))
 //  [SMTPat (Modifies.class_invariant HS.class class')]
-= let s: Modifies.class_invariant_body u#0 u#1 HS.class class' = {
+= let s: Modifies.class_invariant_body u#1 u#1 HS.class class' = {
     Modifies.preserved_refl = (let f _ _ = () in f);
     Modifies.preserved_trans = (let f _ _ _ _ = () in f);
     Modifies.preserved_ancestors_preserved = begin
@@ -2206,6 +2213,7 @@ let locset_live_locset_of_pointer_with_liveness
   (live h p <==> Modifies.locset_live h (locset_of_pointer_with_liveness p))
 = ()
 
+(*
 let locset_dead_locset_of_pointer
   (#t: Type)
   (h: HS.mem)
@@ -2229,6 +2237,7 @@ let locset_dead_locset_of_pointer_with_liveness
 : Lemma
   ((~ (contains h p)) <==> Modifies.locset_dead h (locset_of_pointer_with_liveness p))
 = ()
+*)
 
 let locset_of_region_includes_locset_of_pointer_with_liveness
   (#t: Type u#0)
@@ -2243,7 +2252,7 @@ let locset_of_region_includes_locset_of_pointer_with_liveness
 abstract val write': #a:Type -> b:pointer a -> z:a -> Stack unit
   (requires (fun h -> live h b))
   (ensures (fun h0 _ h1 -> live h0 b /\ live h1 b
-    /\ Modifies.modifies u#0 u#1 (locset_of_pointer b) h0 h1
+    /\ Modifies.modifies u#1 u#1 (locset_of_pointer b) h0 h1
     /\ gread h1 b == z ))
 let write' #a b z =
   let s0 = !b.content in
@@ -2251,8 +2260,8 @@ let write' #a b z =
   let h = HST.get () in
   let _ = b.content := s in
   let h' = HST.get () in
-  let _ : squash (Modifies.modifies u#0 u#1 (HS.locset_of_reference b.content) h h') = HS.modifies_locset_of_reference_intro h b.content s in
-  let _ : squash (Modifies.modifies u#0 u#1 (locset_of_pointer b) h h') =
+  let _ : squash (Modifies.modifies u#1 u#1 (HS.locset_of_reference b.content) h h') = HS.modifies_locset_of_reference_intro h b.content s in
+  let _ : squash (Modifies.modifies u#1 u#1 (locset_of_pointer b) h h') =
     let f
       (ty: Type u#1)
       (l: nat)
@@ -2383,10 +2392,10 @@ abstract let screate'
 : StackInline (pointer value)
   (requires (fun h -> True))
   (ensures (fun (h0:HS.mem) b h1 ->
-       ~(contains h0 b)
+       b `unused_in` h0
      /\ live h1 b
      /\ frameOf b = h0.HS.tip
-     /\ Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) h0 h1
+     /\ Modifies.modifies u#1 u#1 (TSet.empty #(Modifies.loc HS.root_class)) h0 h1
      /\ Modifies.locset_dead h0 (locset_of_pointer_with_liveness b)
      /\ gread h1 b == s))
 = let h0 = HST.get () in
@@ -2403,9 +2412,9 @@ abstract let ecreate'
   (s: t)
 : ST (pointer t)
   (requires (fun h -> HS.is_eternal_region r))
-  (ensures (fun (h0:HS.mem) b h1 -> ~(contains h0 b)
+  (ensures (fun (h0:HS.mem) b h1 -> b `unused_in` h0
     /\ live h1 b
-    /\ Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) h0 h1
+    /\ Modifies.modifies u#1 u#1 (TSet.empty #(Modifies.loc HS.root_class)) h0 h1
     /\ Modifies.locset_dead h0 (locset_of_pointer_with_liveness b)
     /\ gread h1 b == s
     /\ ~(memory_managed b)))

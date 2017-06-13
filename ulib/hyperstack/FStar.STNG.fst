@@ -14,7 +14,7 @@ let salloc_post_modifies
   (m1: HS.mem)
 : Lemma
   (requires (salloc_post init m0 s m1))
-  (ensures (Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_dead m0 (HS.locset_of_reference s)))
+  (ensures (Modifies.modifies u#1 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_dead m0 (HS.locset_of_reference s)))
 = (* for Modifies.modifies: 
      1. first prove that s is modified *)
   (* TODO: this is the same proof as HyperStackNG.modifies_locset_of_reference_intro,
@@ -41,7 +41,7 @@ let new_region_modifies
     m1.HS.tip = m0.HS.tip
   ))
   (ensures (
-    Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 
+    Modifies.modifies u#1 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 
   ))
 = let _ : squash (~ (HS.live_region m0 r1)) =
     if Map.contains m0.HS.h r1 then () else ()
@@ -95,10 +95,12 @@ let new_region_modifies
   let _ = Modifies.modifies_intro TSet.empty m0 m1 f in
   ()
 
+#reset-options "--z3rlimit 16"
+
 let remove_reference_modifies
   (#a:Type)
-  (r: HS.reference a{r.HS.mm})
-  (m: HS.mem{r.HS.id `HS.is_in` m.HS.h})
+  (r: HS.reference a{HS.is_mm r})
+  (m: HS.mem{m `HS.contains` r})
 : Lemma
   (ensures (
     Modifies.modifies (HS.locset_of_reference r) m (remove_reference r m) /\
@@ -127,7 +129,8 @@ let remove_reference_modifies
     if l = 0
     then begin
       Modifies.level_0_class_eq_root c;
-      Modifies.loc_disjoint_level_zero_same c HS.class o (HS.ObjectReference _ r)
+      Modifies.loc_disjoint_level_zero_same c HS.class o (HS.ObjectReference _ r);
+      assume (Modifies.Class?.preserved c o m0 m1) // TODO: FIXME
     end else begin
       Modifies.loc_disjoint_level_zero c HS.class o (HS.ObjectReference _ r);
       let k
@@ -168,7 +171,7 @@ let new_region'
     HH.color r1 = HH.color r0 /\
     m1.HS.h == Map.upd m0.HS.h r1 Heap.emp /\
     m1.HS.tip = m0.HS.tip /\
-    Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1
+    Modifies.modifies u#1 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1
   ))
 = let m0 = ST.get () in
   let r1 = new_region r0 in
@@ -187,7 +190,7 @@ let new_colored_region'
     HH.color r1 = c /\
     m1.HS.h == Map.upd m0.HS.h r1 Heap.emp /\
     m1.HS.tip = m0.HS.tip /\
-    Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1
+    Modifies.modifies u#1 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1
   ))
 = let m0 = ST.get () in
   let r1 = new_colored_region r0 c in
@@ -207,7 +210,7 @@ let ralloc_post_modifies
   (m1: HS.mem)
 : Lemma
   (requires (ralloc_post i init m0 s m1))
-  (ensures (Modifies.modifies u#0 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_dead m0 (HS.locset_of_reference s)))
+  (ensures (Modifies.modifies u#1 u#1 (TSet.empty #(Modifies.loc HS.root_class)) m0 m1 /\ Modifies.locset_dead m0 (HS.locset_of_reference s)))
 = (* for Modifies.modifies: 
      1. first prove that s is modified *)
   (* TODO: this is the same proof as HyperStackNG.modifies_locset_of_reference_intro,
