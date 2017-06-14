@@ -22,7 +22,7 @@ let objects_disjoint (o1 o2: object): Tot Type0 =
       frameOf r1 <> frameOf r2 \/
       (
 	frameOf r1 == frameOf r2 /\
-	~ (as_ref r1 === as_ref r2)
+	as_addr r1 <> as_addr r2
       )
     | _ -> True
     end
@@ -41,7 +41,11 @@ let object_live (m: mem) (o: object): Tot Type0 =
   | ObjectTip -> True
 
 unfold
-let object_contains = object_live
+let object_unused_in (o: object) (m: mem): Tot Type0 =
+  match o with
+  | ObjectReference _ r -> r `unused_in` m
+  | ObjectRegionLiveness r -> ~ (m.h `Map.contains` r)
+  | ObjectTip -> False
 
 unfold
 let object_preserved (o: object) (m m': mem): Tot Type0 =
@@ -66,7 +70,7 @@ let root_class: Modifies.class' u#1 u#1 mem 0 object =
     (* carrier *)               object
     (* disjoint *)              objects_disjoint
     (* live *)                  object_live
-    (* contains *)              object_contains
+    (* unused_in *)             object_unused_in
     (* preserved *)             object_preserved
     (* includes *)              object_includes
     (* final *)                 object_final
@@ -105,33 +109,16 @@ let class_invariant
     end;
     Modifies.disjoint_sym = (fun _ _ -> ());
     Modifies.level_0_class_eq_root = ();
-    Modifies.level_0_live_dead_disjoint = (fun _ _ _ -> ());
+    Modifies.level_0_live_unused_in_disjoint = (fun _ _ _ -> ());
     Modifies.live_preserved_preserved = (fun _ _ _ -> ());
     Modifies.preserved_live = (fun _ _ _ -> ());
-    Modifies.preserved_contains = (fun _ _ _ -> ());
-    Modifies.live_contains = (fun _ _ -> ());
-    Modifies.ancestors_contains = begin
-      let g
-	(h: mem)
-	(o: object)
-	(s: squash (Modifies.Class?.ancestor_count root_class o > 0))
-	(f: (
-	  (i: nat {i < Modifies.Class?.ancestor_count root_class o } ) ->
-	  Lemma
-	  (Modifies.Class?.contains (Modifies.Class?.ancestor_classes root_class o i) h (Modifies.ancestor_objects root_class o i))
-	))
-      : Lemma
-	(ensures (Modifies.Class?.contains root_class h o))
-      = ()
-      in
-      g
-    end;
+    Modifies.live_unused_in = (fun _ _ -> ());
+    Modifies.unused_in_ancestors = (fun _ _ _ _ -> ());
     Modifies.live_ancestors = (fun _ _ _ -> ());
     Modifies.includes_refl = (fun _ -> ());
     Modifies.includes_trans = (fun _ _ _ -> ());
     Modifies.preserved_includes = (fun _ _ _ _ -> ());
-    Modifies.includes_contains = (fun _ _ _ -> ());
-    Modifies.contains_live = (fun _ _ _ -> ());
+    Modifies.includes_live = (fun _ _ _ -> ());
     Modifies.includes_ancestors = (fun _ _ _ -> ());
     Modifies.disjoint_includes = (fun _ _ _ -> ());
     Modifies.final_equal_or_disjoint = (fun _ _ -> ());
@@ -259,11 +246,9 @@ let modifies_locset_of_reference_intro #a (h:mem) (x:reference a) (v:a) : Lemma
 	    /\ Modifies.modifies (locset_of_reference x) h (upd h x v)
 	    /\ sel (upd h x v) x == v ))
   [SMTPat (upd h x v); SMTPatT (contains h x)]
-  = admit () (* 
-    Modifies.modifies_intro (locset_of_reference x) h (upd h x v) (fun ty l c o g ->
+  = Modifies.modifies_intro (locset_of_reference x) h (upd h x v) (fun ty l c o g ->
       Modifies.modifies_loc_refines_0 class (ObjectReference _ x) h (upd h x v) (fun o' _ -> ()) c o (g (Modifies.loc_of_object class (ObjectReference _ x)))
     )
-    *)
 
 let modifies_locset_of_reference_elim
   #a

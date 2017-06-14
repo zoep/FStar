@@ -90,11 +90,9 @@ abstract let live
   (h: HS.mem)
   (b: buffer t)
 : GTot Type0
-= UInt32.v (length b) > 0 /\ ( // needed to preserve liveness through modifies
-    match b.broot with
-    | BufferRootSingleton p -> P.live h p
-    | BufferRootArray #mlen p -> P.live h p
-  )
+= match b.broot with
+  | BufferRootSingleton p -> P.live h p
+  | BufferRootArray #mlen p -> P.live h p
 
 abstract let live_gsingleton_buffer_of_pointer
   (#t: Type)
@@ -111,9 +109,38 @@ abstract let live_gbuffer_of_array_pointer
   (p: P.pointer (P.array length t))
   (h: HS.mem)
 : Lemma
-  (requires (UInt32.v length > 0))
+  (requires True)
   (ensures (live h (gbuffer_of_array_pointer p) <==> P.live h p))
   [SMTPat (live h (gbuffer_of_array_pointer p))]
+= ()
+
+abstract let unused_in
+  (#t: Type)
+  (b: buffer t)
+  (h: HS.mem)
+: GTot Type0
+= match b.broot with
+  | BufferRootSingleton p -> P.unused_in p h
+  | BufferRootArray #mlen p -> P.unused_in p h
+
+abstract let unused_in_gsingleton_buffer_of_pointer
+  (#t: Type)
+  (p: P.pointer t)
+  (h: HS.mem)
+: Lemma
+  (ensures (unused_in (gsingleton_buffer_of_pointer p) h <==> P.unused_in p h))
+  [SMTPat (unused_in (gsingleton_buffer_of_pointer p) h)]
+= ()
+
+abstract let unused_in_gbuffer_of_array_pointer
+  (#t: Type)
+  (#length: UInt32.t)
+  (p: P.pointer (P.array length t))
+  (h: HS.mem)
+: Lemma
+  (requires True)
+  (ensures (unused_in (gbuffer_of_array_pointer p) h <==> P.unused_in p h))
+  [SMTPat (unused_in (gbuffer_of_array_pointer p) h)]
 = ()
 
 abstract let frameOf
@@ -139,6 +166,31 @@ abstract let frameOf_gbuffer_of_array_pointer
 : Lemma
   (ensures (frameOf (gbuffer_of_array_pointer p) == P.frameOf p))
   [SMTPat (frameOf (gbuffer_of_array_pointer p))]
+= ()
+
+abstract let memory_managed
+  (#t: Type)
+  (b: buffer t)
+: GTot bool
+= match b.broot with
+  | BufferRootSingleton p -> P.memory_managed p
+  | BufferRootArray #mlen p -> P.memory_managed p
+
+abstract let memory_managed_gsingleton_buffer_of_pointer
+  (#t: Type)
+  (p: P.pointer t)
+: Lemma
+  (ensures (memory_managed (gsingleton_buffer_of_pointer p) == P.memory_managed p))
+  [SMTPat (memory_managed (gsingleton_buffer_of_pointer p))]
+= ()
+
+abstract let memory_managed_gbuffer_of_array_pointer
+  (#t: Type)
+  (#length: UInt32.t)
+  (p: P.pointer (P.array length t))
+: Lemma
+  (ensures (memory_managed (gbuffer_of_array_pointer p) == P.memory_managed p))
+  [SMTPat (memory_managed (gbuffer_of_array_pointer p))]
 = ()
 
 abstract let gsub
@@ -177,9 +229,43 @@ abstract let live_gsub
   (len: UInt32.t {  UInt32.v i + UInt32.v len <= UInt32.v (length b) } )
   (h: HS.mem)
 : Lemma
-  (requires (UInt32.v len > 0))
+  (requires True)
   (ensures (live h (gsub b i len) <==> live h b))
   [SMTPat (live h (gsub b i len))]
+= ()
+
+abstract let unused_in_gsub
+  (#t: Type)
+  (b: buffer t)
+  (i: UInt32.t)
+  (len: UInt32.t {  UInt32.v i + UInt32.v len <= UInt32.v (length b) } )
+  (h: HS.mem)
+: Lemma
+  (requires True)
+  (ensures (unused_in (gsub b i len) h <==> unused_in b h))
+  [SMTPat (unused_in (gsub b i len) h)]
+= ()
+
+abstract let frameOf_gsub
+  (#t: Type)
+  (b: buffer t)
+  (i: UInt32.t)
+  (len: UInt32.t {  UInt32.v i + UInt32.v len <= UInt32.v (length b) } )
+: Lemma
+  (requires True)
+  (ensures (frameOf (gsub b i len) == frameOf b))
+  [SMTPat (frameOf (gsub b i len))]
+= ()
+
+abstract let memory_managed_gsub
+  (#t: Type)
+  (b: buffer t)
+  (i: UInt32.t)
+  (len: UInt32.t {  UInt32.v i + UInt32.v len <= UInt32.v (length b) } )
+: Lemma
+  (requires True)
+  (ensures (memory_managed (gsub b i len) == memory_managed b))
+  [SMTPat (frameOf (gsub b i len))]
 = ()
 
 abstract let gsub_gsub
@@ -191,6 +277,7 @@ abstract let gsub_gsub
   (len2: UInt32.t {UInt32.v i2 + UInt32.v len2 <= UInt32.v len1})
 : Lemma
   (ensures (gsub (gsub b i1 len1) i2 len2 == gsub b FStar.UInt32.(i1 +^ i2) len2))
+  [SMTPat (gsub (gsub b i1 len1) i2 len2)]
 = ()
 
 abstract let gsub_zero_length
@@ -316,6 +403,34 @@ abstract let live_gpointer_of_buffer_cell
   [SMTPat (P.live h (gpointer_of_buffer_cell b i))]
 = ()
 
+abstract let unused_in_gpointer_of_buffer_cell
+  (#t: Type)
+  (b: buffer t)
+  (i: UInt32.t { UInt32.v i < UInt32.v (length b) })
+  (h: HS.mem)
+: Lemma
+  (ensures (P.unused_in (gpointer_of_buffer_cell b i) h <==> unused_in b h))
+  [SMTPat (P.unused_in (gpointer_of_buffer_cell b i) h)]
+= ()
+
+abstract let frameOf_gpointer_of_buffer_cell
+  (#t: Type)
+  (b: buffer t)
+  (i: UInt32.t { UInt32.v i < UInt32.v (length b) })
+: Lemma
+  (ensures (P.frameOf (gpointer_of_buffer_cell b i) == frameOf b))
+  [SMTPat (P.frameOf (gpointer_of_buffer_cell b i))]
+= ()
+
+abstract let memory_managed_gpointer_of_buffer_cell
+  (#t: Type)
+  (b: buffer t)
+  (i: UInt32.t { UInt32.v i < UInt32.v (length b) })
+: Lemma
+  (ensures (P.memory_managed (gpointer_of_buffer_cell b i) == memory_managed b))
+  [SMTPat (P.memory_managed (gpointer_of_buffer_cell b i))]
+= ()
+
 abstract let gpointer_of_buffer_cell_gsingleton_buffer_of_pointer
   (#t: Type)
   (p: P.pointer t)
@@ -380,7 +495,7 @@ let read
 
 (* buffer write: needs clearer "modifies" clauses. We could, at first, say that the only memory that is modified is the memory location of the sole cell being modified: *)
 
-let gindex
+let gread
   (#a: Type)
   (h: HS.mem)
   (b: buffer a)
@@ -399,7 +514,7 @@ let upd'
   (ensures (fun h _ h' ->
     live h b /\    
     Modifies.modifies (P.locset_of_pointer (gpointer_of_buffer_cell b i)) h h' /\
-    gindex h' b i == v
+    gread h' b i == v
   ))
  = P.write' (pointer_of_buffer_cell b i) v
 
@@ -496,9 +611,9 @@ let upd''
   (ensures (fun h _ h' ->
     live h b /\    
     Modifies.modifies (locset_of_buffer_contents b) h h' /\
-    gindex h' b i == v /\ (
+    gread h' b i == v /\ (
       forall (i': UInt32.t { UInt32.v i' < UInt32.v (length b) } ) .
-      i' <> i ==> gindex h' b i' == gindex h b i'
+      i' <> i ==> gread h' b i' == gread h b i'
   )))
  = upd' b i v
 
@@ -748,7 +863,7 @@ let rec locset_disjoint_locset_of_buffer_contents_gsub
 = Classical.move_requires (locset_disjoint_locset_of_buffer_contents_gsub_aux b i1 len1 i2) len2;
   Classical.move_requires (locset_disjoint_locset_of_buffer_contents_gsub_aux b i2 len2 i1) len1
 
-let modifies_gindex
+let modifies_gread
   (#t: Type)
   (b: buffer t)
   (s: Modifies.locset HS.root_class)
@@ -756,8 +871,8 @@ let modifies_gindex
   (i: UInt32.t { UInt32.v i < UInt32.v (length b) } )
 : Lemma
   (requires (Modifies.modifies s h h' /\ Modifies.locset_disjoint (locset_of_buffer_contents b) s))
-  (ensures (live h b ==> live h' b /\ gindex h' b i == gindex h b i))
-  [ SMTPatT (Modifies.modifies s h h') ; SMTPat (gindex h' b i) ] // inspired froj no_upd_lemma_1
+  (ensures (live h b ==> live h' b /\ gread h' b i == gread h b i))
+  [ SMTPatT (Modifies.modifies s h h') ; SMTPat (gread h' b i) ] // inspired froj no_upd_lemma_1
 = ()
 
 abstract
@@ -774,8 +889,8 @@ let modifies_as_seq
   let g
     (i: UInt32.t { UInt32.v i < UInt32.v (length b) } )
   : Lemma
-    (live h b ==> live h' b /\ gindex h' b i == gindex h b i)
-  = modifies_gindex b s h h' i
+    (live h b ==> live h' b /\ gread h' b i == gread h b i)
+  = modifies_gread b s h h' i
   in
   let f
     ()
@@ -784,12 +899,12 @@ let modifies_as_seq
     (ensures (live h' b /\ as_seq h' b == as_seq h b))
   =
     assert (live h' b);
-    let u : squash (forall (i: UInt32.t { UInt32.v i < UInt32.v (length b) } ) . gindex h' b i == gindex h b i) =
+    let u : squash (forall (i: UInt32.t { UInt32.v i < UInt32.v (length b) } ) . gread h' b i == gread h b i) =
       Classical.forall_intro g
     in
     let v : squash (forall (i: nat { i < UInt32.v (length b) } ) . Seq.index (as_seq h' b) i == Seq.index (as_seq h b) i) =
-      assert (forall (i: nat { i < UInt32.v (length b) } ) . Seq.index (as_seq h' b) i == gindex h' b (UInt32.uint_to_t i));
-      assert (forall (i: nat { i < UInt32.v (length b) } ) . Seq.index (as_seq h b) i == gindex h b (UInt32.uint_to_t i));
+      assert (forall (i: nat { i < UInt32.v (length b) } ) . Seq.index (as_seq h' b) i == gread h' b (UInt32.uint_to_t i));
+      assert (forall (i: nat { i < UInt32.v (length b) } ) . Seq.index (as_seq h b) i == gread h b (UInt32.uint_to_t i));
       ()
     in
     Seq.lemma_eq_intro (as_seq h' b) (as_seq h b);
@@ -804,7 +919,7 @@ let locset_live_locset_of_buffer_liveness_tag
   (b: buffer t)
 : Lemma
   (ensures (Modifies.locset_live h (locset_of_buffer_liveness_tag b) <==> live h b))
-= admit () // FIXME: reconcile definitions for buffers of length 0
+= ()
 
 abstract
 let locset_live_locset_of_buffer
@@ -813,7 +928,7 @@ let locset_live_locset_of_buffer
   (b: buffer t)
 : Lemma
   (ensures (Modifies.locset_live h (locset_of_buffer b) <==> live h b))
-= admit () // FIXME: reconcile definitions for buffers of length 0
+= ()
 
 abstract
 let locset_live_locset_of_buffer_contents
@@ -825,14 +940,13 @@ let locset_live_locset_of_buffer_contents
   (ensures (Modifies.locset_live h (locset_of_buffer_contents b)))
 = ()
 
-(*
 abstract
 let locset_dead_locset_of_buffer_liveness_tag
   (#t: Type)
   (h: HS.mem)
   (b: buffer t)
 : Lemma
-  (ensures (Modifies.locset_dead h (locset_of_buffer_liveness_tag b) <==> (~ (contains h b))))
+  (ensures (Modifies.locset_dead h (locset_of_buffer_liveness_tag b) <==> b `unused_in` h))
 = Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer_liveness_tag #t)
 
 abstract
@@ -841,7 +955,7 @@ let locset_dead_locset_of_buffer
   (h: HS.mem)
   (b: buffer t)
 : Lemma
-  (ensures (Modifies.locset_dead h (locset_of_buffer b) <==> (~ (contains h b))))
+  (ensures (Modifies.locset_dead h (locset_of_buffer b) <==> b `unused_in` h))
 = Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer_liveness_tag #t);
   Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer #t)
 
@@ -851,21 +965,20 @@ let locset_dead_locset_of_buffer_contents
   (h: HS.mem)
   (b: buffer t)
 : Lemma
-  (requires (~ (contains h b)))
+  (requires (b `unused_in` h))
   (ensures (Modifies.locset_dead h (locset_of_buffer_contents b)))
 = Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer #t)
-*)
 
 (* Allocators *)
 
 abstract
 val create: #a:Type -> init:a -> len:UInt32.t -> StackInline (buffer a)
-  (requires (fun h -> UInt32.v len > 0 (* FIXME: for liveness, reconcile *) ))
-  (ensures (fun (h0: HS.mem) b h1 -> (* b `unused_in` h0  // FIXME: add definition
-     /\ *) live h1 b /\ length b = len
+  (requires (fun h -> True))
+  (ensures (fun (h0: HS.mem) b h1 -> b `unused_in` h0
+     /\ live h1 b /\ length b = len
      /\ frameOf b = h0.HS.tip
      /\ Modifies.modifies u#1 u#1 (TSet.empty #(Modifies.loc HS.root_class)) h0 h1
-(*     /\ Modifies.locset_dead h0 (locset_of_buffer b) // FIXME: restore with support for unused_in *)
+     /\ Modifies.locset_dead h0 (locset_of_buffer b)
      /\ as_seq h1 b == Seq.create (UInt32.v len) init))
 let create #a init len =
   let h0 = HST.get () in
@@ -873,24 +986,20 @@ let create #a init len =
     Pointer.screate' (Seq.create (UInt32.v len) init)
   in
   let b = buffer_of_array_pointer content in  
-(* // FIXME: add support for locset_dead vs. unused_in
   let _ : squash (Modifies.locset_dead h0 (locset_of_buffer b)) =
     Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer_with_liveness #t)
   in
-*)
   b
 
 abstract
 val rcreate: #a:Type -> r:HH.rid -> init:a -> len:UInt32.t -> ST (buffer a)
-  (requires (fun h -> HS.is_eternal_region r /\
-    UInt32.v len > 0 (* FIXME: for liveness, reconcile *)
-  ))
-  (ensures (fun (h0: HS.mem) b h1 -> (* b `unused_in` h0 // FIXME: add definition
-    /\ *) live h1 b /\ length b = len
+  (requires (fun h -> HS.is_eternal_region r))
+  (ensures (fun (h0: HS.mem) b h1 -> b `unused_in` h0
+    /\ live h1 b /\ length b = len
     /\ Modifies.modifies u#1 u#1 (TSet.empty #(Modifies.loc HS.root_class)) h0 h1
-(*    /\ Modifies.locset_dead h0 (locset_of_buffer b) // FIXME: restore with support for unused_in *)
+    /\ Modifies.locset_dead h0 (locset_of_buffer b)
     /\ as_seq h1 b == Seq.create (UInt32.v len) init
-//    /\ ~(b.Heap.content.HS.mm) // TODO: support mm
+    /\ ~ (memory_managed b)
   ))
 let rcreate #a r init len =
   let h0 = HST.get() in
@@ -899,9 +1008,7 @@ let rcreate #a r init len =
     Pointer.ecreate' r s
   in
   let b = buffer_of_array_pointer content in
-(* // FIXME: add support for locset_dead vs. unused_in
   let _ : squash (Modifies.locset_dead h0 (locset_of_buffer b)) =
     Classical.forall_intro_3 (fun t -> Pointer.locset_dead_locset_of_pointer_with_liveness #t)
   in
-*)
   b

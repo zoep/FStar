@@ -129,8 +129,7 @@ let remove_reference_modifies
     if l = 0
     then begin
       Modifies.level_0_class_eq_root c;
-      Modifies.loc_disjoint_level_zero_same c HS.class o (HS.ObjectReference _ r);
-      assume (Modifies.Class?.preserved c o m0 m1) // TODO: FIXME
+      Modifies.loc_disjoint_level_zero_same c HS.class o (HS.ObjectReference _ r)
     end else begin
       Modifies.loc_disjoint_level_zero c HS.class o (HS.ObjectReference _ r);
       let k

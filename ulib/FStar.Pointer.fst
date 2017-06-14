@@ -1945,10 +1945,10 @@ let object_live
   (o: object)
 = live h (Object?.obj o)
 
-let object_contains
-  (h: HS.mem)
+let object_unused_in
   (o: object)
-= live h (Object?.obj o)
+  (h: HS.mem)
+= (Object?.obj o) `unused_in` h
 
 let object_preserved
   (p: object)
@@ -1972,7 +1972,7 @@ let class': Modifies.class' HS.mem 1 object =
     (* carrier *)               object
     (* disjoint *)              object_disjoint
     (* live *)                  object_live
-    (* contains *)              object_contains
+    (* unused_in *)             object_unused_in
     (* preserved *)             object_preserved
     (* includes *)              object_includes
     (* final *)                 object_final
@@ -2010,11 +2010,11 @@ let class_invariant ()
     end;
     Modifies.disjoint_sym = (let f _ _ = () in f);
     Modifies.level_0_class_eq_root = ();
-    Modifies.level_0_live_dead_disjoint = (let f _ _ _ = () in f);
+    Modifies.level_0_live_unused_in_disjoint = (let f _ _ _ = () in f);
     Modifies.live_preserved_preserved = (fun _ _ _ -> ());
     Modifies.preserved_live = (let f _ _ _ = () in f);
-    Modifies.preserved_contains = (let f _ _ _ = () in f);
-    Modifies.live_contains = (let f _ _ = () in f);
+    Modifies.live_unused_in = (let f _ _ = () in f);
+(*
     Modifies.ancestors_contains = begin
       let g
 	(h: HS.mem)
@@ -2031,6 +2031,8 @@ let class_invariant ()
       in
       g
     end;
+*)
+    Modifies.unused_in_ancestors = (let f _ _ _ _ = () in f);
     Modifies.live_ancestors = (let f _ _ _ = () in f);
     Modifies.includes_refl = (let f _ = () in f);
     Modifies.includes_trans = (let f _ _ _ = () in f);
@@ -2087,8 +2089,7 @@ let class_invariant ()
       in
       f
     end;
-    Modifies.includes_contains = (let f _ _ _ = () in f);
-    Modifies.contains_live = (let f _ _ _ = () in f);
+    Modifies.includes_live = (let f _ _ _ = () in f);
     Modifies.includes_ancestors = begin
       let g
 	(o1: object)
@@ -2213,13 +2214,12 @@ let locset_live_locset_of_pointer_with_liveness
   (live h p <==> Modifies.locset_live h (locset_of_pointer_with_liveness p))
 = ()
 
-(*
 let locset_dead_locset_of_pointer
   (#t: Type)
   (h: HS.mem)
   (p: pointer t)
 : Lemma
-  ((~ (contains h p)) <==> Modifies.locset_dead h (locset_of_pointer p))
+  (p `unused_in` h <==> Modifies.locset_dead h (locset_of_pointer p))
 = ()
 
 let locset_dead_locset_of_pointer_liveness_tag
@@ -2227,7 +2227,7 @@ let locset_dead_locset_of_pointer_liveness_tag
   (h: HS.mem)
   (p: pointer t)
 : Lemma
-  ((~ (contains h p)) <==> Modifies.locset_dead h (locset_of_pointer_liveness_tag p))
+  (p `unused_in` h <==> Modifies.locset_dead h (locset_of_pointer_liveness_tag p))
 = ()
 
 let locset_dead_locset_of_pointer_with_liveness
@@ -2235,9 +2235,8 @@ let locset_dead_locset_of_pointer_with_liveness
   (h: HS.mem)
   (p: pointer t)
 : Lemma
-  ((~ (contains h p)) <==> Modifies.locset_dead h (locset_of_pointer_with_liveness p))
+  (p `unused_in` h <==> Modifies.locset_dead h (locset_of_pointer_with_liveness p))
 = ()
-*)
 
 let locset_of_region_includes_locset_of_pointer_with_liveness
   (#t: Type u#0)
