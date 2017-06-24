@@ -73,5 +73,5 @@ let parse_cmdline specs others =
 let parse_string specs others (str:string) =
     // F#'s str.Split will return empty strings when there's two spaces together
     // or at the boundaries. Filter them out, so we behave like OCaml
-    let args = Array.filter (fun s -> s <> "") <| str.Split([|' ';'\t'|]) in
-    parse_array specs others args 0
+    let args = FStar.List.filter (fun s -> s <> "") <| FStar.String.split [' '; '\t'] str in
+    parse_array specs others (Array.ofList args) 0

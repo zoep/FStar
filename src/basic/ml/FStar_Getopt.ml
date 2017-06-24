@@ -50,5 +50,5 @@ let parse_cmdline specs others =
   else parse_array specs others Sys.argv 1
 
 let parse_string specs others (str:string) =
-  let args = Str.split (Str.regexp "[ \t]+") str in
+  let args = FStar_List.filter (fun s -> s != "") (FStar_String.split [' '; '\t'] str) in
   parse_array specs others (Array.of_list args) 0
