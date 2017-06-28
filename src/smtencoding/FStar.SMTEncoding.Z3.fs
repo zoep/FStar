@@ -79,7 +79,8 @@ let ini_params () =
   end;
   (String.concat " "
                 (List.append
-                 [ "-smt2 -in auto_config=false model=true smt.relevancy=2";
+                 [ "-smt2"; "-in"; "auto_config=false"; "model=true";
+                   "smt.relevancy=2"; "smtlib2_compliant=true";
                    (Util.format1 "smt.random_seed=%s" (string_of_int (Options.z3_seed()))) ]
                  (Options.z3_cliopt())))
 
@@ -278,6 +279,7 @@ let doZ3Exe' (fresh:bool) (input:string) : z3status * z3statistics =
       | "sat"::tl     -> SAT     (lblnegs tl)
       | "unsat"::tl   -> UNSAT   core
       | "killed"::tl  -> bg_z3_proc.restart(); KILLED
+      | "success"::tl -> result tl core
       | hd::tl ->
         FStar.Errors.warn Range.dummyRange (BU.format2 "%s: Unexpected output from Z3: %s\n" (query_logging.get_module_name()) hd);
         result tl core
@@ -304,11 +306,6 @@ let doZ3Exe =
     fun (fresh:bool) (input:string) ->
         doZ3Exe' fresh input
 
-let z3_options () =
-    "(set-option :global-decls false)\n\
-     (set-option :smt.mbqi false)\n\
-     (set-option :auto_config false)\n\
-     (set-option :produce-unsat-cores true)\n"
 
 type job<'a> = {
     job:unit -> 'a;
@@ -486,7 +483,7 @@ let mk_cb used_unsat_core cb (uc_errs, time, statistics) =
     else cb (uc_errs, time, statistics)
 
 let mk_input theory =
-    let r = List.map (declToSmt (z3_options ())) theory |> String.concat "\n" in
+    let r = List.map declToSmt theory |> String.concat "\n" in
     if Options.log_queries() then query_logging.write_to_log r ;
     r
 
