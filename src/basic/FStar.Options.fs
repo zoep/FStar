@@ -45,7 +45,7 @@ type options =
     | Reset
     | Restore
 
-type solver = Z3 | CVC4
+type solver = | Z3 | CVC4
 
 
 
@@ -1087,9 +1087,9 @@ let smtencoding_nl_arith_default () = get_smtencoding_nl_arith_repr () = "boxwra
 let smtencoding_l_arith_native   () = get_smtencoding_l_arith_repr () = "native"
 let smtencoding_l_arith_default  () = get_smtencoding_l_arith_repr () = "boxwrap"
 let smt_solver                   () = match get_smtsolver() with
-                                    | None                  -> Z3
-                                    | Some("z3"   | "Z3"  ) -> Z3
-                                    | Some("cvc4" | "CVC4") -> CVC4
+                                    | None                        -> Z3
+                                    | Some("z3")   | Some("Z3")   -> Z3
+                                    | Some("cvc4") | Some("CVC4") -> CVC4
                                     | _ -> failwith "Invalid SMT solver"
 let split_cases                  () = get_split_cases                 ()
 let timing                       () = get_timing                      ()

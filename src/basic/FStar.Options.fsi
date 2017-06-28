@@ -43,7 +43,7 @@ type options =
     | Reset
     | Restore
 
-type solver = Z3 | CVC4
+type solver = | Z3 | CVC4
 
 val defaults                    : list<(string * option_val)>
 val docs                        : unit -> list<(string * string)>
