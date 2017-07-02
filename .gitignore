@@ -27,6 +27,8 @@ cache/
 
 /ulib/.mgen
 /ulib/ml/extracted
+/ulib/*.fst-ver
+/ulib/*.fsti-ver
 
 /bin/*.dll
 /bin/*.pdb
