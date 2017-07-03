@@ -223,7 +223,7 @@ let bg_z3_proc =
 
 let at_log_file () =
   if Options.log_queries()
-  then "@" ^ (query_logging.log_file_name())
+  then "__" ^ (query_logging.log_file_name())
   else ""
 
 let doZ3Exe' (fresh:bool) (input:string) : z3status * z3statistics =

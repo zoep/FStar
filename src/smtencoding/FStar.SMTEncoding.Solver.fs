@@ -194,7 +194,7 @@ let filter_assertions (core:Z3.unsat_core) (theory:decls_t) =
             | Assume a ->
                 if List.contains a.assumption_name core
                 then d::theory, n_retained+1, n_pruned
-                else if BU.starts_with a.assumption_name "@"
+                else if BU.starts_with a.assumption_name "__"
                 then d::theory, n_retained, n_pruned
                 else theory, n_retained, n_pruned+1
             | _ -> d::theory, n_retained, n_pruned)
@@ -245,8 +245,8 @@ let ask_and_report_errors env all_labels prefix query suffix =
 
     let with_fuel label_assumptions p (n, i, rlimit) =
        [Term.Caption (BU.format2 "<fuel='%s' ifuel='%s'>" (string_of_int n) (string_of_int i));
-        Util.mkAssume(mkEq(mkApp("MaxFuel", []), n_fuel n), None, "@MaxFuel_assumption");
-        Util.mkAssume(mkEq(mkApp("MaxIFuel", []), n_fuel i), None, "@MaxIFuel_assumption");
+        Util.mkAssume(mkEq(mkApp("MaxFuel", []), n_fuel n), None, "__MaxFuel_assumption");
+        Util.mkAssume(mkEq(mkApp("MaxIFuel", []), n_fuel i), None, "__MaxIFuel_assumption");
         p]
         @label_assumptions
         @[Term.SetOption ("rlimit", string_of_int rlimit)]
