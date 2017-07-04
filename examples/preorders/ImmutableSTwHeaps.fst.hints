@@ -63,9 +63,9 @@
         "lemma_FStar.Heap.lemma_sel_upd2",
         "lemma_FStar.Heap.lemma_unused_upd_modifies",
         "lemma_FStar.Heap.lemma_upd_contains", "ref_inversion",
-        "refinement_interpretation_ImmutableSTwHeaps_Tm_refine_c443bed4b5cd174ac857a1cb26ece6b1",
-        "refinement_interpretation_ImmutableSTwHeaps_Tm_refine_c8ac13ed36b6a9786309a4676a282b65",
-        "refinement_interpretation_ImmutableSTwHeaps_Tm_refine_d65d28ced9bd270e062ee8e42fc74fcb",
+        "refinement_interpretation_ImmutableSTwHeaps_Tm_refine_7f41361b2f48bb467d4c3eb90757ebc4",
+        "refinement_interpretation_ImmutableSTwHeaps_Tm_refine_d617a65395bbac5baacc5c3fdabab6e6",
+        "refinement_interpretation_ImmutableSTwHeaps_Tm_refine_fc83c7082ba330e4391f197f1a4594d6",
         "typing_ImmutableSTwHeaps.gen_ref", "typing_ImmutableSTwHeaps.sel",
         "typing_ImmutableSTwHeaps.upd"
       ],
@@ -78,7 +78,7 @@
       1,
       [
         "__MaxIFuel_assumption", "__query",
-        "refinement_interpretation_ImmutableSTwHeaps_Tm_refine_c443bed4b5cd174ac857a1cb26ece6b1"
+        "refinement_interpretation_ImmutableSTwHeaps_Tm_refine_d617a65395bbac5baacc5c3fdabab6e6"
       ],
       0
     ],
@@ -97,8 +97,8 @@
         "lemma_FStar.Heap.lemma_sel_upd1", "lemma_FStar.Heap.lemma_sel_upd2",
         "lemma_FStar.Heap.lemma_upd_contains_different_addr",
         "ref_inversion",
-        "refinement_interpretation_ImmutableSTwHeaps_Tm_refine_c443bed4b5cd174ac857a1cb26ece6b1",
-        "refinement_interpretation_ImmutableSTwHeaps_Tm_refine_c8ac13ed36b6a9786309a4676a282b65",
+        "refinement_interpretation_ImmutableSTwHeaps_Tm_refine_7f41361b2f48bb467d4c3eb90757ebc4",
+        "refinement_interpretation_ImmutableSTwHeaps_Tm_refine_d617a65395bbac5baacc5c3fdabab6e6",
         "typing_ImmutableSTwHeaps.sel", "typing_ImmutableSTwHeaps.upd"
       ],
       0

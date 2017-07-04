@@ -7,15 +7,14 @@
       1,
       1,
       [
-        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
+        "__MaxIFuel_assumption", "__query",
         "binder_x_e22ba7a032a73f6d0678d3d186686631_0", "equation_Prims.nat",
         "int_inversion", "int_typing", "primitive_Prims.op_Equality",
         "primitive_Prims.op_Multiply", "primitive_Prims.op_Subtraction",
-        "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Prims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
-        "refinement_interpretation_Recursive_Tm_refine_6bde3baeeb36041bb17851e173846917",
+        "refinement_interpretation_Prims_Tm_refine_d2e2db8602bbddfb2772cf5783889241",
+        "refinement_interpretation_Recursive_Tm_refine_5c0a7eb904eeab6eecd82b4c7579373d",
         "well-founded-ordering-on-nat"
       ],
       0
@@ -34,14 +33,14 @@
       1,
       1,
       [
+        "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "__MaxFuel_assumption", "__MaxIFuel_assumption",
         "__fuel_correspondence_Recursive.fac.fuel_instrumented",
         "__fuel_irrelevance_Recursive.fac.fuel_instrumented", "__query",
-        "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "binder_x_e22ba7a032a73f6d0678d3d186686631_0",
         "binder_x_e22ba7a032a73f6d0678d3d186686631_1", "equation_Prims.nat",
         "equation_with_fuel_Recursive.fac.fuel_instrumented",
-        "int_inversion", "int_typing", "primitive_Prims.op_Equality",
+        "int_inversion", "primitive_Prims.op_Equality",
         "primitive_Prims.op_Multiply", "primitive_Prims.op_Subtraction",
         "proj_equation_FStar.Pervasives.Native.Mktuple2__1",
         "proj_equation_FStar.Pervasives.Native.Mktuple2__2",
@@ -49,8 +48,8 @@
         "projection_inverse_BoxInt_proj_0",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__1",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__2",
-        "refinement_interpretation_Prims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
-        "refinement_interpretation_Recursive_Tm_refine_ce89e1cceaa21081ee686664ef613433",
+        "refinement_interpretation_Prims_Tm_refine_d2e2db8602bbddfb2772cf5783889241",
+        "refinement_interpretation_Recursive_Tm_refine_ff6e6bc476e9455c0dccbb9d8106e4e3",
         "typing_Recursive.fac", "unit_typing", "well-founded-ordering-on-nat"
       ],
       0
@@ -61,10 +60,11 @@
       1,
       1,
       [
-        "__MaxIFuel_assumption", "__query", "equation_Prims.nat",
-        "fuel_correspondence_Recursive.fac.fuel_instrumented",
-        "primitive_Prims.op_Addition", "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Prims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
+        "__MaxIFuel_assumption",
+        "__fuel_correspondence_Recursive.fac.fuel_instrumented", "__query",
+        "equation_Prims.nat", "primitive_Prims.op_Addition",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Prims_Tm_refine_d2e2db8602bbddfb2772cf5783889241",
         "typing_Recursive.fac"
       ],
       0

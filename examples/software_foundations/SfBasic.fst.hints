@@ -22,7 +22,8 @@
         "disc_equation_SfBasic.Friday", "disc_equation_SfBasic.Monday",
         "disc_equation_SfBasic.Saturday", "disc_equation_SfBasic.Sunday",
         "disc_equation_SfBasic.Thursday", "disc_equation_SfBasic.Tuesday",
-        "disc_equation_SfBasic.Wednesday", "equality_tok_SfBasic.Friday__tok",
+        "disc_equation_SfBasic.Wednesday",
+        "equality_tok_SfBasic.Friday__tok",
         "equality_tok_SfBasic.Monday__tok",
         "equality_tok_SfBasic.Thursday__tok",
         "equality_tok_SfBasic.Tuesday__tok",
@@ -53,9 +54,9 @@
         "constructor_distinct_SfBasic.Saturday",
         "constructor_distinct_SfBasic.day",
         "equality_tok_SfBasic.Monday__tok",
-        "equality_tok_SfBasic.Saturday__tok", "equation_SfBasic.next_weekday",
-        "typing_SfBasic.next_weekday", "typing_tok_SfBasic.Saturday__tok",
-        "unit_typing"
+        "equality_tok_SfBasic.Saturday__tok",
+        "equation_SfBasic.next_weekday", "typing_SfBasic.next_weekday",
+        "typing_tok_SfBasic.Saturday__tok", "unit_typing"
       ],
       0
     ],
@@ -115,8 +116,9 @@
       1,
       [
         "__query", "constructor_distinct_SfBasic.MTrue",
-        "equality_tok_SfBasic.MFalse__tok", "equality_tok_SfBasic.MTrue__tok",
-        "equation_SfBasic.orb", "unit_typing"
+        "equality_tok_SfBasic.MFalse__tok",
+        "equality_tok_SfBasic.MTrue__tok", "equation_SfBasic.orb",
+        "unit_typing"
       ],
       0
     ],
@@ -157,8 +159,9 @@
       1,
       [
         "__query", "constructor_distinct_SfBasic.MFalse",
-        "equality_tok_SfBasic.MFalse__tok", "equality_tok_SfBasic.MTrue__tok",
-        "equation_SfBasic.orb", "unit_typing"
+        "equality_tok_SfBasic.MFalse__tok",
+        "equality_tok_SfBasic.MTrue__tok", "equation_SfBasic.orb",
+        "unit_typing"
       ],
       0
     ],
@@ -193,7 +196,7 @@
       [
         "__MaxIFuel_assumption", "__query", "disc_equation_SfBasic.S",
         "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_SfBasic_Tm_refine_b7b70964a15ac3a2f4808938f2801faf"
+        "refinement_interpretation_SfBasic_Tm_refine_620b2650157a85bc0391eddb57bce0ee"
       ],
       0
     ],
@@ -219,7 +222,7 @@
         "disc_equation_SfBasic.O", "disc_equation_SfBasic.S",
         "equality_tok_SfBasic.O__tok", "fuel_guarded_inversion_SfBasic.nat",
         "proj_equation_SfBasic.S__0", "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_SfBasic_Tm_refine_b7b70964a15ac3a2f4808938f2801faf",
+        "refinement_interpretation_SfBasic_Tm_refine_620b2650157a85bc0391eddb57bce0ee",
         "typing_SfBasic.__proj__S__item___0"
       ],
       0
@@ -232,12 +235,13 @@
       [
         "__MaxIFuel_assumption", "__query",
         "binder_x_ccd81122687c082c3642373b68717e85_0",
-        "disc_equation_SfBasic.O", "disc_equation_SfBasic.S",
-        "equality_tok_SfBasic.MFalse__tok", "equality_tok_SfBasic.MTrue__tok",
+        "constructor_distinct_SfBasic.O", "disc_equation_SfBasic.O",
+        "disc_equation_SfBasic.S", "equality_tok_SfBasic.MFalse__tok",
+        "equality_tok_SfBasic.MTrue__tok", "equality_tok_SfBasic.O__tok",
         "fuel_guarded_inversion_SfBasic.nat", "proj_equation_SfBasic.S__0",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_SfBasic.S__0",
-        "refinement_interpretation_SfBasic_Tm_refine_b7b70964a15ac3a2f4808938f2801faf",
+        "refinement_interpretation_SfBasic_Tm_refine_620b2650157a85bc0391eddb57bce0ee",
         "subterm_ordering_SfBasic.S", "typing_SfBasic.__proj__S__item___0"
       ],
       0
@@ -259,9 +263,9 @@
         "__MaxFuel_assumption", "__MaxIFuel_assumption", "__query",
         "constructor_distinct_SfBasic.MFalse",
         "constructor_distinct_SfBasic.O", "constructor_distinct_SfBasic.S",
-        "equality_tok_SfBasic.MFalse__tok", "equality_tok_SfBasic.MTrue__tok",
-        "equality_tok_SfBasic.O__tok", "equation_SfBasic.negb",
-        "equation_SfBasic.oddb",
+        "equality_tok_SfBasic.MFalse__tok",
+        "equality_tok_SfBasic.MTrue__tok", "equality_tok_SfBasic.O__tok",
+        "equation_SfBasic.negb", "equation_SfBasic.oddb",
         "equation_with_fuel_SfBasic.evenb.fuel_instrumented",
         "fuel_correspondence_SfBasic.evenb.fuel_instrumented",
         "fuel_guarded_inversion_SfBasic.mbool",
@@ -376,8 +380,8 @@
         "__MaxIFuel_assumption", "__query",
         "SfBasic_pretyping_ccd81122687c082c3642373b68717e85",
         "binder_x_ccd81122687c082c3642373b68717e85_0",
-        "equality_tok_SfBasic.MFalse__tok", "equality_tok_SfBasic.MTrue__tok",
-        "equality_tok_SfBasic.O__tok",
+        "equality_tok_SfBasic.MFalse__tok",
+        "equality_tok_SfBasic.MTrue__tok", "equality_tok_SfBasic.O__tok",
         "proj_equation_FStar.Pervasives.Native.Mktuple2__1",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__1",
         "subterm_ordering_SfBasic.S", "typing_tok_SfBasic.O__tok"
@@ -395,8 +399,9 @@
         "binder_x_ccd81122687c082c3642373b68717e85_0",
         "binder_x_ccd81122687c082c3642373b68717e85_1",
         "disc_equation_SfBasic.O", "disc_equation_SfBasic.S",
-        "equality_tok_SfBasic.MFalse__tok", "equality_tok_SfBasic.MTrue__tok",
-        "equality_tok_SfBasic.O__tok", "fuel_guarded_inversion_SfBasic.nat",
+        "equality_tok_SfBasic.MFalse__tok",
+        "equality_tok_SfBasic.MTrue__tok", "equality_tok_SfBasic.O__tok",
+        "fuel_guarded_inversion_SfBasic.nat",
         "proj_equation_FStar.Pervasives.Native.Mktuple2__1",
         "proj_equation_FStar.Pervasives.Native.Mktuple2__2",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__1",
@@ -588,9 +593,9 @@
         "__MaxIFuel_assumption", "__query",
         "constructor_distinct_SfBasic.MFalse",
         "constructor_distinct_SfBasic.MTrue",
-        "equality_tok_SfBasic.MFalse__tok", "equality_tok_SfBasic.MTrue__tok",
-        "equation_SfBasic.negb", "fuel_guarded_inversion_SfBasic.mbool",
-        "unit_typing"
+        "equality_tok_SfBasic.MFalse__tok",
+        "equality_tok_SfBasic.MTrue__tok", "equation_SfBasic.negb",
+        "fuel_guarded_inversion_SfBasic.mbool", "unit_typing"
       ],
       0
     ],

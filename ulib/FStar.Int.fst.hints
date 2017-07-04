@@ -91,7 +91,7 @@
         "int_inversion", "primitive_Prims.op_GreaterThanOrEqual",
         "primitive_Prims.op_Minus", "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Prims_Tm_refine_7075614a0e8c0bdbec6de0d0ef7f1280"
+        "refinement_interpretation_Prims_Tm_refine_b691d8958be2a3c5600195f667442f40"
       ],
       0
     ],
@@ -110,7 +110,7 @@
       1,
       [
         "__MaxIFuel_assumption", "__query", "equation_Prims.nonzero",
-        "refinement_interpretation_Prims_Tm_refine_7075614a0e8c0bdbec6de0d0ef7f1280"
+        "refinement_interpretation_Prims_Tm_refine_b691d8958be2a3c5600195f667442f40"
       ],
       0
     ],
@@ -128,8 +128,9 @@
       2,
       1,
       [
-        "__MaxIFuel_assumption", "__query", "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_FStar.Int_Tm_refine_e2f27e418ef70fc185c7b91b295c2147"
+        "__MaxIFuel_assumption", "__query",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_FStar.Int_Tm_refine_b18f7d0e1de8e21b5831df529148ec6e"
       ],
       0
     ],
@@ -149,7 +150,7 @@
       [
         "__MaxIFuel_assumption", "__query", "equation_Prims.pos",
         "primitive_Prims.op_Subtraction", "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Prims_Tm_refine_f048236b5f8051f83b495ea5eaa6127b"
+        "refinement_interpretation_Prims_Tm_refine_d21a96787e481538f7b3668138ba066d"
       ],
       0
     ],
@@ -161,7 +162,7 @@
       [
         "__MaxIFuel_assumption", "__query", "equation_Prims.pos",
         "primitive_Prims.op_Subtraction", "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Prims_Tm_refine_f048236b5f8051f83b495ea5eaa6127b"
+        "refinement_interpretation_Prims_Tm_refine_d21a96787e481538f7b3668138ba066d"
       ],
       0
     ],
@@ -196,29 +197,27 @@
       2,
       1,
       [
+        "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "__MaxFuel_assumption", "__MaxIFuel_assumption",
         "__fuel_correspondence_Prims.pow2.fuel_instrumented",
         "__fuel_irrelevance_Prims.pow2.fuel_instrumented", "__query",
-        "Prims_pretyping_ae567c2fb75be05905677af440075565", "b2t_def",
-        "bool_inversion", "equation_FStar.Int.fits",
+        "b2t_def", "bool_inversion", "equation_FStar.Int.fits",
         "equation_FStar.Int.int_t", "equation_FStar.Int.max_int",
         "equation_FStar.Int.min_int", "equation_FStar.Int.op_At_Percent",
         "equation_FStar.Int.op_Slash", "equation_FStar.Int.size",
-        "equation_Prims.abs", "equation_Prims.nat", "equation_Prims.pos",
+        "equation_Prims.abs", "equation_Prims.pos",
         "equation_with_fuel_Prims.pow2.fuel_instrumented", "int_inversion",
-        "int_typing", "primitive_Prims.op_Addition",
-        "primitive_Prims.op_AmpAmp", "primitive_Prims.op_BarBar",
-        "primitive_Prims.op_Division",
+        "primitive_Prims.op_Addition", "primitive_Prims.op_AmpAmp",
+        "primitive_Prims.op_BarBar", "primitive_Prims.op_Division",
         "primitive_Prims.op_GreaterThanOrEqual",
         "primitive_Prims.op_LessThan", "primitive_Prims.op_LessThanOrEqual",
         "primitive_Prims.op_Minus", "primitive_Prims.op_Modulus",
         "primitive_Prims.op_Multiply", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_FStar.Int_Tm_refine_f5da0921f0dd8806caefeddce48fd98d",
-        "refinement_interpretation_Prims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
-        "refinement_interpretation_Prims_Tm_refine_f048236b5f8051f83b495ea5eaa6127b",
-        "typing_FStar.Int.fits", "typing_Prims.pow2"
+        "refinement_interpretation_FStar.Int_Tm_refine_bbe60702c175db6e74ca2705dcbd6a81",
+        "refinement_interpretation_Prims_Tm_refine_d21a96787e481538f7b3668138ba066d",
+        "typing_FStar.Int.fits"
       ],
       0
     ],
@@ -253,29 +252,32 @@
       2,
       1,
       [
+        "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "__MaxFuel_assumption", "__MaxIFuel_assumption",
         "__fuel_correspondence_Prims.pow2.fuel_instrumented",
         "__fuel_irrelevance_Prims.pow2.fuel_instrumented", "__query",
-        "Prims_pretyping_ae567c2fb75be05905677af440075565", "b2t_def",
-        "bool_inversion", "bool_typing", "equation_FStar.Int.fits",
-        "equation_FStar.Int.int_t", "equation_FStar.Int.max_int",
-        "equation_FStar.Int.min_int", "equation_FStar.Int.op_At_Percent",
-        "equation_FStar.Int.op_Slash", "equation_FStar.Int.size",
-        "equation_Prims.abs", "equation_Prims.nat", "equation_Prims.pos",
+        "b2t_def", "bool_inversion", "bool_typing",
+        "equation_FStar.Int.fits", "equation_FStar.Int.int_t",
+        "equation_FStar.Int.max_int", "equation_FStar.Int.min_int",
+        "equation_FStar.Int.op_At_Percent", "equation_FStar.Int.op_Slash",
+        "equation_FStar.Int.size", "equation_Prims.abs",
+        "equation_Prims.nat", "equation_Prims.pos",
         "equation_with_fuel_Prims.pow2.fuel_instrumented", "int_inversion",
-        "int_typing", "primitive_Prims.op_AmpAmp",
-        "primitive_Prims.op_BarBar", "primitive_Prims.op_Division",
+        "int_typing", "lemma_FStar.Int.pow2_values",
+        "primitive_Prims.op_AmpAmp", "primitive_Prims.op_BarBar",
+        "primitive_Prims.op_Division",
         "primitive_Prims.op_GreaterThanOrEqual",
         "primitive_Prims.op_LessThan", "primitive_Prims.op_LessThanOrEqual",
         "primitive_Prims.op_Minus", "primitive_Prims.op_Modulus",
         "primitive_Prims.op_Multiply", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_FStar.Int_Tm_refine_e2f27e418ef70fc185c7b91b295c2147",
-        "refinement_interpretation_FStar.Int_Tm_refine_f5da0921f0dd8806caefeddce48fd98d",
-        "refinement_interpretation_Prims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
-        "refinement_interpretation_Prims_Tm_refine_f048236b5f8051f83b495ea5eaa6127b",
-        "typing_FStar.Int.fits", "typing_Prims.pow2"
+        "refinement_interpretation_FStar.Int_Tm_refine_b18f7d0e1de8e21b5831df529148ec6e",
+        "refinement_interpretation_FStar.Int_Tm_refine_bbe60702c175db6e74ca2705dcbd6a81",
+        "refinement_interpretation_Prims_Tm_refine_d21a96787e481538f7b3668138ba066d",
+        "refinement_interpretation_Prims_Tm_refine_d2e2db8602bbddfb2772cf5783889241",
+        "token_correspondence_Prims.pow2.fuel_instrumented",
+        "typing_FStar.Int.fits"
       ],
       0
     ],
@@ -310,29 +312,30 @@
       2,
       1,
       [
+        "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "__MaxFuel_assumption", "__MaxIFuel_assumption",
         "__fuel_correspondence_Prims.pow2.fuel_instrumented",
         "__fuel_irrelevance_Prims.pow2.fuel_instrumented", "__query",
-        "Prims_pretyping_ae567c2fb75be05905677af440075565", "b2t_def",
-        "bool_inversion", "equation_FStar.Int.fits",
-        "equation_FStar.Int.int_t", "equation_FStar.Int.max_int",
-        "equation_FStar.Int.min_int", "equation_FStar.Int.op_At_Percent",
-        "equation_FStar.Int.op_Slash", "equation_FStar.Int.size",
-        "equation_FStar.Mul.op_Star", "equation_Prims.abs",
-        "equation_Prims.pos",
+        "b2t_def", "bool_inversion", "bool_typing",
+        "equation_FStar.Int.fits", "equation_FStar.Int.int_t",
+        "equation_FStar.Int.max_int", "equation_FStar.Int.min_int",
+        "equation_FStar.Int.op_At_Percent", "equation_FStar.Int.op_Slash",
+        "equation_FStar.Int.size", "equation_FStar.Mul.op_Star",
+        "equation_Prims.abs", "equation_Prims.nat", "equation_Prims.pos",
         "equation_with_fuel_Prims.pow2.fuel_instrumented", "int_inversion",
-        "primitive_Prims.op_AmpAmp", "primitive_Prims.op_BarBar",
-        "primitive_Prims.op_Division",
+        "int_typing", "primitive_Prims.op_AmpAmp",
+        "primitive_Prims.op_BarBar", "primitive_Prims.op_Division",
         "primitive_Prims.op_GreaterThanOrEqual",
         "primitive_Prims.op_LessThan", "primitive_Prims.op_LessThanOrEqual",
         "primitive_Prims.op_Minus", "primitive_Prims.op_Modulus",
         "primitive_Prims.op_Multiply", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_FStar.Int_Tm_refine_e2f27e418ef70fc185c7b91b295c2147",
-        "refinement_interpretation_FStar.Int_Tm_refine_f5da0921f0dd8806caefeddce48fd98d",
-        "refinement_interpretation_Prims_Tm_refine_f048236b5f8051f83b495ea5eaa6127b",
-        "typing_FStar.Int.fits"
+        "refinement_interpretation_FStar.Int_Tm_refine_b18f7d0e1de8e21b5831df529148ec6e",
+        "refinement_interpretation_FStar.Int_Tm_refine_bbe60702c175db6e74ca2705dcbd6a81",
+        "refinement_interpretation_Prims_Tm_refine_d21a96787e481538f7b3668138ba066d",
+        "refinement_interpretation_Prims_Tm_refine_d2e2db8602bbddfb2772cf5783889241",
+        "typing_FStar.Int.fits", "typing_Prims.pow2"
       ],
       0
     ],
@@ -419,15 +422,16 @@
       2,
       1,
       [
+        "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "__MaxFuel_assumption", "__MaxIFuel_assumption",
         "__fuel_correspondence_Prims.pow2.fuel_instrumented",
         "__fuel_irrelevance_Prims.pow2.fuel_instrumented", "__query",
-        "Prims_pretyping_ae567c2fb75be05905677af440075565", "b2t_def",
-        "bool_inversion", "bool_typing", "equation_FStar.Int.fits",
-        "equation_FStar.Int.int_t", "equation_FStar.Int.max_int",
-        "equation_FStar.Int.min_int", "equation_FStar.Int.op_Slash",
-        "equation_FStar.Int.size", "equation_FStar.Mul.op_Star",
-        "equation_Prims.abs", "equation_Prims.nat", "equation_Prims.pos",
+        "b2t_def", "bool_inversion", "bool_typing",
+        "equation_FStar.Int.fits", "equation_FStar.Int.int_t",
+        "equation_FStar.Int.max_int", "equation_FStar.Int.min_int",
+        "equation_FStar.Int.op_Slash", "equation_FStar.Int.size",
+        "equation_FStar.Mul.op_Star", "equation_Prims.abs",
+        "equation_Prims.nat", "equation_Prims.pos",
         "equation_with_fuel_Prims.pow2.fuel_instrumented", "int_inversion",
         "int_typing", "lemma_FStar.Int.pow2_values",
         "primitive_Prims.op_AmpAmp", "primitive_Prims.op_BarBar",
@@ -438,12 +442,13 @@
         "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_FStar.Int_Tm_refine_83ac8ca0eae25a164d9f9c0d728fbff9",
-        "refinement_interpretation_FStar.Int_Tm_refine_f5da0921f0dd8806caefeddce48fd98d",
-        "refinement_interpretation_Prims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
-        "refinement_interpretation_Prims_Tm_refine_f048236b5f8051f83b495ea5eaa6127b",
+        "refinement_interpretation_FStar.Int_Tm_refine_541b4e285975e712a9017af5a6c85a28",
+        "refinement_interpretation_FStar.Int_Tm_refine_bbe60702c175db6e74ca2705dcbd6a81",
+        "refinement_interpretation_Prims_Tm_refine_d21a96787e481538f7b3668138ba066d",
+        "refinement_interpretation_Prims_Tm_refine_d2e2db8602bbddfb2772cf5783889241",
         "token_correspondence_Prims.pow2.fuel_instrumented",
-        "typing_FStar.Int.fits", "typing_FStar.Int.max_int"
+        "typing_FStar.Int.fits", "typing_FStar.Int.min_int",
+        "typing_Prims.abs", "typing_Prims.pow2"
       ],
       0
     ],
@@ -455,7 +460,7 @@
       1,
       [
         "__query", "assumption_Prims.HasEq_int",
-        "haseqFStar.Int_Tm_refine_34a930fe6eff72e2e58b43b6d5f52a01"
+        "haseqFStar.Int_Tm_refine_dea2e54bde48ee29c9c5b90d8d2edc6c"
       ],
       0
     ],
@@ -465,17 +470,16 @@
       2,
       1,
       [
+        "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "__MaxFuel_assumption", "__MaxIFuel_assumption",
         "__fuel_correspondence_Prims.pow2.fuel_instrumented",
         "__fuel_irrelevance_Prims.pow2.fuel_instrumented", "__query",
-        "Prims_pretyping_ae567c2fb75be05905677af440075565", "b2t_def",
-        "bool_inversion", "equation_FStar.Int.fits",
-        "equation_FStar.Int.max_int", "equation_FStar.Int.min_int",
-        "equation_FStar.Int.op_At_Percent", "equation_FStar.Int.op_Slash",
-        "equation_FStar.Int.size", "equation_Prims.abs",
-        "equation_Prims.nat", "equation_Prims.pos",
+        "b2t_def", "bool_inversion", "bool_typing",
+        "equation_FStar.Int.fits", "equation_FStar.Int.max_int",
+        "equation_FStar.Int.min_int", "equation_FStar.Int.op_At_Percent",
+        "equation_FStar.Int.op_Slash", "equation_FStar.Int.size",
+        "equation_Prims.abs", "equation_Prims.pos",
         "equation_with_fuel_Prims.pow2.fuel_instrumented", "int_inversion",
-        "int_typing", "lemma_FStar.Int.pow2_values",
         "primitive_Prims.op_AmpAmp", "primitive_Prims.op_BarBar",
         "primitive_Prims.op_Division",
         "primitive_Prims.op_GreaterThanOrEqual",
@@ -484,9 +488,8 @@
         "primitive_Prims.op_Multiply", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Prims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
-        "refinement_interpretation_Prims_Tm_refine_f048236b5f8051f83b495ea5eaa6127b",
-        "token_correspondence_Prims.pow2.fuel_instrumented",
+        "refinement_interpretation_FStar.Int_Tm_refine_b18f7d0e1de8e21b5831df529148ec6e",
+        "refinement_interpretation_Prims_Tm_refine_d21a96787e481538f7b3668138ba066d",
         "typing_FStar.Int.fits"
       ],
       0
@@ -506,29 +509,30 @@
       2,
       1,
       [
+        "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "__MaxFuel_assumption", "__MaxIFuel_assumption",
         "__fuel_correspondence_Prims.pow2.fuel_instrumented",
         "__fuel_irrelevance_Prims.pow2.fuel_instrumented", "__query",
-        "Prims_pretyping_ae567c2fb75be05905677af440075565", "b2t_def",
-        "bool_inversion", "equation_FStar.Int.fits",
+        "b2t_def", "bool_inversion", "equation_FStar.Int.fits",
         "equation_FStar.Int.int_t", "equation_FStar.Int.max_int",
         "equation_FStar.Int.min_int", "equation_FStar.Int.op_At_Percent",
         "equation_FStar.Int.op_Slash", "equation_FStar.Int.size",
         "equation_FStar.Mul.op_Star", "equation_Prims.abs",
         "equation_Prims.nat", "equation_Prims.pos",
         "equation_with_fuel_Prims.pow2.fuel_instrumented", "int_inversion",
-        "primitive_Prims.op_AmpAmp", "primitive_Prims.op_BarBar",
-        "primitive_Prims.op_Division",
+        "int_typing", "primitive_Prims.op_AmpAmp",
+        "primitive_Prims.op_BarBar", "primitive_Prims.op_Division",
         "primitive_Prims.op_GreaterThanOrEqual",
         "primitive_Prims.op_LessThan", "primitive_Prims.op_LessThanOrEqual",
         "primitive_Prims.op_Minus", "primitive_Prims.op_Modulus",
         "primitive_Prims.op_Multiply", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_FStar.Int_Tm_refine_f5da0921f0dd8806caefeddce48fd98d",
-        "refinement_interpretation_Prims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
-        "refinement_interpretation_Prims_Tm_refine_f048236b5f8051f83b495ea5eaa6127b",
-        "typing_FStar.Int.fits"
+        "refinement_interpretation_FStar.Int_Tm_refine_b18f7d0e1de8e21b5831df529148ec6e",
+        "refinement_interpretation_FStar.Int_Tm_refine_bbe60702c175db6e74ca2705dcbd6a81",
+        "refinement_interpretation_Prims_Tm_refine_d21a96787e481538f7b3668138ba066d",
+        "refinement_interpretation_Prims_Tm_refine_d2e2db8602bbddfb2772cf5783889241",
+        "typing_FStar.Int.fits", "typing_Prims.pow2"
       ],
       0
     ]

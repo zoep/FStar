@@ -42,9 +42,9 @@
       0,
       0,
       [
+        "Prims_interpretation_Tm_arrow_531ffcaf746f71e02316c11f60fe7f55",
+        "Prims_interpretation_Tm_arrow_c2169d846155c3b33c2481ca30192d97",
         "__MaxIFuel_assumption", "__query",
-        "Prims_interpretation_Tm_arrow_9cb3c953faf527c316d427b2ce8bd81b",
-        "Prims_interpretation_Tm_arrow_e06752ba152f81447b312efcdf8f0e23",
         "assumption_FStar.FunctionalExtensionality.Extensionality",
         "equation_FStar.FunctionalExtensionality.efun",
         "equation_FStar.FunctionalExtensionality.feq",

@@ -78,7 +78,7 @@
         "function_token_typing_NatHeap.heap", "lemma_AllocST.contains_lemma",
         "proj_equation_FStar.Pervasives.Native.Mktuple2__1",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__1",
-        "refinement_interpretation_NatHeap_Tm_refine_613a9a7993cedc8187c5c4e9b5920a02",
+        "refinement_interpretation_NatHeap_Tm_refine_f49c5aecf2a2b7c6d12b1cfb89fd96fe",
         "token_correspondence_AllocST.contains",
         "token_correspondence_AllocST.heap_rel",
         "typing_FStar.Pervasives.Native.fst", "typing_NatHeap.alloc_ref",
@@ -86,7 +86,14 @@
       ],
       0
     ],
-    [ "AllocST.read", 1, 2, 1, [ "__query", "equation_AllocST.contains" ], 0 ],
+    [
+      "AllocST.read",
+      1,
+      2,
+      1,
+      [ "__query", "equation_AllocST.contains" ],
+      0
+    ],
     [
       "AllocST.read",
       2,
@@ -96,7 +103,7 @@
         "__MaxIFuel_assumption", "__query", "equation_AllocST.contains",
         "equation_AllocST.heap_rel", "equation_AllocST.ref",
         "equation_Preorder.stable",
-        "refinement_interpretation_AllocST_Tm_refine_a8458d0cd2385c727af0fa1002df0eb2",
+        "refinement_interpretation_AllocST_Tm_refine_b7e84e1390cc225fbb92bf98f4cffc53",
         "token_correspondence_AllocST.contains",
         "token_correspondence_AllocST.heap_rel"
       ],
@@ -118,9 +125,10 @@
       [
         "__MaxIFuel_assumption", "__query", "equation_AllocST.contains",
         "equation_AllocST.heap_rel", "equation_AllocST.ref",
-        "equation_Preorder.stable", "lemma_AllocST.contains_lemma",
-        "refinement_interpretation_AllocST_Tm_refine_a8458d0cd2385c727af0fa1002df0eb2",
-        "refinement_interpretation_NatHeap_Tm_refine_6a27c6788c8781b120f5dae512341216",
+        "equation_NatHeap.upd", "equation_Preorder.stable",
+        "lemma_AllocST.contains_lemma",
+        "refinement_interpretation_AllocST_Tm_refine_b7e84e1390cc225fbb92bf98f4cffc53",
+        "refinement_interpretation_NatHeap_Tm_refine_bc02a7290cecb691f0121e15a64fba1f",
         "token_correspondence_AllocST.contains",
         "token_correspondence_AllocST.heap_rel"
       ],
@@ -134,7 +142,7 @@
       [
         "__MaxIFuel_assumption", "__query", "equation_AllocST.heap_rel",
         "equation_AllocST.ref", "equation_Preorder.stable",
-        "refinement_interpretation_AllocST_Tm_refine_a8458d0cd2385c727af0fa1002df0eb2",
+        "refinement_interpretation_AllocST_Tm_refine_b7e84e1390cc225fbb92bf98f4cffc53",
         "token_correspondence_AllocST.contains",
         "token_correspondence_AllocST.heap_rel"
       ],

@@ -17,9 +17,10 @@
       2,
       1,
       [
-        "__MaxIFuel_assumption", "__query", "disc_equation_CPS.SimpleDefun.C1",
+        "__MaxIFuel_assumption", "__query",
+        "disc_equation_CPS.SimpleDefun.C1",
         "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_CPS.SimpleDefun_Tm_refine_ec3b073f187e62e07276baa8a49db0b9"
+        "refinement_interpretation_CPS.SimpleDefun_Tm_refine_be3b70830f745c7a7bb17eefd7139ebb"
       ],
       0
     ],
@@ -29,9 +30,10 @@
       2,
       1,
       [
-        "__MaxIFuel_assumption", "__query", "disc_equation_CPS.SimpleDefun.C1",
+        "__MaxIFuel_assumption", "__query",
+        "disc_equation_CPS.SimpleDefun.C1",
         "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_CPS.SimpleDefun_Tm_refine_ec3b073f187e62e07276baa8a49db0b9"
+        "refinement_interpretation_CPS.SimpleDefun_Tm_refine_be3b70830f745c7a7bb17eefd7139ebb"
       ],
       0
     ],

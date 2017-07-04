@@ -24,7 +24,8 @@
         "__MaxIFuel_assumption", "__query",
         "binder_x_63893f6163361bb7b4db46296cfdfc01_3",
         "disc_equation_Prims.Cons", "disc_equation_Prims.Nil",
-        "equality_tok_Prims.LexTop__tok", "fuel_guarded_inversion_Prims.list",
+        "equality_tok_Prims.LexTop__tok",
+        "fuel_guarded_inversion_Prims.list",
         "projection_inverse_Prims.Cons_tl", "subterm_ordering_Prims.Cons"
       ],
       0
@@ -38,7 +39,7 @@
         "__MaxIFuel_assumption", "__query",
         "binder_x_273c0cb114efbc10b99731f088b17ae0_1",
         "equation_Prims.eqtype",
-        "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
+        "refinement_interpretation_Prims_Tm_refine_45cec59dab2fa571e58056873aeab260"
       ],
       0
     ]

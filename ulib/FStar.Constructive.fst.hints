@@ -2,8 +2,22 @@
   "Û\u000f\u0002ù\u000b\u0015G\u0019 —m\u0007'\u0010+≈",
   [
     [ "FStar.Constructive.cand", 1, 2, 1, [ "__query" ], 0 ],
-    [ "FStar.Constructive.__proj__Conj__item__h1", 1, 2, 1, [ "__query" ], 0 ],
-    [ "FStar.Constructive.__proj__Conj__item__h2", 1, 2, 1, [ "__query" ], 0 ],
+    [
+      "FStar.Constructive.__proj__Conj__item__h1",
+      1,
+      2,
+      1,
+      [ "__query" ],
+      0
+    ],
+    [
+      "FStar.Constructive.__proj__Conj__item__h2",
+      1,
+      2,
+      1,
+      [ "__query" ],
+      0
+    ],
     [ "FStar.Constructive.cor", 1, 2, 1, [ "__query" ], 0 ],
     [ "FStar.Constructive.uu___is_IntroL", 1, 2, 1, [ "__query" ], 0 ],
     [
@@ -15,7 +29,7 @@
         "__MaxIFuel_assumption", "__query",
         "disc_equation_FStar.Constructive.IntroL",
         "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_FStar.Constructive_Tm_refine_5f96298b0b74547bf135efed6725faec"
+        "refinement_interpretation_FStar.Constructive_Tm_refine_ce482a87b6764b090a177e50fbc711de"
       ],
       0
     ],
@@ -29,7 +43,7 @@
         "__MaxIFuel_assumption", "__query",
         "disc_equation_FStar.Constructive.IntroR",
         "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_FStar.Constructive_Tm_refine_7fbfb42f7ce95e0df3d91787685cfbfc"
+        "refinement_interpretation_FStar.Constructive_Tm_refine_fda96c59a386b08db690801f15c92ba7"
       ],
       0
     ],
@@ -139,10 +153,8 @@
       2,
       1,
       [
-        "__MaxIFuel_assumption",
-        "binder_x_27672a0694ca5377bbd1682fdc19a13b_2",
-        "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_FStar.Pervasives_Tm_refine_16d7dda25a162db0722685f27f707102"
+        "__MaxIFuel_assumption", "__query",
+        "refinement_interpretation_FStar.Pervasives_Tm_refine_5f4ed48fc6ae41bf70fe95ac0421f6d0"
       ],
       0
     ]

@@ -13,7 +13,7 @@
         "__query", "assumption_ParSubst.ty_haseq",
         "assumption_Prims.HasEq_int", "equation_ParSubst.var",
         "equation_Prims.nat",
-        "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
+        "haseqPrims_Tm_refine_d2e2db8602bbddfb2772cf5783889241"
       ],
       0
     ],
@@ -26,7 +26,7 @@
       [
         "__MaxIFuel_assumption", "__query", "disc_equation_ParSubst.EVar",
         "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_ParSubst_Tm_refine_943feaa075f629a91cb492a3c84ce6a4"
+        "refinement_interpretation_ParSubst_Tm_refine_1f5491c074a8a791d6ff9f5d68329022"
       ],
       0
     ],
@@ -39,7 +39,7 @@
       [
         "__MaxIFuel_assumption", "__query", "disc_equation_ParSubst.EApp",
         "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_ParSubst_Tm_refine_1671cc933db960f7ca6afb279f753fd0"
+        "refinement_interpretation_ParSubst_Tm_refine_a57b36701848d12c7abd1482c769e2ac"
       ],
       0
     ],
@@ -51,7 +51,7 @@
       [
         "__MaxIFuel_assumption", "__query", "disc_equation_ParSubst.EApp",
         "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_ParSubst_Tm_refine_1671cc933db960f7ca6afb279f753fd0"
+        "refinement_interpretation_ParSubst_Tm_refine_a57b36701848d12c7abd1482c769e2ac"
       ],
       0
     ],
@@ -64,7 +64,7 @@
       [
         "__MaxIFuel_assumption", "__query", "disc_equation_ParSubst.EAbs",
         "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_ParSubst_Tm_refine_58bb134335ce00d990053a5f172c1453"
+        "refinement_interpretation_ParSubst_Tm_refine_cdde95dfcb12924ffd0e08d810eaa882"
       ],
       0
     ],
@@ -76,7 +76,7 @@
       [
         "__MaxIFuel_assumption", "__query", "disc_equation_ParSubst.EAbs",
         "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_ParSubst_Tm_refine_58bb134335ce00d990053a5f172c1453"
+        "refinement_interpretation_ParSubst_Tm_refine_cdde95dfcb12924ffd0e08d810eaa882"
       ],
       0
     ],
@@ -105,7 +105,7 @@
         "__MaxIFuel_assumption", "__query", "equation_ParSubst.var",
         "equation_Prims.nat", "primitive_Prims.op_Addition",
         "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Prims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
+        "refinement_interpretation_Prims_Tm_refine_d2e2db8602bbddfb2772cf5783889241"
       ],
       0
     ],
@@ -138,14 +138,12 @@
       2,
       1,
       [
-        "__MaxIFuel_assumption", "__query",
-        "ParSubst_interpretation_Tm_arrow_b501bdd5ba42c2af78d2eb2d2947d08b",
-        "ParSubst_interpretation_Tm_arrow_ffde041010018e98855f775572cc70ce",
+        "ParSubst_interpretation_Tm_arrow_6280e7a19cc082cd62c3c12d92df4a91",
+        "ParSubst_interpretation_Tm_arrow_c6ad8c5604f1d38375f16851adf4a446",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
+        "__MaxIFuel_assumption", "__query",
         "binder_x_26c3b6ccfcbd94452acb614866f829fb_0",
         "binder_x_387d71a930d867c375624ccb57d4ec61_1", "bool_inversion",
-        "bool_typing", "constructor_distinct_ParSubst.EAbs",
-        "constructor_distinct_ParSubst.EApp",
         "constructor_distinct_ParSubst.EVar", "disc_equation_ParSubst.EAbs",
         "disc_equation_ParSubst.EApp", "disc_equation_ParSubst.EVar",
         "equality_tok_Prims.LexTop__tok", "equation_ParSubst.is_var",
@@ -153,20 +151,18 @@
         "equation_ParSubst.sub_inc", "equation_ParSubst.var",
         "equation_Prims.nat", "fuel_guarded_inversion_ParSubst.exp",
         "function_token_typing_ParSubst.sub_inc", "int_inversion",
-        "int_typing",
-        "interpretation_ParSubst_Tm_abs_def94a8c25708f8023a4da2468baedcb",
+        "interpretation_ParSubst_Tm_abs_7e1eecd213484919955cdb69c27a7b75",
         "primitive_Prims.op_Equality", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
         "projection_inverse_ParSubst.EVar__0",
-        "refinement_interpretation_ParSubst_Tm_refine_e857d5775d0df3c0b10d55cf5cd457f5",
-        "refinement_interpretation_ParSubst_Tm_refine_ed6540358c59e4bc9dd4fdb32776aaf9",
-        "refinement_interpretation_Prims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
+        "refinement_interpretation_ParSubst_Tm_refine_239f0c96ed90566f534608f449dfdf4a",
+        "refinement_interpretation_ParSubst_Tm_refine_a9abd9930233ecad14072d6ee133c4e3",
+        "refinement_interpretation_Prims_Tm_refine_d2e2db8602bbddfb2772cf5783889241",
         "subterm_ordering_ParSubst.EAbs", "subterm_ordering_ParSubst.EApp",
         "token_correspondence_ParSubst.sub_inc",
         "typing_ParSubst.is_renaming", "typing_ParSubst.is_var",
-        "typing_ParSubst_Tm_abs_def94a8c25708f8023a4da2468baedcb",
-        "well-founded-ordering-on-nat"
+        "typing_ParSubst.uu___is_EVar", "well-founded-ordering-on-nat"
       ],
       0
     ],
@@ -184,10 +180,11 @@
       2,
       1,
       [
+        "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "__MaxIFuel_assumption", "__query", "equation_ParSubst.var",
         "equation_Prims.nat", "int_inversion", "primitive_Prims.op_Equality",
         "primitive_Prims.op_Subtraction", "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Prims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
+        "refinement_interpretation_Prims_Tm_refine_d2e2db8602bbddfb2772cf5783889241"
       ],
       0
     ],
@@ -213,16 +210,16 @@
       2,
       1,
       [
-        "__MaxIFuel_assumption", "__query",
-        "ParSubst_interpretation_Tm_arrow_ffde041010018e98855f775572cc70ce",
+        "ParSubst_interpretation_Tm_arrow_c6ad8c5604f1d38375f16851adf4a446",
         "ParSubst_pretyping_26c3b6ccfcbd94452acb614866f829fb",
-        "Prims_interpretation_Tm_arrow_9cb3c953faf527c316d427b2ce8bd81b",
+        "Prims_interpretation_Tm_arrow_531ffcaf746f71e02316c11f60fe7f55",
+        "__MaxIFuel_assumption", "__query",
         "assumption_FStar.FunctionalExtensionality.Extensionality",
         "equation_FStar.FunctionalExtensionality.efun",
         "equation_ParSubst.sub", "equation_ParSubst.var",
         "equation_Prims.nat", "function_token_typing_Prims.nat",
         "kinding_ParSubst.exp__tok",
-        "refinement_interpretation_ParSubst_Tm_refine_d4ba12e293918eb1d428c76033e258fe",
+        "refinement_interpretation_ParSubst_Tm_refine_c07e2d12292b9e53ba71a5961bdfa299",
         "unit_typing"
       ],
       0
@@ -233,28 +230,26 @@
       2,
       1,
       [
-        "__MaxFuel_assumption", "__MaxIFuel_assumption", "__query",
-        "ParSubst_interpretation_Tm_arrow_b42d65321775e43d5dcc18dbd5914b1f",
-        "ParSubst_interpretation_Tm_arrow_ffde041010018e98855f775572cc70ce",
+        "ParSubst_interpretation_Tm_arrow_b41f32f59f78ce3ac6bc81dfe591c07b",
+        "ParSubst_interpretation_Tm_arrow_c6ad8c5604f1d38375f16851adf4a446",
         "ParSubst_pretyping_26c3b6ccfcbd94452acb614866f829fb",
-        "Prims_pretyping_ae567c2fb75be05905677af440075565",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_ParSubst.subst.fuel_instrumented",
+        "__fuel_irrelevance_ParSubst.subst.fuel_instrumented", "__query",
         "constructor_distinct_ParSubst.EAbs",
         "equation_FStar.FunctionalExtensionality.feq",
         "equation_ParSubst.sub", "equation_ParSubst.subst_eabs",
         "equation_ParSubst.var", "equation_Prims.nat",
         "equation_with_fuel_ParSubst.subst.fuel_instrumented",
-        "fuel_correspondence_ParSubst.subst.fuel_instrumented",
-        "fuel_irrelevance_ParSubst.subst.fuel_instrumented", "int_inversion",
-        "interpretation_ParSubst_Tm_abs_5de7c93e585c0cf6974fb8750043ad22",
-        "interpretation_ParSubst_Tm_abs_eb241f25cceea816d33b5447d83a48ac",
+        "interpretation_ParSubst_Tm_abs_2ea737763fe32e4508981f98948da98a",
+        "interpretation_ParSubst_Tm_abs_bd23ff2b296988defbfe498a545f2379",
         "lemma_ParSubst.subst_extensional",
         "projection_inverse_ParSubst.EAbs__0",
         "projection_inverse_ParSubst.EAbs__1",
-        "refinement_interpretation_ParSubst_Tm_refine_2a9d5c0d7ced78435ba0c3bb20d7f840",
-        "refinement_interpretation_ParSubst_Tm_refine_d4ba12e293918eb1d428c76033e258fe",
-        "refinement_interpretation_Prims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
+        "refinement_interpretation_ParSubst_Tm_refine_b3e962da4d916d6961da6d8c252a59cc",
+        "refinement_interpretation_ParSubst_Tm_refine_c07e2d12292b9e53ba71a5961bdfa299",
         "typing_ParSubst.subst_eabs",
-        "typing_ParSubst_Tm_abs_5de7c93e585c0cf6974fb8750043ad22"
+        "typing_ParSubst_Tm_abs_2ea737763fe32e4508981f98948da98a"
       ],
       0
     ],
