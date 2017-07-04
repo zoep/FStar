@@ -6,18 +6,18 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
-    [ "BinarySearchTree.uu___is_Leaf", 1, 2, 1, [ "@query" ], 0 ],
-    [ "BinarySearchTree.uu___is_Node", 1, 2, 1, [ "@query" ], 0 ],
+    [ "BinarySearchTree.uu___is_Leaf", 1, 2, 1, [ "__query" ], 0 ],
+    [ "BinarySearchTree.uu___is_Node", 1, 2, 1, [ "__query" ], 0 ],
     [
       "BinarySearchTree.__proj__Node__item___0",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_BinarySearchTree.Node",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_BinarySearchTree_Tm_refine_8ee25ada3e510d97b9ca9d5eea1548fd"
@@ -30,7 +30,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_BinarySearchTree.Node",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_BinarySearchTree_Tm_refine_8ee25ada3e510d97b9ca9d5eea1548fd"
@@ -43,7 +43,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_BinarySearchTree.Node",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_BinarySearchTree_Tm_refine_8ee25ada3e510d97b9ca9d5eea1548fd"
@@ -56,12 +56,12 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "binder_x_4fb05f28dfa2fb41ed53b888dfc12a53_1",
         "binder_x_6d0180d4fcd10237cf0d87dd345d77cc_0",
         "disc_equation_BinarySearchTree.Leaf",
         "disc_equation_BinarySearchTree.Node",
-        "equality_tok_Prims.LexTop@tok",
+        "equality_tok_Prims.LexTop__tok",
         "fuel_guarded_inversion_BinarySearchTree.tree", "int_inversion",
         "subterm_ordering_BinarySearchTree.Node"
       ],
@@ -72,7 +72,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -81,7 +81,7 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption", "__query",
         "Prims_interpretation_Tm_arrow_9cb3c953faf527c316d427b2ce8bd81b",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86",
@@ -92,7 +92,7 @@
         "data_elim_BinarySearchTree.Node",
         "disc_equation_BinarySearchTree.Leaf",
         "disc_equation_BinarySearchTree.Node",
-        "equality_tok_BinarySearchTree.Leaf@tok",
+        "equality_tok_BinarySearchTree.Leaf__tok",
         "equation_with_fuel_BinarySearchTree.in_tree.fuel_instrumented",
         "fuel_correspondence_BinarySearchTree.in_tree.fuel_instrumented",
         "fuel_guarded_inversion_BinarySearchTree.tree",
@@ -117,7 +117,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "binder_x_4fb05f28dfa2fb41ed53b888dfc12a53_0",
         "disc_equation_BinarySearchTree.Leaf",
         "disc_equation_BinarySearchTree.Node",
@@ -134,7 +134,7 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption", "__query",
         "Prims_interpretation_Tm_arrow_9cb3c953faf527c316d427b2ce8bd81b",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86",
@@ -144,8 +144,8 @@
         "constructor_distinct_BinarySearchTree.Node",
         "disc_equation_BinarySearchTree.Leaf",
         "disc_equation_BinarySearchTree.Node",
-        "equality_tok_BinarySearchTree.Leaf@tok",
-        "equality_tok_Prims.LexTop@tok",
+        "equality_tok_BinarySearchTree.Leaf__tok",
+        "equality_tok_Prims.LexTop__tok",
         "equation_with_fuel_BinarySearchTree.in_tree.fuel_instrumented",
         "equation_with_fuel_BinarySearchTree.is_bst.fuel_instrumented",
         "fuel_correspondence_BinarySearchTree.all.fuel_instrumented",
@@ -182,7 +182,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -190,7 +190,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -199,7 +199,7 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption", "__query",
         "Prims_interpretation_Tm_arrow_9cb3c953faf527c316d427b2ce8bd81b",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86",
@@ -209,8 +209,8 @@
         "constructor_distinct_BinarySearchTree.Node",
         "disc_equation_BinarySearchTree.Leaf",
         "disc_equation_BinarySearchTree.Node",
-        "equality_tok_BinarySearchTree.Leaf@tok",
-        "equality_tok_Prims.LexTop@tok",
+        "equality_tok_BinarySearchTree.Leaf__tok",
+        "equality_tok_Prims.LexTop__tok",
         "equation_with_fuel_BinarySearchTree.all.fuel_instrumented",
         "equation_with_fuel_BinarySearchTree.in_tree.fuel_instrumented",
         "equation_with_fuel_BinarySearchTree.is_bst.fuel_instrumented",
@@ -252,7 +252,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ]
   ]

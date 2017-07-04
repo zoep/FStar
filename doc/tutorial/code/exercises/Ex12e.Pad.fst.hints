@@ -7,19 +7,19 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq",
+        "__query", "assumption_FStar.UInt8.t__haseq",
         "equation_Ex12e.Pad.uint8", "equation_FStar.UInt8.t"
       ],
       0
     ],
-    [ "Ex12e.Pad.b2n", 2, 2, 1, [ "@query" ], 0 ],
+    [ "Ex12e.Pad.b2n", 2, 2, 1, [ "__query" ], 0 ],
     [
       "Ex12e.Pad.block",
       1,
       2,
       1,
       [
-        "@query", "equation_Ex12e.Pad.blocksize",
+        "__query", "equation_Ex12e.Pad.blocksize",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -30,12 +30,12 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "equation_Ex12e.Pad.blocksize", "equation_Ex12e.Pad.uint8",
         "equation_FStar.UInt32.n", "equation_FStar.UInt8.t",
         "equation_Prims.nat", "function_token_typing_FStar.UInt32.n",
-        "int_inversion", "kinding_FStar.UInt8.t_@tok",
+        "int_inversion", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Seq.Base.lemma_create_len",
         "primitive_Prims.op_Subtraction", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Ex12e.Pad_Tm_refine_c8f5cb00a7e19d3be0a01c4368a7ea4f",
@@ -49,13 +49,13 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "equation_Ex12e.Pad.blocksize", "equation_Ex12e.Pad.bytes",
         "equation_Ex12e.Pad.nbytes", "equation_Ex12e.Pad.text",
         "equation_FStar.UInt32.n", "equation_FStar.UInt8.byte",
         "equation_FStar.UInt8.t", "equation_Prims.nat",
-        "function_token_typing_FStar.UInt32.n", "kinding_FStar.UInt8.t_@tok",
+        "function_token_typing_FStar.UInt32.n", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Seq.Base.lemma_len_append",
         "primitive_Prims.op_Addition", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxInt_proj_0",
@@ -66,14 +66,14 @@
       ],
       0
     ],
-    [ "Ex12e.Pad.inj", 1, 2, 1, [ "@query", "unit_typing" ], 0 ],
+    [ "Ex12e.Pad.inj", 1, 2, 1, [ "__query", "unit_typing" ], 0 ],
     [
       "Ex12e.Pad.decode",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86",
         "assumption_FStar.UInt8.t__haseq", "bool_typing",
@@ -85,7 +85,7 @@
         "equation_FStar.UInt8.byte", "equation_FStar.UInt8.t",
         "equation_Prims.eqtype", "equation_Prims.nat",
         "function_token_typing_FStar.UInt32.n", "int_inversion",
-        "int_typing", "kinding_FStar.UInt8.t_@tok",
+        "int_typing", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Seq.Base.lemma_eq_elim",
         "lemma_FStar.Seq.Base.lemma_eq_intro",
         "lemma_FStar.Seq.Base.lemma_index_app1",
@@ -125,7 +125,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ]

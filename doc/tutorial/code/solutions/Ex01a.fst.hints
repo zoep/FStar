@@ -1,23 +1,23 @@
 [
   "›\u0005™\u0013<U^è–FÚ\r[Ù¤à",
   [
-    [ "Ex01a.canWrite", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Ex01a.canWrite", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Ex01a.canRead",
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_string" ],
+      [ "__query", "assumption_Prims.HasEq_string" ],
       0
     ],
-    [ "Ex01a.read", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Ex01a.read", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Ex01a.staticChecking",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "bool_inversion",
+        "__MaxIFuel_assumption", "__query", "bool_inversion",
         "constructor_distinct_Prims.V", "disc_equation_Prims.V",
         "equation_Ex01a.canRead", "equation_Ex01a.canWrite",
         "equation_Ex01a.readme", "equation_Ex01a.tmp",
@@ -28,22 +28,22 @@
       ],
       0
     ],
-    [ "Ex01a.uu___is_InvalidRead", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Ex01a.uu___is_InvalidRead", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Ex01a.checkedRead",
       1,
       2,
       1,
-      [ "@query", "projection_inverse_BoxBool_proj_0" ],
+      [ "__query", "projection_inverse_BoxBool_proj_0" ],
       0
     ],
-    [ "Ex01a.uu___is_InvalidWrite", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Ex01a.uu___is_InvalidWrite", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Ex01a.checkedWrite",
       1,
       2,
       1,
-      [ "@query", "projection_inverse_BoxBool_proj_0" ],
+      [ "__query", "projection_inverse_BoxBool_proj_0" ],
       0
     ]
   ]

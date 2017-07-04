@@ -1,17 +1,17 @@
 [
   "dÉ­ì¢%—t\u0000‰UÒO“ÒI",
   [
-    [ "Ex12g.TMAC2.__proj__Keys__item__k0", 1, 2, 1, [ "@query" ], 0 ],
-    [ "Ex12g.TMAC2.__proj__Keys__item__k1", 1, 2, 1, [ "@query" ], 0 ],
-    [ "Ex12g.TMAC2.bspec0", 1, 2, 1, [ "@query" ], 0 ],
-    [ "Ex12g.TMAC2.bspec1", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Ex12g.TMAC2.__proj__Keys__item__k0", 1, 2, 1, [ "__query" ], 0 ],
+    [ "Ex12g.TMAC2.__proj__Keys__item__k1", 1, 2, 1, [ "__query" ], 0 ],
+    [ "Ex12g.TMAC2.bspec0", 1, 2, 1, [ "__query" ], 0 ],
+    [ "Ex12g.TMAC2.bspec1", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Ex12g.TMAC2.keygen",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Ex12.BMAC.key",
+        "__MaxIFuel_assumption", "__query", "equation_Ex12.BMAC.key",
         "equation_Ex12.BMAC.keysize", "equation_Ex12.BMAC.pkey",
         "equation_Ex12.Pad.block", "equation_Ex12.Pad.blocksize",
         "equation_Ex12.Pad.nbytes",
@@ -32,7 +32,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "equation_Ex12.BMAC.keysize", "equation_Ex12.Pad.blocksize",
         "equation_Ex12.Pad.bytes", "equation_Ex12.Pad.text",
@@ -42,7 +42,7 @@
         "equation_FStar.UInt8.byte", "equation_FStar.UInt8.t",
         "equation_Prims.nat", "function_token_typing_Ex12g.TMAC2.keysize",
         "function_token_typing_FStar.UInt32.n", "int_inversion",
-        "kinding_FStar.UInt8.t_@tok", "lemma_Ex12.Pad.inj",
+        "kinding_FStar.UInt8.t___tok", "lemma_Ex12.Pad.inj",
         "lemma_FStar.Seq.Base.lemma_eq_elim", "primitive_Prims.op_LessThan",
         "primitive_Prims.op_Multiply", "proj_equation_Ex12g.TMAC2.Keys_k0",
         "proj_equation_Ex12g.TMAC2.Keys_k1",
@@ -68,7 +68,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86", "bool_typing",
         "equation_Ex12.BMAC.keysize", "equation_Ex12.Pad.block",
@@ -80,7 +80,7 @@
         "equation_FStar.UInt8.byte", "equation_FStar.UInt8.t",
         "equation_Prims.nat", "function_token_typing_Ex12g.TMAC2.keysize",
         "function_token_typing_FStar.UInt32.n", "int_inversion",
-        "kinding_FStar.UInt8.t_@tok", "lemma_FStar.Seq.Base.lemma_eq_refl",
+        "kinding_FStar.UInt8.t___tok", "lemma_FStar.Seq.Base.lemma_eq_refl",
         "primitive_Prims.op_LessThan", "primitive_Prims.op_Multiply",
         "proj_equation_Ex12g.TMAC2.Keys_k0",
         "proj_equation_Ex12g.TMAC2.Keys_k1",

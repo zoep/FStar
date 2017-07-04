@@ -6,7 +6,7 @@
       1,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -14,7 +14,7 @@
       1,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -22,7 +22,7 @@
       2,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -30,7 +30,7 @@
       3,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -38,7 +38,7 @@
       4,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -46,18 +46,18 @@
       5,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
-    [ "Crypto.Symmetric.MAC.text_to_PS_text", 6, 0, 1, [ "@query" ], 0 ],
+    [ "Crypto.Symmetric.MAC.text_to_PS_text", 6, 0, 1, [ "__query" ], 0 ],
     [
       "Crypto.Symmetric.MAC.text_to_PS_text",
       7,
       0,
       0,
       [
-        "@query", "b2t_def", "binder_x_5dca6f40a2753b7743c09d91ef7c0e4f_0",
-        "bool_inversion", "equality_tok_Prims.LexTop@tok",
+        "__query", "b2t_def", "binder_x_5dca6f40a2753b7743c09d91ef7c0e4f_0",
+        "bool_inversion", "equality_tok_Prims.LexTop__tok",
         "equation_Crypto.Symmetric.GF128.Spec.elem",
         "equation_Crypto.Symmetric.MAC.text",
         "equation_Crypto.Symmetric.Poly1305.Spec.text",
@@ -103,7 +103,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -111,7 +111,7 @@
       9,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -119,7 +119,7 @@
       10,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -127,7 +127,7 @@
       11,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -136,7 +136,7 @@
       0,
       1,
       [
-        "@query", "disc_equation_Crypto.Indexing.GHASH",
+        "__query", "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305",
         "equation_Crypto.Symmetric.GF128.Spec.elem",
         "equation_Crypto.Symmetric.Poly1305.Spec.elem",
@@ -150,14 +150,14 @@
       0,
       0,
       [
-        "@query", "b2t_def", "constructor_distinct_Crypto.Indexing.GHASH",
+        "__query", "b2t_def", "constructor_distinct_Crypto.Indexing.GHASH",
         "constructor_distinct_Crypto.Indexing.POLY1305",
         "constructor_distinct_Crypto.Indexing.macAlg",
         "constructor_distinct_Prims.unit",
         "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Indexing.macAlg_of_id",
         "equation_Crypto.Symmetric.Bytes.bytes",
         "equation_Crypto.Symmetric.Bytes.lbytes",
@@ -179,7 +179,7 @@
         "function_token_typing_Crypto.Symmetric.Poly1305.Spec.zero",
         "function_token_typing_FStar.Int16.n",
         "function_token_typing_FStar.UInt8.n", "int_typing",
-        "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Seq.Base.lemma_create_len",
         "pretyping_431626f2e63c66a815c3b027e8dc5014",
         "pretyping_f8666440faa91836cc5a13998af863fc",
@@ -203,7 +203,7 @@
       0,
       1,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.GHASH",
+        "__query", "constructor_distinct_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305", "equation_FStar.UInt64.t",
         "equation_FStar.UInt8.t",
@@ -217,7 +217,7 @@
       0,
       1,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.GHASH",
+        "__query", "constructor_distinct_Crypto.Indexing.GHASH",
         "constructor_distinct_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305",
@@ -231,9 +231,9 @@
       0,
       1,
       [
-        "@query", "disc_equation_Crypto.Indexing.GHASH",
+        "__query", "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Symmetric.MAC.alg",
         "equation_Crypto.Symmetric.MAC.id", "equation_FStar.UInt128.t",
         "fuel_guarded_inversion_Crypto.Indexing.macAlg",
@@ -248,12 +248,12 @@
       0,
       0,
       [
-        "@query", "bool_inversion",
+        "__query", "bool_inversion",
         "constructor_distinct_Crypto.Symmetric.MAC.B_POLY1305",
         "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
         "disc_equation_Crypto.Symmetric.MAC.B_POLY1305",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Symmetric.MAC.elemB",
         "equation_Crypto.Symmetric.MAC.id",
         "equation_Crypto.Symmetric.MAC.pub_elemB",
@@ -271,7 +271,7 @@
       0,
       0,
       [
-        "@query", "bool_inversion",
+        "__query", "bool_inversion",
         "equation_Crypto.Symmetric.MAC.pub_elemB",
         "equation_Crypto.Symmetric.Poly1305.Bigint.u64",
         "equation_Crypto.Symmetric.Poly1305.Parameters.norm_length",
@@ -289,7 +289,7 @@
       0,
       1,
       [
-        "@query", "data_elim_FStar.UInt32.Mk",
+        "__query", "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Poly1305.Spec.taglen",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
         "equation_FStar.UInt32.t", "equation_FStar.UInt32.uint_to_t",
@@ -304,7 +304,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.MAC.wlen",
+        "__query", "equation_Crypto.Symmetric.MAC.wlen",
         "equation_FStar.Int16.n", "equation_FStar.UInt32.uint_to_t",
         "equation_FStar.UInt32.v", "function_token_typing_FStar.Int16.n",
         "lemma_FStar.Buffer.lemma_size", "proj_equation_FStar.UInt32.Mk_v",
@@ -318,7 +318,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.MAC.wlen",
+        "__query", "equation_Crypto.Symmetric.MAC.wlen",
         "equation_FStar.Int16.n", "equation_FStar.UInt32.uint_to_t",
         "equation_FStar.UInt32.v", "function_token_typing_FStar.Int16.n",
         "lemma_FStar.Buffer.lemma_size", "proj_equation_FStar.UInt32.Mk_v",
@@ -332,7 +332,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.Symmetric.Bytes.u8",
+        "__query", "equation_Crypto.Symmetric.Bytes.u8",
         "equation_Crypto.Symmetric.MAC.wlen",
         "equation_Crypto.Symmetric.MAC.wordB", "equation_FStar.UInt8.t",
         "refinement_interpretation_Tm_refine_3332a96d172000213be64a3aa4e64bc8",
@@ -347,7 +347,7 @@
       0,
       0,
       [
-        "@query", "bool_inversion",
+        "__query", "bool_inversion",
         "constructor_distinct_Crypto.Symmetric.MAC.B_POLY1305",
         "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
         "disc_equation_Crypto.Symmetric.MAC.B_POLY1305",
@@ -394,7 +394,7 @@
       0,
       0,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqTm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -405,7 +405,7 @@
       0,
       0,
       [
-        "@query", "constructor_distinct_Tm_unit",
+        "__query", "constructor_distinct_Tm_unit",
         "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
         "disc_equation_Crypto.Symmetric.MAC.B_POLY1305",
         "equation_Crypto.Symmetric.Bytes.mem",
@@ -438,11 +438,11 @@
       0,
       0,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.POLY1305",
+        "__query", "constructor_distinct_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
         "disc_equation_Crypto.Symmetric.MAC.B_POLY1305",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Symmetric.Bytes.mem",
         "equation_Crypto.Symmetric.MAC._buffer_of",
         "equation_Crypto.Symmetric.MAC.alg",
@@ -478,7 +478,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqTm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -489,7 +489,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.MAC.live",
+        "__query", "equation_Crypto.Symmetric.MAC.live",
         "refinement_interpretation_Tm_refine_448d3fce7ede73f457732bcc325e82fd"
       ],
       0
@@ -500,13 +500,13 @@
       0,
       0,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.POLY1305",
+        "__query", "constructor_distinct_Crypto.Indexing.POLY1305",
         "constructor_distinct_FStar.Seq.Base.seq",
         "constructor_distinct_Prims.unit", "constructor_distinct_Tm_unit",
         "disc_equation_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
         "disc_equation_Crypto.Symmetric.MAC.B_POLY1305",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Symmetric.Bytes.bytes",
         "equation_Crypto.Symmetric.Bytes.lbytes",
         "equation_Crypto.Symmetric.Bytes.mem",
@@ -562,7 +562,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqTm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -573,7 +573,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.MAC.live",
+        "__query", "equation_Crypto.Symmetric.MAC.live",
         "refinement_interpretation_Tm_refine_e1c07ab38f660870037a4a17813e9477"
       ],
       0
@@ -584,11 +584,11 @@
       0,
       0,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.POLY1305",
+        "__query", "constructor_distinct_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
         "disc_equation_Crypto.Symmetric.MAC.B_POLY1305",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Symmetric.Bytes.mem",
         "equation_Crypto.Symmetric.MAC._buffer_of",
         "equation_Crypto.Symmetric.MAC.alg",
@@ -624,7 +624,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -633,14 +633,14 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.Symmetric.MAC.elemB",
+        "__query", "equation_Crypto.Symmetric.MAC.elemB",
         "equation_Crypto.Symmetric.MAC.id",
         "equation_Crypto.Symmetric.MAC.pub_elemB",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt128.t",
         "equation_FStar.UInt32.n", "equation_FStar.UInt64.t",
         "equation_FStar.UInt8.t", "equation_Prims.nat",
-        "fuel_guarded_inversion_Prims.tuple2", "kinding_FStar.UInt64.t_@tok",
-        "kinding_FStar.UInt8.t_@tok", "projection_inverse_BoxInt_proj_0",
+        "fuel_guarded_inversion_Prims.tuple2", "kinding_FStar.UInt64.t___tok",
+        "kinding_FStar.UInt8.t___tok", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_03d0bed5c0733099844f268aecd0836d",
         "refinement_interpretation_Tm_refine_64067fc20f5b9b3ed4e04d1f3aad5c52",
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
@@ -654,7 +654,7 @@
       0,
       0,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def",
         "bool_inversion", "bool_typing",
         "constructor_distinct_Crypto.Indexing.GHASH",
         "constructor_distinct_Crypto.Indexing.POLY1305",
@@ -666,8 +666,8 @@
         "disc_equation_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
         "disc_equation_Crypto.Symmetric.MAC.B_POLY1305",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Indexing.macAlg_of_id",
         "equation_Crypto.Symmetric.GF128.len",
         "equation_Crypto.Symmetric.MAC.alg",
@@ -704,7 +704,7 @@
         "function_token_typing_FStar.HyperHeap.rid",
         "function_token_typing_FStar.Int64.n",
         "function_token_typing_FStar.UInt8.n", "int_typing",
-        "kinding_FStar.UInt64.t_@tok", "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt64.t___tok", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Map.lemma_ContainsDom",
         "lemma_FStar.Map.lemma_InDomRestrict",
         "lemma_FStar.Map.lemma_SelConcat1",
@@ -759,10 +759,10 @@
       0,
       0,
       [
-        "@query", "assumption_FStar.Seq.Base.seq_haseq",
+        "__query", "assumption_FStar.Seq.Base.seq_haseq",
         "assumption_FStar.UInt8.t__haseq", "assumption_Prims.HasEq_int",
         "constructor_distinct_Crypto.Indexing.GHASH",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
         "equation_Crypto.Indexing.macAlg_of_id",
         "equation_Crypto.Symmetric.Bytes.bytes",
         "equation_Crypto.Symmetric.Bytes.lbytes",
@@ -781,7 +781,7 @@
         "haseqTm_refine_ba523126f67e00e7cd55f0b92f16681d",
         "haseqTm_refine_bc1e295f2a145a708c162f71b3994441",
         "haseqTm_refine_c44d6b2b02c0b515cd6e2f4d9892c368",
-        "kinding_FStar.UInt8.t_@tok", "proj_equation_FStar.UInt32.Mk_v",
+        "kinding_FStar.UInt8.t___tok", "proj_equation_FStar.UInt32.Mk_v",
         "projection_inverse_FStar.UInt32.Mk_v",
         "refinement_interpretation_Tm_refine_64067fc20f5b9b3ed4e04d1f3aad5c52"
       ],
@@ -792,7 +792,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -801,7 +801,7 @@
       0,
       0,
       [
-        "@query", "constructor_distinct_Tm_unit",
+        "__query", "constructor_distinct_Tm_unit",
         "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
         "disc_equation_Crypto.Symmetric.MAC.B_POLY1305",
         "equation_Crypto.Symmetric.MAC._buffer_of",
@@ -832,7 +832,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "constructor_distinct_Crypto.Indexing.GHASH",
+        "__query", "b2t_def", "constructor_distinct_Crypto.Indexing.GHASH",
         "constructor_distinct_Crypto.Indexing.POLY1305",
         "constructor_distinct_Crypto.Indexing.macAlg",
         "constructor_distinct_Crypto.Symmetric.MAC.B_GHASH",
@@ -842,8 +842,8 @@
         "disc_equation_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
         "disc_equation_Crypto.Symmetric.MAC.B_POLY1305",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Indexing.macAlg_of_id",
         "equation_Crypto.Symmetric.GF128.Spec.zero",
         "equation_Crypto.Symmetric.GF128.len",
@@ -886,7 +886,7 @@
         "function_token_typing_FStar.Int64.n",
         "function_token_typing_FStar.UInt128.n",
         "function_token_typing_FStar.UInt8.n", "int_inversion", "int_typing",
-        "kinding_FStar.UInt64.t_@tok",
+        "kinding_FStar.UInt64.t___tok",
         "lemma_Crypto.Symmetric.Poly1305.Bignum.lemma_pow2_26",
         "lemma_FStar.Buffer.Quantifiers.lemma_create_quantifiers",
         "lemma_FStar.Seq.Base.lemma_index_create",
@@ -921,7 +921,7 @@
       0,
       0,
       [
-        "@query", "disc_equation_Crypto.Indexing.GHASH",
+        "__query", "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305",
         "equation_Crypto.Symmetric.MAC.elemB",
         "equation_Crypto.Symmetric.MAC.id",
@@ -938,12 +938,12 @@
       0,
       0,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "constructor_distinct_Crypto.Indexing.GHASH",
         "constructor_distinct_Crypto.Symmetric.MAC.B_POLY1305",
         "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
         "disc_equation_Crypto.Symmetric.MAC.B_POLY1305",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
         "equation_Crypto.Indexing.macAlg_of_id",
         "equation_Crypto.Symmetric.Bytes.buffer",
         "equation_Crypto.Symmetric.Bytes.lbuffer",
@@ -975,7 +975,7 @@
         "function_token_typing_Crypto.Symmetric.GF128.len",
         "function_token_typing_FStar.List.Tot.Base.test_sort",
         "function_token_typing_FStar.UInt32.n", "int_typing",
-        "kinding_FStar.UInt64.t_@tok", "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt64.t___tok", "kinding_FStar.UInt8.t___tok",
         "lemma_Crypto.Symmetric.Poly1305.Lemmas.pow2_32_lemma",
         "lemma_FStar.Buffer.lemma_disjoint_symm",
         "lemma_FStar.Buffer.lemma_modifies_1_1",
@@ -1011,12 +1011,12 @@
       0,
       1,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.GHASH",
+        "__query", "constructor_distinct_Crypto.Indexing.GHASH",
         "constructor_distinct_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Symmetric.Bytes.bytes",
         "equation_Crypto.Symmetric.Bytes.lbytes",
         "equation_Crypto.Symmetric.GF128.Spec.elem",
@@ -1041,7 +1041,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.Symmetric.Bytes.buffer",
+        "__query", "equation_Crypto.Symmetric.Bytes.buffer",
         "equation_Crypto.Symmetric.Bytes.lbuffer",
         "equation_Crypto.Symmetric.Bytes.u8",
         "equation_Crypto.Symmetric.MAC.sel_word",
@@ -1049,7 +1049,7 @@
         "equation_Crypto.Symmetric.MAC.wordB_16", "equation_FStar.UInt32.v",
         "equation_FStar.UInt8.t",
         "fuel_guarded_inversion_FStar.HyperStack.mem",
-        "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt8.t___tok",
         "refinement_interpretation_Tm_refine_1b5d9020cc8f44163e9c491b867a8c24",
         "refinement_interpretation_Tm_refine_7e3beb6acccffb41919f80afab550fdd",
         "refinement_interpretation_Tm_refine_c32bdda13bfb14d0d2f58700b5fc6c38",
@@ -1063,7 +1063,7 @@
       0,
       0,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def",
         "bool_inversion", "bool_typing",
         "constructor_distinct_Crypto.Indexing.GHASH",
         "constructor_distinct_Crypto.Indexing.POLY1305",
@@ -1075,8 +1075,8 @@
         "disc_equation_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
         "disc_equation_Crypto.Symmetric.MAC.B_POLY1305",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Indexing.macAlg_of_id",
         "equation_Crypto.Symmetric.Bytes.buffer",
         "equation_Crypto.Symmetric.Bytes.lbuffer",
@@ -1139,8 +1139,8 @@
         "function_token_typing_FStar.Int64.n",
         "function_token_typing_FStar.UInt32.n",
         "function_token_typing_FStar.UInt8.n", "int_inversion", "int_typing",
-        "kinding_FStar.Heap.aref@tok", "kinding_FStar.UInt64.t_@tok",
-        "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.Heap.aref__tok", "kinding_FStar.UInt64.t___tok",
+        "kinding_FStar.UInt8.t___tok",
         "lemma_Crypto.Symmetric.Poly1305.Lemmas.pow2_32_lemma",
         "lemma_Crypto.Symmetric.Poly1305.Lemmas.pow2_8_lemma",
         "lemma_FStar.Buffer.lemma_disjoint_symm",
@@ -1211,11 +1211,11 @@
       0,
       1,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.POLY1305",
+        "__query", "constructor_distinct_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Symmetric.MAC.alg",
         "equation_Crypto.Symmetric.MAC.elem",
         "equation_Crypto.Symmetric.MAC.id", "equation_FStar.UInt128.t",
@@ -1231,7 +1231,7 @@
       0,
       0,
       [
-        "@query", "assumption_FStar.Seq.Base.seq_haseq",
+        "__query", "assumption_FStar.Seq.Base.seq_haseq",
         "assumption_FStar.UInt8.t__haseq", "assumption_Prims.HasEq_int",
         "equation_Crypto.Symmetric.Bytes.bytes",
         "equation_Crypto.Symmetric.Bytes.lbytes",
@@ -1250,7 +1250,7 @@
         "haseqTm_refine_ba523126f67e00e7cd55f0b92f16681d",
         "haseqTm_refine_bc1e295f2a145a708c162f71b3994441",
         "haseqTm_refine_c44d6b2b02c0b515cd6e2f4d9892c368",
-        "kinding_FStar.UInt8.t_@tok", "proj_equation_FStar.UInt32.Mk_v",
+        "kinding_FStar.UInt8.t___tok", "proj_equation_FStar.UInt32.Mk_v",
         "projection_inverse_FStar.UInt32.Mk_v",
         "refinement_interpretation_Tm_refine_64067fc20f5b9b3ed4e04d1f3aad5c52"
       ],
@@ -1261,7 +1261,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1270,7 +1270,7 @@
       0,
       0,
       [
-        "@query", "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
+        "__query", "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
         "disc_equation_Crypto.Symmetric.MAC.B_POLY1305",
         "equation_Crypto.Symmetric.MAC.as_buffer",
         "equation_Crypto.Symmetric.MAC.elemB",
@@ -1289,18 +1289,18 @@
       ],
       0
     ],
-    [ "Crypto.Symmetric.MAC.start", 4, 0, 1, [ "@query" ], 0 ],
+    [ "Crypto.Symmetric.MAC.start", 4, 0, 1, [ "__query" ], 0 ],
     [
       "Crypto.Symmetric.MAC.field_add",
       1,
       0,
       1,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.POLY1305",
+        "__query", "constructor_distinct_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Symmetric.MAC.alg",
         "equation_Crypto.Symmetric.MAC.elem",
         "equation_Crypto.Symmetric.MAC.id", "equation_FStar.UInt128.t",
@@ -1316,11 +1316,11 @@
       0,
       1,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.POLY1305",
+        "__query", "constructor_distinct_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Symmetric.MAC.alg",
         "equation_Crypto.Symmetric.MAC.elem",
         "equation_Crypto.Symmetric.MAC.id", "equation_FStar.UInt128.t",
@@ -1335,7 +1335,7 @@
       1,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -1344,14 +1344,14 @@
       0,
       0,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.GHASH",
+        "__query", "constructor_distinct_Crypto.Indexing.GHASH",
         "constructor_distinct_Crypto.Indexing.POLY1305",
         "constructor_distinct_Crypto.Indexing.macAlg",
         "constructor_distinct_Prims.unit",
         "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Indexing.macAlg_of_id",
         "equation_Crypto.Symmetric.MAC.alg",
         "equation_Crypto.Symmetric.MAC.elem",
@@ -1375,7 +1375,7 @@
       1,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -1384,7 +1384,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.MAC.wlen",
+        "__query", "equation_Crypto.Symmetric.MAC.wlen",
         "equation_FStar.UInt32.uint_to_t", "equation_FStar.UInt32.v",
         "proj_equation_FStar.UInt32.Mk_v",
         "projection_inverse_FStar.UInt32.Mk_v"
@@ -1397,15 +1397,15 @@
       0,
       0,
       [
-        "@query", "assumption_FStar.Seq.Base.Extensionality",
+        "__query", "assumption_FStar.Seq.Base.Extensionality",
         "constructor_distinct_Crypto.Indexing.GHASH",
         "constructor_distinct_Crypto.Indexing.POLY1305",
         "constructor_distinct_Crypto.Indexing.macAlg",
         "constructor_distinct_Prims.unit",
         "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Indexing.macAlg_of_id",
         "equation_Crypto.Symmetric.Bytes.bytes",
         "equation_Crypto.Symmetric.Bytes.lbytes",
@@ -1478,7 +1478,7 @@
       4,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -1487,7 +1487,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.Symmetric.Bytes.buffer",
+        "__query", "equation_Crypto.Symmetric.Bytes.buffer",
         "equation_Crypto.Symmetric.Bytes.lbuffer",
         "equation_Crypto.Symmetric.Bytes.u8",
         "equation_Crypto.Symmetric.MAC.sel_word",
@@ -1495,7 +1495,7 @@
         "equation_Crypto.Symmetric.MAC.wordB_16", "equation_FStar.UInt32.v",
         "equation_FStar.UInt8.t",
         "fuel_guarded_inversion_FStar.HyperStack.mem",
-        "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt8.t___tok",
         "refinement_interpretation_Tm_refine_1b5d9020cc8f44163e9c491b867a8c24",
         "refinement_interpretation_Tm_refine_7e3beb6acccffb41919f80afab550fdd",
         "refinement_interpretation_Tm_refine_c32bdda13bfb14d0d2f58700b5fc6c38",
@@ -1509,7 +1509,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "bool_inversion",
+        "__query", "b2t_def", "bool_inversion",
         "constructor_distinct_Crypto.Symmetric.MAC.B_POLY1305",
         "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
         "disc_equation_Crypto.Symmetric.MAC.B_POLY1305",
@@ -1579,7 +1579,7 @@
         "function_token_typing_FStar.HyperHeap.root",
         "function_token_typing_FStar.Int64.n",
         "function_token_typing_FStar.List.Tot.Base.test_sort",
-        "kinding_FStar.UInt64.t_@tok", "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt64.t___tok", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_disjoint_symm",
         "lemma_FStar.Buffer.lemma_equal_domains_2",
         "lemma_FStar.Buffer.lemma_fresh_poppable",
@@ -1637,7 +1637,7 @@
       0,
       1,
       [
-        "@query", "data_elim_FStar.UInt32.Mk",
+        "__query", "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Poly1305.Spec.taglen",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
         "equation_FStar.UInt32.t", "equation_FStar.UInt32.uint_to_t",
@@ -1654,7 +1654,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.MAC.taglen",
+        "__query", "equation_Crypto.Symmetric.MAC.taglen",
         "equation_Crypto.Symmetric.MAC.wlen", "equation_FStar.Int16.n",
         "equation_FStar.UInt32.uint_to_t", "equation_FStar.UInt32.v",
         "function_token_typing_FStar.Int16.n",
@@ -1669,7 +1669,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.MAC.taglen",
+        "__query", "equation_Crypto.Symmetric.MAC.taglen",
         "equation_Crypto.Symmetric.MAC.wlen", "equation_FStar.Int16.n",
         "equation_FStar.UInt32.uint_to_t", "equation_FStar.UInt32.v",
         "function_token_typing_FStar.Int16.n",
@@ -1684,11 +1684,11 @@
       0,
       1,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.POLY1305",
+        "__query", "constructor_distinct_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305",
-        "equality_tok_Crypto.Indexing.GHASH@tok",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.GHASH__tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Symmetric.Bytes.bytes",
         "equation_Crypto.Symmetric.Bytes.lbytes",
         "equation_Crypto.Symmetric.MAC.alg",
@@ -1717,10 +1717,10 @@
       0,
       0,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.POLY1305",
+        "__query", "constructor_distinct_Crypto.Indexing.POLY1305",
         "disc_equation_Crypto.Indexing.GHASH",
         "disc_equation_Crypto.Indexing.POLY1305",
-        "equality_tok_Crypto.Indexing.POLY1305@tok",
+        "equality_tok_Crypto.Indexing.POLY1305__tok",
         "equation_Crypto.Symmetric.Bytes.buffer",
         "equation_Crypto.Symmetric.Bytes.lbuffer",
         "equation_Crypto.Symmetric.MAC.alg",
@@ -1747,7 +1747,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "constructor_distinct_Crypto.Symmetric.MAC.B_POLY1305",
         "constructor_distinct_Tm_unit",
         "disc_equation_Crypto.Symmetric.MAC.B_GHASH",
@@ -1794,8 +1794,8 @@
         "function_token_typing_Crypto.Symmetric.GF128.len",
         "function_token_typing_Crypto.Symmetric.Poly1305.Spec.zero",
         "function_token_typing_FStar.List.Tot.Base.test_sort",
-        "int_inversion", "kinding_FStar.UInt64.t_@tok",
-        "kinding_FStar.UInt8.t_@tok",
+        "int_inversion", "kinding_FStar.UInt64.t___tok",
+        "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_disjoint_symm",
         "lemma_FStar.Buffer.lemma_modifies_1_1",
         "lemma_FStar.Buffer.lemma_modifies_2_comm",

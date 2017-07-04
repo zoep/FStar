@@ -7,19 +7,19 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq",
+        "__query", "assumption_FStar.UInt8.t__haseq",
         "equation_Ex12d.Pad.uint8", "equation_FStar.UInt8.t"
       ],
       0
     ],
-    [ "Ex12d.Pad.b2n", 2, 2, 1, [ "@query" ], 0 ],
+    [ "Ex12d.Pad.b2n", 2, 2, 1, [ "__query" ], 0 ],
     [
       "Ex12d.Pad.block",
       1,
       2,
       1,
       [
-        "@query", "equation_Ex12d.Pad.blocksize",
+        "__query", "equation_Ex12d.Pad.blocksize",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -30,7 +30,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "int_inversion",
+        "__MaxIFuel_assumption", "__query", "int_inversion",
         "primitive_Prims.op_Subtraction", "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -41,7 +41,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565", "b2t_def",
         "data_elim_FStar.UInt8.Mk", "equation_Ex12d.Pad.block",
         "equation_Ex12d.Pad.blocksize", "equation_Ex12d.Pad.bytes",
@@ -68,7 +68,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ]

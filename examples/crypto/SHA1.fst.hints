@@ -7,20 +7,20 @@
       2,
       1,
       [
-        "@query", "equation_SHA1.keysize", "projection_inverse_BoxInt_proj_0"
+        "__query", "equation_SHA1.keysize", "projection_inverse_BoxInt_proj_0"
       ],
       0
     ],
-    [ "SHA1.sample", 1, 2, 1, [ "@query" ], 0 ],
-    [ "SHA1.sha1", 1, 2, 1, [ "@query", "assumption_Prims.HasEq_int" ], 0 ],
+    [ "SHA1.sample", 1, 2, 1, [ "__query" ], 0 ],
+    [ "SHA1.sha1", 1, 2, 1, [ "__query", "assumption_Prims.HasEq_int" ], 0 ],
     [
       "SHA1.sha1",
       2,
       2,
       1,
       [
-        "@query", "constructor_distinct_CoreCrypto.SHA1",
-        "equality_tok_CoreCrypto.SHA1@tok", "equation_CoreCrypto.hashSize"
+        "__query", "constructor_distinct_CoreCrypto.SHA1",
+        "equality_tok_CoreCrypto.SHA1__tok", "equation_CoreCrypto.hashSize"
       ],
       0
     ],
@@ -30,7 +30,7 @@
       2,
       1,
       [
-        "@query", "equation_SHA1.blocksize", "equation_SHA1.keysize",
+        "__query", "equation_SHA1.blocksize", "equation_SHA1.keysize",
         "projection_inverse_BoxInt_proj_0"
       ],
       0

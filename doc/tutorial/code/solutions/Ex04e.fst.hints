@@ -1,16 +1,16 @@
 [
-  "*\u001cb\u0019*9@´,™æ\u0016|!\u000bª",
+  "*\u001cb\u0019*9__´,™æ\u0016|!\u000bª",
   [
-    [ "Ex04e.option", 1, 2, 1, [ "@query" ], 0 ],
-    [ "Ex04e.uu___is_None", 1, 2, 1, [ "@query" ], 0 ],
-    [ "Ex04e.uu___is_Some", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Ex04e.option", 1, 2, 1, [ "__query" ], 0 ],
+    [ "Ex04e.uu___is_None", 1, 2, 1, [ "__query" ], 0 ],
+    [ "Ex04e.uu___is_Some", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Ex04e.__proj__Some__item__v",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "disc_equation_Ex04e.Some",
+        "__MaxIFuel_assumption", "__query", "disc_equation_Ex04e.Some",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Ex04e_Tm_refine_5940fa0a1398f97ef02a98908357b71e"
       ],
@@ -22,7 +22,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "binder_x_0a56e3de562c08d8ab59f4ac6f626a98_3",
         "disc_equation_Prims.Cons", "disc_equation_Prims.Nil",
         "fuel_guarded_inversion_Prims.list",
@@ -37,7 +37,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "binder_x_0a56e3de562c08d8ab59f4ac6f626a98_3",
         "disc_equation_Prims.Cons", "disc_equation_Prims.Nil",
         "fuel_guarded_inversion_Prims.list",
@@ -51,8 +51,8 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption",
-        "@fuel_correspondence_Ex04e.find_.fuel_instrumented", "@query",
+        "__MaxIFuel_assumption",
+        "__fuel_correspondence_Ex04e.find_.fuel_instrumented", "__query",
         "disc_equation_Ex04e.None", "disc_equation_Ex04e.Some",
         "fuel_guarded_inversion_Ex04e.option",
         "projection_inverse_BoxBool_proj_0", "typing_Ex04e.find_"
@@ -65,7 +65,7 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption", "__query",
         "binder_x_0a56e3de562c08d8ab59f4ac6f626a98_3",
         "constructor_distinct_Ex04e.None", "constructor_distinct_Prims.Nil",
         "disc_equation_Ex04e.None", "disc_equation_Prims.Cons",
@@ -88,8 +88,8 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption",
-        "@fuel_correspondence_Ex04e.find.fuel_instrumented", "@query",
+        "__MaxIFuel_assumption",
+        "__fuel_correspondence_Ex04e.find.fuel_instrumented", "__query",
         "disc_equation_Ex04e.None", "disc_equation_Ex04e.Some",
         "fuel_guarded_inversion_Ex04e.option", "typing_Ex04e.find"
       ],
@@ -101,8 +101,8 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_Ex04e.find.fuel_instrumented", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_Ex04e.find.fuel_instrumented", "__query",
         "Ex04e_interpretation_Tm_arrow_c55d73caaab25917152a038f3941a712",
         "Prims_interpretation_Tm_arrow_9cb3c953faf527c316d427b2ce8bd81b",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86",

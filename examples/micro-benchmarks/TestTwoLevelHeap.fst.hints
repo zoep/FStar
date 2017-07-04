@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int",
+        "__query", "assumption_Prims.HasEq_int",
         "equation_FStar.TwoLevelHeap.rid"
       ],
       0
@@ -17,7 +17,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -26,7 +26,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int",
+        "__query", "assumption_Prims.HasEq_int",
         "equation_FStar.TwoLevelHeap.rid"
       ],
       0
@@ -37,7 +37,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "assumption_Prims.HasEq_int",
+        "__MaxIFuel_assumption", "__query", "assumption_Prims.HasEq_int",
         "bool_inversion", "bool_typing", "equation_FStar.Set.eqtype",
         "equation_FStar.TwoLevelHeap.as_ref",
         "equation_FStar.TwoLevelHeap.modifies",

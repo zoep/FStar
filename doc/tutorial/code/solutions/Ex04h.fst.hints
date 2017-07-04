@@ -1,5 +1,5 @@
 [
-  "L§∫¢∆@@\u0000qgP\u0010ÚDÁß",
+  "L§∫¢∆____\u0000qgP\u0010ÚDÁß",
   [
     [
       "Ex04h.length",
@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "binder_x_0a56e3de562c08d8ab59f4ac6f626a98_2",
         "disc_equation_Prims.Cons", "disc_equation_Prims.Nil",
         "equation_Prims.nat", "fuel_guarded_inversion_Prims.list",
@@ -23,7 +23,7 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "binder_x_0a56e3de562c08d8ab59f4ac6f626a98_2",
         "binder_x_2204d3c8fa2da81b2aec3d0853792e9d_3",
@@ -41,6 +41,6 @@
       ],
       0
     ],
-    [ "Ex04h.nth", 2, 2, 1, [ "@query", "assumption_Prims.HasEq_int" ], 0 ]
+    [ "Ex04h.nth", 2, 2, 1, [ "__query", "assumption_Prims.HasEq_int" ], 0 ]
   ]
 ]

@@ -6,18 +6,18 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
-    [ "CPS.SimpleDefun.uu___is_C0", 1, 2, 1, [ "@query" ], 0 ],
-    [ "CPS.SimpleDefun.uu___is_C1", 1, 2, 1, [ "@query" ], 0 ],
+    [ "CPS.SimpleDefun.uu___is_C0", 1, 2, 1, [ "__query" ], 0 ],
+    [ "CPS.SimpleDefun.uu___is_C1", 1, 2, 1, [ "__query" ], 0 ],
     [
       "CPS.SimpleDefun.__proj__C1__item___0",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "disc_equation_CPS.SimpleDefun.C1",
+        "__MaxIFuel_assumption", "__query", "disc_equation_CPS.SimpleDefun.C1",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_CPS.SimpleDefun_Tm_refine_ec3b073f187e62e07276baa8a49db0b9"
       ],
@@ -29,7 +29,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "disc_equation_CPS.SimpleDefun.C1",
+        "__MaxIFuel_assumption", "__query", "disc_equation_CPS.SimpleDefun.C1",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_CPS.SimpleDefun_Tm_refine_ec3b073f187e62e07276baa8a49db0b9"
       ],
@@ -41,7 +41,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "binder_x_6d0180d4fcd10237cf0d87dd345d77cc_1",
         "binder_x_99791f65bbeea99a630052cdf78a93a2_0",
         "constructor_distinct_CPS.SimpleDefun.C0",
@@ -58,7 +58,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "binder_x_9a691d092aa1033ae30e6c0e5e60237c_0",
         "disc_equation_Prims.Cons", "disc_equation_Prims.Nil",
         "fuel_guarded_inversion_Prims.list",

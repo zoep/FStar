@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "binder_x_9a691d092aa1033ae30e6c0e5e60237c_0",
         "disc_equation_Prims.Cons", "disc_equation_Prims.Nil",
         "fuel_guarded_inversion_Prims.list",
@@ -25,17 +25,17 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "binder_x_6d0180d4fcd10237cf0d87dd345d77cc_0",
         "binder_x_9a691d092aa1033ae30e6c0e5e60237c_1",
         "disc_equation_Prims.Cons", "disc_equation_Prims.Nil",
-        "equality_tok_Prims.LexTop@tok", "fuel_guarded_inversion_Prims.list",
+        "equality_tok_Prims.LexTop__tok", "fuel_guarded_inversion_Prims.list",
         "int_inversion", "projection_inverse_Prims.Cons_tl",
         "subterm_ordering_Prims.Cons"
       ],
       0
     ],
-    [ "Ex06e.mem", 2, 2, 1, [ "@query", "assumption_Prims.HasEq_int" ], 0 ]
+    [ "Ex06e.mem", 2, 2, 1, [ "__query", "assumption_Prims.HasEq_int" ], 0 ]
   ]
 ]

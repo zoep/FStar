@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.heap",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
@@ -19,7 +19,7 @@
       2,
       1,
       [
-        "@query", "int_typing", "typing_FStar.DM4F.Heap.IntStoreFixed.upd",
+        "__query", "int_typing", "typing_FStar.DM4F.Heap.IntStoreFixed.upd",
         "unit_typing"
       ],
       0
@@ -29,7 +29,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -38,7 +38,7 @@
       2,
       1,
       [
-        "@query", "equation_FStar.DM4F.Heap.IntStoreFixed.sel", "int_typing",
+        "__query", "equation_FStar.DM4F.Heap.IntStoreFixed.sel", "int_typing",
         "lemma_FStar.DM4F.Heap.IntStoreFixed.lemma_index_upd1",
         "typing_FStar.DM4F.Heap.IntStoreFixed.upd", "unit_typing"
       ],
@@ -50,8 +50,8 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
-        "data_typing_intro_FStar.Pervasives.Native.Mktuple2@tok",
+        "__MaxIFuel_assumption", "__query",
+        "data_typing_intro_FStar.Pervasives.Native.Mktuple2__tok",
         "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.heap",
         "function_token_typing_Prims.unit", "int_typing",
@@ -60,22 +60,22 @@
       ],
       0
     ],
-    [ "IfcExampleReify0.ni_ifc_c1", 1, 2, 1, [ "@query", "unit_typing" ], 0 ],
+    [ "IfcExampleReify0.ni_ifc_c1", 1, 2, 1, [ "__query", "unit_typing" ], 0 ],
     [
       "IfcExampleReify0.ni_ifc_c2",
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
-    [ "IfcExampleReify0.ni_ifc_c2", 2, 2, 1, [ "@query", "unit_typing" ], 0 ],
+    [ "IfcExampleReify0.ni_ifc_c2", 2, 2, 1, [ "__query", "unit_typing" ], 0 ],
     [
       "IfcExampleReify0.ni_ifc_c3",
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -83,7 +83,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -92,7 +92,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__get_equality",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__get_token_correspondence",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__put_equality",
@@ -128,7 +128,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -137,7 +137,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__get_equality",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__get_token_correspondence",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__put_equality",

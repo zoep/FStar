@@ -1,5 +1,5 @@
 [
-  "š6o6îÄz\u001eAg—ÿ¹ñt@",
+  "š6o6îÄz\u001eAg—ÿ¹ñt__",
   [
     [
       "AES.plain",
@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@query", "equation_AES.blocksize", "equation_AES.psize",
+        "__query", "equation_AES.blocksize", "equation_AES.psize",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -18,7 +18,7 @@
       2,
       1,
       [
-        "@query", "equation_AES.blocksize", "equation_AES.csize",
+        "__query", "equation_AES.blocksize", "equation_AES.csize",
         "primitive_Prims.op_Multiply", "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -29,7 +29,7 @@
       2,
       1,
       [
-        "@query", "equation_AES.keysize", "projection_inverse_BoxInt_proj_0"
+        "__query", "equation_AES.keysize", "projection_inverse_BoxInt_proj_0"
       ],
       0
     ],
@@ -39,7 +39,7 @@
       2,
       1,
       [
-        "@query", "assumption_Platform.Bytes.HasEq_bytes",
+        "__query", "assumption_Platform.Bytes.HasEq_bytes",
         "equation_AES.blocksize", "equation_AES.bytes",
         "equation_AES.nbytes", "equation_AES.plain", "equation_AES.psize",
         "equation_Platform.Bytes.bytes",

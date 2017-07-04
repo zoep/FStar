@@ -6,7 +6,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_bool" ],
+      [ "__query", "assumption_Prims.HasEq_bool" ],
       0
     ]
   ]

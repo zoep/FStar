@@ -1,14 +1,14 @@
 [
   "sâîºQZŸC¸\u0001¦\u0011a\n>",
   [
-    [ "Encrypt_SymEnc.uu___is_Ideal", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Encrypt_SymEnc.uu___is_Ideal", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Encrypt_SymEnc.__proj__Ideal__item__plain",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_Encrypt_SymEnc.Ideal",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Encrypt_SymEnc_Tm_refine_aeba281ff3db5ef268124d6ac4de91c8"
@@ -21,7 +21,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_Encrypt_SymEnc.Ideal",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Encrypt_SymEnc_Tm_refine_aeba281ff3db5ef268124d6ac4de91c8"
@@ -34,7 +34,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_Encrypt_SymEnc.Ideal",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Encrypt_SymEnc_Tm_refine_aeba281ff3db5ef268124d6ac4de91c8"
@@ -47,21 +47,21 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_Encrypt_SymEnc.Ideal",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Encrypt_SymEnc_Tm_refine_aeba281ff3db5ef268124d6ac4de91c8"
       ],
       0
     ],
-    [ "Encrypt_SymEnc.uu___is_Concrete", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Encrypt_SymEnc.uu___is_Concrete", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Encrypt_SymEnc.__proj__Concrete__item__plain",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_Encrypt_SymEnc.Concrete",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Encrypt_SymEnc_Tm_refine_c498f4d14808e5b989acda0ba70ad0bf"
@@ -74,7 +74,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_Encrypt_SymEnc.Concrete",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Encrypt_SymEnc_Tm_refine_c498f4d14808e5b989acda0ba70ad0bf"
@@ -87,7 +87,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_Encrypt_SymEnc.Concrete",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Encrypt_SymEnc_Tm_refine_c498f4d14808e5b989acda0ba70ad0bf"
@@ -100,35 +100,35 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_Encrypt_SymEnc.Concrete",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Encrypt_SymEnc_Tm_refine_c498f4d14808e5b989acda0ba70ad0bf"
       ],
       0
     ],
-    [ "Encrypt_SymEnc.keygen", 1, 2, 1, [ "@query" ], 0 ],
-    [ "Encrypt_SymEnc.__proj__Entry__item__k", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Encrypt_SymEnc.keygen", 1, 2, 1, [ "__query" ], 0 ],
+    [ "Encrypt_SymEnc.__proj__Entry__item__k", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Encrypt_SymEnc.__proj__Entry__item__c",
       1,
       2,
       1,
       [
-        "@query", "proj_equation_Encrypt_SymEnc.Entry_k",
+        "__query", "proj_equation_Encrypt_SymEnc.Entry_k",
         "projection_inverse_Encrypt_SymEnc.Entry_k"
       ],
       0
     ],
-    [ "Encrypt_SymEnc.__proj__Entry__item__plain", 1, 2, 1, [ "@query" ], 0 ],
-    [ "Encrypt_SymEnc.log", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Encrypt_SymEnc.__proj__Entry__item__plain", 1, 2, 1, [ "__query" ], 0 ],
+    [ "Encrypt_SymEnc.log", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Encrypt_SymEnc.encrypt",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_Encrypt_SymEnc.Concrete",
         "disc_equation_Encrypt_SymEnc.Ideal", "equation_AES.plain",
         "fuel_guarded_inversion_Encrypt_SymEnc.key"
@@ -141,7 +141,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_Encrypt_SymEnc.Concrete",
         "disc_equation_Encrypt_SymEnc.Ideal", "equation_AES.blocksize",
         "equation_AES.nbytes", "equation_AES.plain", "equation_AES.psize",
@@ -155,7 +155,7 @@
       2,
       1,
       [
-        "@query", "assumption_Platform.Bytes.HasEq_bytes",
+        "__query", "assumption_Platform.Bytes.HasEq_bytes",
         "equation_AES.bytes", "equation_AES.cipher", "equation_AES.csize",
         "equation_AES.nbytes", "equation_AES.plain",
         "equation_Platform.Bytes.bytes",

@@ -1,14 +1,14 @@
 [
-  " c$‹ð'\r@xŒÂÛóô:›",
+  " c$‹ð'\r__xŒÂÛóô:›",
   [
-    [ "IfcComposeReify.uu___is_Low", 1, 2, 1, [ "@query" ], 0 ],
-    [ "IfcComposeReify.uu___is_High", 1, 2, 1, [ "@query" ], 0 ],
+    [ "IfcComposeReify.uu___is_Low", 1, 2, 1, [ "__query" ], 0 ],
+    [ "IfcComposeReify.uu___is_High", 1, 2, 1, [ "__query" ], 0 ],
     [
       "IfcComposeReify.low_equiv",
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -16,7 +16,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -24,18 +24,18 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
-    [ "IfcComposeReify.p1_r", 1, 2, 1, [ "@query" ], 0 ],
-    [ "IfcComposeReify.p2_r", 1, 2, 1, [ "@query" ], 0 ],
+    [ "IfcComposeReify.p1_r", 1, 2, 1, [ "__query" ], 0 ],
+    [ "IfcComposeReify.p2_r", 1, 2, 1, [ "__query" ], 0 ],
     [
       "IfcComposeReify.p3_r",
       1,
       2,
       1,
       [
-        "@query", "primitive_Prims.op_Equality",
+        "__query", "primitive_Prims.op_Equality",
         "projection_inverse_BoxBool_proj_0"
       ],
       0
@@ -46,7 +46,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.id",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
@@ -58,7 +58,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__get_equality",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__get_token_correspondence",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__put_equality",
@@ -110,7 +110,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.id",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
@@ -122,7 +122,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__get_equality",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__get_token_correspondence",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__put_equality",
@@ -174,7 +174,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.id",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
@@ -186,7 +186,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.id",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
@@ -198,7 +198,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.id",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
@@ -210,7 +210,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__get_equality",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__get_token_correspondence",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__put_equality",

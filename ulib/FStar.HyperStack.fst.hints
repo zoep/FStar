@@ -1,12 +1,12 @@
 [
-  "\u0010@¿¥Al\u001c¼Ç\u0019¯b`¦_¤",
+  "\u0010__¿¥Al\u001c¼Ç\u0019¯b`¦_¤",
   [
     [
       "FStar.HyperStack.is_in",
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -14,7 +14,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -22,7 +22,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -30,7 +30,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -38,7 +38,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_bool" ],
+      [ "__query", "assumption_Prims.HasEq_bool" ],
       0
     ],
     [
@@ -46,17 +46,17 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
-    [ "FStar.HyperStack.__proj__HS__item__h", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.HyperStack.__proj__HS__item__h", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.HyperStack.__proj__HS__item__tip",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "proj_equation_FStar.HyperStack.HS_h",
         "projection_inverse_FStar.HyperStack.HS_h",
         "refinement_interpretation_FStar.HyperStack_Tm_refine_d023b9461e4d4c2c1260f907a1d7e4a1"
@@ -69,7 +69,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.Heap_pretyping_6c86c071b92797cdf01eb016249a9465",
         "assumption_FStar.HyperHeap.HasEq_rid", "bool_inversion",
         "equation_FStar.HyperHeap.map_invariant",
@@ -104,7 +104,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -112,7 +112,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -120,7 +120,7 @@
       4,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -129,7 +129,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "data_elim_FStar.HyperStack.HS",
+        "__MaxIFuel_assumption", "__query", "data_elim_FStar.HyperStack.HS",
         "equation_FStar.HyperHeap.map_invariant",
         "equation_FStar.HyperHeap.t", "equation_FStar.HyperStack.hh",
         "equation_FStar.HyperStack.is_above",
@@ -153,7 +153,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "data_elim_FStar.HyperStack.HS",
+        "__MaxIFuel_assumption", "__query", "data_elim_FStar.HyperStack.HS",
         "equation_FStar.HyperHeap.map_invariant",
         "equation_FStar.HyperHeap.t",
         "equation_FStar.HyperStack.downward_closed",
@@ -178,7 +178,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -187,7 +187,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "data_elim_FStar.HyperStack.HS",
+        "__MaxIFuel_assumption", "__query", "data_elim_FStar.HyperStack.HS",
         "equation_FStar.HyperStack.is_above",
         "equation_FStar.HyperStack.is_tip", "equation_FStar.HyperStack.sid",
         "fuel_guarded_inversion_FStar.HyperStack.mem",
@@ -208,7 +208,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid",
         "haseqFStar.HyperStack_Tm_refine_40cc4ec8f7d8df7c5347300f6afcecf1"
       ],
       0
@@ -219,7 +219,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_FStar.HyperHeap.t",
+        "__MaxIFuel_assumption", "__query", "equation_FStar.HyperHeap.t",
         "equation_FStar.HyperHeap.test0",
         "equation_FStar.HyperStack.downward_closed",
         "equation_Prims._assert",
@@ -234,7 +234,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -242,7 +242,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_bool" ],
+      [ "__query", "assumption_Prims.HasEq_bool" ],
       0
     ],
     [
@@ -250,7 +250,7 @@
       4,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_bool" ],
+      [ "__query", "assumption_Prims.HasEq_bool" ],
       0
     ],
     [
@@ -259,7 +259,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "bool_inversion",
+        "__MaxIFuel_assumption", "__query", "bool_inversion",
         "data_elim_FStar.HyperStack.HS", "equation_FStar.HyperHeap.t",
         "equation_FStar.HyperStack.downward_closed",
         "equation_FStar.HyperStack.hh", "equation_FStar.HyperStack.is_above",
@@ -288,7 +288,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -297,7 +297,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "bool_inversion",
+        "__MaxIFuel_assumption", "__query", "bool_inversion",
         "data_elim_FStar.HyperStack.HS", "equation_FStar.HyperHeap.t",
         "equation_FStar.HyperHeap.test0",
         "equation_FStar.HyperStack.downward_closed",
@@ -327,7 +327,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -336,7 +336,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "bool_inversion",
+        "__MaxIFuel_assumption", "__query", "bool_inversion",
         "data_elim_FStar.HyperStack.HS", "equation_FStar.HyperHeap.disjoint",
         "equation_FStar.HyperHeap.t",
         "equation_FStar.HyperStack.downward_closed",
@@ -366,7 +366,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -374,7 +374,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -383,7 +383,7 @@
       2,
       1,
       [
-        "@query", "equation_FStar.HyperStack.poppable",
+        "__query", "equation_FStar.HyperStack.poppable",
         "primitive_Prims.op_disEquality", "projection_inverse_BoxBool_proj_0"
       ],
       0
@@ -393,7 +393,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -401,7 +401,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -409,7 +409,7 @@
       4,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -417,7 +417,7 @@
       5,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -425,7 +425,7 @@
       6,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -433,7 +433,7 @@
       7,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -441,7 +441,7 @@
       8,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -449,7 +449,7 @@
       9,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -458,7 +458,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.Heap_pretyping_6c86c071b92797cdf01eb016249a9465",
         "assumption_FStar.HyperHeap.HasEq_rid", "bool_inversion",
         "data_elim_FStar.HyperStack.HS",
@@ -518,7 +518,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -526,7 +526,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -534,7 +534,7 @@
       4,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -542,7 +542,7 @@
       5,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -550,17 +550,17 @@
       6,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
-    [ "FStar.HyperStack.__proj__MkRef__item__id", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.HyperStack.__proj__MkRef__item__id", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.HyperStack.__proj__MkRef__item__ref",
       1,
       2,
       1,
       [
-        "@query", "proj_equation_FStar.HyperStack.MkRef_id",
+        "__query", "proj_equation_FStar.HyperStack.MkRef_id",
         "projection_inverse_FStar.HyperStack.MkRef_id"
       ],
       0
@@ -570,7 +570,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -578,7 +578,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -587,7 +587,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "data_elim_FStar.HyperStack.HS",
+        "__MaxIFuel_assumption", "__query", "data_elim_FStar.HyperStack.HS",
         "equation_FStar.HyperHeap.map_invariant",
         "equation_FStar.HyperHeap.t", "equation_FStar.HyperStack.hh",
         "equation_FStar.HyperStack.is_above",
@@ -610,7 +610,7 @@
       1,
       2,
       1,
-      [ "@query", "equation_Prims.l_True" ],
+      [ "__query", "equation_Prims.l_True" ],
       0
     ],
     [
@@ -619,7 +619,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.Heap_pretyping_6c86c071b92797cdf01eb016249a9465",
         "assumption_FStar.HyperHeap.HasEq_rid", "bool_inversion",
         "data_elim_FStar.HyperStack.HS",
@@ -666,7 +666,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid",
         "haseqFStar.HyperStack_Tm_refine_b0a7e09a86b16d9d633a7ad934fec0ad"
       ],
       0
@@ -676,7 +676,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -684,7 +684,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -692,7 +692,7 @@
       4,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -700,7 +700,7 @@
       5,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -708,7 +708,7 @@
       6,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -716,7 +716,7 @@
       7,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -725,7 +725,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "assumption_FStar.HyperHeap.HasEq_rid", "bool_inversion",
         "data_elim_FStar.HyperStack.HS", "equation_FStar.Heap.equal_dom",
         "equation_FStar.HyperHeap.t",
@@ -753,7 +753,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid",
         "haseqFStar.HyperStack_Tm_refine_b0a7e09a86b16d9d633a7ad934fec0ad"
       ],
       0
@@ -763,7 +763,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -771,7 +771,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -780,7 +780,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_FStar.Heap.equal_dom",
+        "__MaxIFuel_assumption", "__query", "equation_FStar.Heap.equal_dom",
         "equation_FStar.HyperStack.equal_stack_domains",
         "fuel_guarded_inversion_FStar.HyperStack.mem", "ref_inversion",
         "unit_typing"
@@ -792,7 +792,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -801,7 +801,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid",
         "haseqFStar.HyperStack_Tm_refine_b0a7e09a86b16d9d633a7ad934fec0ad"
       ],
       0
@@ -811,7 +811,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -820,7 +820,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid",
         "haseqFStar.HyperStack_Tm_refine_b0a7e09a86b16d9d633a7ad934fec0ad"
       ],
       0
@@ -830,7 +830,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -838,7 +838,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -847,7 +847,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_FStar.HyperHeap.t",
+        "__MaxIFuel_assumption", "__query", "equation_FStar.HyperHeap.t",
         "equation_FStar.HyperStack.hh", "equation_FStar.HyperStack.is_in",
         "proj_equation_FStar.HyperStack.HS_h",
         "refinement_interpretation_FStar.HyperStack_Tm_refine_f724abd6de992fc2f861487694296e1a",
@@ -860,7 +860,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -868,7 +868,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -876,7 +876,7 @@
       4,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -884,7 +884,7 @@
       5,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -893,7 +893,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.Heap_pretyping_6c86c071b92797cdf01eb016249a9465",
         "FStar.Map_interpretation_Tm_arrow_a73cdccc525c909463a87f74f473474b",
         "FStar.Map_interpretation_Tm_arrow_cedeb93414840176adf671fb9371c4cc",
@@ -969,7 +969,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -977,7 +977,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -985,7 +985,7 @@
       4,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -993,7 +993,7 @@
       5,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1002,7 +1002,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.HyperStack_interpretation_Tm_arrow_44cc1777afbdbed9bdd3d9b2ecbc41b2",
         "FStar.Set_interpretation_Tm_arrow_4019e894ab4058a3164e2b8786c32b27",
         "FStar.Set_interpretation_Tm_arrow_f285bd18d16ed788dea4e9c47fb2243d",
@@ -1052,7 +1052,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1060,7 +1060,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1068,7 +1068,7 @@
       4,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1076,7 +1076,7 @@
       5,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1084,7 +1084,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1093,7 +1093,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1104,7 +1104,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid",
         "haseqFStar.HyperStack_Tm_refine_b0a7e09a86b16d9d633a7ad934fec0ad"
       ],
       0
@@ -1115,7 +1115,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "assumption_FStar.HyperHeap.HasEq_rid", "bool_inversion",
         "data_elim_FStar.HyperStack.HS",
         "equation_FStar.HyperHeap.contains_ref",
@@ -1185,7 +1185,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1196,7 +1196,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1207,7 +1207,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86",
         "assumption_FStar.HyperHeap.HasEq_rid", "bool_inversion",
         "data_elim_FStar.HyperStack.HS", "equation_FStar.Heap.modifies",
@@ -1282,7 +1282,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1290,7 +1290,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1299,7 +1299,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1309,7 +1309,7 @@
       5,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1317,7 +1317,7 @@
       6,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1326,7 +1326,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1336,7 +1336,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1345,7 +1345,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.StrongExcludedMiddle_interpretation_Tm_arrow_336dce3cf2c3097e7e0beb765572b67d",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86",
         "assumption_FStar.HyperHeap.HasEq_rid", "bool_inversion",
@@ -1386,7 +1386,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "data_elim_FStar.HyperStack.HS",
+        "__MaxIFuel_assumption", "__query", "data_elim_FStar.HyperStack.HS",
         "equation_FStar.HyperHeap.map_invariant",
         "equation_FStar.HyperHeap.t", "equation_FStar.HyperHeap.test0",
         "equation_FStar.HyperStack.hh", "equation_FStar.HyperStack.is_above",
@@ -1412,7 +1412,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.Heap_pretyping_6c86c071b92797cdf01eb016249a9465",
         "assumption_FStar.HyperHeap.HasEq_rid", "bool_inversion",
         "equation_FStar.HyperHeap.contains_ref",
@@ -1443,14 +1443,14 @@
       ],
       0
     ],
-    [ "FStar.HyperStack.__proj__Ref__item__a", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.HyperStack.__proj__Ref__item__a", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.HyperStack.__proj__Ref__item___1",
       1,
       2,
       1,
       [
-        "@query", "proj_equation_FStar.HyperStack.Ref_a",
+        "__query", "proj_equation_FStar.HyperStack.Ref_a",
         "projection_inverse_FStar.HyperStack.Ref_a"
       ],
       0
@@ -1460,7 +1460,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1469,7 +1469,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "assumption_FStar.HyperHeap.HasEq_rid",
         "binder_x_54100cf422aba4b12f7ada661f924be4_0",
         "disc_equation_Prims.Cons", "disc_equation_Prims.Nil",
@@ -1483,7 +1483,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1491,7 +1491,7 @@
       4,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1499,7 +1499,7 @@
       5,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1508,7 +1508,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1519,10 +1519,10 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "assumption_Prims.HasEq_int",
+        "__MaxIFuel_assumption", "__query", "assumption_Prims.HasEq_int",
         "binder_x_54100cf422aba4b12f7ada661f924be4_1",
         "disc_equation_Prims.Cons", "disc_equation_Prims.Nil",
-        "equality_tok_Prims.LexTop@tok",
+        "equality_tok_Prims.LexTop__tok",
         "equation_FStar.HyperStack.some_refs", "equation_Prims.nat",
         "fuel_guarded_inversion_Prims.list",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
@@ -1536,7 +1536,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1547,7 +1547,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1557,7 +1557,7 @@
       5,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1566,7 +1566,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1577,7 +1577,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1587,7 +1587,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1596,7 +1596,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1607,7 +1607,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "bool_inversion",
+        "__MaxIFuel_assumption", "__query", "bool_inversion",
         "data_elim_FStar.HyperStack.HS", "equation_FStar.HyperHeap.disjoint",
         "equation_FStar.HyperHeap.t", "equation_FStar.HyperHeap.test0",
         "equation_FStar.HyperStack.downward_closed",
@@ -1643,7 +1643,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1652,7 +1652,7 @@
       0,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.Map_interpretation_Tm_arrow_502b9651e918ea8d6f2366e16a25a0c5",
         "FStar.Map_interpretation_Tm_arrow_639a4253992331c67e251edc6f8641a3",
         "FStar.Map_interpretation_Tm_arrow_a73cdccc525c909463a87f74f473474b",
@@ -1717,7 +1717,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1727,7 +1727,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1735,7 +1735,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1744,7 +1744,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1754,7 +1754,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1762,7 +1762,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1770,7 +1770,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1778,7 +1778,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -1786,7 +1786,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ]
   ]

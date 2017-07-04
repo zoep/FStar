@@ -1,13 +1,13 @@
 [
   "\nD^”ΆƒρθMλ\u0001)§",
   [
-    [ "FStar.DM4F.IntStoreFixed.bind_is", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.DM4F.IntStoreFixed.bind_is", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.DM4F.IntStoreFixed._dm4f_INT_STORE_bind_wp",
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -15,7 +15,7 @@
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -23,21 +23,21 @@
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
-    [ "FStar.DM4F.IntStoreFixed.INT_STORE", 1, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.DM4F.IntStoreFixed.INT_STORE", 2, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.DM4F.IntStoreFixed.INT_STORE", 3, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.DM4F.IntStoreFixed.read", 1, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.DM4F.IntStoreFixed.write", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.DM4F.IntStoreFixed.INT_STORE", 1, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.DM4F.IntStoreFixed.INT_STORE", 2, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.DM4F.IntStoreFixed.INT_STORE", 3, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.DM4F.IntStoreFixed.read", 1, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.DM4F.IntStoreFixed.write", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.DM4F.IntStoreFixed.refine_st",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "data_elim_FStar.Pervasives.Native.Mktuple2",
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple2",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__1",
@@ -45,6 +45,6 @@
       ],
       0
     ],
-    [ "FStar.DM4F.IntStoreFixed.refine_st", 2, 2, 1, [ "@query" ], 0 ]
+    [ "FStar.DM4F.IntStoreFixed.refine_st", 2, 2, 1, [ "__query" ], 0 ]
   ]
 ]

@@ -6,7 +6,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_bool" ],
+      [ "__query", "assumption_Prims.HasEq_bool" ],
       0
     ],
     [
@@ -14,7 +14,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_bool" ],
+      [ "__query", "assumption_Prims.HasEq_bool" ],
       0
     ],
     [
@@ -22,7 +22,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_bool" ],
+      [ "__query", "assumption_Prims.HasEq_bool" ],
       0
     ],
     [
@@ -31,7 +31,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_NegativeTests.False_Tm_refine_6bf7e0d19c9816135a96d2d4a380fa10"
       ],
@@ -44,7 +44,7 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_unit", "equation_Prims.l_True",
+        "__query", "assumption_Prims.HasEq_unit", "equation_Prims.l_True",
         "haseqNegativeTests.False_Tm_refine_bcb7d7b02fc420eb5dd6ef8d59203102"
       ],
       0
@@ -55,7 +55,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_FStar.Classical_Tm_refine_c16bc1b61f58b349bf6fc1c94dcaf83b",
         "unit_inversion", "unit_typing"
       ],
@@ -67,8 +67,8 @@
       2,
       1,
       [
-        "@query", "constructor_distinct_Prims.Left",
-        "constructor_distinct_Prims.Right", "equality_tok_Prims.T@tok",
+        "__query", "constructor_distinct_Prims.Left",
+        "constructor_distinct_Prims.Right", "equality_tok_Prims.T__tok",
         "equation_Prims.l_True"
       ],
       0

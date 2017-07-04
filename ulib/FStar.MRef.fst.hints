@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "bool_typing",
+        "__MaxIFuel_assumption", "__query", "bool_typing",
         "equation_FStar.Heap.fresh", "equation_FStar.MRef.as_ref",
         "equation_FStar.MRef.contains", "equation_FStar.MRef.fresh",
         "equation_FStar.MRef.mref", "equation_FStar.MRef.upd",
@@ -25,7 +25,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_FStar.MRef.as_ref",
+        "__MaxIFuel_assumption", "__query", "equation_FStar.MRef.as_ref",
         "equation_FStar.MRef.mref", "equation_FStar.MRef.sel",
         "equation_FStar.ST.ref", "ref_inversion", "typing_FStar.Heap.sel"
       ],
@@ -36,7 +36,7 @@
       1,
       2,
       1,
-      [ "@query", "equation_FStar.MRef.as_ref", "equation_FStar.MRef.upd" ],
+      [ "__query", "equation_FStar.MRef.as_ref", "equation_FStar.MRef.upd" ],
       0
     ],
     [
@@ -44,7 +44,7 @@
       1,
       2,
       1,
-      [ "@query", "equation_FStar.MRef.token", "true_interp", "unit_typing" ],
+      [ "__query", "equation_FStar.MRef.token", "true_interp", "unit_typing" ],
       0
     ],
     [
@@ -53,7 +53,7 @@
       2,
       1,
       [
-        "@query", "equation_FStar.MRef.witnessed", "true_interp",
+        "__query", "equation_FStar.MRef.witnessed", "true_interp",
         "unit_typing"
       ],
       0

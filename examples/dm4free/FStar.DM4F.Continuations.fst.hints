@@ -1,15 +1,15 @@
 [
   "ÿfèJ™W+t‰ÊH©uÍ-~",
   [
-    [ "FStar.DM4F.Continuations.cont", 1, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.DM4F.Continuations.uu___is_L", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.DM4F.Continuations.cont", 1, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.DM4F.Continuations.uu___is_L", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.DM4F.Continuations.__proj__L__item__a",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_FStar.DM4F.Continuations.L",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_FStar.DM4F.Continuations_Tm_refine_8445d79c1f764e59f2958fa0cdffa351"
@@ -22,7 +22,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_FStar.DM4F.Continuations.L",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_FStar.DM4F.Continuations_Tm_refine_8445d79c1f764e59f2958fa0cdffa351"
@@ -34,7 +34,7 @@
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -43,7 +43,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_FStar.DM4F.Continuations.L",
         "proj_equation_FStar.DM4F.Continuations.L_a",
         "projection_inverse_BoxBool_proj_0",
@@ -52,14 +52,14 @@
       ],
       0
     ],
-    [ "FStar.DM4F.Continuations.uu___is_R", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.DM4F.Continuations.uu___is_R", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.DM4F.Continuations.__proj__R__item__a",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_FStar.DM4F.Continuations.R",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_FStar.DM4F.Continuations_Tm_refine_a6a39bffc11b264d9749ffb3bf1e08d0"
@@ -72,7 +72,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_FStar.DM4F.Continuations.R",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_FStar.DM4F.Continuations_Tm_refine_a6a39bffc11b264d9749ffb3bf1e08d0"
@@ -84,7 +84,7 @@
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -93,7 +93,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_FStar.DM4F.Continuations.R",
         "proj_equation_FStar.DM4F.Continuations.R_b",
         "projection_inverse_BoxBool_proj_0",
@@ -102,34 +102,34 @@
       ],
       0
     ],
-    [ "FStar.DM4F.Continuations.em", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.DM4F.Continuations.em", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.DM4F.Continuations._dm4f_CONT_wp_if_then_else",
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
-    [ "FStar.DM4F.Continuations.CONT", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.DM4F.Continuations.CONT", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.DM4F.Continuations._dm4f_CONTINUATION_wp_if_then_else",
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
-    [ "FStar.DM4F.Continuations.CONTINUATION", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.DM4F.Continuations.CONTINUATION", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.DM4F.Continuations.em2",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
-        "data_typing_intro_FStar.DM4F.Continuations.L@tok",
-        "data_typing_intro_FStar.DM4F.Continuations.R@tok",
+        "__MaxIFuel_assumption", "__query",
+        "data_typing_intro_FStar.DM4F.Continuations.L__tok",
+        "data_typing_intro_FStar.DM4F.Continuations.R__tok",
         "equation_FStar.DM4F.Continuations.em_wp", "equation_Prims.l_False",
         "equation_Prims.l_True",
         "kinding_Tm_arrow_9cb3c953faf527c316d427b2ce8bd81b",
@@ -138,6 +138,6 @@
       ],
       0
     ],
-    [ "FStar.DM4F.Continuations.excluded_middle", 1, 2, 1, [ "@query" ], 0 ]
+    [ "FStar.DM4F.Continuations.excluded_middle", 1, 2, 1, [ "__query" ], 0 ]
   ]
 ]

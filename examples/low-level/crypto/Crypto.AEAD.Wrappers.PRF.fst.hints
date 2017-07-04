@@ -1,15 +1,15 @@
 [
   "øJµ+Òº§kçPÚˆ\u001d÷S¼",
   [
-    [ "Crypto.AEAD.Wrappers.PRF.prf_mac_existed", 1, 0, 0, [ "@query" ], 0 ],
-    [ "Crypto.AEAD.Wrappers.PRF.prf_mac_existed", 2, 0, 0, [ "@query" ], 0 ],
+    [ "Crypto.AEAD.Wrappers.PRF.prf_mac_existed", 1, 0, 0, [ "__query" ], 0 ],
+    [ "Crypto.AEAD.Wrappers.PRF.prf_mac_existed", 2, 0, 0, [ "__query" ], 0 ],
     [
       "Crypto.AEAD.Wrappers.PRF.prf_mac_added",
       1,
       0,
       0,
       [
-        "@query", "bool_inversion", "constructor_distinct_Prims.None",
+        "__query", "bool_inversion", "constructor_distinct_Prims.None",
         "constructor_distinct_Prims.Some",
         "constructor_distinct_Prims.option",
         "constructor_distinct_Prims.unit", "disc_equation_Prims.None",
@@ -32,7 +32,7 @@
         "fuel_guarded_inversion_Crypto.Symmetric.PRF.domain",
         "fuel_guarded_inversion_Crypto.Symmetric.PRF.state",
         "function_token_typing_Crypto.Symmetric.AES.keylen", "int_inversion",
-        "kinding_Crypto.Symmetric.PRF.entry@tok",
+        "kinding_Crypto.Symmetric.PRF.entry__tok",
         "pretyping_779086306c29597e3dd1127d16405da1",
         "pretyping_bab28016dbe57ad2e25b1e589099e923",
         "pretyping_f8666440faa91836cc5a13998af863fc",
@@ -64,7 +64,7 @@
       2,
       0,
       0,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -73,7 +73,7 @@
       0,
       0,
       [
-        "@query", "bool_inversion", "constructor_distinct_Prims.None",
+        "__query", "bool_inversion", "constructor_distinct_Prims.None",
         "constructor_distinct_Prims.Some",
         "constructor_distinct_Prims.option",
         "constructor_distinct_Prims.unit", "disc_equation_Prims.None",
@@ -106,7 +106,7 @@
       2,
       0,
       0,
-      [ "@query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
+      [ "__query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
       0
     ],
     [
@@ -114,7 +114,7 @@
       3,
       0,
       0,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -123,7 +123,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Invariant.aead_entries",
+        "__query", "equation_Crypto.AEAD.Invariant.aead_entries",
         "equation_Crypto.AEAD.Invariant.aead_log_as_ref",
         "equation_Crypto.AEAD.Invariant.rref",
         "equation_Crypto.AEAD.Invariant.st_ilog",
@@ -141,7 +141,7 @@
       0,
       0,
       [
-        "@query", "assumption_FStar.Heap.DomContains",
+        "__query", "assumption_FStar.Heap.DomContains",
         "assumption_FStar.Heap.DomRestrict",
         "assumption_FStar.Heap.Extensional",
         "assumption_FStar.Heap.RestrictSel",
@@ -150,7 +150,7 @@
         "constructor_distinct_Prims.None", "constructor_distinct_Prims.Some",
         "constructor_distinct_Prims.option",
         "constructor_distinct_Prims.unit",
-        "data_typing_intro_FStar.Heap.Ref@tok", "disc_equation_Prims.None",
+        "data_typing_intro_FStar.Heap.Ref__tok", "disc_equation_Prims.None",
         "disc_equation_Prims.Some", "equation_Crypto.AEAD.Encoding.rgn",
         "equation_Crypto.AEAD.Invariant.aead_entries",
         "equation_Crypto.AEAD.Invariant.aead_log_as_ref",
@@ -197,9 +197,9 @@
         "function_token_typing_FStar.Heap.emp",
         "function_token_typing_FStar.Heap.heap",
         "function_token_typing_FStar.HyperHeap.rid", "int_inversion",
-        "kinding_Crypto.AEAD.Invariant.aead_entry@tok",
-        "kinding_Crypto.Symmetric.PRF.entry@tok",
-        "kinding_FStar.Heap.aref@tok", "l_and-interp", "l_not-interp",
+        "kinding_Crypto.AEAD.Invariant.aead_entry__tok",
+        "kinding_Crypto.Symmetric.PRF.entry__tok",
+        "kinding_FStar.Heap.aref__tok", "l_and-interp", "l_not-interp",
         "l_or-interp", "lemma_FStar.HyperHeap.lemma_as_ref_inj",
         "lemma_FStar.TSet.mem_complement", "lemma_FStar.TSet.mem_empty",
         "lemma_FStar.TSet.mem_intersect", "lemma_FStar.TSet.mem_singleton",
@@ -265,7 +265,7 @@
       1,
       0,
       0,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -274,7 +274,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Invariant.fresh_nonce_st",
+        "__query", "equation_Crypto.AEAD.Invariant.fresh_nonce_st",
         "equation_Crypto.Symmetric.Bytes.mem",
         "fuel_guarded_inversion_FStar.HyperStack.mem",
         "refinement_interpretation_Tm_refine_cf695d51d6deaebbd243bd216dd2f99d"
@@ -287,7 +287,7 @@
       0,
       0,
       [
-        "@query", "bool_inversion", "equation_Crypto.AEAD.Encoding.alg",
+        "__query", "bool_inversion", "equation_Crypto.AEAD.Encoding.alg",
         "equation_Crypto.AEAD.Encoding.rgn",
         "equation_Crypto.AEAD.Invariant.safeMac",
         "equation_Crypto.Symmetric.PRF.region",
@@ -312,7 +312,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "bool_inversion",
+        "__query", "b2t_def", "bool_inversion",
         "constructor_distinct_Prims.None", "constructor_distinct_Prims.Some",
         "constructor_distinct_Prims.option",
         "constructor_distinct_Prims.unit", "eq2-interp",
@@ -359,8 +359,8 @@
         "fuel_guarded_inversion_FStar.HyperStack.mem",
         "function_token_typing_Crypto.Symmetric.AES.keylen", "int_inversion",
         "interpretation_Tm_abs_60208cecfa6a073c28c25023762b33ce",
-        "kinding_Crypto.AEAD.Invariant.aead_entry@tok",
-        "kinding_Crypto.Symmetric.PRF.entry@tok", "l_and-interp",
+        "kinding_Crypto.AEAD.Invariant.aead_entry__tok",
+        "kinding_Crypto.Symmetric.PRF.entry__tok", "l_and-interp",
         "l_imp-interp", "pretyping_779086306c29597e3dd1127d16405da1",
         "pretyping_a15cf0b8f49cff4b1e4bf2603c804f4f",
         "pretyping_f8666440faa91836cc5a13998af863fc",
@@ -404,7 +404,7 @@
       0,
       0,
       [
-        "@query", "bool_inversion",
+        "__query", "bool_inversion",
         "equation_Crypto.AEAD.Invariant.aead_entries",
         "equation_Crypto.AEAD.Invariant.aead_log",
         "equation_Crypto.AEAD.Invariant.rref",
@@ -427,11 +427,11 @@
       0,
       0,
       [
-        "@query", "bool_inversion", "bool_typing",
+        "__query", "bool_inversion", "bool_typing",
         "constructor_distinct_Prims.None", "constructor_distinct_Prims.Some",
         "constructor_distinct_Prims.option",
         "constructor_distinct_Prims.unit",
-        "data_typing_intro_Prims.Mktuple2@tok", "disc_equation_Prims.None",
+        "data_typing_intro_Prims.Mktuple2__tok", "disc_equation_Prims.None",
         "disc_equation_Prims.Some", "eq2-interp",
         "equation_Crypto.AEAD.Invariant.aead_entries",
         "equation_Crypto.AEAD.Invariant.aead_log_as_ref",
@@ -486,9 +486,9 @@
         "function_token_typing_Crypto.Indexing.id",
         "function_token_typing_Crypto.Symmetric.AES.keylen",
         "function_token_typing_FStar.List.Tot.Base.test_sort",
-        "int_inversion", "kinding_Crypto.AEAD.Invariant.aead_entry@tok",
-        "kinding_Crypto.Symmetric.PRF.entry@tok",
-        "kinding_FStar.UInt128.t_@tok", "l_and-interp",
+        "int_inversion", "kinding_Crypto.AEAD.Invariant.aead_entry__tok",
+        "kinding_Crypto.Symmetric.PRF.entry__tok",
+        "kinding_FStar.UInt128.t___tok", "l_and-interp",
         "lemma_Flag.mac1_implies_prf", "lemma_Prims.invertOption",
         "pretyping_779086306c29597e3dd1127d16405da1",
         "pretyping_a15cf0b8f49cff4b1e4bf2603c804f4f",
@@ -544,7 +544,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.alg",
+        "__query", "equation_Crypto.AEAD.Encoding.alg",
         "equation_Crypto.AEAD.Invariant.safeMac",
         "lemma_Flag.mac1_implies_prf", "primitive_Prims.op_AmpAmp",
         "projection_inverse_BoxBool_proj_0",
@@ -558,7 +558,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "bool_inversion",
+        "__query", "b2t_def", "bool_inversion",
         "constructor_distinct_Prims.None", "constructor_distinct_Prims.Some",
         "constructor_distinct_Prims.option",
         "constructor_distinct_Prims.unit", "constructor_distinct_Tm_unit",
@@ -603,7 +603,7 @@
         "fuel_guarded_inversion_FStar.HyperStack.mem",
         "function_token_typing_Crypto.Symmetric.AES.keylen", "int_inversion",
         "interpretation_Tm_abs_21ac2a1bdc37cbc0e0f7f04cd3785935",
-        "kinding_Crypto.Symmetric.PRF.entry@tok", "l_and-interp",
+        "kinding_Crypto.Symmetric.PRF.entry__tok", "l_and-interp",
         "l_imp-interp", "lemma_FStar.HyperHeap.lemma_extends_includes",
         "lemma_Flag.mac1_implies_prf", "lemma_Prims.invertOption",
         "pretyping_533d8a9fddfb9ab2d24280a2b80ade9f",
@@ -655,7 +655,7 @@
       0,
       0,
       [
-        "@query", "assumption_FStar.UInt128.t__haseq", "b2t_def",
+        "__query", "assumption_FStar.UInt128.t__haseq", "b2t_def",
         "bool_inversion", "equation_Crypto.AEAD.Encoding.alg",
         "equation_Crypto.AEAD.Encoding.rgn",
         "equation_Crypto.AEAD.Invariant.safeMac",
@@ -709,7 +709,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Invariant.safeMac",
+        "__query", "equation_Crypto.AEAD.Invariant.safeMac",
         "lemma_Flag.mac1_implies_prf", "primitive_Prims.op_AmpAmp",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_cf695d51d6deaebbd243bd216dd2f99d"
@@ -722,7 +722,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "bool_inversion",
+        "__query", "b2t_def", "bool_inversion",
         "constructor_distinct_Prims.None", "constructor_distinct_Prims.Some",
         "constructor_distinct_Prims.option",
         "constructor_distinct_Prims.unit", "constructor_distinct_Tm_unit",
@@ -825,7 +825,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Invariant.safeMac",
+        "__query", "equation_Crypto.AEAD.Invariant.safeMac",
         "lemma_Flag.mac1_implies_prf", "primitive_Prims.op_AmpAmp",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_cf695d51d6deaebbd243bd216dd2f99d"
@@ -838,7 +838,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "bool_inversion", "disc_equation_Prims.None",
+        "__query", "b2t_def", "bool_inversion", "disc_equation_Prims.None",
         "equation_Crypto.AEAD.Encoding.alg",
         "equation_Crypto.AEAD.Encoding.rgn",
         "equation_Crypto.AEAD.Invariant.aead_entries",
@@ -897,7 +897,7 @@
       0,
       0,
       [
-        "@query", "assumption_FStar.UInt128.t__haseq", "b2t_def",
+        "__query", "assumption_FStar.UInt128.t__haseq", "b2t_def",
         "bool_inversion", "equation_Crypto.AEAD.Encoding.alg",
         "equation_Crypto.AEAD.Encoding.rgn",
         "equation_Crypto.AEAD.Invariant.safeMac",
@@ -951,7 +951,7 @@
       0,
       0,
       [
-        "@query", "bool_inversion",
+        "__query", "bool_inversion",
         "equation_Crypto.AEAD.Invariant.aead_log",
         "equation_Crypto.AEAD.Invariant.aead_log_as_ref",
         "equation_Crypto.AEAD.Invariant.rref",
@@ -977,7 +977,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "equation_Crypto.AEAD.Invariant.aead_liveness",
+        "__query", "b2t_def", "equation_Crypto.AEAD.Invariant.aead_liveness",
         "equation_Crypto.AEAD.Invariant.fresh_nonce",
         "equation_Crypto.AEAD.Invariant.fresh_nonce_st",
         "equation_Crypto.AEAD.Invariant.fresh_nonces_are_unused",
@@ -1000,7 +1000,7 @@
       3,
       0,
       0,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -1008,7 +1008,7 @@
       4,
       0,
       0,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -1017,7 +1017,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Invariant.safeMac",
+        "__query", "equation_Crypto.AEAD.Invariant.safeMac",
         "lemma_Flag.mac1_implies_prf", "primitive_Prims.op_AmpAmp",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_cf695d51d6deaebbd243bd216dd2f99d"
@@ -1030,7 +1030,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Invariant.safeMac",
+        "__query", "equation_Crypto.AEAD.Invariant.safeMac",
         "lemma_Flag.mac1_implies_prf", "primitive_Prims.op_AmpAmp",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_cf695d51d6deaebbd243bd216dd2f99d"
@@ -1043,13 +1043,13 @@
       0,
       0,
       [
-        "@query", "assumption_FStar.Heap.DomContains",
+        "__query", "assumption_FStar.Heap.DomContains",
         "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def", "bool_inversion",
         "constructor_distinct_Prims.None", "constructor_distinct_Prims.Some",
         "constructor_distinct_Prims.option",
         "constructor_distinct_Prims.unit",
-        "data_typing_intro_FStar.Heap.Ref@tok",
-        "data_typing_intro_Prims.Mktuple2@tok",
+        "data_typing_intro_FStar.Heap.Ref__tok",
+        "data_typing_intro_Prims.Mktuple2__tok",
         "equation_Crypto.AEAD.Encoding.rgn",
         "equation_Crypto.AEAD.Invariant.aead_entries",
         "equation_Crypto.AEAD.Invariant.aead_liveness",
@@ -1119,9 +1119,9 @@
         "function_token_typing_FStar.HyperHeap.rid",
         "function_token_typing_FStar.List.Tot.test_sort", "int_inversion",
         "interpretation_Tm_arrow_d4fcaa4faa03c3c735bd1abfd9ac473e",
-        "kinding_Crypto.AEAD.Invariant.aead_entry@tok",
-        "kinding_Crypto.Symmetric.PRF.entry@tok",
-        "kinding_FStar.UInt128.t_@tok", "l_and-interp",
+        "kinding_Crypto.AEAD.Invariant.aead_entry__tok",
+        "kinding_Crypto.Symmetric.PRF.entry__tok",
+        "kinding_FStar.UInt128.t___tok", "l_and-interp",
         "lemma_FStar.HyperHeap.lemma_extends_includes",
         "lemma_FStar.Map.lemma_ContainsDom",
         "lemma_FStar.Map.lemma_equal_elim", "lemma_Flag.mac1_implies_prf",
@@ -1186,7 +1186,7 @@
       1,
       0,
       0,
-      [ "@query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
+      [ "__query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
       0
     ],
     [
@@ -1194,7 +1194,7 @@
       2,
       0,
       0,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -1203,7 +1203,7 @@
       0,
       0,
       [
-        "@query", "constructor_distinct_Prims.None",
+        "__query", "constructor_distinct_Prims.None",
         "equation_Crypto.Symmetric.PRF.domain_mac",
         "equation_Crypto.Symmetric.PRF.find",
         "equation_Crypto.Symmetric.PRF.is_entry_domain",
@@ -1221,7 +1221,7 @@
       4,
       0,
       0,
-      [ "@query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
+      [ "__query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
       0
     ],
     [
@@ -1229,7 +1229,7 @@
       5,
       0,
       0,
-      [ "@query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
+      [ "__query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
       0
     ],
     [
@@ -1237,7 +1237,7 @@
       6,
       0,
       0,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -1245,7 +1245,7 @@
       7,
       0,
       0,
-      [ "@query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
+      [ "__query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
       0
     ],
     [
@@ -1254,9 +1254,9 @@
       0,
       0,
       [
-        "@query", "b2t_def", "bool_inversion",
+        "__query", "b2t_def", "bool_inversion",
         "constructor_distinct_Prims.Some", "constructor_distinct_Tm_unit",
-        "data_typing_intro_Crypto.Symmetric.PRF.Entry@tok", "eq2-interp",
+        "data_typing_intro_Crypto.Symmetric.PRF.Entry__tok", "eq2-interp",
         "equation_Crypto.AEAD.Encoding.rgn",
         "equation_Crypto.AEAD.Wrappers.PRF.prf_mac_added",
         "equation_Crypto.AEAD.Wrappers.PRF.prf_mac_ensures",
@@ -1328,7 +1328,7 @@
       2,
       0,
       0,
-      [ "@query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
+      [ "__query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
       0
     ],
     [
@@ -1336,7 +1336,7 @@
       3,
       0,
       0,
-      [ "@query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
+      [ "__query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
       0
     ],
     [
@@ -1344,7 +1344,7 @@
       4,
       0,
       0,
-      [ "@query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
+      [ "__query", "assumption_Crypto.Symmetric.PRF.domain_haseq" ],
       0
     ],
     [
@@ -1353,7 +1353,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.txtlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax",
         "equation_Crypto.Symmetric.MAC.taglen",
         "equation_Crypto.Symmetric.MAC.wlen", "equation_FStar.UInt.uint_t",
@@ -1375,7 +1375,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.txtlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax", "equation_FStar.UInt.uint_t",
         "equation_FStar.UInt32.n", "equation_FStar.UInt32.t",
         "equation_FStar.UInt32.uint_to_t", "equation_FStar.UInt32.v",
@@ -1393,7 +1393,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.aadlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.aadlen_32",
         "equation_Crypto.AEAD.Encoding.aadmax",
         "equation_Crypto.AEAD.Invariant.aadlen",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
@@ -1413,7 +1413,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.txtlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax",
         "equation_Crypto.Symmetric.MAC.taglen",
         "equation_Crypto.Symmetric.MAC.wlen", "equation_FStar.UInt.uint_t",
@@ -1435,7 +1435,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.txtlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax", "equation_FStar.UInt.uint_t",
         "equation_FStar.UInt32.n", "equation_FStar.UInt32.t",
         "equation_FStar.UInt32.uint_to_t", "equation_FStar.UInt32.v",
@@ -1453,7 +1453,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.aadlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.aadlen_32",
         "equation_Crypto.AEAD.Encoding.aadmax",
         "equation_Crypto.AEAD.Invariant.aadlen",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
@@ -1473,7 +1473,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.txtlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax",
         "equation_Crypto.Symmetric.MAC.taglen",
         "equation_Crypto.Symmetric.MAC.wlen", "equation_FStar.UInt.uint_t",
@@ -1495,7 +1495,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.txtlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax", "equation_FStar.UInt.uint_t",
         "equation_FStar.UInt32.n", "equation_FStar.UInt32.t",
         "equation_FStar.UInt32.uint_to_t", "equation_FStar.UInt32.v",
@@ -1513,7 +1513,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.aadlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.aadlen_32",
         "equation_Crypto.AEAD.Encoding.aadmax",
         "equation_Crypto.AEAD.Invariant.aadlen",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
@@ -1532,7 +1532,7 @@
       10,
       0,
       0,
-      [ "@query", "equation_Crypto.AEAD.Encoding.alg" ],
+      [ "__query", "equation_Crypto.AEAD.Encoding.alg" ],
       0
     ],
     [
@@ -1541,16 +1541,16 @@
       0,
       0,
       [
-        "@query", "b2t_def", "bool_inversion",
+        "__query", "b2t_def", "bool_inversion",
         "constructor_distinct_Crypto.Indexing.AES128",
         "constructor_distinct_Crypto.Indexing.AES256",
         "constructor_distinct_Crypto.Indexing.AES_128_GCM",
         "constructor_distinct_Crypto.Indexing.CHACHA20",
         "constructor_distinct_Crypto.Indexing.CHACHA20_POLY1305",
         "constructor_distinct_Tm_unit",
-        "equality_tok_Crypto.Indexing.AES128@tok",
-        "equality_tok_Crypto.Indexing.AES256@tok",
-        "equality_tok_Crypto.Indexing.CHACHA20@tok",
+        "equality_tok_Crypto.Indexing.AES128__tok",
+        "equality_tok_Crypto.Indexing.AES256__tok",
+        "equality_tok_Crypto.Indexing.CHACHA20__tok",
         "equation_Crypto.AEAD.Encoding.aadlen_32",
         "equation_Crypto.AEAD.Encoding.aadmax",
         "equation_Crypto.AEAD.Encoding.alg",
@@ -1624,7 +1624,7 @@
       0,
       0,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid",
         "assumption_FStar.HyperHeap.Mod_set_def", "b2t_def",
         "bool_inversion", "bool_typing",
         "constructor_distinct_Crypto.Symmetric.UF1CMA.state",
@@ -1632,7 +1632,7 @@
         "constructor_distinct_Prims.None", "constructor_distinct_Prims.Some",
         "constructor_distinct_Prims.option",
         "constructor_distinct_Prims.unit", "constructor_distinct_Tm_unit",
-        "data_typing_intro_Prims.Mktuple2@tok", "disc_equation_Prims.None",
+        "data_typing_intro_Prims.Mktuple2__tok", "disc_equation_Prims.None",
         "disc_equation_Prims.Some", "eq2-interp",
         "equation_Crypto.AEAD.Encoding.alg",
         "equation_Crypto.AEAD.Encoding.rgn",
@@ -1745,9 +1745,9 @@
         "interpretation_Tm_arrow_6ec9359d1170e7e0df2968171e3ebfec",
         "interpretation_Tm_arrow_8bfa21e70aa14176e750ddddeba2307f",
         "interpretation_Tm_arrow_9cb3c953faf527c316d427b2ce8bd81b",
-        "kinding_Crypto.AEAD.Invariant.aead_entry@tok",
-        "kinding_Crypto.Symmetric.PRF.entry@tok",
-        "kinding_FStar.UInt128.t_@tok", "kinding_FStar.UInt8.t_@tok",
+        "kinding_Crypto.AEAD.Invariant.aead_entry__tok",
+        "kinding_Crypto.Symmetric.PRF.entry__tok",
+        "kinding_FStar.UInt128.t___tok", "kinding_FStar.UInt8.t___tok",
         "l_and-interp", "l_imp-interp", "lemma_FStar.Buffer.lemma_size",
         "lemma_FStar.HyperHeap.lemma_extends_includes",
         "lemma_FStar.HyperHeap.lemma_includes_refl",
@@ -1856,7 +1856,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.txtlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax",
         "equation_Crypto.Symmetric.MAC.taglen",
         "equation_Crypto.Symmetric.MAC.wlen", "equation_FStar.UInt.uint_t",
@@ -1878,7 +1878,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.txtlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax", "equation_FStar.UInt.uint_t",
         "equation_FStar.UInt32.n", "equation_FStar.UInt32.t",
         "equation_FStar.UInt32.uint_to_t", "equation_FStar.UInt32.v",
@@ -1896,7 +1896,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.aadlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.aadlen_32",
         "equation_Crypto.AEAD.Encoding.aadmax",
         "equation_Crypto.AEAD.Invariant.aadlen",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
@@ -1916,7 +1916,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.txtlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax",
         "equation_Crypto.Symmetric.MAC.taglen",
         "equation_Crypto.Symmetric.MAC.wlen", "equation_FStar.UInt.uint_t",
@@ -1938,7 +1938,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.txtlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax", "equation_FStar.UInt.uint_t",
         "equation_FStar.UInt32.n", "equation_FStar.UInt32.t",
         "equation_FStar.UInt32.uint_to_t", "equation_FStar.UInt32.v",
@@ -1956,7 +1956,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.aadlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.aadlen_32",
         "equation_Crypto.AEAD.Encoding.aadmax",
         "equation_Crypto.AEAD.Invariant.aadlen",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
@@ -1976,7 +1976,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.txtlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax",
         "equation_Crypto.Symmetric.MAC.taglen",
         "equation_Crypto.Symmetric.MAC.wlen", "equation_FStar.UInt.uint_t",
@@ -1998,7 +1998,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.txtlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax", "equation_FStar.UInt.uint_t",
         "equation_FStar.UInt32.n", "equation_FStar.UInt32.t",
         "equation_FStar.UInt32.uint_to_t", "equation_FStar.UInt32.v",
@@ -2016,7 +2016,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.aadlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.aadlen_32",
         "equation_Crypto.AEAD.Encoding.aadmax",
         "equation_Crypto.AEAD.Invariant.aadlen",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
@@ -2036,7 +2036,7 @@
       0,
       0,
       [
-        "@query", "equation_Crypto.AEAD.Encoding.aadlen_32",
+        "__query", "equation_Crypto.AEAD.Encoding.aadlen_32",
         "equation_Crypto.AEAD.Encoding.aadmax",
         "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax",
@@ -2072,7 +2072,7 @@
       0,
       0,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid",
         "assumption_FStar.HyperHeap.Mod_set_def", "b2t_def",
         "bool_inversion", "bool_typing",
         "constructor_distinct_Crypto.Symmetric.UF1CMA.state",
@@ -2080,7 +2080,7 @@
         "constructor_distinct_Prims.None", "constructor_distinct_Prims.Some",
         "constructor_distinct_Prims.option",
         "constructor_distinct_Prims.unit",
-        "data_typing_intro_Prims.Mktuple2@tok", "disc_equation_Prims.None",
+        "data_typing_intro_Prims.Mktuple2__tok", "disc_equation_Prims.None",
         "disc_equation_Prims.Some", "equation_Crypto.AEAD.Encoding.rgn",
         "equation_Crypto.AEAD.Encoding.txtlen_32",
         "equation_Crypto.AEAD.Encoding.txtmax",
@@ -2167,8 +2167,8 @@
         "interpretation_Tm_arrow_5dcc7b89878b83db3eb89a2fd5b4fffc",
         "interpretation_Tm_arrow_6ec9359d1170e7e0df2968171e3ebfec",
         "interpretation_Tm_arrow_9cb3c953faf527c316d427b2ce8bd81b",
-        "kinding_Crypto.Symmetric.PRF.entry@tok",
-        "kinding_FStar.UInt128.t_@tok", "kinding_FStar.UInt8.t_@tok",
+        "kinding_Crypto.Symmetric.PRF.entry__tok",
+        "kinding_FStar.UInt128.t___tok", "kinding_FStar.UInt8.t___tok",
         "l_and-interp", "lemma_FStar.Buffer.lemma_size",
         "lemma_FStar.HyperHeap.lemma_extends_includes",
         "lemma_FStar.HyperHeap.lemma_includes_refl",

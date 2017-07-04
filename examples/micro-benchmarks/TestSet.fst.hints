@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@query", "function_token_typing_TestSet.a",
+        "__query", "function_token_typing_TestSet.a",
         "function_token_typing_TestSet.b",
         "function_token_typing_TestSet.elt", "l_or-interp",
         "lemma_FStar.TSet.lemma_equal_intro",

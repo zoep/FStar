@@ -6,42 +6,42 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_string" ],
+      [ "__query", "assumption_Prims.HasEq_string" ],
       0
     ],
-    [ "Ex10a.uu___is_Readable", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Ex10a.uu___is_Readable", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Ex10a.__proj__Readable__item___0",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "disc_equation_Ex10a.Readable",
+        "__MaxIFuel_assumption", "__query", "disc_equation_Ex10a.Readable",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Ex10a_Tm_refine_43c663371132c0c847de0562111b3034"
       ],
       0
     ],
-    [ "Ex10a.uu___is_Writable", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Ex10a.uu___is_Writable", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Ex10a.__proj__Writable__item___0",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "disc_equation_Ex10a.Writable",
+        "__MaxIFuel_assumption", "__query", "disc_equation_Ex10a.Writable",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Ex10a_Tm_refine_b7c189cb365c663bbaaab1bb8e2e94da"
       ],
       0
     ],
-    [ "Ex10a.canWrite", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Ex10a.canWrite", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Ex10a.canWrite",
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_string" ],
+      [ "__query", "assumption_Prims.HasEq_string" ],
       0
     ],
     [
@@ -50,7 +50,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "disc_equation_Ex10a.Readable",
+        "__MaxIFuel_assumption", "__query", "disc_equation_Ex10a.Readable",
         "disc_equation_Ex10a.Writable", "fuel_guarded_inversion_Ex10a.entry"
       ],
       0
@@ -60,7 +60,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_string" ],
+      [ "__query", "assumption_Prims.HasEq_string" ],
       0
     ],
     [
@@ -68,7 +68,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_string" ],
+      [ "__query", "assumption_Prims.HasEq_string" ],
       0
     ],
     [
@@ -76,7 +76,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Ex10a.entry_haseq" ],
+      [ "__query", "assumption_Ex10a.entry_haseq" ],
       0
     ],
     [
@@ -85,9 +85,9 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_f8666440faa91836cc5a13998af863fc",
-        "data_typing_intro_FStar.Pervasives.V@tok", "eq2-interp",
+        "data_typing_intro_FStar.Pervasives.V__tok", "eq2-interp",
         "equation_Ex10a.canWrite_t", "equation_Ex10a.file",
         "equation_FStar.Heap.modifies", "equation_FStar.Heap.modifies_t",
         "equation_FStar.ST.modifies_none",
@@ -104,9 +104,9 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_FStar.List.Tot.Base.tryFind.fuel_instrumented",
-        "@query", "Prims_pretyping_f537159ed795b314b4e58c260361ae86",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_FStar.List.Tot.Base.tryFind.fuel_instrumented",
+        "__query", "Prims_pretyping_f537159ed795b314b4e58c260361ae86",
         "bool_typing", "constructor_distinct_Ex10a.Readable",
         "constructor_distinct_FStar.Pervasives.Native.Some",
         "constructor_distinct_Prims.Cons",

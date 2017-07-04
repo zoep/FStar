@@ -1,16 +1,16 @@
 [
   ".\u0014Ý:fµ±\u000eŒ†¤æ\u001b\u0005“Ø",
   [
-    [ "IfcReificationRegressionTest.x1", 1, 2, 1, [ "@query" ], 0 ],
-    [ "IfcReificationRegressionTest.x2", 1, 2, 1, [ "@query" ], 0 ],
-    [ "IfcReificationRegressionTest.x3", 1, 2, 1, [ "@query" ], 0 ],
+    [ "IfcReificationRegressionTest.x1", 1, 2, 1, [ "__query" ], 0 ],
+    [ "IfcReificationRegressionTest.x2", 1, 2, 1, [ "__query" ], 0 ],
+    [ "IfcReificationRegressionTest.x3", 1, 2, 1, [ "__query" ], 0 ],
     [
       "IfcReificationRegressionTest.bidule0",
       1,
       2,
       1,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple2_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple2_haseq",
         "assumption_Prims.HasEq_int", "function_token_typing_Prims.int"
       ],
       0
@@ -21,7 +21,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.DM4F.IntST.__proj__STINT__item__get_equality",
         "FStar.DM4F.IntST.__proj__STINT__item__get_token_correspondence",
         "FStar.DM4F.IntST.__proj__STINT__item__put_equality",
@@ -55,7 +55,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple2_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple2_haseq",
         "assumption_Prims.HasEq_int", "function_token_typing_Prims.int"
       ],
       0
@@ -66,7 +66,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.DM4F.IntST.__proj__STINT__item__get_equality",
         "FStar.DM4F.IntST.__proj__STINT__item__get_token_correspondence",
         "FStar.DM4F.IntST.__proj__STINT__item__put_equality",
@@ -100,7 +100,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple2_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple2_haseq",
         "assumption_Prims.HasEq_int", "function_token_typing_Prims.int"
       ],
       0
@@ -111,7 +111,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.DM4F.IntST.__proj__STINT__item__get_equality",
         "FStar.DM4F.IntST.__proj__STINT__item__get_token_correspondence",
         "FStar.DM4F.IntST.__proj__STINT__item__put_equality",
@@ -146,7 +146,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple2_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple2_haseq",
         "assumption_Prims.HasEq_int", "function_token_typing_Prims.int"
       ],
       0
@@ -157,7 +157,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.DM4F.IntST.__proj__STINT__item__get_equality",
         "FStar.DM4F.IntST.__proj__STINT__item__get_token_correspondence",
         "FStar.DM4F.IntST.__proj__STINT__item__put_equality",

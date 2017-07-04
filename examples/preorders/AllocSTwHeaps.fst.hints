@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@query", "equation_AllocSTwHeaps.heap_rel",
+        "__query", "equation_AllocSTwHeaps.heap_rel",
         "equation_Preorder.preorder",
         "token_correspondence_AllocSTwHeaps.heap_rel"
       ],
@@ -19,7 +19,7 @@
       2,
       1,
       [
-        "@query", "equation_AllocSTwHeaps.heap_rel",
+        "__query", "equation_AllocSTwHeaps.heap_rel",
         "equation_Preorder.preorder",
         "token_correspondence_AllocSTwHeaps.heap_rel"
       ],
@@ -31,7 +31,7 @@
       2,
       1,
       [
-        "@query", "equation_AllocSTwHeaps.heap_rel",
+        "__query", "equation_AllocSTwHeaps.heap_rel",
         "equation_Preorder.preorder",
         "token_correspondence_AllocSTwHeaps.heap_rel"
       ],
@@ -43,7 +43,7 @@
       2,
       1,
       [
-        "@query", "equation_AllocSTwHeaps.heap_rel",
+        "__query", "equation_AllocSTwHeaps.heap_rel",
         "equation_Preorder.preorder",
         "token_correspondence_AllocSTwHeaps.heap_rel"
       ],
@@ -55,7 +55,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "b2t_def", "bool_inversion",
+        "__MaxIFuel_assumption", "__query", "b2t_def", "bool_inversion",
         "equation_AllocSTwHeaps.contains",
         "refinement_interpretation_FStar.StrongExcludedMiddle_Tm_refine_94f72bfda5e23ac3960136c8bc3f958c",
         "typing_FStar.Heap.contains",
@@ -70,7 +70,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "b2t_def",
+        "__MaxIFuel_assumption", "__query", "b2t_def",
         "equation_AllocSTwHeaps.contains", "equation_AllocSTwHeaps.heap_rel",
         "equation_FStar.ST.ref", "equation_Preorder.stable",
         "lemma_AllocSTwHeaps.contains_lemma", "ref_inversion",
@@ -88,7 +88,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "b2t_def",
+        "__MaxIFuel_assumption", "__query", "b2t_def",
         "equation_AllocSTwHeaps.contains", "equation_AllocSTwHeaps.heap_rel",
         "equation_AllocSTwHeaps.ref", "equation_FStar.ST.ref",
         "equation_Preorder.stable", "lemma_AllocSTwHeaps.contains_lemma",
@@ -115,7 +115,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_AllocSTwHeaps_Tm_refine_c443bed4b5cd174ac857a1cb26ece6b1"
       ],
       0
@@ -126,7 +126,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_AllocSTwHeaps.heap_rel",
+        "__MaxIFuel_assumption", "__query", "equation_AllocSTwHeaps.heap_rel",
         "equation_AllocSTwHeaps.ref", "equation_FStar.ST.ref",
         "lemma_FStar.Heap.lemma_well_typed_upd_contains", "ref_inversion",
         "refinement_interpretation_AllocSTwHeaps_Tm_refine_572a38bbd13f86f374f9c1d684eda1dd",
@@ -141,7 +141,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_AllocSTwHeaps.heap_rel",
+        "__MaxIFuel_assumption", "__query", "equation_AllocSTwHeaps.heap_rel",
         "equation_AllocSTwHeaps.ref", "equation_FStar.ST.ref",
         "lemma_FStar.Heap.lemma_well_typed_upd_contains", "ref_inversion",
         "refinement_interpretation_AllocSTwHeaps_Tm_refine_572a38bbd13f86f374f9c1d684eda1dd",
@@ -156,7 +156,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "b2t_def",
+        "__MaxIFuel_assumption", "__query", "b2t_def",
         "equation_AllocSTwHeaps.contains", "equation_AllocSTwHeaps.heap_rel",
         "equation_AllocSTwHeaps.ref", "equation_FStar.ST.ref",
         "equation_Preorder.stable", "lemma_AllocSTwHeaps.contains_lemma",

@@ -1,14 +1,14 @@
 [
   "+$ˆ/bœ\u0001t>Î\u001eø°÷\u0000H",
   [
-    [ "MRefST.bind_st", 1, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST._dm4f_ISTATE_bind_wp", 1, 2, 1, [ "@query" ], 0 ],
+    [ "MRefST.bind_st", 1, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST._dm4f_ISTATE_bind_wp", 1, 2, 1, [ "__query" ], 0 ],
     [
       "MRefST._dm4f_ISTATE___proj__ISTATE__item__get_elab",
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -16,19 +16,19 @@
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
-    [ "MRefST.ISTATE", 1, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.ISTATE", 2, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.ISTATE", 3, 2, 1, [ "@query" ], 0 ],
+    [ "MRefST.ISTATE", 1, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.ISTATE", 2, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.ISTATE", 3, 2, 1, [ "__query" ], 0 ],
     [
       "MRefST.contains",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3"
       ],
       0
@@ -39,31 +39,31 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3"
       ],
       0
     ],
-    [ "MRefST.contains_lemma", 1, 2, 1, [ "@query" ], 0 ],
+    [ "MRefST.contains_lemma", 1, 2, 1, [ "__query" ], 0 ],
     [
       "MRefST.contains_lemma",
       2,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3"
       ],
       0
     ],
-    [ "MRefST.contains_lemma", 3, 2, 1, [ "@query" ], 0 ],
+    [ "MRefST.contains_lemma", 3, 2, 1, [ "__query" ], 0 ],
     [
       "MRefST.contains_lemma",
       4,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3"
       ],
       0
@@ -73,7 +73,7 @@
       5,
       2,
       1,
-      [ "@query", "equation_MRefST.contains", "unit_typing" ],
+      [ "__query", "equation_MRefST.contains", "unit_typing" ],
       0
     ],
     [
@@ -82,7 +82,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MRefHeap.contains",
+        "__MaxIFuel_assumption", "__query", "equation_MRefHeap.contains",
         "equation_MRefHeap.preorder_t", "equation_MRefST.contains",
         "equation_Prims.snd",
         "refinement_interpretation_MRefST_Tm_refine_3568bcf9133bbe8512b3c2560361e2a6",
@@ -96,7 +96,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MRefHeap.preorder_t",
+        "__MaxIFuel_assumption", "__query", "equation_MRefHeap.preorder_t",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3"
       ],
       0
@@ -107,7 +107,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MRefHeap.preorder_t",
+        "__MaxIFuel_assumption", "__query", "equation_MRefHeap.preorder_t",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3"
       ],
       0
@@ -118,21 +118,21 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3"
       ],
       0
     ],
-    [ "MRefST.heap_rel", 5, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.heap_rel", 6, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.heap_rel", 7, 2, 1, [ "@query" ], 0 ],
+    [ "MRefST.heap_rel", 5, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.heap_rel", 6, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.heap_rel", 7, 2, 1, [ "__query" ], 0 ],
     [
       "MRefST.214306",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "equation_FStar.Pervasives.Native.snd", "equation_MRefHeap.contains",
         "equation_MRefHeap.preorder_t", "equation_MRefHeap.sel",
         "equation_MRefST.contains", "equation_MRefST.heap_rel",
@@ -144,15 +144,15 @@
       ],
       0
     ],
-    [ "MRefST.ist_get", 1, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.ist_put", 1, 2, 1, [ "@query", "unit_typing" ], 0 ],
+    [ "MRefST.ist_get", 1, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.ist_put", 1, 2, 1, [ "__query", "unit_typing" ], 0 ],
     [
       "MRefST.ist_witnessed",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MRefHeap.contains",
+        "__MaxIFuel_assumption", "__query", "equation_MRefHeap.contains",
         "equation_MRefHeap.preorder_t", "equation_MRefHeap.sel",
         "equation_MRefST.contains", "equation_MRefST.heap_rel",
         "equation_Preorder.preorder", "equation_Prims.snd",
@@ -169,7 +169,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MRefHeap.contains",
+        "__MaxIFuel_assumption", "__query", "equation_MRefHeap.contains",
         "equation_MRefHeap.preorder_t", "equation_MRefHeap.sel",
         "equation_MRefST.contains", "equation_MRefST.heap_rel",
         "equation_Preorder.preorder", "equation_Prims.snd",
@@ -186,7 +186,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "MRefHeap_interpretation_Tm_arrow_64c387af3e01c1ddfd67c2dc0275ef79",
         "equation_MRefHeap.contains", "equation_MRefHeap.preorder_t",
         "equation_MRefHeap.sel", "equation_MRefST.contains",
@@ -207,7 +207,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MRefHeap.preorder_t",
+        "__MaxIFuel_assumption", "__query", "equation_MRefHeap.preorder_t",
         "equation_MRefST.heap_rel", "equation_Preorder.stable",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3",
         "token_correspondence_MRefST.contains",
@@ -215,15 +215,15 @@
       ],
       0
     ],
-    [ "MRefST.mref", 2, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.alloc", 1, 2, 1, [ "@query" ], 0 ],
+    [ "MRefST.mref", 2, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.alloc", 1, 2, 1, [ "__query" ], 0 ],
     [
       "MRefST.alloc",
       2,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3"
       ],
       0
@@ -234,7 +234,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3"
       ],
       0
@@ -245,19 +245,19 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3"
       ],
       0
     ],
-    [ "MRefST.alloc", 5, 2, 1, [ "@query" ], 0 ],
+    [ "MRefST.alloc", 5, 2, 1, [ "__query" ], 0 ],
     [
       "MRefST.alloc",
       6,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "equation_FStar.Pervasives.Native.fst",
         "equation_FStar.Pervasives.Native.snd",
         "equation_FStar.Pervasives.dfst", "equation_MRefHeap.alloc_ref",
@@ -287,19 +287,19 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3"
       ],
       0
     ],
-    [ "MRefST.alloc", 8, 2, 1, [ "@query" ], 0 ],
+    [ "MRefST.alloc", 8, 2, 1, [ "__query" ], 0 ],
     [
       "MRefST.alloc",
       9,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3"
       ],
       0
@@ -310,21 +310,21 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_Preorder_Tm_refine_a34ac7e38d58ed200592467059dc53b3"
       ],
       0
     ],
-    [ "MRefST.read", 1, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.read", 2, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.read", 3, 2, 1, [ "@query", "equation_MRefST.contains" ], 0 ],
+    [ "MRefST.read", 1, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.read", 2, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.read", 3, 2, 1, [ "__query", "equation_MRefST.contains" ], 0 ],
     [
       "MRefST.read",
       4,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MRefHeap.preorder_t",
+        "__MaxIFuel_assumption", "__query", "equation_MRefHeap.preorder_t",
         "equation_MRefST.contains", "equation_MRefST.heap_rel",
         "equation_MRefST.mref", "equation_Preorder.stable",
         "refinement_interpretation_MRefST_Tm_refine_da9cbab0485332770e2f963089e2dda6",
@@ -333,19 +333,19 @@
       ],
       0
     ],
-    [ "MRefST.read", 5, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.read", 6, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.write", 1, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.write", 2, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.write", 3, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.write", 4, 2, 1, [ "@query" ], 0 ],
+    [ "MRefST.read", 5, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.read", 6, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.write", 1, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.write", 2, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.write", 3, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.write", 4, 2, 1, [ "__query" ], 0 ],
     [
       "MRefST.write",
       5,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MRefST.mref",
+        "__MaxIFuel_assumption", "__query", "equation_MRefST.mref",
         "lemma_MRefST.contains_lemma",
         "refinement_interpretation_MRefST_Tm_refine_da9cbab0485332770e2f963089e2dda6"
       ],
@@ -357,7 +357,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "constructor_distinct_FStar.Pervasives.Native.Some",
         "data_elim_FStar.Pervasives.Native.Mktuple2",
         "data_elim_Prims.Mkdtuple2", "equation_FStar.Pervasives.Native.snd",
@@ -393,32 +393,32 @@
       ],
       0
     ],
-    [ "MRefST.write", 7, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.write", 8, 2, 1, [ "@query" ], 0 ],
+    [ "MRefST.write", 7, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.write", 8, 2, 1, [ "__query" ], 0 ],
     [
       "MRefST.stable_on_heap_aux",
       1,
       2,
       1,
-      [ "@query", "equation_MRefST.contains" ],
+      [ "__query", "equation_MRefST.contains" ],
       0
     ],
-    [ "MRefST.stable_on_heap_aux", 2, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.stable_on_heap_aux", 3, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.stable_on_heap_aux", 4, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.stable_on_heap_aux", 5, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.stable_on_heap", 1, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.stable_on_heap", 2, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.stable_on_heap_stable", 1, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.stable_on_heap_stable", 2, 2, 1, [ "@query" ], 0 ],
-    [ "MRefST.stable_on_heap_stable", 3, 2, 1, [ "@query" ], 0 ],
+    [ "MRefST.stable_on_heap_aux", 2, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.stable_on_heap_aux", 3, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.stable_on_heap_aux", 4, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.stable_on_heap_aux", 5, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.stable_on_heap", 1, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.stable_on_heap", 2, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.stable_on_heap_stable", 1, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.stable_on_heap_stable", 2, 2, 1, [ "__query" ], 0 ],
+    [ "MRefST.stable_on_heap_stable", 3, 2, 1, [ "__query" ], 0 ],
     [
       "MRefST.stable_on_heap_stable",
       4,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MRefHeap.contains",
+        "__MaxIFuel_assumption", "__query", "equation_MRefHeap.contains",
         "equation_MRefHeap.preorder_t", "equation_MRefST.contains",
         "equation_MRefST.heap_rel", "equation_MRefST.mref",
         "equation_MRefST.stable_on_heap_aux", "equation_Prims.snd",
@@ -428,14 +428,14 @@
       ],
       0
     ],
-    [ "MRefST.witness", 1, 2, 1, [ "@query" ], 0 ],
+    [ "MRefST.witness", 1, 2, 1, [ "__query" ], 0 ],
     [
       "MRefST.witness",
       2,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MRefST.stable_on_heap",
+        "__MaxIFuel_assumption", "__query", "equation_MRefST.stable_on_heap",
         "equation_Preorder.stable", "lemma_MRefST.stable_on_heap_stable",
         "refinement_interpretation_MRefST_Tm_refine_fdd9133066d131670ab2d71287057144",
         "token_correspondence_MRefST.heap_rel"
@@ -448,21 +448,21 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MRefST.stable_on_heap",
+        "__MaxIFuel_assumption", "__query", "equation_MRefST.stable_on_heap",
         "equation_Preorder.stable", "lemma_MRefST.stable_on_heap_stable",
         "refinement_interpretation_MRefST_Tm_refine_fdd9133066d131670ab2d71287057144",
         "token_correspondence_MRefST.heap_rel"
       ],
       0
     ],
-    [ "MRefST.recall", 1, 2, 1, [ "@query" ], 0 ],
+    [ "MRefST.recall", 1, 2, 1, [ "__query" ], 0 ],
     [
       "MRefST.recall",
       2,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MRefST.stable_on_heap",
+        "__MaxIFuel_assumption", "__query", "equation_MRefST.stable_on_heap",
         "equation_Preorder.stable", "lemma_MRefST.stable_on_heap_stable",
         "refinement_interpretation_MRefST_Tm_refine_fdd9133066d131670ab2d71287057144",
         "token_correspondence_MRefST.heap_rel"
@@ -475,7 +475,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MRefST.stable_on_heap",
+        "__MaxIFuel_assumption", "__query", "equation_MRefST.stable_on_heap",
         "equation_Preorder.stable", "lemma_MRefST.stable_on_heap_stable",
         "refinement_interpretation_MRefST_Tm_refine_fdd9133066d131670ab2d71287057144",
         "token_correspondence_MRefST.heap_rel"

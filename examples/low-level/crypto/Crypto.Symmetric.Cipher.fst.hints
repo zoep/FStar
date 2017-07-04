@@ -7,7 +7,7 @@
       0,
       1,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.AES128",
+        "__query", "constructor_distinct_Crypto.Indexing.AES128",
         "constructor_distinct_Crypto.Indexing.AES256",
         "constructor_distinct_Crypto.Indexing.CHACHA20",
         "data_elim_FStar.UInt32.Mk", "disc_equation_Crypto.Indexing.AES128",
@@ -45,7 +45,7 @@
       0,
       1,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.AES128",
+        "__query", "constructor_distinct_Crypto.Indexing.AES128",
         "constructor_distinct_Crypto.Indexing.CHACHA20",
         "data_elim_FStar.UInt32.Mk", "disc_equation_Crypto.Indexing.AES128",
         "disc_equation_Crypto.Indexing.AES256",
@@ -78,7 +78,7 @@
       0,
       1,
       [
-        "@query", "data_elim_FStar.UInt32.Mk",
+        "__query", "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Chacha20.ivlen",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
         "equation_FStar.UInt32.t", "equation_FStar.UInt32.uint_to_t",
@@ -95,7 +95,7 @@
       0,
       2,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "constructor_distinct_Crypto.Indexing.AES256",
         "constructor_distinct_Crypto.Indexing.CHACHA20",
         "data_elim_FStar.UInt32.Mk", "disc_equation_Crypto.Indexing.AES128",
@@ -139,7 +139,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
+        "__query", "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
         "lemma_FStar.Buffer.lemma_size",
         "refinement_interpretation_Tm_refine_03d0bed5c0733099844f268aecd0836d"
       ],
@@ -151,7 +151,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
+        "__query", "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
         "lemma_FStar.Buffer.lemma_size",
         "refinement_interpretation_Tm_refine_03d0bed5c0733099844f268aecd0836d"
       ],
@@ -163,7 +163,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
+        "__query", "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
         "lemma_FStar.Buffer.lemma_size",
         "refinement_interpretation_Tm_refine_03d0bed5c0733099844f268aecd0836d"
       ],
@@ -175,7 +175,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "equation_Crypto.Symmetric.AES.blocklen",
+        "__query", "b2t_def", "equation_Crypto.Symmetric.AES.blocklen",
         "equation_Crypto.Symmetric.AES.keylen",
         "equation_Crypto.Symmetric.AES.nb",
         "equation_Crypto.Symmetric.AES.nk",
@@ -213,8 +213,8 @@
       0,
       1,
       [
-        "@query", "constructor_distinct_Crypto.Indexing.AES256",
-        "equality_tok_Crypto.Indexing.AES256@tok",
+        "__query", "constructor_distinct_Crypto.Indexing.AES256",
+        "equality_tok_Crypto.Indexing.AES256__tok",
         "equation_Crypto.Symmetric.Cipher.blocklen",
         "equation_FStar.Int16.n", "equation_FStar.UInt32.uint_to_t",
         "equation_FStar.UInt32.v", "function_token_typing_FStar.Int16.n",
@@ -229,9 +229,9 @@
       0,
       0,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "constructor_distinct_Crypto.Indexing.AES256",
-        "equality_tok_Crypto.Indexing.AES256@tok",
+        "equality_tok_Crypto.Indexing.AES256__tok",
         "equation_Crypto.Symmetric.AES.blocklen",
         "equation_Crypto.Symmetric.AES.keylen",
         "equation_Crypto.Symmetric.AES.nb",
@@ -262,7 +262,7 @@
         "function_token_typing_Crypto.Symmetric.AES.nr",
         "function_token_typing_Crypto.Symmetric.Chacha20.blocklen",
         "function_token_typing_Crypto.Symmetric.Chacha20.ivlen",
-        "int_inversion", "int_typing", "kinding_FStar.UInt8.t_@tok",
+        "int_inversion", "int_typing", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_modifies_1_trans",
         "lemma_FStar.HyperStack.lemma_equal_domains_trans",
         "lemma_FStar.UInt.pow2_values", "primitive_Prims.op_Addition",
@@ -277,7 +277,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
         "typing_Crypto.Symmetric.AES.v",
         "typing_Crypto.Symmetric.Cipher.blocklen", "typing_FStar.UInt.fits",
-        "typing_FStar.UInt32.v", "typing_tok_Crypto.Indexing.AES256@tok"
+        "typing_FStar.UInt32.v", "typing_tok_Crypto.Indexing.AES256__tok"
       ],
       0
     ],
@@ -287,7 +287,7 @@
       0,
       2,
       [
-        "@query", "assumption_FStar.Heap.DomContains",
+        "__query", "assumption_FStar.Heap.DomContains",
         "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def", "bool_inversion",
         "bool_typing", "constructor_distinct_Crypto.Indexing.AES128",
         "constructor_distinct_Crypto.Indexing.AES256",
@@ -299,10 +299,10 @@
         "disc_equation_Crypto.Indexing.AES128",
         "disc_equation_Crypto.Indexing.AES256",
         "disc_equation_Crypto.Indexing.CHACHA20",
-        "equality_tok_Crypto.Config.HaclAES@tok",
-        "equality_tok_Crypto.Indexing.AES128@tok",
-        "equality_tok_Crypto.Indexing.AES256@tok",
-        "equality_tok_Crypto.Indexing.CHACHA20@tok",
+        "equality_tok_Crypto.Config.HaclAES__tok",
+        "equality_tok_Crypto.Indexing.AES128__tok",
+        "equality_tok_Crypto.Indexing.AES256__tok",
+        "equality_tok_Crypto.Indexing.CHACHA20__tok",
         "equation_Buffer.Utils.u8", "equation_Crypto.Indexing.aesImpl_of_id",
         "equation_Crypto.Symmetric.AES.blocklen",
         "equation_Crypto.Symmetric.AES.keylen",
@@ -373,7 +373,7 @@
         "function_token_typing_FStar.Heap.heap",
         "function_token_typing_FStar.HyperHeap.rid",
         "function_token_typing_FStar.UInt8.n", "int_inversion", "int_typing",
-        "kinding_FStar.Heap.aref@tok", "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.Heap.aref__tok", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_disjoint_sub_",
         "lemma_FStar.Buffer.lemma_disjoint_symm",
         "lemma_FStar.Buffer.lemma_equal_domains_2",

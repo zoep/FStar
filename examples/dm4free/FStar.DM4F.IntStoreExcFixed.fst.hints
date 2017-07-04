@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "bool_inversion",
+        "__MaxIFuel_assumption", "__query", "bool_inversion",
         "disc_equation_FStar.Pervasives.Native.None",
         "disc_equation_FStar.Pervasives.Native.Some",
         "lemma_FStar.Pervasives.invertOption",
@@ -22,7 +22,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "bool_inversion",
+        "__MaxIFuel_assumption", "__query", "bool_inversion",
         "disc_equation_FStar.Pervasives.Native.None",
         "disc_equation_FStar.Pervasives.Native.Some",
         "fuel_guarded_inversion_FStar.Pervasives.Native.option",
@@ -37,7 +37,7 @@
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -45,7 +45,7 @@
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -53,29 +53,29 @@
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
-    [ "FStar.DM4F.IntStoreExcFixed.INT_STORE_EXC", 1, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.DM4F.IntStoreExcFixed.INT_STORE_EXC", 2, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.DM4F.IntStoreExcFixed.INT_STORE_EXC", 3, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.DM4F.IntStoreExcFixed.INT_STORE_EXC", 4, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.DM4F.IntStoreExcFixed.INT_STORE_EXC", 1, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.DM4F.IntStoreExcFixed.INT_STORE_EXC", 2, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.DM4F.IntStoreExcFixed.INT_STORE_EXC", 3, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.DM4F.IntStoreExcFixed.INT_STORE_EXC", 4, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.DM4F.IntStoreExcFixed.raise_",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "constructor_distinct_FStar.Pervasives.Native.None",
-        "data_typing_intro_FStar.Pervasives.Native.None@tok",
+        "data_typing_intro_FStar.Pervasives.Native.None__tok",
         "disc_equation_FStar.Pervasives.Native.None",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_FStar.Pervasives.Native.None_a"
       ],
       0
     ],
-    [ "FStar.DM4F.IntStoreExcFixed.read", 1, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.DM4F.IntStoreExcFixed.write", 1, 2, 1, [ "@query" ], 0 ]
+    [ "FStar.DM4F.IntStoreExcFixed.read", 1, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.DM4F.IntStoreExcFixed.write", 1, 2, 1, [ "__query" ], 0 ]
   ]
 ]

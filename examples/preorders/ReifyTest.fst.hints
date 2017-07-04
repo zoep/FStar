@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565", "b2t_def",
         "constructor_distinct_Prims.Some", "equation_MRefHeap.alloc_ref",
         "equation_MRefHeap.contains", "equation_MRefHeap.heap_cell",
@@ -47,7 +47,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -61,7 +61,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -75,7 +75,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -89,7 +89,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -103,7 +103,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -117,7 +117,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -131,7 +131,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -145,7 +145,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -159,7 +159,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -173,7 +173,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -187,7 +187,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -201,7 +201,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -215,7 +215,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -229,7 +229,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -243,7 +243,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -257,7 +257,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -271,7 +271,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -285,7 +285,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -299,7 +299,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -313,7 +313,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -327,7 +327,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -341,7 +341,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -355,7 +355,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -369,7 +369,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -383,7 +383,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -397,7 +397,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -411,7 +411,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -425,7 +425,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat",
         "interpretation_ReifyTest_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",

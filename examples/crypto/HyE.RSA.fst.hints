@@ -7,8 +7,8 @@
       2,
       1,
       [
-        "@query", "constructor_distinct_CoreCrypto.AES_128_GCM",
-        "equality_tok_CoreCrypto.AES_128_GCM@tok",
+        "__query", "constructor_distinct_CoreCrypto.AES_128_GCM",
+        "equality_tok_CoreCrypto.AES_128_GCM__tok",
         "equation_CoreCrypto.aeadKeySize", "equation_HyE.RSA.plainsize",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -20,9 +20,9 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Pervasives.Native.option_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.option_haseq",
         "assumption_Platform.Bytes.HasEq_bytes",
-        "equality_tok_CoreCrypto.AES_128_GCM@tok",
+        "equality_tok_CoreCrypto.AES_128_GCM__tok",
         "equation_CoreCrypto.aeadKeySize", "equation_HyE.RSA.plain",
         "equation_HyE.RSA.plainsize", "equation_Platform.Bytes.bytes",
         "equation_Platform.Bytes.lbytes",

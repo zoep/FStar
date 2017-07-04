@@ -6,7 +6,7 @@
       1,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -15,7 +15,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "data_elim_FStar.UInt32.Mk",
+        "__query", "b2t_def", "bool_inversion", "data_elim_FStar.UInt32.Mk",
         "equation_Buffer.Utils.u8", "equation_Crypto.Symmetric.AES.blocklen",
         "equation_Crypto.Symmetric.AES.keylen",
         "equation_Crypto.Symmetric.AES.nb",
@@ -44,7 +44,7 @@
         "function_token_typing_Crypto.Symmetric.AES.keylen",
         "function_token_typing_Crypto.Symmetric.AES.nb",
         "function_token_typing_FStar.UInt8.n", "int_inversion", "int_typing",
-        "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.modifies_subbuffer_1",
         "primitive_Prims.op_Addition", "primitive_Prims.op_AmpAmp",
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Multiply",
@@ -79,7 +79,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
+        "__query", "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
         "equation_FStar.UInt32.uint_to_t", "equation_FStar.UInt32.v",
         "lemma_FStar.Buffer.lemma_size", "proj_equation_FStar.UInt32.Mk_v",
         "projection_inverse_FStar.UInt32.Mk_v",
@@ -93,7 +93,7 @@
       2,
       0,
       1,
-      [ "@query", "projection_inverse_BoxBool_proj_0" ],
+      [ "__query", "projection_inverse_BoxBool_proj_0" ],
       0
     ],
     [
@@ -102,7 +102,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt32.t__haseq",
+        "__query", "assumption_FStar.UInt32.t__haseq",
         "equation_FStar.UInt32.t"
       ],
       0
@@ -113,7 +113,7 @@
       0,
       1,
       [
-        "@query", "data_elim_FStar.UInt32.Mk",
+        "__query", "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.AES.keylen",
         "equation_Crypto.Symmetric.AES.nk",
         "equation_Crypto.Symmetric.AES.v", "equation_FStar.Mul.op_Star",
@@ -139,7 +139,7 @@
       0,
       1,
       [
-        "@query", "data_elim_FStar.UInt32.Mk",
+        "__query", "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.AES.keylen",
         "equation_Crypto.Symmetric.AES.nk",
         "equation_Crypto.Symmetric.AES.v", "equation_FStar.Mul.op_Star",
@@ -164,7 +164,7 @@
       2,
       0,
       1,
-      [ "@query", "projection_inverse_BoxBool_proj_0" ],
+      [ "__query", "projection_inverse_BoxBool_proj_0" ],
       0
     ],
     [
@@ -172,7 +172,7 @@
       2,
       0,
       1,
-      [ "@query", "projection_inverse_BoxBool_proj_0" ],
+      [ "__query", "projection_inverse_BoxBool_proj_0" ],
       0
     ]
   ]

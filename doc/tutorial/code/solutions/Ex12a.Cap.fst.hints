@@ -6,7 +6,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Platform.Bytes.HasEq_bytes" ],
+      [ "__query", "assumption_Platform.Bytes.HasEq_bytes" ],
       0
     ],
     [
@@ -15,7 +15,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86",
         "assumption_Ex12a.Cap.UTF8_inj", "bool_inversion",
         "equation_Ex12.MAC.pkey", "equation_Ex12.SHA1.key",
@@ -39,7 +39,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "constructor_distinct_FStar.Pervasives.V",
         "disc_equation_FStar.Pervasives.V", "equation_Ex12.MAC.pkey",
         "equation_Ex12.SHA1.key", "equation_Ex12.SHA1.keysize",

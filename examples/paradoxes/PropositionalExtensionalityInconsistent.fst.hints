@@ -7,7 +7,7 @@
       0,
       0,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "Prims_pretyping_f8666440faa91836cc5a13998af863fc", "int_inversion",
         "unit_typing"
@@ -19,7 +19,7 @@
       1,
       0,
       0,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -28,7 +28,7 @@
       0,
       0,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_f8666440faa91836cc5a13998af863fc",
         "constructor_distinct_Prims.int", "constructor_distinct_Prims.unit",
         "function_token_typing_Prims.int",
@@ -42,7 +42,7 @@
       0,
       0,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_interpretation_Tm_arrow_9cb3c953faf527c316d427b2ce8bd81b",
         "Prims_interpretation_Tm_arrow_e06752ba152f81447b312efcdf8f0e23",
         "assumption_FStar.FunctionalExtensionality.Extensionality",
@@ -61,12 +61,12 @@
       0,
       0,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "equation_PropositionalExtensionalityInconsistent.p1",
         "equation_PropositionalExtensionalityInconsistent.p2",
         "equation_PropositionalExtensionalityInconsistent.peq",
-        "fresh_token_PropositionalExtensionalityInconsistent.p1@tok",
-        "fresh_token_PropositionalExtensionalityInconsistent.p2@tok",
+        "fresh_token_PropositionalExtensionalityInconsistent.p1__tok",
+        "fresh_token_PropositionalExtensionalityInconsistent.p2__tok",
         "int_inversion",
         "token_correspondence_PropositionalExtensionalityInconsistent.p1",
         "token_correspondence_PropositionalExtensionalityInconsistent.p2"
@@ -78,7 +78,7 @@
       1,
       0,
       0,
-      [ "@query", "unit_typing" ],
+      [ "__query", "unit_typing" ],
       0
     ],
     [
@@ -87,10 +87,10 @@
       0,
       0,
       [
-        "@query", "constructor_distinct_Prims.int",
+        "__query", "constructor_distinct_Prims.int",
         "constructor_distinct_Prims.unit",
-        "fresh_token_PropositionalExtensionalityInconsistent.p1@tok",
-        "fresh_token_PropositionalExtensionalityInconsistent.p2@tok"
+        "fresh_token_PropositionalExtensionalityInconsistent.p1__tok",
+        "fresh_token_PropositionalExtensionalityInconsistent.p2__tok"
       ],
       0
     ],
@@ -100,7 +100,7 @@
       0,
       0,
       [
-        "@query", "constructor_distinct_Prims.int",
+        "__query", "constructor_distinct_Prims.int",
         "constructor_distinct_Prims.unit"
       ],
       0
@@ -110,7 +110,7 @@
       1,
       0,
       0,
-      [ "@MaxIFuel_assumption", "@query", "unit_inversion", "unit_typing" ],
+      [ "__MaxIFuel_assumption", "__query", "unit_inversion", "unit_typing" ],
       0
     ],
     [
@@ -118,7 +118,7 @@
       1,
       0,
       0,
-      [ "@query", "int_typing", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "int_typing", "projection_inverse_BoxInt_proj_0" ],
       0
     ]
   ]

@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@query", "assumption_Platform.Bytes.HasEq_bytes",
+        "__query", "assumption_Platform.Bytes.HasEq_bytes",
         "equation_Cap.byte", "equation_Platform.Bytes.bytes"
       ],
       0
@@ -18,7 +18,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86",
         "Prims_pretyping_f8666440faa91836cc5a13998af863fc",
         "assumption_Cap.UTF8_inj",

@@ -7,7 +7,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "equation_Buffer.Utils.u32",
+        "__query", "b2t_def", "equation_Buffer.Utils.u32",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.max_int",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
@@ -30,7 +30,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -39,7 +39,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "equation_Buffer.Utils.u32",
+        "__query", "b2t_def", "equation_Buffer.Utils.u32",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.max_int",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
@@ -62,7 +62,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -71,7 +71,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def",
         "bool_inversion", "bool_typing", "data_elim_FStar.UInt32.Mk",
         "equation_Buffer.Utils.bytes", "equation_Buffer.Utils.u32",
         "equation_Buffer.Utils.u8", "equation_FStar.Buffer.buffer",
@@ -94,7 +94,7 @@
         "function_token_typing_FStar.Heap.heap",
         "function_token_typing_FStar.HyperHeap.rid",
         "function_token_typing_FStar.List.Tot.test_sort", "int_inversion",
-        "kinding_FStar.Heap.aref@tok", "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.Heap.aref__tok", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_disjoint_symm",
         "lemma_FStar.Buffer.lemma_modifies_1_trans",
         "lemma_FStar.Buffer.lemma_modifies_sub_1",
@@ -128,7 +128,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Mul.op_Star", "equation_Prims.nat",
+        "__query", "equation_FStar.Mul.op_Star", "equation_Prims.nat",
         "equation_Prims.pos", "int_inversion", "primitive_Prims.op_Addition",
         "primitive_Prims.op_Multiply", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
@@ -143,7 +143,7 @@
       0,
       1,
       [
-        "@query", "data_elim_FStar.UInt32.Mk", "equation_FStar.Int16.n",
+        "__query", "data_elim_FStar.UInt32.Mk", "equation_FStar.Int16.n",
         "equation_FStar.Int8.n", "equation_FStar.Mul.op_Star",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.uint_t",
         "equation_FStar.UInt32.n", "equation_FStar.UInt32.t",
@@ -166,7 +166,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -175,7 +175,7 @@
       0,
       1,
       [
-        "@query", "equation_Buffer.Utils.bytes", "equation_Buffer.Utils.u8",
+        "__query", "equation_Buffer.Utils.bytes", "equation_Buffer.Utils.u8",
         "equation_FStar.UInt8.t", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_e109ab7b3f20d6fc94fbda4e245a9911"
       ],
@@ -187,7 +187,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "equation_Buffer.Utils.bytes", "equation_Buffer.Utils.u32",
         "equation_Buffer.Utils.u8", "equation_FStar.Buffer.bounded_seq",
         "equation_FStar.Buffer.buffer", "equation_FStar.Buffer.contains",
@@ -207,7 +207,7 @@
         "fuel_guarded_inversion_FStar.HyperStack.mem",
         "function_token_typing_FStar.Int8.n",
         "function_token_typing_FStar.UInt32.n", "int_inversion",
-        "int_typing", "kinding_FStar.UInt8.t_@tok",
+        "int_typing", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Int.pow2_values", "primitive_Prims.op_Addition",
         "primitive_Prims.op_AmpAmp", "primitive_Prims.op_LessThanOrEqual",
         "primitive_Prims.op_Modulus", "primitive_Prims.op_Multiply",
@@ -235,7 +235,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
         "equation_FStar.UInt8.n",
         "haseqTm_refine_e9c4f78ddd207d339c4640813ef45e10",
         "projection_inverse_BoxInt_proj_0"
@@ -248,7 +248,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
         "equation_FStar.UInt8.n",
         "haseqTm_refine_e9c4f78ddd207d339c4640813ef45e10",
         "projection_inverse_BoxInt_proj_0"
@@ -261,7 +261,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
         "equation_FStar.UInt8.n",
         "haseqTm_refine_e9c4f78ddd207d339c4640813ef45e10",
         "projection_inverse_BoxInt_proj_0"
@@ -274,7 +274,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
         "equation_FStar.UInt8.n",
         "haseqTm_refine_e9c4f78ddd207d339c4640813ef45e10",
         "projection_inverse_BoxInt_proj_0"
@@ -286,7 +286,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -294,7 +294,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -302,7 +302,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -311,7 +311,7 @@
       0,
       0,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def",
         "bool_inversion", "bool_typing", "equation_Buffer.Utils.bytes",
         "equation_Buffer.Utils.u32", "equation_Buffer.Utils.u8",
         "equation_Buffer.Utils.uint32s", "equation_FStar.Buffer.buffer",
@@ -340,8 +340,8 @@
         "function_token_typing_FStar.List.Tot.Base.test_sort",
         "function_token_typing_FStar.UInt32.n",
         "function_token_typing_FStar.UInt8.n", "int_inversion", "int_typing",
-        "kinding_FStar.Heap.aref@tok", "kinding_FStar.UInt32.t_@tok",
-        "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.Heap.aref__tok", "kinding_FStar.UInt32.t___tok",
+        "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_modifies_1_trans",
         "lemma_FStar.Buffer.lemma_modifies_sub_1",
         "lemma_FStar.Buffer.lemma_size", "lemma_FStar.Buffer.no_upd_lemma_1",
@@ -377,7 +377,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -385,7 +385,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -393,7 +393,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -401,7 +401,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -410,7 +410,7 @@
       0,
       1,
       [
-        "@query", "data_elim_FStar.UInt32.Mk", "equation_Buffer.Utils.bytes",
+        "__query", "data_elim_FStar.UInt32.Mk", "equation_Buffer.Utils.bytes",
         "equation_Buffer.Utils.u32", "equation_Buffer.Utils.u8",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
         "equation_FStar.UInt32.t", "equation_FStar.UInt32.v",
@@ -431,7 +431,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "equation_Buffer.Utils.bytes", "equation_Buffer.Utils.u32",
         "equation_Buffer.Utils.u8", "equation_FStar.Buffer.as_seq",
         "equation_FStar.Buffer.buffer", "equation_FStar.Buffer.contains",
@@ -447,7 +447,7 @@
         "fuel_guarded_inversion_FStar.HyperStack.mem",
         "fuel_guarded_inversion_FStar.UInt32.t_",
         "function_token_typing_FStar.UInt32.n", "int_typing",
-        "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_modifies_1_trans",
         "lemma_FStar.Buffer.lemma_size",
         "lemma_FStar.HyperStack.lemma_equal_domains_trans",
@@ -496,7 +496,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
         "haseqTm_refine_89ca984d58100ebf87df2ad1ed88d530",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -508,7 +508,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def",
         "bool_inversion", "bool_typing", "equation_Buffer.Utils.bytes",
         "equation_Buffer.Utils.u32", "equation_Buffer.Utils.u8",
         "equation_FStar.Buffer.bounded_seq", "equation_FStar.Buffer.buffer",
@@ -534,7 +534,7 @@
         "function_token_typing_FStar.HyperHeap.rid",
         "function_token_typing_FStar.List.Tot.test_sort",
         "function_token_typing_FStar.UInt32.n", "int_inversion",
-        "kinding_FStar.Heap.aref@tok", "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.Heap.aref__tok", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_modifies_1_trans",
         "lemma_FStar.Buffer.lemma_modifies_sub_1",
         "lemma_FStar.Buffer.lemma_size",
@@ -569,7 +569,7 @@
       0,
       0,
       [
-        "@query", "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def",
+        "__query", "assumption_FStar.HyperHeap.HasEq_rid", "b2t_def",
         "bool_inversion", "bool_typing", "equation_Buffer.Utils.bytes",
         "equation_Buffer.Utils.u32", "equation_Buffer.Utils.u8",
         "equation_FStar.Buffer.as_seq", "equation_FStar.Buffer.buffer",
@@ -600,7 +600,7 @@
         "function_token_typing_FStar.List.Tot.Base.test_sort",
         "int_inversion", "int_typing",
         "interpretation_Tm_arrow_03c7920d21e9b14ed8ee4964397ef9c8",
-        "kinding_FStar.Heap.aref@tok", "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.Heap.aref__tok", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_live_disjoint",
         "lemma_FStar.Buffer.lemma_modifies_1_trans",
         "lemma_FStar.Buffer.lemma_modifies_sub_1",
@@ -665,7 +665,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt32.t__haseq",
+        "__query", "assumption_FStar.UInt32.t__haseq",
         "equation_FStar.UInt32.t"
       ],
       0
@@ -676,7 +676,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq",
+        "__query", "assumption_FStar.UInt8.t__haseq",
         "equation_Buffer.Utils.u8", "equation_FStar.UInt8.t"
       ],
       0

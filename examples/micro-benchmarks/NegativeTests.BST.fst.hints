@@ -6,7 +6,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -14,7 +14,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -22,7 +22,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -30,7 +30,7 @@
       4,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -39,36 +39,36 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "assumption_FStar.Pervasives.Native.option_haseq",
         "assumption_Prims.HasEq_int",
         "haseqNegativeTests.BST_Tm_refine_7b1de022dd98e3cefdde3a41e40ebd18",
-        "int_inversion", "kinding_NegativeTests.BST.tree@tok"
+        "int_inversion", "kinding_NegativeTests.BST.tree__tok"
       ],
       0
     ],
-    [ "NegativeTests.BST.uu___is_Leaf", 1, 2, 1, [ "@query" ], 0 ],
+    [ "NegativeTests.BST.uu___is_Leaf", 1, 2, 1, [ "__query" ], 0 ],
     [
       "NegativeTests.BST.__proj__Leaf__item__n",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_NegativeTests.BST.Leaf", "int_inversion",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_NegativeTests.BST_Tm_refine_c89ea22d08945e60fddbf2e1bfa3e94f"
       ],
       0
     ],
-    [ "NegativeTests.BST.uu___is_Node", 1, 2, 1, [ "@query" ], 0 ],
+    [ "NegativeTests.BST.uu___is_Node", 1, 2, 1, [ "__query" ], 0 ],
     [
       "NegativeTests.BST.__proj__Node__item__l",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_NegativeTests.BST.Node", "int_inversion",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_NegativeTests.BST_Tm_refine_75411a533307926cb439c1c1b9e6a6c4"
@@ -80,7 +80,7 @@
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -89,7 +89,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_NegativeTests.BST.Node", "int_inversion",
         "proj_equation_NegativeTests.BST.Node_l",
         "projection_inverse_BoxBool_proj_0",
@@ -104,7 +104,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_NegativeTests.BST.Node", "int_inversion",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_NegativeTests.BST_Tm_refine_75411a533307926cb439c1c1b9e6a6c4"
@@ -117,7 +117,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_NegativeTests.BST.Node", "int_inversion",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_NegativeTests.BST_Tm_refine_75411a533307926cb439c1c1b9e6a6c4"
@@ -129,7 +129,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -138,7 +138,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "data_elim_NegativeTests.BST.Node",
+        "__MaxIFuel_assumption", "__query", "data_elim_NegativeTests.BST.Node",
         "disc_equation_NegativeTests.BST.Node", "disc_equation_Prims.None",
         "int_inversion", "proj_equation_NegativeTests.BST.Node_l",
         "proj_equation_NegativeTests.BST.Node_left",
@@ -161,7 +161,7 @@
       2,
       1,
       [
-        "@query", "constructor_distinct_FStar.Pervasives.Native.None",
+        "__query", "constructor_distinct_FStar.Pervasives.Native.None",
         "disc_equation_FStar.Pervasives.Native.None",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_FStar.Pervasives.Native.None_a"
@@ -174,7 +174,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "constructor_distinct_FStar.Pervasives.Native.None",
         "constructor_distinct_FStar.Pervasives.Native.Some",
         "disc_equation_FStar.Pervasives.Native.None", "int_inversion",
@@ -190,7 +190,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "constructor_distinct_FStar.Pervasives.Native.Some",
         "disc_equation_FStar.Pervasives.Native.None", "int_inversion",
         "primitive_Prims.op_Addition", "projection_inverse_BoxBool_proj_0",

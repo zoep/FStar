@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "function_token_typing_Prims.int",
+        "__MaxIFuel_assumption", "__query", "function_token_typing_Prims.int",
         "function_token_typing_TestHeap.h",
         "function_token_typing_TestHeap.x", "int_typing",
         "lemma_FStar.Heap.lemma_sel_upd1",
@@ -20,7 +20,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -29,7 +29,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "assumption_TestHeap.DistinctXY",
+        "__MaxIFuel_assumption", "__query", "assumption_TestHeap.DistinctXY",
         "function_token_typing_Prims.int",
         "function_token_typing_TestHeap.h",
         "function_token_typing_TestHeap.x",
@@ -44,7 +44,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -53,7 +53,7 @@
       2,
       1,
       [
-        "@query", "function_token_typing_Prims.int",
+        "__query", "function_token_typing_Prims.int",
         "function_token_typing_TestHeap.y", "int_typing",
         "lemma_FStar.Heap.lemma_sel_upd1"
       ],
@@ -64,7 +64,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -73,7 +73,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "assumption_TestHeap.DistinctXY",
+        "__MaxIFuel_assumption", "__query", "assumption_TestHeap.DistinctXY",
         "function_token_typing_Prims.int",
         "function_token_typing_TestHeap.h",
         "function_token_typing_TestHeap.x",
@@ -91,7 +91,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "assumption_TestHeap.DistinctXY",
+        "__MaxIFuel_assumption", "__query", "assumption_TestHeap.DistinctXY",
         "function_token_typing_Prims.int",
         "function_token_typing_TestHeap.h",
         "function_token_typing_TestHeap.x",

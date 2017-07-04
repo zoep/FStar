@@ -1,37 +1,37 @@
 [
   "c‡Î‘G€áÑTøY’·'KÔ",
   [
-    [ "HyE.CCA2.__proj__Entry__item__c", 1, 2, 1, [ "@query" ], 0 ],
-    [ "HyE.CCA2.__proj__Entry__item__p", 1, 2, 1, [ "@query" ], 0 ],
-    [ "HyE.CCA2.__proj__PKey__item__region", 1, 2, 1, [ "@query" ], 0 ],
-    [ "HyE.CCA2.__proj__PKey__item__rawpk", 1, 2, 1, [ "@query" ], 0 ],
+    [ "HyE.CCA2.__proj__Entry__item__c", 1, 2, 1, [ "__query" ], 0 ],
+    [ "HyE.CCA2.__proj__Entry__item__p", 1, 2, 1, [ "__query" ], 0 ],
+    [ "HyE.CCA2.__proj__PKey__item__region", 1, 2, 1, [ "__query" ], 0 ],
+    [ "HyE.CCA2.__proj__PKey__item__rawpk", 1, 2, 1, [ "__query" ], 0 ],
     [
       "HyE.CCA2.__proj__PKey__item__log",
       1,
       2,
       1,
       [
-        "@query", "proj_equation_HyE.CCA2.PKey_region",
+        "__query", "proj_equation_HyE.CCA2.PKey_region",
         "projection_inverse_HyE.CCA2.PKey_region"
       ],
       0
     ],
-    [ "HyE.CCA2.__proj__SKey__item__raw", 1, 2, 1, [ "@query" ], 0 ],
-    [ "HyE.CCA2.__proj__SKey__item__pk", 1, 2, 1, [ "@query" ], 0 ],
+    [ "HyE.CCA2.__proj__SKey__item__raw", 1, 2, 1, [ "__query" ], 0 ],
+    [ "HyE.CCA2.__proj__SKey__item__pk", 1, 2, 1, [ "__query" ], 0 ],
     [
       "HyE.CCA2.keygen",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
-        "data_typing_intro_FStar.Pervasives.V@tok",
+        "__MaxIFuel_assumption", "__query",
+        "data_typing_intro_FStar.Pervasives.V__tok",
         "equation_FStar.HyperStack.is_eternal_region",
         "equation_FStar.HyperStack.upd", "equation_FStar.Monotonic.RRef.rid",
         "equation_FStar.Monotonic.Seq.rid",
         "fuel_guarded_inversion_FStar.HyperStack.mem",
-        "kinding_FStar.Pervasives.Native.tuple2@tok",
-        "kinding_HyE.CCA2.pkey@tok", "kinding_HyE.CCA2.skey@tok",
+        "kinding_FStar.Pervasives.Native.tuple2__tok",
+        "kinding_HyE.CCA2.pkey__tok", "kinding_HyE.CCA2.skey__tok",
         "refinement_interpretation_FStar.Monotonic.RRef_Tm_refine_5a09de1efe4b8e150cfdaeaf95d864d4"
       ],
       0
@@ -42,8 +42,8 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "bool_inversion",
-        "data_typing_intro_FStar.Pervasives.V@tok",
+        "__MaxIFuel_assumption", "__query", "bool_inversion",
+        "data_typing_intro_FStar.Pervasives.V__tok",
         "equation_HyE.Ideal.conf", "equation_HyE.RSA.cipher",
         "equation_HyE.RSA.plain", "fuel_guarded_inversion_HyE.CCA2.pkey",
         "function_token_typing_HyE.Ideal.ind_cca",
@@ -58,10 +58,10 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
-        "data_typing_intro_FStar.Pervasives.V@tok",
+        "__MaxIFuel_assumption", "__query",
+        "data_typing_intro_FStar.Pervasives.V__tok",
         "equation_HyE.PlainPKE.t", "function_token_typing_HyE.AE.key",
-        "kinding_FStar.Pervasives.Native.option@tok"
+        "kinding_FStar.Pervasives.Native.option__tok"
       ],
       0
     ],
@@ -71,7 +71,7 @@
       2,
       1,
       [
-        "@query", "assumption_Platform.Bytes.HasEq_bytes",
+        "__query", "assumption_Platform.Bytes.HasEq_bytes",
         "equation_HyE.RSA.cipher", "equation_Platform.Bytes.bytes",
         "equation_Platform.Bytes.lbytes",
         "haseqPlatform.Bytes_Tm_refine_3458b9f6f40fe62446cdc2c6d3755a94"

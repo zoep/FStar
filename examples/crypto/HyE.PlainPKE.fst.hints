@@ -6,7 +6,7 @@
       1,
       2,
       1,
-      [ "@query", "equation_HyE.AE.keysize", "equation_HyE.RSA.plainsize" ],
+      [ "__query", "equation_HyE.AE.keysize", "equation_HyE.RSA.plainsize" ],
       0
     ]
   ]

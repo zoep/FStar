@@ -6,9 +6,9 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Platform.Bytes.HasEq_bytes" ],
+      [ "__query", "assumption_Platform.Bytes.HasEq_bytes" ],
       0
     ],
-    [ "Ex12a.Cap.redeem", 1, 2, 1, [ "@query" ], 0 ]
+    [ "Ex12a.Cap.redeem", 1, 2, 1, [ "__query" ], 0 ]
   ]
 ]

@@ -6,10 +6,10 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
-    [ "FStar.Axiomatic.Array.IndexUpdate", 2, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.Axiomatic.Array.IndexAppend", 1, 2, 1, [ "@query" ], 0 ]
+    [ "FStar.Axiomatic.Array.IndexUpdate", 2, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.Axiomatic.Array.IndexAppend", 1, 2, 1, [ "__query" ], 0 ]
   ]
 ]

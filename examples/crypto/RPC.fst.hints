@@ -1,14 +1,14 @@
 [
   "_™L4‡\u0013\u0017±eÄÉ™‹zù~",
   [
-    [ "RPC.recv", 1, 2, 1, [ "@query" ], 0 ],
+    [ "RPC.recv", 1, 2, 1, [ "__query" ], 0 ],
     [
       "RPC.reqresp",
       1,
       2,
       1,
       [
-        "@query", "assumption_Platform.Bytes.HasEq_bytes",
+        "__query", "assumption_Platform.Bytes.HasEq_bytes",
         "equation_Formatting.message"
       ],
       0
@@ -19,7 +19,7 @@
       2,
       1,
       [
-        "@query", "assumption_Platform.Bytes.HasEq_bytes",
+        "__query", "assumption_Platform.Bytes.HasEq_bytes",
         "equation_Formatting.message"
       ],
       0
@@ -30,7 +30,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_MAC.pkey",
+        "__MaxIFuel_assumption", "__query", "equation_MAC.pkey",
         "equation_Platform.Bytes.lbytes", "equation_SHA1.key",
         "equation_SHA1.keysize",
         "refinement_interpretation_MAC_Tm_refine_1cf95beb4e0ccb163dfdf90ffb00eff2"
@@ -43,7 +43,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Formatting.string16",
+        "__MaxIFuel_assumption", "__query", "equation_Formatting.string16",
         "equation_RPC.reqresp", "equation_SHA1.key",
         "function_token_typing_RPC.k",
         "refinement_interpretation_Formatting_Tm_refine_df393ec945fcc9a49fa4c6eaca42efd8",
@@ -59,7 +59,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86",
         "assumption_FStar.Char.char__haseq",
         "constructor_distinct_FStar.Pervasives.V",
@@ -70,7 +70,7 @@
         "equation_Platform.Bytes.bytes", "equation_Platform.Bytes.length",
         "equation_Prims.eqtype", "equation_RPC.reqresp", "equation_SHA1.key",
         "equation_SHA1.macsize", "function_token_typing_RPC.k",
-        "kinding_FStar.Char.char_@tok", "lemma_FStar.Seq.Base.lemma_eq_refl",
+        "kinding_FStar.Char.char___tok", "lemma_FStar.Seq.Base.lemma_eq_refl",
         "lemma_Formatting.req_resp_distinct",
         "lemma_Formatting.resp_components_corr",
         "primitive_Prims.op_LessThan", "primitive_Prims.op_Subtraction",
@@ -97,7 +97,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86",
         "Prims_pretyping_f8666440faa91836cc5a13998af863fc",
         "assumption_FStar.Char.char__haseq",
@@ -115,7 +115,7 @@
         "equation_Prims.eqtype", "equation_RPC.reqresp", "equation_SHA1.key",
         "equation_SHA1.macsize", "equation_SHA1.text",
         "function_token_typing_Formatting.tag0",
-        "function_token_typing_RPC.k", "kinding_FStar.Char.char_@tok",
+        "function_token_typing_RPC.k", "kinding_FStar.Char.char___tok",
         "lemma_FStar.Seq.Base.lemma_eq_refl",
         "lemma_Formatting.append_inj_lemma",
         "lemma_Formatting.req_resp_distinct",
@@ -149,7 +149,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "Prims_pretyping_f8666440faa91836cc5a13998af863fc",
         "disc_equation_FStar.Pervasives.Err",

@@ -1,17 +1,17 @@
 [
   "<tûŸk83²yš·÷Ë—M0",
   [
-    [ "Ex12g.TMAC2.__proj__Keys__item__k0", 1, 2, 1, [ "@query" ], 0 ],
-    [ "Ex12g.TMAC2.__proj__Keys__item__k1", 1, 2, 1, [ "@query" ], 0 ],
-    [ "Ex12g.TMAC2.bspec0", 1, 2, 1, [ "@query" ], 0 ],
-    [ "Ex12g.TMAC2.bspec1", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Ex12g.TMAC2.__proj__Keys__item__k0", 1, 2, 1, [ "__query" ], 0 ],
+    [ "Ex12g.TMAC2.__proj__Keys__item__k1", 1, 2, 1, [ "__query" ], 0 ],
+    [ "Ex12g.TMAC2.bspec0", 1, 2, 1, [ "__query" ], 0 ],
+    [ "Ex12g.TMAC2.bspec1", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Ex12g.TMAC2.keygen",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Ex12.BMAC.key",
+        "__MaxIFuel_assumption", "__query", "equation_Ex12.BMAC.key",
         "equation_Ex12.BMAC.keysize", "equation_Ex12.BMAC.pkey",
         "equation_Ex12.Pad.block", "equation_Ex12.Pad.blocksize",
         "equation_Ex12.Pad.nbytes",

@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_FStar.MRef.monotonic",
+        "__query", "b2t_def", "equation_FStar.MRef.monotonic",
         "interpretation_TestMRef_Tm_abs_7caf1af4d46527a25f37dce663a38e2d",
         "primitive_Prims.op_GreaterThanOrEqual",
         "projection_inverse_BoxBool_proj_0"
@@ -20,7 +20,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "equation_FStar.Heap.only", "equation_FStar.ST.ref",
         "function_token_typing_Prims.int",
@@ -36,7 +36,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -45,7 +45,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "equation_FStar.Heap.only", "equation_FStar.MRef.as_ref",
         "equation_FStar.MRef.reln", "equation_FStar.MRef.sel",
@@ -64,7 +64,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -73,7 +73,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565", "bool_typing",
         "equation_FStar.Heap.fresh", "equation_FStar.Heap.modifies",
         "equation_FStar.Heap.modifies_t", "equation_FStar.MRef.as_ref",
@@ -94,7 +94,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -103,7 +103,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "equation_FStar.Heap.only", "equation_FStar.MRef.as_ref",
         "equation_FStar.MRef.contains", "equation_FStar.MRef.reln",

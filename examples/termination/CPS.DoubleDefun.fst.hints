@@ -7,20 +7,20 @@
       2,
       1,
       [
-        "@query", "assumption_CPS.Expr.expr_haseq",
+        "__query", "assumption_CPS.Expr.expr_haseq",
         "assumption_Prims.HasEq_int"
       ],
       0
     ],
-    [ "CPS.DoubleDefun.uu___is_C0", 1, 2, 1, [ "@query" ], 0 ],
-    [ "CPS.DoubleDefun.uu___is_C1", 1, 2, 1, [ "@query" ], 0 ],
+    [ "CPS.DoubleDefun.uu___is_C0", 1, 2, 1, [ "__query" ], 0 ],
+    [ "CPS.DoubleDefun.uu___is_C1", 1, 2, 1, [ "__query" ], 0 ],
     [
       "CPS.DoubleDefun.__proj__C1__item___0",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "disc_equation_CPS.DoubleDefun.C1",
+        "__MaxIFuel_assumption", "__query", "disc_equation_CPS.DoubleDefun.C1",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_CPS.DoubleDefun_Tm_refine_b1d4de3cb1cee3ac5aafed034e069035"
       ],
@@ -32,20 +32,20 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "disc_equation_CPS.DoubleDefun.C1",
+        "__MaxIFuel_assumption", "__query", "disc_equation_CPS.DoubleDefun.C1",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_CPS.DoubleDefun_Tm_refine_b1d4de3cb1cee3ac5aafed034e069035"
       ],
       0
     ],
-    [ "CPS.DoubleDefun.uu___is_C2", 1, 2, 1, [ "@query" ], 0 ],
+    [ "CPS.DoubleDefun.uu___is_C2", 1, 2, 1, [ "__query" ], 0 ],
     [
       "CPS.DoubleDefun.__proj__C2__item___0",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "disc_equation_CPS.DoubleDefun.C2",
+        "__MaxIFuel_assumption", "__query", "disc_equation_CPS.DoubleDefun.C2",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_CPS.DoubleDefun_Tm_refine_470d7912c558796d2a0ae83a2d7f54a2"
       ],
@@ -57,7 +57,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "disc_equation_CPS.DoubleDefun.C2",
+        "__MaxIFuel_assumption", "__query", "disc_equation_CPS.DoubleDefun.C2",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_CPS.DoubleDefun_Tm_refine_470d7912c558796d2a0ae83a2d7f54a2"
       ],
@@ -69,7 +69,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "binder_x_fc08148c0a56a96633a93ae5c4e7943e_0",
         "constructor_distinct_CPS.DoubleDefun.C0",
         "disc_equation_CPS.DoubleDefun.C0",
@@ -87,7 +87,7 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption", "__query",
         "assumption_CPS.DoubleDefun.Rstack0",
         "binder_x_0c607185f6c6768f1786fe5f14f15ea1_0",
         "binder_x_6d0180d4fcd10237cf0d87dd345d77cc_2",
@@ -96,7 +96,7 @@
         "constructor_distinct_CPS.DoubleDefun.C2",
         "disc_equation_CPS.DoubleDefun.C0",
         "disc_equation_CPS.DoubleDefun.C1",
-        "disc_equation_CPS.DoubleDefun.C2", "equality_tok_Prims.LexTop@tok",
+        "disc_equation_CPS.DoubleDefun.C2", "equality_tok_Prims.LexTop__tok",
         "equation_with_fuel_CPS.DoubleDefun.stack.fuel_instrumented",
         "fuel_correspondence_CPS.DoubleDefun.stack.fuel_instrumented",
         "fuel_guarded_inversion_CPS.DoubleDefun.cont",
@@ -115,13 +115,13 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption", "__query",
         "assumption_CPS.DoubleDefun.Rstack2",
         "binder_x_0c607185f6c6768f1786fe5f14f15ea1_0",
         "binder_x_fc08148c0a56a96633a93ae5c4e7943e_1",
         "constructor_distinct_CPS.DoubleDefun.C2",
         "disc_equation_CPS.Expr.Const", "disc_equation_CPS.Expr.Plus",
-        "equality_tok_Prims.LexTop@tok",
+        "equality_tok_Prims.LexTop__tok",
         "equation_with_fuel_CPS.DoubleDefun.stack.fuel_instrumented",
         "fuel_correspondence_CPS.DoubleDefun.stack.fuel_instrumented",
         "fuel_guarded_inversion_CPS.Expr.expr",

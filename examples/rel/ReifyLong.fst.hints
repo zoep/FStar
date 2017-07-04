@@ -6,7 +6,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -15,7 +15,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__put_equality",
         "FStar.DM4F.IntStoreFixed.__proj__INT_STORE__item__put_token_correspondence",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
@@ -40,7 +40,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_unit" ],
+      [ "__query", "assumption_Prims.HasEq_unit" ],
       0
     ],
     [
@@ -48,7 +48,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_unit" ],
+      [ "__query", "assumption_Prims.HasEq_unit" ],
       0
     ]
   ]

@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption", "@query", "b2t_def",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption", "__query", "b2t_def",
         "bool_inversion", "equation_FStar.Char.char",
         "equation_FStar.Seq.Properties.cons",
         "equation_FStar.Seq.Properties.head",
@@ -27,7 +27,7 @@
         "fuel_guarded_inversion_FStar.Char.char_",
         "function_token_typing_JSONParser.Spec.double_quote",
         "function_token_typing_JSONParser.Spec.double_quote_is_not_whitespace",
-        "int_typing", "kinding_FStar.Char.char_@tok", "l_not-interp",
+        "int_typing", "kinding_FStar.Char.char___tok", "l_not-interp",
         "lemma_FStar.Seq.Base.lemma_create_len",
         "lemma_FStar.Seq.Base.lemma_index_app1",
         "lemma_FStar.Seq.Base.lemma_index_create",
@@ -61,7 +61,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Char.char__haseq",
+        "__query", "assumption_FStar.Char.char__haseq",
         "equation_FStar.Char.char"
       ],
       0
@@ -71,7 +71,7 @@
       1,
       2,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -80,7 +80,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_FStar.Char.char",
+        "__MaxIFuel_assumption", "__query", "equation_FStar.Char.char",
         "equation_JSONParser.Spec.double_quote",
         "function_token_typing_JSONParser.Spec.double_quote",
         "projection_inverse_BoxInt_proj_0",
@@ -93,7 +93,7 @@
       1,
       2,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -102,7 +102,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_FStar.Char.char",
+        "__MaxIFuel_assumption", "__query", "equation_FStar.Char.char",
         "equation_JSONParser.Spec.double_quote",
         "function_token_typing_JSONParser.Spec.double_quote",
         "projection_inverse_BoxInt_proj_0",
@@ -115,7 +115,7 @@
       1,
       2,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -124,7 +124,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_FStar.Char.char",
+        "__MaxIFuel_assumption", "__query", "equation_FStar.Char.char",
         "equation_JSONParser.Spec.double_quote",
         "function_token_typing_JSONParser.Spec.double_quote",
         "projection_inverse_BoxInt_proj_0",
@@ -138,16 +138,16 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_FStar.List.Tot.Base.map.fuel_instrumented",
-        "@fuel_correspondence_FStar.List.Tot.Base.mem.fuel_instrumented",
-        "@fuel_correspondence_FStar.List.Tot.Base.noRepeats.fuel_instrumented",
-        "@fuel_correspondence_FStar.Seq.Properties.count.fuel_instrumented",
-        "@fuel_correspondence_JSONParser.Spec.gparse_whitespace.fuel_instrumented",
-        "@fuel_irrelevance_FStar.List.Tot.Base.map.fuel_instrumented",
-        "@fuel_irrelevance_FStar.List.Tot.Base.mem.fuel_instrumented",
-        "@fuel_irrelevance_FStar.List.Tot.Base.noRepeats.fuel_instrumented",
-        "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_FStar.List.Tot.Base.map.fuel_instrumented",
+        "__fuel_correspondence_FStar.List.Tot.Base.mem.fuel_instrumented",
+        "__fuel_correspondence_FStar.List.Tot.Base.noRepeats.fuel_instrumented",
+        "__fuel_correspondence_FStar.Seq.Properties.count.fuel_instrumented",
+        "__fuel_correspondence_JSONParser.Spec.gparse_whitespace.fuel_instrumented",
+        "__fuel_irrelevance_FStar.List.Tot.Base.map.fuel_instrumented",
+        "__fuel_irrelevance_FStar.List.Tot.Base.mem.fuel_instrumented",
+        "__fuel_irrelevance_FStar.List.Tot.Base.noRepeats.fuel_instrumented",
+        "__query",
         "JSONParser.Spec_interpretation_Tm_arrow_85befd59b1c475f7728359d9ebdfc243",
         "JSONParser.Spec_pretyping_75d2e4ac0885b3810decca3bd4c1ed5f",
         "JSONParser.Spec_pretyping_7f012563c6e6dfeff73c8a1b78471681",
@@ -155,7 +155,7 @@
         "assumption_JSONParser.Spec.key_haseq", "b2t_def", "bool_inversion",
         "constructor_distinct_Prims.Cons", "constructor_distinct_Prims.Nil",
         "data_elim_JSONParser.Spec.Key", "eq2-interp",
-        "equality_tok_JSONParser.Spec.String@tok",
+        "equality_tok_JSONParser.Spec.String__tok",
         "equation_FStar.Char.char", "equation_FStar.Pervasives.Native.fst",
         "equation_FStar.Seq.Properties.cons",
         "equation_FStar.Seq.Properties.head",
@@ -183,10 +183,10 @@
         "function_token_typing_JSONParser.Spec.gparse_whitespace_empty",
         "function_token_typing_Test.a", "function_token_typing_Test.b",
         "function_token_typing_Test.ka", "function_token_typing_Test.kb",
-        "int_typing", "kinding_FStar.Char.char_@tok",
-        "kinding_FStar.Pervasives.Native.tuple2@tok",
-        "kinding_JSONParser.Spec.json_schema@tok",
-        "kinding_JSONParser.Spec.key@tok", "l_not-interp",
+        "int_typing", "kinding_FStar.Char.char___tok",
+        "kinding_FStar.Pervasives.Native.tuple2__tok",
+        "kinding_JSONParser.Spec.json_schema__tok",
+        "kinding_JSONParser.Spec.key__tok", "l_not-interp",
         "lemma_FStar.Seq.Base.lemma_create_len",
         "lemma_FStar.Seq.Base.lemma_index_app1",
         "lemma_FStar.Seq.Base.lemma_index_create",
@@ -228,7 +228,7 @@
         "typing_FStar.Seq.Properties.mem",
         "typing_JSONParser.Spec.is_whitespace",
         "typing_JSONParser.Spec.string_of_char",
-        "typing_tok_JSONParser.Spec.String@tok"
+        "typing_tok_JSONParser.Spec.String__tok"
       ],
       0
     ]

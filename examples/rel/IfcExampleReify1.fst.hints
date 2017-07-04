@@ -7,8 +7,8 @@
       2,
       1,
       [
-        "@query", "equality_tok_IfcRulesReify.High@tok",
-        "equality_tok_IfcRulesReify.Low@tok"
+        "__query", "equality_tok_IfcRulesReify.High__tok",
+        "equality_tok_IfcRulesReify.Low__tok"
       ],
       0
     ],
@@ -18,7 +18,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.id",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
@@ -30,7 +30,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.id",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
@@ -42,7 +42,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.id",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
@@ -54,7 +54,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.id",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
@@ -66,10 +66,10 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "constructor_distinct_IfcRulesReify.Low",
         "disc_equation_IfcRulesReify.Low",
-        "equality_tok_IfcRulesReify.Low@tok",
+        "equality_tok_IfcRulesReify.Low__tok",
         "equation_IfcExampleReify1.c1_1", "equation_IfcExampleReify1.env",
         "equation_IfcRulesReify.ni_exp",
         "fuel_guarded_inversion_IfcRulesReify.label",
@@ -85,9 +85,9 @@
       2,
       1,
       [
-        "@query", "constructor_distinct_IfcRulesReify.Low",
+        "__query", "constructor_distinct_IfcRulesReify.Low",
         "disc_equation_IfcRulesReify.Low",
-        "equality_tok_IfcRulesReify.Low@tok",
+        "equality_tok_IfcRulesReify.Low__tok",
         "equation_IfcExampleReify1.c1_2", "equation_IfcExampleReify1.env",
         "equation_IfcRulesReify.ni_exp", "primitive_Prims.op_Equality",
         "projection_inverse_BoxBool_proj_0"
@@ -100,9 +100,9 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "constructor_distinct_IfcRulesReify.Low",
-        "equality_tok_IfcRulesReify.Low@tok",
+        "equality_tok_IfcRulesReify.Low__tok",
         "equation_IfcExampleReify1.c1_5", "equation_IfcExampleReify1.env",
         "fuel_guarded_inversion_IfcRulesReify.label",
         "function_token_typing_IfcExampleReify1.c",
@@ -116,10 +116,10 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_WhileReify.interpret_com_st.fuel_instrumented",
-        "@fuel_correspondence_WhileReify.interpret_exp_st.fuel_instrumented",
-        "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_WhileReify.interpret_com_st.fuel_instrumented",
+        "__fuel_correspondence_WhileReify.interpret_exp_st.fuel_instrumented",
+        "__query",
         "FStar.DM4F.IntStoreExcFixed.__proj__INT_STORE_EXC__item__get_equality",
         "FStar.DM4F.IntStoreExcFixed.__proj__INT_STORE_EXC__item__get_token_correspondence",
         "FStar.DM4F.IntStoreExcFixed.__proj__INT_STORE_EXC__item__put_equality",
@@ -146,14 +146,14 @@
         "constructor_distinct_WhileReify.Seq",
         "data_elim_FStar.Pervasives.Native.Mktuple2",
         "data_elim_WhileReify.Assign",
-        "data_typing_intro_IfcRulesReify.High@tok",
-        "data_typing_intro_WhileReify.AInt@tok",
-        "data_typing_intro_WhileReify.AOp@tok",
-        "data_typing_intro_WhileReify.AVar@tok",
-        "data_typing_intro_WhileReify.Seq@tok", "eq2-interp",
-        "equality_tok_IfcRulesReify.High@tok",
-        "equality_tok_IfcRulesReify.Low@tok",
-        "equality_tok_WhileReify.Plus@tok",
+        "data_typing_intro_IfcRulesReify.High__tok",
+        "data_typing_intro_WhileReify.AInt__tok",
+        "data_typing_intro_WhileReify.AOp__tok",
+        "data_typing_intro_WhileReify.AVar__tok",
+        "data_typing_intro_WhileReify.Seq__tok", "eq2-interp",
+        "equality_tok_IfcRulesReify.High__tok",
+        "equality_tok_IfcRulesReify.Low__tok",
+        "equality_tok_WhileReify.Plus__tok",
         "equation_FStar.DM4F.Heap.IntStoreFixed.create",
         "equation_FStar.DM4F.Heap.IntStoreFixed.store_size",
         "equation_FStar.DM4F.Heap.IntStoreFixed.to_id",
@@ -242,8 +242,8 @@
         "typing_WhileReify.interpret_com_st",
         "typing_WhileReify.interpret_exp",
         "typing_WhileReify.interpret_exp_st",
-        "typing_tok_IfcRulesReify.High@tok",
-        "typing_tok_IfcRulesReify.Low@tok", "typing_tok_WhileReify.Plus@tok",
+        "typing_tok_IfcRulesReify.High__tok",
+        "typing_tok_IfcRulesReify.Low__tok", "typing_tok_WhileReify.Plus__tok",
         "unit_typing"
       ],
       0
@@ -253,7 +253,7 @@
       1,
       2,
       1,
-      [ "@query", "equation_IfcExampleReify1.c1_6" ],
+      [ "__query", "equation_IfcExampleReify1.c1_6" ],
       0
     ],
     [
@@ -262,9 +262,9 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "constructor_distinct_IfcRulesReify.Low",
-        "equality_tok_IfcRulesReify.Low@tok", "equation_IfcExampleReify1.c1",
+        "equality_tok_IfcRulesReify.Low__tok", "equation_IfcExampleReify1.c1",
         "equation_IfcExampleReify1.c1_0", "equation_IfcExampleReify1.c1_6",
         "equation_IfcExampleReify1.env",
         "fuel_guarded_inversion_IfcRulesReify.label",

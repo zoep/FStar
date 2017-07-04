@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "b2t_def", "equation_Prims.nat",
+        "__MaxIFuel_assumption", "__query", "b2t_def", "equation_Prims.nat",
         "equation_ReifyTestTSST.older_than",
         "equation_ReifyTestTSST.timestamp", "int_inversion",
         "primitive_Prims.op_LessThan", "projection_inverse_BoxBool_proj_0",
@@ -22,7 +22,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "b2t_def", "equation_Prims.nat",
+        "__MaxIFuel_assumption", "__query", "b2t_def", "equation_Prims.nat",
         "equation_ReifyTestTSST.older_than",
         "equation_ReifyTestTSST.timestamp", "int_inversion",
         "primitive_Prims.op_LessThan", "projection_inverse_BoxBool_proj_0",
@@ -37,7 +37,7 @@
       2,
       1,
       [
-        "@query", "b2t_def", "equation_Preorder.preorder",
+        "__query", "b2t_def", "equation_Preorder.preorder",
         "equation_Prims.nat", "equation_ReifyTestTSST.state",
         "interpretation_ReifyTestTSST_Tm_abs_def637e0fbf0d6b8dbaef872b09fb625",
         "primitive_Prims.op_LessThanOrEqual",
@@ -45,17 +45,17 @@
       ],
       0
     ],
-    [ "ReifyTestTSST.152788", 1, 2, 1, [ "@query" ], 0 ],
-    [ "ReifyTestTSST.witnessed", 1, 2, 1, [ "@query" ], 0 ],
-    [ "ReifyTestTSST.witness", 1, 2, 1, [ "@query" ], 0 ],
-    [ "ReifyTestTSST.recall", 1, 2, 1, [ "@query" ], 0 ],
+    [ "ReifyTestTSST.152788", 1, 2, 1, [ "__query" ], 0 ],
+    [ "ReifyTestTSST.witnessed", 1, 2, 1, [ "__query" ], 0 ],
+    [ "ReifyTestTSST.witness", 1, 2, 1, [ "__query" ], 0 ],
+    [ "ReifyTestTSST.recall", 1, 2, 1, [ "__query" ], 0 ],
     [
       "ReifyTestTSST.reify_recall_test",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565", "b2t_def",
         "equation_Prims.nat", "equation_ReifyTestTSST.get_timestamp",
         "equation_ReifyTestTSST.older_than", "equation_ReifyTestTSST.state",

@@ -7,7 +7,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.AEAD.AES256GCM.bytes",
+        "__query", "equation_Crypto.AEAD.AES256GCM.bytes",
         "equation_Crypto.Symmetric.AES.nb",
         "equation_Crypto.Symmetric.AES.nr",
         "equation_Crypto.Symmetric.AES.v",
@@ -31,7 +31,7 @@
       1,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -40,7 +40,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "equation_Crypto.Symmetric.AES.blocklen",
         "equation_Crypto.Symmetric.AES.keylen",
         "equation_Crypto.Symmetric.AES.nb",
@@ -81,7 +81,7 @@
         "function_token_typing_Crypto.Symmetric.AES.keylen",
         "function_token_typing_Crypto.Symmetric.AES.xkeylen",
         "function_token_typing_FStar.UInt8.n", "int_inversion", "int_typing",
-        "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_disjoint_symm",
         "lemma_FStar.Buffer.lemma_equal_domains_2",
         "lemma_FStar.Buffer.lemma_fresh_poppable",
@@ -137,7 +137,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqTm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -148,7 +148,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
         "haseqTm_refine_e0b8a7ce8790eaaca2b2e4fb4d625bad",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -160,7 +160,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
         "haseqTm_refine_e0b8a7ce8790eaaca2b2e4fb4d625bad",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -171,7 +171,7 @@
       4,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -180,10 +180,10 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.AEAD.AES256GCM.bytes",
+        "__query", "equation_Crypto.AEAD.AES256GCM.bytes",
         "equation_Crypto.Symmetric.AES.bytes",
         "equation_Crypto.Symmetric.AES.lbytes", "equation_FStar.UInt8.byte",
-        "equation_FStar.UInt8.t", "kinding_FStar.UInt8.t_@tok",
+        "equation_FStar.UInt8.t", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_disjoint_symm",
         "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_1077765df510984552bb1de7dc4350a9",

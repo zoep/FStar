@@ -7,17 +7,17 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_bool", "assumption_Prims.HasEq_int"
+        "__query", "assumption_Prims.HasEq_bool", "assumption_Prims.HasEq_int"
       ],
       0
     ],
-    [ "IfcDeclassify._dm4f_STATE_bind_wp", 1, 2, 1, [ "@query" ], 0 ],
+    [ "IfcDeclassify._dm4f_STATE_bind_wp", 1, 2, 1, [ "__query" ], 0 ],
     [
       "IfcDeclassify._dm4f_STATE___proj__STATE__item__get_elab",
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -25,23 +25,23 @@
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
-    [ "IfcDeclassify.STATE", 1, 2, 1, [ "@query" ], 0 ],
-    [ "IfcDeclassify.STATE", 2, 2, 1, [ "@query" ], 0 ],
-    [ "IfcDeclassify.STATE", 3, 2, 1, [ "@query" ], 0 ],
+    [ "IfcDeclassify.STATE", 1, 2, 1, [ "__query" ], 0 ],
+    [ "IfcDeclassify.STATE", 2, 2, 1, [ "__query" ], 0 ],
+    [ "IfcDeclassify.STATE", 3, 2, 1, [ "__query" ], 0 ],
     [
       "IfcDeclassify.p1",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_f8666440faa91836cc5a13998af863fc",
-        "data_typing_intro_FStar.Pervasives.Native.Mktuple2@tok",
+        "data_typing_intro_FStar.Pervasives.Native.Mktuple2__tok",
         "function_token_typing_Prims.unit",
-        "kinding_IfcDeclassify.state@tok", "unit_typing"
+        "kinding_IfcDeclassify.state__tok", "unit_typing"
       ],
       0
     ],
@@ -51,7 +51,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "IfcDeclassify.__proj__STATE__item__get_equality",
         "IfcDeclassify.__proj__STATE__item__get_token_correspondence",
         "IfcDeclassify.__proj__STATE__item__put_equality",
@@ -74,19 +74,19 @@
       ],
       0
     ],
-    [ "IfcDeclassify.ni_p1", 2, 2, 1, [ "@query" ], 0 ],
+    [ "IfcDeclassify.ni_p1", 2, 2, 1, [ "__query" ], 0 ],
     [
       "IfcDeclassify.p2",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_f8666440faa91836cc5a13998af863fc",
-        "data_typing_intro_FStar.Pervasives.Native.Mktuple2@tok",
-        "data_typing_intro_IfcDeclassify.Mkstate@tok",
+        "data_typing_intro_FStar.Pervasives.Native.Mktuple2__tok",
+        "data_typing_intro_IfcDeclassify.Mkstate__tok",
         "function_token_typing_Prims.unit",
-        "kinding_IfcDeclassify.state@tok",
+        "kinding_IfcDeclassify.state__tok",
         "typing_IfcDeclassify.__proj__Mkstate__item__public",
         "typing_IfcDeclassify.__proj__Mkstate__item__release", "unit_typing"
       ],
@@ -98,7 +98,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "IfcDeclassify.__proj__STATE__item__get_equality",
         "IfcDeclassify.__proj__STATE__item__get_token_correspondence",
         "IfcDeclassify.__proj__STATE__item__put_equality",
@@ -123,19 +123,19 @@
       ],
       0
     ],
-    [ "IfcDeclassify.ni_p2", 2, 2, 1, [ "@query" ], 0 ],
+    [ "IfcDeclassify.ni_p2", 2, 2, 1, [ "__query" ], 0 ],
     [
       "IfcDeclassify.p3",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_f8666440faa91836cc5a13998af863fc",
-        "data_typing_intro_FStar.Pervasives.Native.Mktuple2@tok",
-        "data_typing_intro_IfcDeclassify.Mkstate@tok",
+        "data_typing_intro_FStar.Pervasives.Native.Mktuple2__tok",
+        "data_typing_intro_IfcDeclassify.Mkstate__tok",
         "function_token_typing_Prims.unit",
-        "kinding_IfcDeclassify.state@tok",
+        "kinding_IfcDeclassify.state__tok",
         "typing_IfcDeclassify.__proj__Mkstate__item__release",
         "typing_IfcDeclassify.__proj__Mkstate__item__secret", "unit_typing"
       ],
@@ -147,12 +147,12 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_f8666440faa91836cc5a13998af863fc", "bool_typing",
-        "data_typing_intro_FStar.Pervasives.Native.Mktuple2@tok",
-        "data_typing_intro_IfcDeclassify.Mkstate@tok",
+        "data_typing_intro_FStar.Pervasives.Native.Mktuple2__tok",
+        "data_typing_intro_IfcDeclassify.Mkstate__tok",
         "function_token_typing_Prims.unit",
-        "kinding_IfcDeclassify.state@tok",
+        "kinding_IfcDeclassify.state__tok",
         "typing_IfcDeclassify.__proj__Mkstate__item__secret", "unit_typing"
       ],
       0
@@ -163,7 +163,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "IfcDeclassify.__proj__STATE__item__put_equality",
         "IfcDeclassify.__proj__STATE__item__put_token_correspondence",
         "Prims_pretyping_f8666440faa91836cc5a13998af863fc",
@@ -180,6 +180,6 @@
       ],
       0
     ],
-    [ "IfcDeclassify.ni_p4", 2, 2, 1, [ "@query" ], 0 ]
+    [ "IfcDeclassify.ni_p4", 2, 2, 1, [ "__query" ], 0 ]
   ]
 ]

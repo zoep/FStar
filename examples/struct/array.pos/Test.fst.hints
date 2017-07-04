@@ -1,15 +1,15 @@
 [
   "£±Üß\u001f}øp\u0004;Þ#+Æ’I",
   [
-    [ "Test.uu___is_I", 1, 2, 1, [ "@query" ], 0 ],
-    [ "Test.uu___is_B", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Test.uu___is_I", 1, 2, 1, [ "__query" ], 0 ],
+    [ "Test.uu___is_B", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Test.fields_def",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86", "bool_typing",
         "constructor_distinct_Test.B", "disc_equation_Test.B",
         "disc_equation_Test.I", "fuel_guarded_inversion_Test.fields"
@@ -21,7 +21,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Test.fields_haseq" ],
+      [ "__query", "assumption_Test.fields_haseq" ],
       0
     ],
     [
@@ -30,12 +30,12 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_interpretation_Tm_arrow_e06752ba152f81447b312efcdf8f0e23",
         "Test_interpretation_Tm_arrow_0d5419be70b8e0c007229f1073407025",
         "Test_pretyping_44be582a98b2eb6916519a3744878e4d",
         "assumption_Test.fields_haseq", "constructor_distinct_Test.I",
-        "data_typing_intro_Test.B@tok", "equality_tok_Test.I@tok",
+        "data_typing_intro_Test.B__tok", "equality_tok_Test.I__tok",
         "equation_FStar.Pointer.equal_values", "equation_Prims.eqtype",
         "equation_Test.fields_def", "equation_Test.obj",
         "equation_Test.struct",
@@ -43,7 +43,7 @@
         "function_token_typing_Prims.int",
         "function_token_typing_Test.fields_def",
         "function_token_typing_Test.struct", "int_inversion", "int_typing",
-        "kinding_Test.fields@tok", "lemma_FStar.Pointer.disjoint_sym_",
+        "kinding_Test.fields__tok", "lemma_FStar.Pointer.disjoint_sym_",
         "lemma_FStar.Pointer.gread_gfield",
         "lemma_FStar.Pointer.live_includes",
         "lemma_FStar.Pointer.modifies_substruct_1",
@@ -51,7 +51,7 @@
         "refinement_interpretation_FStar.Pointer_Tm_refine_4e40a31e4ba27eb166aaf2274d919a8e",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
         "token_correspondence_Test.fields_def",
-        "typing_FStar.Pointer.gfield", "typing_tok_Test.I@tok"
+        "typing_FStar.Pointer.gfield", "typing_tok_Test.I__tok"
       ],
       0
     ],
@@ -60,7 +60,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Test.fields_haseq" ],
+      [ "__query", "assumption_Test.fields_haseq" ],
       0
     ],
     [
@@ -68,7 +68,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_Test.fields_haseq" ],
+      [ "__query", "assumption_Test.fields_haseq" ],
       0
     ],
     [
@@ -76,7 +76,7 @@
       4,
       2,
       1,
-      [ "@query", "assumption_Test.fields_haseq" ],
+      [ "__query", "assumption_Test.fields_haseq" ],
       0
     ],
     [
@@ -84,7 +84,7 @@
       5,
       2,
       1,
-      [ "@query", "assumption_Test.fields_haseq" ],
+      [ "__query", "assumption_Test.fields_haseq" ],
       0
     ],
     [
@@ -92,7 +92,7 @@
       6,
       2,
       1,
-      [ "@query", "assumption_Test.fields_haseq" ],
+      [ "__query", "assumption_Test.fields_haseq" ],
       0
     ],
     [
@@ -100,7 +100,7 @@
       7,
       2,
       1,
-      [ "@query", "assumption_Test.fields_haseq" ],
+      [ "__query", "assumption_Test.fields_haseq" ],
       0
     ],
     [
@@ -108,7 +108,7 @@
       8,
       2,
       1,
-      [ "@query", "assumption_Test.fields_haseq" ],
+      [ "__query", "assumption_Test.fields_haseq" ],
       0
     ],
     [
@@ -116,7 +116,7 @@
       9,
       2,
       1,
-      [ "@query", "assumption_Test.fields_haseq" ],
+      [ "__query", "assumption_Test.fields_haseq" ],
       0
     ],
     [
@@ -124,7 +124,7 @@
       10,
       2,
       1,
-      [ "@query", "assumption_Test.fields_haseq" ],
+      [ "__query", "assumption_Test.fields_haseq" ],
       0
     ],
     [
@@ -133,9 +133,9 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_Prims.pow2.fuel_instrumented",
-        "@fuel_irrelevance_Prims.pow2.fuel_instrumented", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_Prims.pow2.fuel_instrumented",
+        "__fuel_irrelevance_Prims.pow2.fuel_instrumented", "__query",
         "Prims_interpretation_Tm_arrow_a26b6f0ab7c6505137c6de4ce0011041",
         "Prims_interpretation_Tm_arrow_e06752ba152f81447b312efcdf8f0e23",
         "Test_interpretation_Tm_arrow_0d5419be70b8e0c007229f1073407025",
@@ -145,9 +145,9 @@
         "assumption_Test.fields_haseq", "b2t_def", "bool_inversion",
         "bool_typing", "constructor_distinct_Test.B",
         "constructor_distinct_Test.I", "data_elim_FStar.HyperStack.HS",
-        "data_typing_intro_Test.B@tok", "disc_equation_Test.B",
-        "disc_equation_Test.I", "equality_tok_Test.B@tok",
-        "equality_tok_Test.I@tok", "equation_FStar.Heap.equal_dom",
+        "data_typing_intro_Test.B__tok", "disc_equation_Test.B",
+        "disc_equation_Test.I", "equality_tok_Test.B__tok",
+        "equality_tok_Test.I__tok", "equation_FStar.Heap.equal_dom",
         "equation_FStar.HyperHeap.map_invariant",
         "equation_FStar.HyperHeap.t",
         "equation_FStar.HyperStack.ST.inline_stack_inv",
@@ -175,7 +175,7 @@
         "function_token_typing_Test.fields_def",
         "function_token_typing_Test.struct", "int_typing",
         "interpretation_Test_Tm_abs_b53c73a550ba990d964afc0c8c017227",
-        "kinding_Test.fields@tok",
+        "kinding_Test.fields__tok",
         "lemma_FStar.BufferNG.as_seq_gbuffer_of_array_pointer",
         "lemma_FStar.BufferNG.disjoint_gpointer_of_buffer_cell",
         "lemma_FStar.BufferNG.gread_gpointer_of_buffer_cell",
@@ -228,7 +228,7 @@
         "typing_FStar.UInt.fits", "typing_FStar.UInt32.uint_to_t",
         "typing_Prims.pow2",
         "typing_Test_Tm_abs_b53c73a550ba990d964afc0c8c017227",
-        "typing_tok_Test.I@tok"
+        "typing_tok_Test.I__tok"
       ],
       0
     ]

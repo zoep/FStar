@@ -7,40 +7,40 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.pos",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.pos",
         "haseqTm_refine_f048236b5f8051f83b495ea5eaa6127b"
       ],
       0
     ],
-    [ "Curve.Bigint.template_const", 2, 0, 1, [ "@query" ], 0 ],
+    [ "Curve.Bigint.template_const", 2, 0, 1, [ "__query" ], 0 ],
     [
       "Curve.Bigint.byte_templ",
       1,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
-    [ "Curve.Bigint.bigint", 1, 0, 1, [ "@query" ], 0 ],
-    [ "Curve.Bigint.bigint_wide", 1, 0, 1, [ "@query" ], 0 ],
-    [ "Curve.Bigint.norm", 1, 0, 1, [ "@query" ], 0 ],
-    [ "Curve.Bigint.norm_wide", 1, 0, 1, [ "@query" ], 0 ],
-    [ "Curve.Bigint.null", 1, 0, 1, [ "@query" ], 0 ],
+    [ "Curve.Bigint.bigint", 1, 0, 1, [ "__query" ], 0 ],
+    [ "Curve.Bigint.bigint_wide", 1, 0, 1, [ "__query" ], 0 ],
+    [ "Curve.Bigint.norm", 1, 0, 1, [ "__query" ], 0 ],
+    [ "Curve.Bigint.norm_wide", 1, 0, 1, [ "__query" ], 0 ],
+    [ "Curve.Bigint.null", 1, 0, 1, [ "__query" ], 0 ],
     [
       "Curve.Bigint.null",
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
-    [ "Curve.Bigint.null_wide", 1, 0, 1, [ "@query" ], 0 ],
+    [ "Curve.Bigint.null_wide", 1, 0, 1, [ "__query" ], 0 ],
     [
       "Curve.Bigint.null_wide",
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -49,7 +49,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Parameters.templ", "equation_Prims.nat",
+        "__query", "equation_Curve.Parameters.templ", "equation_Prims.nat",
         "int_inversion", "primitive_Prims.op_Addition",
         "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
@@ -62,7 +62,7 @@
       0,
       1,
       [
-        "@query", "binder_x_e22ba7a032a73f6d0678d3d186686631_1",
+        "__query", "binder_x_e22ba7a032a73f6d0678d3d186686631_1",
         "equation_Prims.nat", "equation_Prims.pos", "int_inversion",
         "primitive_Prims.op_Addition", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxInt_proj_0",
@@ -78,7 +78,7 @@
       2,
       2,
       [
-        "@query", "equation_FStar.List.Tot.test_sort",
+        "__query", "equation_FStar.List.Tot.test_sort",
         "equation_Prims._assert", "equation_Prims.nat",
         "equation_with_fuel_Curve.Bigint.bitweight.fuel_instrumented",
         "fuel_correspondence_Curve.Bigint.bitweight.fuel_instrumented",
@@ -97,7 +97,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -105,7 +105,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -113,7 +113,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -121,7 +121,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -129,7 +129,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -137,20 +137,20 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
-    [ "Curve.Bigint.eval", 1, 0, 1, [ "@query" ], 0 ],
+    [ "Curve.Bigint.eval", 1, 0, 1, [ "__query" ], 0 ],
     [
       "Curve.Bigint.eval",
       2,
       0,
       1,
       [
-        "@query", "b2t_def", "binder_x_6cc9a7331db00c2a899dbf52d882b48f_1",
+        "__query", "b2t_def", "binder_x_6cc9a7331db00c2a899dbf52d882b48f_1",
         "binder_x_7a90278e5429a208399b890856eda147_0",
         "binder_x_ee6edd9f3ecef1808696e9f3a7529e09_2",
-        "equality_tok_Prims.LexTop@tok", "equation_Curve.Bigint.bigint",
+        "equality_tok_Prims.LexTop__tok", "equation_Curve.Bigint.bigint",
         "equation_Curve.Bigint.heap", "equation_Curve.Bigint.u64",
         "equation_Curve.Parameters.norm_length",
         "equation_FStar.Buffer.buffer", "equation_FStar.Mul.op_Star",
@@ -175,17 +175,17 @@
       ],
       0
     ],
-    [ "Curve.Bigint.eval_wide", 1, 0, 1, [ "@query" ], 0 ],
+    [ "Curve.Bigint.eval_wide", 1, 0, 1, [ "__query" ], 0 ],
     [
       "Curve.Bigint.eval_wide",
       2,
       0,
       1,
       [
-        "@query", "b2t_def", "binder_x_7a90278e5429a208399b890856eda147_0",
+        "__query", "b2t_def", "binder_x_7a90278e5429a208399b890856eda147_0",
         "binder_x_bf35b71d7e29158e4daf160422e54aa5_2",
         "binder_x_d8361c5c7a71307ce5a0a2c39cfc9805_1",
-        "equality_tok_Prims.LexTop@tok", "equation_Curve.Bigint.bigint_wide",
+        "equality_tok_Prims.LexTop__tok", "equation_Curve.Bigint.bigint_wide",
         "equation_Curve.Bigint.heap", "equation_Curve.Bigint.u128",
         "equation_Curve.Parameters.norm_length",
         "equation_FStar.Buffer.buffer", "equation_FStar.Mul.op_Star",
@@ -216,7 +216,7 @@
       2,
       2,
       [
-        "@query", "equation_Curve.Bigint.bigint",
+        "__query", "equation_Curve.Bigint.bigint",
         "equation_Curve.Bigint.u64", "equation_Curve.Parameters.norm_length",
         "equation_FStar.Buffer.buffer", "equation_FStar.List.Tot.test_sort",
         "equation_FStar.UInt64.t", "equation_Prims._assert",
@@ -240,7 +240,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -248,7 +248,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -256,7 +256,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -264,7 +264,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -272,7 +272,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -280,7 +280,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -288,7 +288,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -296,7 +296,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -305,7 +305,7 @@
       2,
       2,
       [
-        "@query", "equation_Curve.Bigint.bigint_wide",
+        "__query", "equation_Curve.Bigint.bigint_wide",
         "equation_Curve.Bigint.u128",
         "equation_Curve.Parameters.norm_length",
         "equation_FStar.Buffer.buffer", "equation_FStar.List.Tot.test_sort",
@@ -330,7 +330,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -338,7 +338,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -346,7 +346,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -354,7 +354,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -362,7 +362,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -370,7 +370,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -378,7 +378,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -386,20 +386,20 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
-    [ "Curve.Bigint.eval_bytes", 1, 0, 1, [ "@query" ], 0 ],
+    [ "Curve.Bigint.eval_bytes", 1, 0, 1, [ "__query" ], 0 ],
     [
       "Curve.Bigint.eval_bytes",
       2,
       0,
       1,
       [
-        "@query", "b2t_def", "binder_x_7a90278e5429a208399b890856eda147_0",
+        "__query", "b2t_def", "binder_x_7a90278e5429a208399b890856eda147_0",
         "binder_x_ec4fdc389a541837a5c48e2eed17eb79_1",
         "binder_x_fa6351fac0b2422f196c72924eb87ba4_2",
-        "equality_tok_Prims.LexTop@tok", "equation_Curve.Bigint.bytes",
+        "equality_tok_Prims.LexTop__tok", "equation_Curve.Bigint.bytes",
         "equation_Curve.Bigint.heap", "equation_Curve.Bigint.u8",
         "equation_FStar.Buffer.buffer", "equation_FStar.Mul.op_Star",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.max_int",
@@ -423,17 +423,17 @@
       ],
       0
     ],
-    [ "Curve.Bigint.maxValue", 1, 0, 1, [ "@query" ], 0 ],
+    [ "Curve.Bigint.maxValue", 1, 0, 1, [ "__query" ], 0 ],
     [
       "Curve.Bigint.maxValue",
       2,
       0,
       1,
       [
-        "@query", "b2t_def", "binder_x_5bbdfff2d8990db5188555da19d5c3ab_2",
+        "__query", "b2t_def", "binder_x_5bbdfff2d8990db5188555da19d5c3ab_2",
         "binder_x_6cc9a7331db00c2a899dbf52d882b48f_1",
         "binder_x_7a90278e5429a208399b890856eda147_0",
-        "equality_tok_Prims.LexTop@tok", "equation_Curve.Bigint.bigint",
+        "equality_tok_Prims.LexTop__tok", "equation_Curve.Bigint.bigint",
         "equation_Curve.Bigint.heap", "equation_Curve.Bigint.u64",
         "equation_Curve.Parameters.norm_length",
         "equation_FStar.Buffer.buffer", "equation_FStar.UInt.fits",
@@ -456,17 +456,17 @@
       ],
       0
     ],
-    [ "Curve.Bigint.maxValue_wide", 1, 0, 1, [ "@query" ], 0 ],
+    [ "Curve.Bigint.maxValue_wide", 1, 0, 1, [ "__query" ], 0 ],
     [
       "Curve.Bigint.maxValue_wide",
       2,
       0,
       1,
       [
-        "@query", "b2t_def", "binder_x_7a90278e5429a208399b890856eda147_0",
+        "__query", "b2t_def", "binder_x_7a90278e5429a208399b890856eda147_0",
         "binder_x_a4fa11b290eae9d09485ef9c383d9385_2",
         "binder_x_d8361c5c7a71307ce5a0a2c39cfc9805_1",
-        "equality_tok_Prims.LexTop@tok", "equation_Curve.Bigint.bigint_wide",
+        "equality_tok_Prims.LexTop__tok", "equation_Curve.Bigint.bigint_wide",
         "equation_Curve.Bigint.heap", "equation_Curve.Bigint.u128",
         "equation_Curve.Parameters.norm_length",
         "equation_FStar.Buffer.buffer", "equation_FStar.UInt.fits",
@@ -495,7 +495,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.u128", "equation_FStar.UInt128.t",
+        "__query", "equation_Curve.Bigint.u128", "equation_FStar.UInt128.t",
         "equation_Prims.pos",
         "refinement_interpretation_Tm_refine_a94026ac81c54cb83aa40ac456c322eb"
       ],
@@ -507,11 +507,11 @@
       2,
       2,
       [
-        "@query", "b2t_def", "binder_x_7a90278e5429a208399b890856eda147_0",
+        "__query", "b2t_def", "binder_x_7a90278e5429a208399b890856eda147_0",
         "binder_x_a4fa11b290eae9d09485ef9c383d9385_2",
         "binder_x_d8361c5c7a71307ce5a0a2c39cfc9805_1", "bool_inversion",
         "bool_typing", "data_elim_FStar.UInt64.Mk",
-        "equality_tok_Prims.LexTop@tok", "equation_Curve.Bigint.bigint_wide",
+        "equality_tok_Prims.LexTop__tok", "equation_Curve.Bigint.bigint_wide",
         "equation_Curve.Bigint.heap", "equation_Curve.Bigint.u128",
         "equation_Curve.Parameters.a24", "equation_Curve.Parameters.a24_",
         "equation_Curve.Parameters.norm_length",
@@ -552,7 +552,7 @@
       0,
       1,
       [
-        "@query", "equation_Prims.nat",
+        "__query", "equation_Prims.nat",
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -563,7 +563,7 @@
       0,
       1,
       [
-        "@query", "binder_x_d8361c5c7a71307ce5a0a2c39cfc9805_1",
+        "__query", "binder_x_d8361c5c7a71307ce5a0a2c39cfc9805_1",
         "equation_Curve.Bigint.bigint_wide", "equation_Curve.Bigint.u128",
         "equation_Curve.Parameters.norm_length", "equation_FStar.UInt128.t",
         "projection_inverse_BoxInt_proj_0",
@@ -578,7 +578,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.u128", "equation_FStar.UInt128.t",
+        "__query", "equation_Curve.Bigint.u128", "equation_FStar.UInt128.t",
         "equation_Prims.pos",
         "refinement_interpretation_Tm_refine_a94026ac81c54cb83aa40ac456c322eb"
       ],
@@ -590,7 +590,7 @@
       2,
       2,
       [
-        "@query", "binder_x_7a90278e5429a208399b890856eda147_0",
+        "__query", "binder_x_7a90278e5429a208399b890856eda147_0",
         "binder_x_7f7cb2ff79db400df837ba0122b45aeb_1",
         "binder_x_943191144a2f286d244bad33001af2b7_2",
         "equation_Curve.Bigint.bigint_wide", "equation_Curve.Bigint.heap",
@@ -622,7 +622,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.bigint_wide",
+        "__query", "equation_Curve.Bigint.bigint_wide",
         "equation_Curve.Bigint.u128", "equation_FStar.UInt128.t",
         "refinement_interpretation_Tm_refine_ef35cc95ee11cd4f11e8d4b7b66ce9f2"
       ],
@@ -634,7 +634,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.bigint_wide",
+        "__query", "equation_Curve.Bigint.bigint_wide",
         "equation_Curve.Bigint.u128",
         "equation_Curve.Parameters.norm_length", "equation_FStar.UInt128.t",
         "projection_inverse_BoxInt_proj_0",
@@ -649,7 +649,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.u64", "equation_FStar.UInt64.t",
+        "__query", "equation_Curve.Bigint.u64", "equation_FStar.UInt64.t",
         "equation_Prims.pos",
         "refinement_interpretation_Tm_refine_a94026ac81c54cb83aa40ac456c322eb"
       ],
@@ -661,10 +661,10 @@
       2,
       2,
       [
-        "@query", "b2t_def", "binder_x_5bbdfff2d8990db5188555da19d5c3ab_2",
+        "__query", "b2t_def", "binder_x_5bbdfff2d8990db5188555da19d5c3ab_2",
         "binder_x_6cc9a7331db00c2a899dbf52d882b48f_1",
         "binder_x_7a90278e5429a208399b890856eda147_0", "bool_inversion",
-        "data_elim_FStar.UInt64.Mk", "equality_tok_Prims.LexTop@tok",
+        "data_elim_FStar.UInt64.Mk", "equality_tok_Prims.LexTop__tok",
         "equation_Curve.Bigint.bigint", "equation_Curve.Bigint.heap",
         "equation_Curve.Bigint.u64", "equation_Curve.Parameters.a24",
         "equation_Curve.Parameters.a24_",
@@ -685,7 +685,7 @@
         "function_token_typing_Curve.Parameters.a24_",
         "function_token_typing_Curve.Parameters.platform_size",
         "function_token_typing_FStar.List.Tot.test_sort", "int_inversion",
-        "int_typing", "kinding_FStar.UInt64.t_@tok",
+        "int_typing", "kinding_FStar.UInt64.t___tok",
         "primitive_Prims.op_GreaterThan", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
@@ -708,7 +708,7 @@
       0,
       1,
       [
-        "@query", "equation_Prims.nat",
+        "__query", "equation_Prims.nat",
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -719,7 +719,7 @@
       0,
       1,
       [
-        "@query", "binder_x_f3a5fdd19b96fd21cd258f0ef31b046e_1",
+        "__query", "binder_x_f3a5fdd19b96fd21cd258f0ef31b046e_1",
         "equation_Curve.Bigint.bigint", "equation_Curve.Bigint.u64",
         "equation_FStar.UInt64.t",
         "refinement_interpretation_Tm_refine_c81fccead7be128a760bced1225594b4"
@@ -732,7 +732,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.u64", "equation_FStar.UInt64.t",
+        "__query", "equation_Curve.Bigint.u64", "equation_FStar.UInt64.t",
         "equation_Prims.pos",
         "refinement_interpretation_Tm_refine_a94026ac81c54cb83aa40ac456c322eb"
       ],
@@ -744,7 +744,7 @@
       2,
       2,
       [
-        "@query", "binder_x_15ce2564afeda593d4d35d723e45d4cb_2",
+        "__query", "binder_x_15ce2564afeda593d4d35d723e45d4cb_2",
         "binder_x_7a90278e5429a208399b890856eda147_0",
         "binder_x_f3a5fdd19b96fd21cd258f0ef31b046e_1",
         "equation_Curve.Bigint.bigint", "equation_Curve.Bigint.heap",
@@ -775,7 +775,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.bigint",
+        "__query", "equation_Curve.Bigint.bigint",
         "equation_Curve.Bigint.u64", "equation_FStar.UInt64.t",
         "refinement_interpretation_Tm_refine_ef35cc95ee11cd4f11e8d4b7b66ce9f2"
       ],
@@ -787,7 +787,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.bigint",
+        "__query", "equation_Curve.Bigint.bigint",
         "equation_Curve.Bigint.u64", "equation_Curve.Parameters.norm_length",
         "equation_FStar.UInt64.t", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_033585b16f9282fb8c7c71161354496f",
@@ -795,31 +795,31 @@
       ],
       0
     ],
-    [ "Curve.Bigint.maxValueNorm", 1, 0, 1, [ "@query" ], 0 ],
+    [ "Curve.Bigint.maxValueNorm", 1, 0, 1, [ "__query" ], 0 ],
     [
       "Curve.Bigint.maxValueNorm",
       2,
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.bigint",
+        "__query", "equation_Curve.Bigint.bigint",
         "equation_Curve.Bigint.u64", "equation_Curve.Parameters.norm_length",
         "equation_FStar.UInt64.t",
         "refinement_interpretation_Tm_refine_c97b7948016b923168d8698a50ca401e"
       ],
       0
     ],
-    [ "Curve.Bigint.maxValueIdx", 1, 0, 1, [ "@query" ], 0 ],
+    [ "Curve.Bigint.maxValueIdx", 1, 0, 1, [ "__query" ], 0 ],
     [
       "Curve.Bigint.maxValueIdx",
       2,
       0,
       1,
       [
-        "@query", "binder_x_5bbdfff2d8990db5188555da19d5c3ab_2",
+        "__query", "binder_x_5bbdfff2d8990db5188555da19d5c3ab_2",
         "binder_x_6cc9a7331db00c2a899dbf52d882b48f_1",
         "binder_x_7a90278e5429a208399b890856eda147_0",
-        "equality_tok_Prims.LexTop@tok", "equation_Curve.Bigint.bigint",
+        "equality_tok_Prims.LexTop__tok", "equation_Curve.Bigint.bigint",
         "equation_Curve.Bigint.heap", "equation_Curve.Bigint.u64",
         "equation_Curve.Parameters.norm_length",
         "equation_FStar.Buffer.buffer", "equation_FStar.UInt64.t",
@@ -843,25 +843,25 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
         "haseqTm_refine_e0b8a7ce8790eaaca2b2e4fb4d625bad",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
     ],
-    [ "Curve.Bigint.maxValue_eq_lemma", 1, 0, 1, [ "@query" ], 0 ],
+    [ "Curve.Bigint.maxValue_eq_lemma", 1, 0, 1, [ "__query" ], 0 ],
     [
       "Curve.Bigint.maxValue_eq_lemma",
       2,
       2,
       2,
       [
-        "@query", "b2t_def", "binder_x_276ce0f5606e7881359509234b916f8e_3",
+        "__query", "b2t_def", "binder_x_276ce0f5606e7881359509234b916f8e_3",
         "binder_x_6cc9a7331db00c2a899dbf52d882b48f_2",
         "binder_x_7a90278e5429a208399b890856eda147_0",
         "binder_x_7a90278e5429a208399b890856eda147_1",
         "binder_x_cda60864cf6228d7a4fba58b6264c802_4", "bool_inversion",
-        "data_elim_FStar.UInt64.Mk", "equality_tok_Prims.LexTop@tok",
+        "data_elim_FStar.UInt64.Mk", "equality_tok_Prims.LexTop__tok",
         "equation_Curve.Bigint.bigint", "equation_Curve.Bigint.heap",
         "equation_Curve.Bigint.u64", "equation_Curve.Parameters.a24",
         "equation_Curve.Parameters.a24_",
@@ -885,7 +885,7 @@
         "function_token_typing_Curve.Parameters.a24",
         "function_token_typing_Curve.Parameters.a24_",
         "function_token_typing_Curve.Parameters.platform_size",
-        "int_inversion", "int_typing", "kinding_FStar.UInt64.t_@tok",
+        "int_inversion", "int_typing", "kinding_FStar.UInt64.t___tok",
         "lemma_FStar.Seq.Base.lemma_len_slice", "primitive_Prims.op_Addition",
         "primitive_Prims.op_LessThanOrEqual",
         "primitive_Prims.op_Subtraction",
@@ -914,7 +914,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -925,7 +925,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqTm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -936,7 +936,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.bigint",
+        "__query", "equation_Curve.Bigint.bigint",
         "equation_Curve.Bigint.u64", "equation_Curve.Parameters.norm_length",
         "equation_FStar.UInt64.t",
         "refinement_interpretation_Tm_refine_c97b7948016b923168d8698a50ca401e"
@@ -949,7 +949,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.bigint",
+        "__query", "equation_Curve.Bigint.bigint",
         "equation_Curve.Bigint.heap", "equation_Curve.Bigint.maxValueNorm",
         "equation_Curve.Bigint.u64", "equation_Curve.Parameters.norm_length",
         "equation_FStar.UInt64.t",
@@ -965,7 +965,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
         "haseqTm_refine_e5e09b9db68eee1607b2e382893a4997",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -977,7 +977,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqTm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -988,7 +988,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.u64", "equation_FStar.UInt64.t",
+        "__query", "equation_Curve.Bigint.u64", "equation_FStar.UInt64.t",
         "equation_Prims.nat",
         "refinement_interpretation_Tm_refine_76d2846ad7d210ab83727a2652307bc9"
       ],
@@ -1000,12 +1000,12 @@
       2,
       2,
       [
-        "@query", "binder_x_276ce0f5606e7881359509234b916f8e_3",
+        "__query", "binder_x_276ce0f5606e7881359509234b916f8e_3",
         "binder_x_3c300b5e0bf51130d2a33057d242d6f7_4",
         "binder_x_6cc9a7331db00c2a899dbf52d882b48f_2",
         "binder_x_7a90278e5429a208399b890856eda147_0",
         "binder_x_7a90278e5429a208399b890856eda147_1",
-        "equality_tok_Prims.LexTop@tok", "equation_Curve.Bigint.bigint",
+        "equality_tok_Prims.LexTop__tok", "equation_Curve.Bigint.bigint",
         "equation_Curve.Bigint.heap", "equation_Curve.Bigint.u64",
         "equation_Curve.Parameters.norm_length",
         "equation_FStar.Buffer.buffer", "equation_FStar.List.Tot.test_sort",
@@ -1035,7 +1035,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt64.t__haseq",
+        "__query", "assumption_FStar.UInt64.t__haseq",
         "equation_Curve.Bigint.u64", "equation_FStar.UInt64.t"
       ],
       0
@@ -1045,7 +1045,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1054,7 +1054,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.u64", "equation_FStar.UInt64.t",
+        "__query", "equation_Curve.Bigint.u64", "equation_FStar.UInt64.t",
         "equation_Prims.nat", "int_inversion", "primitive_Prims.op_Addition",
         "primitive_Prims.op_Subtraction", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_1c90d41677d8d12848b1c3bbc2fc0576",
@@ -1068,13 +1068,13 @@
       0,
       1,
       [
-        "@query", "binder_x_276ce0f5606e7881359509234b916f8e_3",
+        "__query", "binder_x_276ce0f5606e7881359509234b916f8e_3",
         "binder_x_6cc9a7331db00c2a899dbf52d882b48f_2",
         "binder_x_7a90278e5429a208399b890856eda147_0",
         "binder_x_7a90278e5429a208399b890856eda147_1",
         "binder_x_810763f7a2e534fc368b996918b617e5_5",
         "binder_x_e22ba7a032a73f6d0678d3d186686631_4",
-        "equality_tok_Prims.LexTop@tok", "equation_Curve.Bigint.bigint",
+        "equality_tok_Prims.LexTop__tok", "equation_Curve.Bigint.bigint",
         "equation_Curve.Bigint.heap", "equation_Curve.Bigint.u64",
         "equation_Curve.Parameters.norm_length",
         "equation_FStar.Buffer.bounded_seq", "equation_FStar.Buffer.buffer",
@@ -1109,7 +1109,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqTm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1119,7 +1119,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1127,7 +1127,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1136,7 +1136,7 @@
       0,
       1,
       [
-        "@query", "equation_Curve.Bigint.u64", "equation_FStar.UInt64.t",
+        "__query", "equation_Curve.Bigint.u64", "equation_FStar.UInt64.t",
         "equation_Prims.nat",
         "refinement_interpretation_Tm_refine_a94026ac81c54cb83aa40ac456c322eb"
       ],
@@ -1148,10 +1148,10 @@
       2,
       2,
       [
-        "@query", "binder_x_6cc9a7331db00c2a899dbf52d882b48f_1",
+        "__query", "binder_x_6cc9a7331db00c2a899dbf52d882b48f_1",
         "binder_x_7a90278e5429a208399b890856eda147_0",
         "binder_x_ee6edd9f3ecef1808696e9f3a7529e09_2",
-        "equality_tok_Prims.LexTop@tok", "equation_Curve.Bigint.bigint",
+        "equality_tok_Prims.LexTop__tok", "equation_Curve.Bigint.bigint",
         "equation_Curve.Bigint.heap", "equation_Curve.Bigint.u64",
         "equation_Curve.Parameters.norm_length",
         "equation_FStar.Buffer.buffer", "equation_FStar.List.Tot.test_sort",
@@ -1184,20 +1184,20 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
-    [ "Curve.Bigint.max_value_of_null_lemma", 2, 0, 1, [ "@query" ], 0 ],
+    [ "Curve.Bigint.max_value_of_null_lemma", 2, 0, 1, [ "__query" ], 0 ],
     [
       "Curve.Bigint.max_value_of_null_lemma",
       3,
       2,
       2,
       [
-        "@query", "binder_x_15ce2564afeda593d4d35d723e45d4cb_2",
+        "__query", "binder_x_15ce2564afeda593d4d35d723e45d4cb_2",
         "binder_x_7a90278e5429a208399b890856eda147_0",
         "binder_x_f3a5fdd19b96fd21cd258f0ef31b046e_1",
-        "equality_tok_Prims.LexTop@tok", "equation_Curve.Bigint.bigint",
+        "equality_tok_Prims.LexTop__tok", "equation_Curve.Bigint.bigint",
         "equation_Curve.Bigint.heap", "equation_Curve.Bigint.null",
         "equation_Curve.Bigint.u64", "equation_Curve.Parameters.norm_length",
         "equation_FStar.Buffer.buffer", "equation_FStar.List.Tot.test_sort",

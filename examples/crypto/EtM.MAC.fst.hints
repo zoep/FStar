@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@query", "equation_EtM.MAC.keysize",
+        "__query", "equation_EtM.MAC.keysize",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -18,8 +18,8 @@
       2,
       1,
       [
-        "@query", "constructor_distinct_CoreCrypto.SHA1",
-        "equality_tok_CoreCrypto.SHA1@tok", "equation_CoreCrypto.hashSize",
+        "__query", "constructor_distinct_CoreCrypto.SHA1",
+        "equality_tok_CoreCrypto.SHA1__tok", "equation_CoreCrypto.hashSize",
         "equation_EtM.MAC.macsize", "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -29,17 +29,17 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
-    [ "EtM.MAC.sha1", 2, 2, 1, [ "@query", "equation_EtM.MAC.macsize" ], 0 ],
+    [ "EtM.MAC.sha1", 2, 2, 1, [ "__query", "equation_EtM.MAC.macsize" ], 0 ],
     [
       "EtM.MAC.hmac_sha1",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equality_tok_CoreCrypto.SHA1@tok",
+        "__MaxIFuel_assumption", "__query", "equality_tok_CoreCrypto.SHA1__tok",
         "equation_CoreCrypto.hashSize", "equation_EtM.CPA.cipher",
         "equation_EtM.CPA.ivsize", "equation_EtM.MAC.blocksize",
         "equation_EtM.MAC.keysize", "equation_EtM.MAC.macsize",
@@ -52,15 +52,15 @@
       ],
       0
     ],
-    [ "EtM.MAC.__proj__Key__item__region", 1, 2, 1, [ "@query" ], 0 ],
-    [ "EtM.MAC.__proj__Key__item__raw", 1, 2, 1, [ "@query" ], 0 ],
+    [ "EtM.MAC.__proj__Key__item__region", 1, 2, 1, [ "__query" ], 0 ],
+    [ "EtM.MAC.__proj__Key__item__raw", 1, 2, 1, [ "__query" ], 0 ],
     [
       "EtM.MAC.__proj__Key__item__log",
       1,
       2,
       1,
       [
-        "@query", "proj_equation_EtM.MAC.Key_region",
+        "__query", "proj_equation_EtM.MAC.Key_region",
         "projection_inverse_EtM.MAC.Key_region"
       ],
       0
@@ -70,7 +70,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_FStar.HyperHeap.HasEq_rid" ],
+      [ "__query", "assumption_FStar.HyperHeap.HasEq_rid" ],
       0
     ],
     [
@@ -79,7 +79,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.Heap_interpretation_Tm_arrow_76a60dab4e3b3182a3b4dae5a57cfb2d",
         "FStar.Seq.Base_interpretation_Tm_arrow_00f9c71b3857cf53afe4e7056e14e934",
         "assumption_FStar.HyperHeap.HasEq_rid", "bool_inversion",
@@ -111,7 +111,7 @@
         "function_token_typing_FStar.HyperHeap.rid",
         "function_token_typing_FStar.HyperHeap.root",
         "function_token_typing_FStar.Monotonic.Seq.grows",
-        "kinding_FStar.Pervasives.Native.tuple2@tok",
+        "kinding_FStar.Pervasives.Native.tuple2__tok",
         "lemma_FStar.HyperHeap.lemma_extends_includes",
         "lemma_FStar.HyperHeap.lemma_extends_not_root",
         "lemma_FStar.HyperHeap.lemma_extends_only_parent",
@@ -167,10 +167,10 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.Heap_interpretation_Tm_arrow_76a60dab4e3b3182a3b4dae5a57cfb2d",
         "FStar.Seq.Base_interpretation_Tm_arrow_00f9c71b3857cf53afe4e7056e14e934",
-        "data_typing_intro_FStar.Pervasives.Native.Mktuple2@tok",
+        "data_typing_intro_FStar.Pervasives.Native.Mktuple2__tok",
         "equation_EtM.CPA.cipher", "equation_EtM.MAC.log_t",
         "equation_EtM.MAC.msg", "equation_EtM.MAC.tag",
         "equation_FStar.Monotonic.RRef.m_sel",
@@ -180,7 +180,7 @@
         "function_token_typing_EtM.CPA.cipher",
         "function_token_typing_EtM.MAC.tag",
         "function_token_typing_FStar.Monotonic.Seq.grows", "int_typing",
-        "kinding_FStar.Pervasives.Native.tuple2@tok",
+        "kinding_FStar.Pervasives.Native.tuple2__tok",
         "lemma_FStar.Seq.Base.lemma_create_len",
         "lemma_FStar.Seq.Base.lemma_len_append",
         "proj_equation_EtM.MAC.Key_region",
@@ -199,10 +199,10 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple2_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple2_haseq",
         "assumption_Platform.Bytes.HasEq_bytes",
-        "equality_tok_CoreCrypto.AES_128_CBC@tok",
-        "equality_tok_CoreCrypto.SHA1@tok", "equation_CoreCrypto.blockSize",
+        "equality_tok_CoreCrypto.AES_128_CBC__tok",
+        "equality_tok_CoreCrypto.SHA1__tok", "equation_CoreCrypto.blockSize",
         "equation_CoreCrypto.hashSize", "equation_EtM.CPA.cipher",
         "equation_EtM.CPA.ivsize", "equation_EtM.MAC.macsize",
         "equation_EtM.MAC.msg", "equation_EtM.MAC.tag",
@@ -220,7 +220,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "FStar.Heap_interpretation_Tm_arrow_76a60dab4e3b3182a3b4dae5a57cfb2d",
         "FStar.Seq.Base_interpretation_Tm_arrow_00f9c71b3857cf53afe4e7056e14e934",
         "assumption_FStar.HyperHeap.HasEq_rid", "bool_inversion",
@@ -245,7 +245,7 @@
         "function_token_typing_FStar.Heap.heap",
         "function_token_typing_FStar.HyperHeap.rid",
         "function_token_typing_FStar.Monotonic.Seq.grows",
-        "kinding_FStar.Pervasives.Native.tuple2@tok",
+        "kinding_FStar.Pervasives.Native.tuple2__tok",
         "lemma_FStar.Map.lemma_ContainsDom",
         "lemma_FStar.Map.lemma_InDomConcat",
         "lemma_FStar.Map.lemma_InDomRestrict",
@@ -281,8 +281,8 @@
       2,
       1,
       [
-        "@query", "assumption_Platform.Bytes.HasEq_bytes",
-        "equality_tok_CoreCrypto.SHA1@tok", "equation_CoreCrypto.hashSize",
+        "__query", "assumption_Platform.Bytes.HasEq_bytes",
+        "equality_tok_CoreCrypto.SHA1__tok", "equation_CoreCrypto.hashSize",
         "equation_EtM.MAC.macsize", "equation_EtM.MAC.tag",
         "equation_Platform.Bytes.bytes", "equation_Platform.Bytes.lbytes",
         "haseqPlatform.Bytes_Tm_refine_3458b9f6f40fe62446cdc2c6d3755a94"
@@ -295,10 +295,10 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple2_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple2_haseq",
         "assumption_Platform.Bytes.HasEq_bytes",
-        "equality_tok_CoreCrypto.AES_128_CBC@tok",
-        "equality_tok_CoreCrypto.SHA1@tok", "equation_CoreCrypto.blockSize",
+        "equality_tok_CoreCrypto.AES_128_CBC__tok",
+        "equality_tok_CoreCrypto.SHA1__tok", "equation_CoreCrypto.blockSize",
         "equation_CoreCrypto.hashSize", "equation_EtM.CPA.cipher",
         "equation_EtM.CPA.ivsize", "equation_EtM.MAC.macsize",
         "equation_EtM.MAC.msg", "equation_EtM.MAC.tag",

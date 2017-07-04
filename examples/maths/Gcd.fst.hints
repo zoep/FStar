@@ -6,7 +6,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -15,7 +15,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_FStar.Mul.op_Star",
+        "__MaxIFuel_assumption", "__query", "equation_FStar.Mul.op_Star",
         "equation_Prims.pos", "int_inversion", "int_typing",
         "primitive_Prims.op_Multiply", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Prims_Tm_refine_f048236b5f8051f83b495ea5eaa6127b",
@@ -28,10 +28,10 @@
       1,
       2,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
-    [ "Gcd.a_divides_a", 1, 2, 1, [ "@query" ], 0 ],
-    [ "Gcd.gcd_triv", 1, 2, 1, [ "@query", "equation_Gcd.is_gcd" ], 0 ]
+    [ "Gcd.a_divides_a", 1, 2, 1, [ "__query" ], 0 ],
+    [ "Gcd.gcd_triv", 1, 2, 1, [ "__query", "equation_Gcd.is_gcd" ], 0 ]
   ]
 ]

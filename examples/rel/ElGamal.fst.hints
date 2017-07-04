@@ -1,14 +1,14 @@
 [
   "æYËµûœ q'\u0015 Y>\fmV",
   [
-    [ "ElGamal.mul_pow", 1, 2, 1, [ "@query" ], 0 ],
+    [ "ElGamal.mul_pow", 1, 2, 1, [ "__query" ], 0 ],
     [
       "ElGamal.mod_plus_minus",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.pos",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.pos",
         "function_token_typing_FStar.DM4F.Heap.Random.q",
         "refinement_interpretation_Prims_Tm_refine_f048236b5f8051f83b495ea5eaa6127b"
       ],
@@ -20,7 +20,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.pos",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.pos",
         "function_token_typing_FStar.DM4F.Heap.Random.q",
         "refinement_interpretation_Prims_Tm_refine_f048236b5f8051f83b495ea5eaa6127b"
       ],
@@ -32,7 +32,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_interpretation_Tm_arrow_f82c3fb9ac6610efb97620a59b378092",
         "equation_ElGamal.group", "equation_FStar.DM4F.Heap.Random.elem",
         "equation_FStar.DM4F.Heap.Random.sel",
@@ -63,19 +63,19 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "constructor_distinct_FStar.Pervasives.Native.None",
         "constructor_distinct_FStar.Pervasives.Native.Some",
         "data_elim_FStar.Pervasives.Native.Mktuple2",
-        "data_typing_intro_FStar.Pervasives.Native.Mktuple2@tok",
-        "data_typing_intro_FStar.Pervasives.Native.None@tok",
-        "data_typing_intro_FStar.Pervasives.Native.Some@tok",
+        "data_typing_intro_FStar.Pervasives.Native.Mktuple2__tok",
+        "data_typing_intro_FStar.Pervasives.Native.None__tok",
+        "data_typing_intro_FStar.Pervasives.Native.Some__tok",
         "equation_ElGamal.group", "equation_FStar.DM4F.Heap.Random.elem",
         "equation_Prims.eqtype",
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple2",
         "function_token_typing_FStar.DM4F.Heap.Random.id",
         "function_token_typing_Prims.int",
-        "kinding_FStar.Pervasives.Native.option@tok",
+        "kinding_FStar.Pervasives.Native.option__tok",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__1",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__2",
@@ -94,19 +94,19 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "constructor_distinct_FStar.Pervasives.Native.None",
         "constructor_distinct_FStar.Pervasives.Native.Some",
         "data_elim_FStar.Pervasives.Native.Mktuple2",
-        "data_typing_intro_FStar.Pervasives.Native.Mktuple2@tok",
-        "data_typing_intro_FStar.Pervasives.Native.None@tok",
-        "data_typing_intro_FStar.Pervasives.Native.Some@tok",
+        "data_typing_intro_FStar.Pervasives.Native.Mktuple2__tok",
+        "data_typing_intro_FStar.Pervasives.Native.None__tok",
+        "data_typing_intro_FStar.Pervasives.Native.Some__tok",
         "equation_ElGamal.group", "equation_FStar.DM4F.Heap.Random.elem",
         "equation_Prims.eqtype",
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple2",
         "function_token_typing_FStar.DM4F.Heap.Random.id",
         "function_token_typing_Prims.int",
-        "kinding_FStar.Pervasives.Native.option@tok",
+        "kinding_FStar.Pervasives.Native.option__tok",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__1",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__2",
@@ -119,14 +119,14 @@
       ],
       0
     ],
-    [ "ElGamal.elgamal_prop", 1, 2, 1, [ "@query" ], 0 ],
+    [ "ElGamal.elgamal_prop", 1, 2, 1, [ "__query" ], 0 ],
     [
       "ElGamal.elgamal_prop",
       2,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.pos",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.pos",
         "function_token_typing_FStar.DM4F.Heap.Random.q", "int_inversion",
         "primitive_Prims.op_Modulus", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Prims_Tm_refine_f048236b5f8051f83b495ea5eaa6127b"
@@ -138,7 +138,7 @@
       1,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int", "equation_ElGamal.group" ],
+      [ "__query", "assumption_Prims.HasEq_int", "equation_ElGamal.group" ],
       0
     ],
     [
@@ -146,7 +146,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int", "equation_ElGamal.group" ],
+      [ "__query", "assumption_Prims.HasEq_int", "equation_ElGamal.group" ],
       0
     ],
     [
@@ -155,7 +155,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "ElGamal_interpretation_Tm_arrow_b27f569ebc8dac84a052800fab7f723c",
         "FStar.DM4F.Random.__proj__RAND__item__get_equality",
         "FStar.DM4F.Random.__proj__RAND__item__get_token_correspondence",
@@ -170,7 +170,7 @@
         "constructor_distinct_FStar.Pervasives.Native.Some",
         "constructor_distinct_Tm_unit",
         "data_elim_FStar.DM4F.Random.Bijection",
-        "data_typing_intro_FStar.Pervasives.Native.Mktuple2@tok",
+        "data_typing_intro_FStar.Pervasives.Native.Mktuple2__tok",
         "equation_ElGamal.bij_", "equation_ElGamal.elgamal",
         "equation_ElGamal.elgamal_", "equation_ElGamal.group",
         "equation_FStar.DM4F.Heap.Random.elem",
@@ -241,7 +241,7 @@
       4,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int", "equation_ElGamal.group" ],
+      [ "__query", "assumption_Prims.HasEq_int", "equation_ElGamal.group" ],
       0
     ],
     [
@@ -249,7 +249,7 @@
       5,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int", "equation_ElGamal.group" ],
+      [ "__query", "assumption_Prims.HasEq_int", "equation_ElGamal.group" ],
       0
     ]
   ]

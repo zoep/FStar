@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Char.char__haseq",
+        "__query", "assumption_FStar.Char.char__haseq",
         "equation_FStar.Char.char", "equation_Platform.Bytes.byte"
       ],
       0
@@ -18,7 +18,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Char.char__haseq",
+        "__query", "assumption_FStar.Char.char__haseq",
         "equation_FStar.Char.char", "equation_Platform.Bytes.byte"
       ],
       0
@@ -29,7 +29,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Char.char__haseq",
+        "__query", "assumption_FStar.Char.char__haseq",
         "equation_FStar.Char.char", "equation_Platform.Bytes.byte"
       ],
       0
@@ -40,14 +40,14 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86",
         "assumption_FStar.Char.char__haseq", "equation_FStar.Char.char",
         "equation_Formatting.length", "equation_Formatting.message",
         "equation_Formatting.op_At_Bar", "equation_Platform.Bytes.byte",
         "equation_Platform.Bytes.bytes", "equation_Platform.Bytes.length",
         "equation_Platform.Bytes.op_At_Bar", "equation_Prims.eqtype",
-        "equation_Prims.nat", "kinding_FStar.Char.char_@tok",
+        "equation_Prims.nat", "kinding_FStar.Char.char___tok",
         "lemma_FStar.Seq.Base.lemma_eq_intro",
         "refinement_interpretation_FStar.Seq.Base_Tm_refine_36f208f2b1019ab7b5d9be73f4c89349",
         "refinement_interpretation_FStar.Seq.Base_Tm_refine_f904f6c16e829f6df71f9c4ec26e4ace",
@@ -63,18 +63,18 @@
       2,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqPrims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
     ],
-    [ "Formatting.lemma_eq_intro", 2, 2, 1, [ "@query" ], 0 ],
+    [ "Formatting.lemma_eq_intro", 2, 2, 1, [ "__query" ], 0 ],
     [
       "Formatting.lemma_eq_intro",
       3,
       2,
       1,
-      [ "@query", "lemma_FStar.Seq.Base.lemma_eq_intro", "unit_typing" ],
+      [ "__query", "lemma_FStar.Seq.Base.lemma_eq_intro", "unit_typing" ],
       0
     ],
     [
@@ -83,7 +83,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Char.char__haseq",
+        "__query", "assumption_FStar.Char.char__haseq",
         "equation_FStar.Char.char", "equation_Platform.Bytes.byte"
       ],
       0
@@ -94,7 +94,7 @@
       2,
       1,
       [
-        "@query", "equation_Formatting.uInt16",
+        "__query", "equation_Formatting.uInt16",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -105,7 +105,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Formatting.uInt16",
+        "__MaxIFuel_assumption", "__query", "equation_Formatting.uInt16",
         "equation_Formatting.uint16", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Formatting_Tm_refine_9adbdccb31bd5d6d35b7a0e150a5d273",
         "refinement_interpretation_Formatting_Tm_refine_b50c829655ecafa308fc3d57ba98b0bf"
@@ -117,7 +117,7 @@
       1,
       2,
       1,
-      [ "@query", "equation_Formatting.uInt16" ],
+      [ "__query", "equation_Formatting.uInt16" ],
       0
     ],
     [
@@ -125,7 +125,7 @@
       2,
       2,
       1,
-      [ "@query", "equation_Formatting.uInt16" ],
+      [ "__query", "equation_Formatting.uInt16" ],
       0
     ],
     [
@@ -134,7 +134,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Char.char__haseq",
+        "__query", "assumption_FStar.Char.char__haseq",
         "equation_FStar.Char.char", "equation_Platform.Bytes.byte"
       ],
       0
@@ -145,7 +145,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Formatting.uInt16",
+        "__MaxIFuel_assumption", "__query", "equation_Formatting.uInt16",
         "equation_Formatting.uint16",
         "refinement_interpretation_Formatting_Tm_refine_b50c829655ecafa308fc3d57ba98b0bf"
       ],
@@ -156,7 +156,7 @@
       1,
       2,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -164,7 +164,7 @@
       1,
       2,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -173,7 +173,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Formatting.length",
+        "__MaxIFuel_assumption", "__query", "equation_Formatting.length",
         "equation_Formatting.string16", "equation_Formatting.uInt16",
         "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Formatting_Tm_refine_df393ec945fcc9a49fa4c6eaca42efd8"
@@ -186,7 +186,7 @@
       2,
       1,
       [
-        "@query", "assumption_Platform.Bytes.HasEq_bytes",
+        "__query", "assumption_Platform.Bytes.HasEq_bytes",
         "equation_Formatting.message"
       ],
       0
@@ -197,7 +197,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "equation_FStar.Char.char", "equation_Formatting.length",
         "equation_Formatting.message", "equation_Formatting.op_At_Bar",
@@ -213,7 +213,7 @@
         "function_token_typing_Formatting.tag0",
         "function_token_typing_Formatting.tag1",
         "function_token_typing_Platform.Bytes.empty_bytes", "int_typing",
-        "kinding_FStar.Char.char_@tok",
+        "kinding_FStar.Char.char___tok",
         "lemma_FStar.Seq.Base.lemma_index_app1",
         "lemma_FStar.Seq.Base.lemma_index_create",
         "lemma_FStar.Seq.Base.lemma_len_append",
@@ -239,7 +239,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Char.char__haseq",
+        "__query", "assumption_FStar.Char.char__haseq",
         "equation_FStar.Char.char", "equation_Platform.Bytes.byte"
       ],
       0
@@ -250,7 +250,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "assumption_Formatting.UTF8_inj",
+        "__MaxIFuel_assumption", "__query", "assumption_Formatting.UTF8_inj",
         "equation_Formatting.message", "equation_Formatting.request",
         "equation_Formatting.tag0", "equation_Platform.Bytes.bytes",
         "equation_Platform.Bytes.lbytes",
@@ -267,7 +267,7 @@
       2,
       1,
       [
-        "@query", "assumption_FStar.Char.char__haseq",
+        "__query", "assumption_FStar.Char.char__haseq",
         "equation_FStar.Char.char", "equation_Platform.Bytes.byte"
       ],
       0
@@ -278,7 +278,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_interpretation_Tm_arrow_44faff5d8543c30ad9bf2eeaf1b3abcf",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "assumption_FStar.Char.char__haseq",
@@ -293,7 +293,7 @@
         "equation_Platform.Bytes.lbytes", "equation_Prims.eqtype",
         "equation_Prims.nat", "function_token_typing_Formatting.op_At_Bar",
         "function_token_typing_Formatting.tag1", "int_typing",
-        "kinding_FStar.Char.char_@tok", "lemma_FStar.Seq.Base.lemma_eq_elim",
+        "kinding_FStar.Char.char___tok", "lemma_FStar.Seq.Base.lemma_eq_elim",
         "lemma_Formatting.append_inj_lemma",
         "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_FStar.Seq.Base_Tm_refine_f904f6c16e829f6df71f9c4ec26e4ace",

@@ -1,46 +1,46 @@
 [
   "Û\u000f\u0002ù\u000b\u0015G\u0019 —m\u0007'\u0010+≈",
   [
-    [ "FStar.Constructive.cand", 1, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.Constructive.__proj__Conj__item__h1", 1, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.Constructive.__proj__Conj__item__h2", 1, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.Constructive.cor", 1, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.Constructive.uu___is_IntroL", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.Constructive.cand", 1, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.Constructive.__proj__Conj__item__h1", 1, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.Constructive.__proj__Conj__item__h2", 1, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.Constructive.cor", 1, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.Constructive.uu___is_IntroL", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.Constructive.__proj__IntroL__item__h",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_FStar.Constructive.IntroL",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_FStar.Constructive_Tm_refine_5f96298b0b74547bf135efed6725faec"
       ],
       0
     ],
-    [ "FStar.Constructive.uu___is_IntroR", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.Constructive.uu___is_IntroR", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.Constructive.__proj__IntroR__item__h",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_FStar.Constructive.IntroR",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_FStar.Constructive_Tm_refine_7fbfb42f7ce95e0df3d91787685cfbfc"
       ],
       0
     ],
-    [ "FStar.Constructive.cimp", 1, 2, 1, [ "@query" ], 0 ],
-    [ "FStar.Constructive.ciff", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.Constructive.cimp", 1, 2, 1, [ "__query" ], 0 ],
+    [ "FStar.Constructive.ciff", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.Constructive.__proj__ExIntro__item__x",
       1,
       2,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -49,7 +49,7 @@
       2,
       1,
       [
-        "@query", "proj_equation_FStar.Constructive.ExIntro_x",
+        "__query", "proj_equation_FStar.Constructive.ExIntro_x",
         "projection_inverse_FStar.Constructive.ExIntro_x"
       ],
       0
@@ -60,19 +60,19 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "fuel_guarded_inversion_FStar.Constructive.ceq"
       ],
       0
     ],
-    [ "FStar.Constructive.ceq_eq", 1, 2, 1, [ "@query" ], 0 ],
+    [ "FStar.Constructive.ceq_eq", 1, 2, 1, [ "__query" ], 0 ],
     [
       "FStar.Constructive.ceq_eq",
       2,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "fuel_guarded_inversion_FStar.Constructive.ceq", "unit_typing"
       ],
       0
@@ -83,7 +83,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "fuel_guarded_inversion_FStar.Constructive.ceq"
       ],
       0
@@ -94,7 +94,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "fuel_guarded_inversion_FStar.Constructive.ceq"
       ],
       0
@@ -105,7 +105,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "fuel_guarded_inversion_FStar.Constructive.ceq"
       ],
       0
@@ -116,7 +116,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "fuel_guarded_inversion_FStar.Constructive.cfalse"
       ],
       0
@@ -127,7 +127,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption",
+        "__MaxIFuel_assumption",
         "binder_x_611e56218f4c28201d355e496e09caa7_2",
         "fuel_guarded_inversion_FStar.Constructive.cfalse"
       ],
@@ -139,7 +139,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption",
+        "__MaxIFuel_assumption",
         "binder_x_27672a0694ca5377bbd1682fdc19a13b_2",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_FStar.Pervasives_Tm_refine_16d7dda25a162db0722685f27f707102"

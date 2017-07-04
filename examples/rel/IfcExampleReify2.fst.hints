@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@query", "equation_FStar.DM4F.Heap.IntStoreFixed.store_size",
+        "__query", "equation_FStar.DM4F.Heap.IntStoreFixed.store_size",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -18,7 +18,7 @@
       2,
       1,
       [
-        "@query", "equation_FStar.DM4F.Heap.IntStoreFixed.store_size",
+        "__query", "equation_FStar.DM4F.Heap.IntStoreFixed.store_size",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -29,7 +29,7 @@
       2,
       1,
       [
-        "@query", "equation_FStar.DM4F.Heap.IntStoreFixed.store_size",
+        "__query", "equation_FStar.DM4F.Heap.IntStoreFixed.store_size",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -40,8 +40,8 @@
       2,
       1,
       [
-        "@query", "equality_tok_IfcRulesReify.High@tok",
-        "equality_tok_IfcRulesReify.Low@tok"
+        "__query", "equality_tok_IfcRulesReify.High__tok",
+        "equality_tok_IfcRulesReify.Low__tok"
       ],
       0
     ],
@@ -51,7 +51,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.id",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
@@ -63,7 +63,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.id",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
@@ -75,7 +75,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.eqtype",
+        "__MaxIFuel_assumption", "__query", "equation_Prims.eqtype",
         "function_token_typing_FStar.DM4F.Heap.IntStoreFixed.id",
         "refinement_interpretation_Prims_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
@@ -87,10 +87,10 @@
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_WhileReify.interpret_com_st.fuel_instrumented",
-        "@fuel_correspondence_WhileReify.interpret_exp_st.fuel_instrumented",
-        "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_WhileReify.interpret_com_st.fuel_instrumented",
+        "__fuel_correspondence_WhileReify.interpret_exp_st.fuel_instrumented",
+        "__query",
         "FStar.DM4F.IntStoreExcFixed.__proj__INT_STORE_EXC__item__get_equality",
         "FStar.DM4F.IntStoreExcFixed.__proj__INT_STORE_EXC__item__get_token_correspondence",
         "FStar.DM4F.IntStoreExcFixed.__proj__INT_STORE_EXC__item__put_equality",
@@ -118,11 +118,11 @@
         "constructor_distinct_WhileReify.Seq",
         "data_elim_FStar.Pervasives.Native.Mktuple2",
         "data_elim_WhileReify.Assign",
-        "data_typing_intro_IfcRulesReify.High@tok",
-        "data_typing_intro_WhileReify.Seq@tok", "eq2-interp",
-        "equality_tok_IfcRulesReify.High@tok",
-        "equality_tok_IfcRulesReify.Low@tok",
-        "equality_tok_WhileReify.Plus@tok",
+        "data_typing_intro_IfcRulesReify.High__tok",
+        "data_typing_intro_WhileReify.Seq__tok", "eq2-interp",
+        "equality_tok_IfcRulesReify.High__tok",
+        "equality_tok_IfcRulesReify.Low__tok",
+        "equality_tok_WhileReify.Plus__tok",
         "equation_FStar.DM4F.Heap.IntStoreFixed.create",
         "equation_FStar.DM4F.Heap.IntStoreFixed.store_size",
         "equation_FStar.DM4F.Heap.IntStoreFixed.to_id",
@@ -214,21 +214,21 @@
         "typing_Rel.__proj__R__item__r", "typing_WhileReify.interpret_com",
         "typing_WhileReify.interpret_com_st",
         "typing_WhileReify.interpret_exp_st",
-        "typing_tok_IfcRulesReify.Low@tok", "unit_typing"
+        "typing_tok_IfcRulesReify.Low__tok", "unit_typing"
       ],
       0
     ],
-    [ "IfcExampleReify2.cmd_ni", 1, 2, 1, [ "@query" ], 0 ],
+    [ "IfcExampleReify2.cmd_ni", 1, 2, 1, [ "__query" ], 0 ],
     [
       "IfcExampleReify2.cmd_ni",
       2,
       2,
       1,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_WhileReify.interpret_com_st.fuel_instrumented",
-        "@fuel_correspondence_WhileReify.interpret_exp_st.fuel_instrumented",
-        "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_WhileReify.interpret_com_st.fuel_instrumented",
+        "__fuel_correspondence_WhileReify.interpret_exp_st.fuel_instrumented",
+        "__query",
         "FStar.DM4F.IntStoreExcFixed.__proj__INT_STORE_EXC__item__get_equality",
         "FStar.DM4F.IntStoreExcFixed.__proj__INT_STORE_EXC__item__get_token_correspondence",
         "FStar.DM4F.IntStoreExcFixed.__proj__INT_STORE_EXC__item__put_equality",
@@ -254,12 +254,12 @@
         "constructor_distinct_WhileReify.Plus",
         "constructor_distinct_WhileReify.Seq",
         "data_elim_FStar.Pervasives.Native.Mktuple2",
-        "data_typing_intro_IfcRulesReify.High@tok",
-        "data_typing_intro_WhileReify.Seq@tok", "eq2-interp",
-        "equality_tok_IfcRulesReify.High@tok",
-        "equality_tok_IfcRulesReify.Low@tok",
-        "equality_tok_WhileReify.Plus@tok",
-        "equality_tok_WhileReify.Skip@tok",
+        "data_typing_intro_IfcRulesReify.High__tok",
+        "data_typing_intro_WhileReify.Seq__tok", "eq2-interp",
+        "equality_tok_IfcRulesReify.High__tok",
+        "equality_tok_IfcRulesReify.Low__tok",
+        "equality_tok_WhileReify.Plus__tok",
+        "equality_tok_WhileReify.Skip__tok",
         "equation_FStar.DM4F.Heap.IntStoreFixed.create",
         "equation_FStar.DM4F.Heap.IntStoreFixed.store_size",
         "equation_FStar.DM4F.Heap.IntStoreFixed.to_id",
@@ -349,7 +349,7 @@
         "typing_Rel.__proj__R__item__l", "typing_Rel.__proj__R__item__r",
         "typing_WhileReify.interpret_com",
         "typing_WhileReify.interpret_com_st",
-        "typing_tok_WhileReify.Skip@tok", "unit_typing"
+        "typing_tok_WhileReify.Skip__tok", "unit_typing"
       ],
       0
     ],
@@ -359,13 +359,13 @@
       4,
       2,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_FStar.List.Tot.Base.find.fuel_instrumented",
-        "@fuel_correspondence_IfcTypechecker.tc_com_hybrid.fuel_instrumented",
-        "@fuel_correspondence_IfcTypechecker.tc_exp.fuel_instrumented",
-        "@fuel_correspondence_WhileReify.interpret_exp_st.fuel_instrumented",
-        "@fuel_irrelevance_IfcTypechecker.tc_exp.fuel_instrumented",
-        "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_FStar.List.Tot.Base.find.fuel_instrumented",
+        "__fuel_correspondence_IfcTypechecker.tc_com_hybrid.fuel_instrumented",
+        "__fuel_correspondence_IfcTypechecker.tc_exp.fuel_instrumented",
+        "__fuel_correspondence_WhileReify.interpret_exp_st.fuel_instrumented",
+        "__fuel_irrelevance_IfcTypechecker.tc_exp.fuel_instrumented",
+        "__query",
         "FStar.DM4F.IntStoreFixedReader.__proj__INT_STORE_READER__item__get_equality",
         "FStar.DM4F.IntStoreFixedReader.__proj__INT_STORE_READER__item__get_token_correspondence",
         "IfcRulesReify_interpretation_Tm_arrow_1488a937a3e8deec79f7ef763bb356a7",
@@ -389,13 +389,13 @@
         "constructor_distinct_WhileReify.Plus",
         "constructor_distinct_WhileReify.Seq",
         "constructor_distinct_WhileReify.While",
-        "data_typing_intro_IfcRulesReify.High@tok",
-        "data_typing_intro_IfcTypechecker.Not_well_typed@tok",
+        "data_typing_intro_IfcRulesReify.High__tok",
+        "data_typing_intro_IfcTypechecker.Not_well_typed__tok",
         "disc_equation_FStar.Pervasives.Inl",
-        "equality_tok_IfcRulesReify.Low@tok",
-        "equality_tok_WhileReify.Minus@tok",
-        "equality_tok_WhileReify.Plus@tok",
-        "equality_tok_WhileReify.Skip@tok",
+        "equality_tok_IfcRulesReify.Low__tok",
+        "equality_tok_WhileReify.Minus__tok",
+        "equality_tok_WhileReify.Plus__tok",
+        "equality_tok_WhileReify.Skip__tok",
         "equation_FStar.DM4F.Heap.IntStoreFixed.create",
         "equation_FStar.DM4F.Heap.IntStoreFixed.store_size",
         "equation_FStar.DM4F.Heap.IntStoreFixed.to_id",
@@ -469,7 +469,7 @@
         "refinement_interpretation_Prims_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
         "token_correspondence_IfcExampleReify2.env",
         "typing_FStar.DM4F.Heap.IntStoreFixed.to_id",
-        "typing_tok_WhileReify.Skip@tok", "unit_typing"
+        "typing_tok_WhileReify.Skip__tok", "unit_typing"
       ],
       0
     ]

@@ -6,7 +6,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -14,7 +14,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -23,7 +23,7 @@
       0,
       1,
       [
-        "@query", "primitive_Prims.op_Equality",
+        "__query", "primitive_Prims.op_Equality",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -33,7 +33,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -41,7 +41,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -49,7 +49,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -58,7 +58,7 @@
       0,
       1,
       [
-        "@query", "primitive_Prims.op_Equality",
+        "__query", "primitive_Prims.op_Equality",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -68,7 +68,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -76,7 +76,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -84,7 +84,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -93,7 +93,7 @@
       0,
       1,
       [
-        "@query", "primitive_Prims.op_Equality",
+        "__query", "primitive_Prims.op_Equality",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -103,7 +103,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -112,7 +112,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
+        "__query", "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
         "equation_FStar.UInt32.t", "equation_FStar.UInt32.v",
         "lemma_FStar.Buffer.lemma_size",
         "refinement_interpretation_Tm_refine_03d0bed5c0733099844f268aecd0836d",
@@ -127,7 +127,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt32.Mk", "data_elim_FStar.UInt64.Mk",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.max_int", "equation_FStar.UInt.min_int",
@@ -163,7 +163,7 @@
       1,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -172,7 +172,7 @@
       0,
       1,
       [
-        "@query", "equation_Prims.nat", "int_inversion",
+        "__query", "equation_Prims.nat", "int_inversion",
         "primitive_Prims.op_Subtraction", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_2fd2ca5ba5888b39b1231badbe38fb2e",
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
@@ -185,7 +185,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Mul.op_Star", "equation_Prims.nat",
+        "__query", "equation_FStar.Mul.op_Star", "equation_Prims.nat",
         "equation_Prims.pos",
         "fuel_correspondence_Prims.pow2.fuel_instrumented", "int_inversion",
         "int_typing", "primitive_Prims.op_Addition",
@@ -204,7 +204,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -213,7 +213,7 @@
       0,
       1,
       [
-        "@query", "equation_Prims.pos", "projection_inverse_BoxInt_proj_0",
+        "__query", "equation_Prims.pos", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_f048236b5f8051f83b495ea5eaa6127b"
       ],
       0
@@ -224,7 +224,7 @@
       0,
       1,
       [
-        "@query", "equation_Prims.nat", "equation_Prims.pos",
+        "__query", "equation_Prims.nat", "equation_Prims.pos",
         "fuel_correspondence_Prims.pow2.fuel_instrumented", "int_inversion",
         "primitive_Prims.op_Modulus", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxInt_proj_0",
@@ -240,7 +240,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -248,7 +248,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -256,7 +256,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -265,7 +265,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.max_int",
@@ -295,7 +295,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.mk_mask",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
@@ -340,7 +340,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -351,7 +351,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -362,7 +362,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -373,7 +373,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -383,7 +383,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -392,7 +392,7 @@
       0,
       1,
       [
-        "@query", "equation_Prims.nat", "equation_Prims.nonzero",
+        "__query", "equation_Prims.nat", "equation_Prims.nonzero",
         "int_inversion", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_7075614a0e8c0bdbec6de0d0ef7f1280",
@@ -406,7 +406,7 @@
       0,
       1,
       [
-        "@query", "equation_Prims.nat", "equation_Prims.pos",
+        "__query", "equation_Prims.nat", "equation_Prims.pos",
         "fuel_correspondence_Prims.pow2.fuel_instrumented",
         "primitive_Prims.op_Division", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxInt_proj_0",
@@ -421,7 +421,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -429,7 +429,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -437,7 +437,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -445,7 +445,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -453,7 +453,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -461,7 +461,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -470,7 +470,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.min_int",
         "equation_FStar.UInt.size", "equation_FStar.UInt.uint_t",
@@ -494,7 +494,7 @@
       0,
       1,
       [
-        "@query", "b2t_def",
+        "__query", "b2t_def",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
@@ -519,7 +519,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -528,7 +528,7 @@
       0,
       1,
       [
-        "@query", "equation_Prims.pos", "projection_inverse_BoxInt_proj_0",
+        "__query", "equation_Prims.pos", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_f048236b5f8051f83b495ea5eaa6127b"
       ],
       0
@@ -539,7 +539,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Mul.op_Star",
+        "__query", "equation_FStar.Mul.op_Star",
         "equation_FStar.UInt.max_int", "equation_FStar.UInt32.n",
         "equation_Prims.nat", "equation_Prims.pos",
         "fuel_correspondence_Prims.pow2.fuel_instrumented",
@@ -560,7 +560,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -568,7 +568,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -577,7 +577,7 @@
       0,
       1,
       [
-        "@query", "equation_Prims.pos", "projection_inverse_BoxInt_proj_0",
+        "__query", "equation_Prims.pos", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_f048236b5f8051f83b495ea5eaa6127b"
       ],
       0
@@ -588,7 +588,7 @@
       0,
       2,
       [
-        "@query", "equation_FStar.Mul.op_Star", "equation_FStar.UInt32.n",
+        "__query", "equation_FStar.Mul.op_Star", "equation_FStar.UInt32.n",
         "equation_FStar.UInt64.n", "equation_Prims.nat",
         "equation_Prims.pos",
         "fuel_correspondence_Prims.pow2.fuel_instrumented",
@@ -611,7 +611,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -619,7 +619,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -628,7 +628,7 @@
       0,
       1,
       [
-        "@query", "equation_Prims.pos", "projection_inverse_BoxInt_proj_0",
+        "__query", "equation_Prims.pos", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_f048236b5f8051f83b495ea5eaa6127b"
       ],
       0
@@ -639,7 +639,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Mul.op_Star", "equation_FStar.UInt8.n",
+        "__query", "equation_FStar.Mul.op_Star", "equation_FStar.UInt8.n",
         "equation_Prims.nat", "equation_Prims.pos",
         "fuel_correspondence_Prims.pow2.fuel_instrumented",
         "function_token_typing_FStar.UInt8.n", "int_inversion", "int_typing",
@@ -659,7 +659,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -667,7 +667,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -675,7 +675,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -683,7 +683,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -691,7 +691,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -699,7 +699,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -708,7 +708,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.min_int",
         "equation_FStar.UInt.size", "equation_FStar.UInt.uint_t",
@@ -731,7 +731,7 @@
       0,
       1,
       [
-        "@query", "b2t_def",
+        "__query", "b2t_def",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
@@ -758,7 +758,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -767,7 +767,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.max_int",
@@ -795,7 +795,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.mk_mask",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.logand",
@@ -837,7 +837,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -846,7 +846,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -857,7 +857,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -868,7 +868,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -879,7 +879,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -890,7 +890,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -901,7 +901,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -911,7 +911,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -919,7 +919,7 @@
       11,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -927,7 +927,7 @@
       12,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -935,7 +935,7 @@
       13,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -943,7 +943,7 @@
       14,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -951,7 +951,7 @@
       15,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -959,7 +959,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -967,7 +967,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -975,7 +975,7 @@
       3,
       0,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -984,7 +984,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Mul.op_Star", "equation_Prims.nat",
+        "__query", "equation_FStar.Mul.op_Star", "equation_Prims.nat",
         "equation_Prims.pos",
         "fuel_correspondence_Prims.pow2.fuel_instrumented", "int_inversion",
         "int_typing", "primitive_Prims.op_Addition",
@@ -1003,7 +1003,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1011,7 +1011,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1019,7 +1019,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1027,7 +1027,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1036,7 +1036,7 @@
       0,
       1,
       [
-        "@query", "equation_Prims.pos",
+        "__query", "equation_Prims.pos",
         "refinement_interpretation_Tm_refine_f048236b5f8051f83b495ea5eaa6127b"
       ],
       0
@@ -1047,7 +1047,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "equation_FStar.Mul.op_Star",
+        "__query", "b2t_def", "equation_FStar.Mul.op_Star",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.max_int",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
         "equation_FStar.UInt.uint_t", "equation_Prims.nat",
@@ -1072,7 +1072,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1080,7 +1080,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1088,7 +1088,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1096,7 +1096,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1105,7 +1105,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n", "equation_Prims.pos",
+        "__query", "equation_FStar.UInt64.n", "equation_Prims.pos",
         "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_c98d64f66bc1b384aab766348c37364a",
         "refinement_interpretation_Tm_refine_f048236b5f8051f83b495ea5eaa6127b"
@@ -1118,7 +1118,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "equation_FStar.UInt.fits",
+        "__query", "b2t_def", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt64.logor",
         "equation_FStar.UInt64.n", "equation_FStar.UInt64.t",
@@ -1146,7 +1146,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -1157,7 +1157,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -1168,7 +1168,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -1179,7 +1179,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.max_int",
@@ -1208,7 +1208,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.mk_mask",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
@@ -1247,7 +1247,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1255,7 +1255,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1264,7 +1264,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -1275,7 +1275,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -1286,7 +1286,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -1297,7 +1297,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -1308,7 +1308,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -1319,7 +1319,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt64.n",
+        "__query", "equation_FStar.UInt64.n",
         "projection_inverse_BoxInt_proj_0"
       ],
       0
@@ -1330,8 +1330,8 @@
       1,
       1,
       [
-        "@query", "b2t_def", "binder_x_c91cb8d30e6576bdc8f5cf31c1aa1da8_1",
-        "equality_tok_Prims.LexTop@tok", "equation_FStar.Mul.op_Star",
+        "__query", "b2t_def", "binder_x_c91cb8d30e6576bdc8f5cf31c1aa1da8_1",
+        "equality_tok_Prims.LexTop__tok", "equation_FStar.Mul.op_Star",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.max_int",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt8.n",
@@ -1361,7 +1361,7 @@
       2,
       1,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1370,7 +1370,7 @@
       1,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqTm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1381,7 +1381,7 @@
       1,
       1,
       [
-        "@query", "equation_FStar.UInt8.t", "equation_Prims.nat",
+        "__query", "equation_FStar.UInt8.t", "equation_Prims.nat",
         "int_inversion", "primitive_Prims.op_LessThanOrEqual",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_0bf0a286bd475e1b886e3e09071e5cd9",
@@ -1395,9 +1395,9 @@
       1,
       1,
       [
-        "@query", "binder_x_2ea32133f4cd2e16834a2fe7442a9867_0",
+        "__query", "binder_x_2ea32133f4cd2e16834a2fe7442a9867_0",
         "binder_x_3c89540f68284273a86878d86292a307_1",
-        "equality_tok_Prims.LexTop@tok", "equation_FStar.List.Tot.test_sort",
+        "equality_tok_Prims.LexTop__tok", "equation_FStar.List.Tot.test_sort",
         "equation_FStar.Mul.op_Star", "equation_FStar.Seq.Properties.tail",
         "equation_FStar.UInt8.t", "equation_Prims._assert",
         "equation_Prims.nat",
@@ -1407,7 +1407,7 @@
         "fuel_correspondence_Crypto.Symmetric.Poly1305.Lemmas.little_endian_from_top.fuel_instrumented",
         "fuel_irrelevance_Crypto.Symmetric.Poly1305.Lemmas.little_endian_from_top.fuel_instrumented",
         "function_token_typing_FStar.List.Tot.test_sort", "int_inversion",
-        "int_typing", "kinding_FStar.UInt8.t_@tok",
+        "int_typing", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Seq.Base.lemma_create_len", "lemma_FStar.Seq.Base.lemma_eq_elim",
         "lemma_FStar.Seq.Base.lemma_index_app1",
         "lemma_FStar.Seq.Base.lemma_index_app2",
@@ -1444,7 +1444,7 @@
       4,
       1,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1453,7 +1453,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
+        "__query", "assumption_Prims.HasEq_int", "equation_Prims.nat",
         "haseqTm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0
@@ -1463,7 +1463,7 @@
       2,
       0,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -1472,8 +1472,8 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt8.t", "equation_Prims.nat",
-        "int_inversion", "kinding_FStar.UInt8.t_@tok",
+        "__query", "equation_FStar.UInt8.t", "equation_Prims.nat",
+        "int_inversion", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Seq.Base.lemma_eq_elim", "lemma_FStar.Seq.Base.lemma_index_slice",
         "lemma_FStar.Seq.Base.lemma_len_slice", "primitive_Prims.op_Addition",
         "primitive_Prims.op_LessThanOrEqual",
@@ -1496,7 +1496,7 @@
       1,
       1,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1504,7 +1504,7 @@
       2,
       1,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1512,7 +1512,7 @@
       3,
       1,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1521,7 +1521,7 @@
       1,
       1,
       [
-        "@query", "equation_FStar.Mul.op_Star", "equation_FStar.UInt8.t",
+        "__query", "equation_FStar.Mul.op_Star", "equation_FStar.UInt8.t",
         "equation_Prims.nat", "primitive_Prims.op_Multiply",
         "primitive_Prims.op_Subtraction", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_d1dac148c5e4ad9243733a51c8d9ad1d"
@@ -1534,7 +1534,7 @@
       1,
       1,
       [
-        "@query", "equation_FStar.List.Tot.test_sort",
+        "__query", "equation_FStar.List.Tot.test_sort",
         "equation_FStar.UInt8.t", "equation_Prims._assert",
         "equation_Prims.nat",
         "equation_with_fuel_Crypto.Symmetric.Poly1305.Lemmas.little_endian_from_top.fuel_instrumented",
@@ -1554,7 +1554,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1563,7 +1563,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
         "haseqTm_refine_89ca984d58100ebf87df2ad1ed88d530",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -1575,7 +1575,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt8.t",
+        "__query", "equation_FStar.UInt8.t",
         "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_d41f01f64dda0ab138c00c67fd466a0a"
       ],
@@ -1587,7 +1587,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.Bytes.bytes",
+        "__query", "equation_Crypto.Symmetric.Bytes.bytes",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt8.n",
         "equation_FStar.UInt8.t", "equation_FStar.UInt8.v",
         "equation_Prims.nat",
@@ -1610,7 +1610,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1619,7 +1619,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Buffer.buffer",
+        "__query", "equation_FStar.Buffer.buffer",
         "equation_FStar.Buffer.get", "equation_FStar.List.Tot.test_sort",
         "equation_Prims._assert", "equation_Prims.nat",
         "fuel_guarded_inversion_FStar.Buffer._buffer",
@@ -1638,7 +1638,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Buffer.buffer",
+        "__query", "equation_FStar.Buffer.buffer",
         "equation_FStar.Buffer.contains", "equation_FStar.Buffer.get",
         "equation_FStar.Buffer.live",
         "equation_FStar.HyperHeap.contains_ref",
@@ -1648,7 +1648,7 @@
         "fuel_guarded_inversion_FStar.HyperStack.mem",
         "function_token_typing_FStar.Int16.n",
         "function_token_typing_FStar.UInt8.n", "int_typing",
-        "kinding_FStar.UInt8.t_@tok", "lemma_FStar.Seq.Base.lemma_index_slice",
+        "kinding_FStar.UInt8.t___tok", "lemma_FStar.Seq.Base.lemma_index_slice",
         "lemma_FStar.Seq.Base.lemma_len_slice", "primitive_Prims.op_Addition",
         "primitive_Prims.op_AmpAmp", "primitive_Prims.op_LessThanOrEqual",
         "primitive_Prims.op_Subtraction",
@@ -1670,7 +1670,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -1679,7 +1679,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1689,7 +1689,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1699,7 +1699,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1709,7 +1709,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1719,7 +1719,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1729,7 +1729,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1739,7 +1739,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1749,7 +1749,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1759,7 +1759,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1769,7 +1769,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1779,7 +1779,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1789,7 +1789,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1799,7 +1799,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1809,7 +1809,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1819,7 +1819,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1829,7 +1829,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1839,7 +1839,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1849,7 +1849,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1859,7 +1859,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1869,7 +1869,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1879,7 +1879,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1889,7 +1889,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1899,7 +1899,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1909,7 +1909,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1919,7 +1919,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1929,7 +1929,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1939,7 +1939,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1949,7 +1949,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1959,7 +1959,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1969,7 +1969,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1979,7 +1979,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1989,7 +1989,7 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
+        "__query", "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t"
       ],
       0
     ],
@@ -1998,7 +1998,7 @@
       35,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2007,7 +2007,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Int16.n", "equation_FStar.UInt8.n",
+        "__query", "equation_FStar.Int16.n", "equation_FStar.UInt8.n",
         "equation_Prims.nat", "function_token_typing_FStar.Int16.n",
         "function_token_typing_FStar.UInt8.n", "int_inversion", "int_typing",
         "lemma_FStar.Seq.Base.lemma_eq_elim", "lemma_FStar.Seq.Base.lemma_index_app1",
@@ -2038,7 +2038,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2046,7 +2046,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2054,7 +2054,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2063,7 +2063,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt8.t",
+        "__query", "equation_FStar.UInt8.t",
         "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_680fa7dc5727fa042090e56d511bf130",
         "refinement_interpretation_Tm_refine_e6f73d69171d3f532dd3233ed82d65f8"
@@ -2076,7 +2076,7 @@
       0,
       1,
       [
-        "@query", "bool_inversion", "equation_Crypto.Symmetric.Bytes.bytes",
+        "__query", "bool_inversion", "equation_Crypto.Symmetric.Bytes.bytes",
         "equation_FStar.HyperHeap.t", "equation_FStar.HyperStack.hh",
         "equation_FStar.HyperStack.is_in", "equation_FStar.Int16.n",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt8.n",
@@ -2085,7 +2085,7 @@
         "function_token_typing_FStar.HyperHeap.root",
         "function_token_typing_FStar.Int16.n",
         "function_token_typing_FStar.UInt8.n", "int_typing",
-        "kinding_FStar.UInt8.t_@tok", "lemma_FStar.Seq.Base.lemma_len_append",
+        "kinding_FStar.UInt8.t___tok", "lemma_FStar.Seq.Base.lemma_len_append",
         "lemma_FStar.Seq.Base.lemma_len_slice", "primitive_Prims.op_Addition",
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Multiply",
         "primitive_Prims.op_Subtraction",
@@ -2108,7 +2108,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2117,7 +2117,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.Poly1305.Bigint.u64",
+        "__query", "equation_Crypto.Symmetric.Poly1305.Bigint.u64",
         "equation_Crypto.Symmetric.Poly1305.Parameters.norm_length",
         "equation_FStar.UInt64.t", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_f9b88dc98daa7e2cda6e9c21a6658ead"
@@ -2130,7 +2130,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.Poly1305.Bigint.u64",
+        "__query", "equation_Crypto.Symmetric.Poly1305.Bigint.u64",
         "equation_Crypto.Symmetric.Poly1305.Parameters.norm_length",
         "equation_Crypto.Symmetric.Poly1305.Parameters.templ",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt64.t",
@@ -2150,7 +2150,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2158,7 +2158,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2166,7 +2166,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2175,7 +2175,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt8.t",
+        "__query", "equation_FStar.UInt8.t",
         "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_5fbe6a35b59b852f7b8c48c94749acd3"
       ],
@@ -2187,7 +2187,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Buffer.get", "equation_FStar.Mul.op_Star",
+        "__query", "equation_FStar.Buffer.get", "equation_FStar.Mul.op_Star",
         "equation_FStar.UInt8.n", "equation_FStar.UInt8.t",
         "equation_FStar.UInt8.v", "equation_Prims.nat", "equation_Prims.pos",
         "fuel_correspondence_Prims.pow2.fuel_instrumented",
@@ -2211,7 +2211,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2220,7 +2220,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Mul.op_Star", "equation_Prims.nat",
+        "__query", "equation_FStar.Mul.op_Star", "equation_Prims.nat",
         "equation_Prims.pos", "int_inversion", "primitive_Prims.op_Addition",
         "primitive_Prims.op_Modulus", "primitive_Prims.op_Multiply",
         "projection_inverse_BoxInt_proj_0",
@@ -2235,7 +2235,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2243,7 +2243,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2251,7 +2251,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2259,7 +2259,7 @@
       2,
       0,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -2268,7 +2268,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt32.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.nlength",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.max_int", "equation_FStar.UInt.size",
@@ -2297,7 +2297,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2305,7 +2305,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2313,7 +2313,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2322,7 +2322,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.min_int",
         "equation_FStar.UInt.size", "equation_FStar.UInt.uint_t",
         "equation_FStar.UInt64.n", "equation_FStar.UInt64.t",
@@ -2343,7 +2343,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt32.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt32.Mk",
         "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
         "equation_FStar.Int16.n", "equation_FStar.Mul.op_Star",
@@ -2381,7 +2381,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2389,7 +2389,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2397,7 +2397,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2405,7 +2405,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2413,7 +2413,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2421,7 +2421,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2429,7 +2429,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2437,7 +2437,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2446,7 +2446,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "equation_FStar.UInt.fits",
+        "__query", "b2t_def", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt64.n",
         "equation_FStar.UInt64.t", "equation_FStar.UInt64.v",
@@ -2466,7 +2466,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt32.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
         "equation_FStar.Int16.n", "equation_FStar.Mul.op_Star",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.max_int",
@@ -2501,7 +2501,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2509,7 +2509,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2517,7 +2517,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2525,7 +2525,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2533,7 +2533,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2541,7 +2541,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2549,7 +2549,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2557,7 +2557,7 @@
       11,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2565,7 +2565,7 @@
       12,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2573,7 +2573,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2582,7 +2582,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.min_int",
         "equation_FStar.UInt.size", "equation_FStar.UInt.uint_t",
         "equation_FStar.UInt64.n", "equation_FStar.UInt64.t",
@@ -2603,7 +2603,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt32.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt32.Mk",
         "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
         "equation_FStar.Int16.n", "equation_FStar.Mul.op_Star",
@@ -2639,7 +2639,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2647,7 +2647,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2655,7 +2655,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2663,7 +2663,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2671,7 +2671,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2679,7 +2679,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2687,7 +2687,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2695,7 +2695,7 @@
       11,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2703,7 +2703,7 @@
       12,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2711,7 +2711,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2720,7 +2720,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.min_int",
         "equation_FStar.UInt.size", "equation_FStar.UInt.uint_t",
         "equation_FStar.UInt64.n", "equation_FStar.UInt64.t",
@@ -2741,7 +2741,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt32.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt32.Mk",
         "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
         "equation_FStar.Int16.n", "equation_FStar.Mul.op_Star",
@@ -2776,7 +2776,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2784,7 +2784,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2792,7 +2792,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2800,7 +2800,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2808,7 +2808,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2816,7 +2816,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2824,7 +2824,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2832,7 +2832,7 @@
       11,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2840,7 +2840,7 @@
       12,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2848,7 +2848,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2857,7 +2857,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.min_int",
         "equation_FStar.UInt.size", "equation_FStar.UInt.uint_t",
         "equation_FStar.UInt64.n", "equation_FStar.UInt64.t",
@@ -2878,7 +2878,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "equation_FStar.Int16.n", "equation_FStar.Mul.op_Star",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.min_int",
         "equation_FStar.UInt.size", "equation_FStar.UInt.uint_t",
@@ -2909,7 +2909,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2917,7 +2917,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2925,7 +2925,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2933,7 +2933,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2941,7 +2941,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2949,7 +2949,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -2958,7 +2958,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.Poly1305.Bigint.norm",
+        "__query", "equation_Crypto.Symmetric.Poly1305.Bigint.norm",
         "equation_Crypto.Symmetric.Poly1305.Bigint.u64",
         "equation_Crypto.Symmetric.Poly1305.Parameters.norm_length",
         "equation_FStar.UInt64.t",
@@ -2974,7 +2974,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.Poly1305.Bigint.norm",
+        "__query", "equation_Crypto.Symmetric.Poly1305.Bigint.norm",
         "equation_Crypto.Symmetric.Poly1305.Bigint.u64",
         "equation_Crypto.Symmetric.Poly1305.Parameters.norm_length",
         "equation_Crypto.Symmetric.Poly1305.Parameters.templ",
@@ -2992,7 +2992,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3000,7 +3000,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3008,7 +3008,7 @@
       3,
       0,
       1,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
     [
@@ -3017,7 +3017,7 @@
       0,
       2,
       [
-        "@query", "equation_FStar.Mul.op_Star", "equation_Prims.nat",
+        "__query", "equation_FStar.Mul.op_Star", "equation_Prims.nat",
         "equation_Prims.pos",
         "fuel_correspondence_Prims.pow2.fuel_instrumented", "int_inversion",
         "int_typing", "primitive_Prims.op_Addition",
@@ -3035,7 +3035,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3043,7 +3043,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3051,7 +3051,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3059,7 +3059,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3068,7 +3068,7 @@
       0,
       2,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.nlength",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
@@ -3108,7 +3108,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3116,7 +3116,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3124,7 +3124,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3132,7 +3132,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3140,7 +3140,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3148,7 +3148,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3157,7 +3157,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt32.Mk", "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.nlength",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
@@ -3197,7 +3197,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3205,7 +3205,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3213,7 +3213,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3221,7 +3221,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3229,7 +3229,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3237,7 +3237,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3246,7 +3246,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt32.Mk", "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.nlength",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
@@ -3287,7 +3287,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3295,7 +3295,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3303,7 +3303,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3311,7 +3311,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3319,7 +3319,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3327,7 +3327,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3336,7 +3336,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.List.Tot.test_sort",
+        "__query", "equation_FStar.List.Tot.test_sort",
         "equation_FStar.Mul.op_Star", "equation_Prims._assert",
         "function_token_typing_FStar.List.Tot.test_sort", "int_inversion",
         "primitive_Prims.op_Addition", "primitive_Prims.op_Multiply",
@@ -3349,7 +3349,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3357,7 +3357,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3366,7 +3366,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.List.Tot.test_sort",
+        "__query", "equation_FStar.List.Tot.test_sort",
         "equation_FStar.Mul.op_Star", "equation_Prims._assert",
         "function_token_typing_FStar.List.Tot.test_sort", "int_inversion",
         "primitive_Prims.op_Addition", "primitive_Prims.op_Multiply",
@@ -3379,7 +3379,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3387,7 +3387,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3396,7 +3396,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Int16.n", "equation_FStar.Mul.op_Star",
+        "__query", "equation_FStar.Int16.n", "equation_FStar.Mul.op_Star",
         "equation_FStar.UInt32.n", "equation_FStar.UInt8.n",
         "equation_Prims.nat", "function_token_typing_FStar.Int16.n",
         "function_token_typing_FStar.UInt32.n",
@@ -3416,7 +3416,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3424,7 +3424,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3433,7 +3433,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Int16.n", "equation_FStar.Mul.op_Star",
+        "__query", "equation_FStar.Int16.n", "equation_FStar.Mul.op_Star",
         "equation_FStar.UInt64.n", "equation_FStar.UInt8.n",
         "equation_Prims.nat", "function_token_typing_FStar.Int16.n",
         "function_token_typing_FStar.UInt64.n",
@@ -3453,7 +3453,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3461,7 +3461,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3470,7 +3470,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Int16.n", "equation_FStar.Mul.op_Star",
+        "__query", "equation_FStar.Int16.n", "equation_FStar.Mul.op_Star",
         "equation_FStar.UInt8.n", "equation_Prims.nat",
         "function_token_typing_FStar.Int16.n",
         "function_token_typing_FStar.UInt8.n", "int_inversion", "int_typing",
@@ -3488,7 +3488,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3496,7 +3496,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3505,7 +3505,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Int16.n", "equation_FStar.Mul.op_Star",
+        "__query", "equation_FStar.Int16.n", "equation_FStar.Mul.op_Star",
         "equation_FStar.UInt8.n", "equation_Prims.nat", "equation_Prims.pos",
         "function_token_typing_FStar.Int16.n",
         "function_token_typing_FStar.UInt8.n", "int_inversion", "int_typing",
@@ -3525,7 +3525,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3533,7 +3533,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3542,7 +3542,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
@@ -3573,7 +3573,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3581,7 +3581,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3589,7 +3589,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3597,7 +3597,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3605,7 +3605,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3613,7 +3613,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3621,7 +3621,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3629,7 +3629,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3637,7 +3637,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3645,7 +3645,7 @@
       11,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3654,7 +3654,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt64.n",
@@ -3685,7 +3685,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3693,7 +3693,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3701,7 +3701,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3709,7 +3709,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3717,7 +3717,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3725,7 +3725,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3733,7 +3733,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3741,7 +3741,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3749,7 +3749,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3757,7 +3757,7 @@
       11,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3765,7 +3765,7 @@
       12,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3773,7 +3773,7 @@
       13,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3782,7 +3782,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt64.n",
@@ -3811,7 +3811,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3819,7 +3819,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3827,7 +3827,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3835,7 +3835,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3843,7 +3843,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3851,7 +3851,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3859,7 +3859,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3867,7 +3867,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3875,7 +3875,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3883,7 +3883,7 @@
       11,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3891,7 +3891,7 @@
       12,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3899,7 +3899,7 @@
       13,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3908,7 +3908,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.min_int",
         "equation_FStar.UInt.size", "equation_FStar.UInt.uint_t",
         "equation_FStar.UInt64.n", "equation_FStar.UInt64.t",
@@ -3934,7 +3934,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3942,7 +3942,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3950,7 +3950,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3958,7 +3958,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3966,7 +3966,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3974,7 +3974,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3982,7 +3982,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3990,7 +3990,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -3998,7 +3998,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4006,7 +4006,7 @@
       11,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4014,7 +4014,7 @@
       12,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4022,7 +4022,7 @@
       13,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4031,7 +4031,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "data_elim_FStar.UInt8.Mk", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.max_int", "equation_FStar.UInt.min_int",
         "equation_FStar.UInt.size", "equation_FStar.UInt.uint_t",
@@ -4056,7 +4056,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4064,7 +4064,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4072,7 +4072,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4080,7 +4080,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4088,7 +4088,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4096,7 +4096,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4104,7 +4104,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4112,7 +4112,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4120,7 +4120,7 @@
       1,
       0,
       1,
-      [ "@query", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -4128,7 +4128,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4136,7 +4136,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4144,7 +4144,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4152,7 +4152,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4160,7 +4160,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4168,7 +4168,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4176,7 +4176,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4184,7 +4184,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4192,7 +4192,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4200,7 +4200,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4208,7 +4208,7 @@
       11,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4216,7 +4216,7 @@
       12,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4224,7 +4224,7 @@
       13,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4232,7 +4232,7 @@
       14,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4240,7 +4240,7 @@
       15,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4248,7 +4248,7 @@
       16,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4256,7 +4256,7 @@
       17,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4265,7 +4265,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u26",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.min_int",
         "equation_FStar.UInt.size", "equation_FStar.UInt.uint_t",
@@ -4293,7 +4293,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.List.Tot.test_sort",
+        "__query", "equation_FStar.List.Tot.test_sort",
         "equation_Prims._assert",
         "function_token_typing_FStar.List.Tot.test_sort", "int_inversion",
         "primitive_Prims.op_Addition", "primitive_Prims.op_Subtraction",
@@ -4306,7 +4306,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4314,7 +4314,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4322,7 +4322,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4330,7 +4330,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4338,7 +4338,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4346,7 +4346,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4355,7 +4355,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.List.Tot.test_sort",
+        "__query", "equation_FStar.List.Tot.test_sort",
         "equation_Prims._assert",
         "function_token_typing_FStar.List.Tot.test_sort", "int_inversion",
         "primitive_Prims.op_Addition", "projection_inverse_BoxInt_proj_0"
@@ -4367,7 +4367,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4375,7 +4375,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4384,7 +4384,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.List.Tot.test_sort",
+        "__query", "equation_FStar.List.Tot.test_sort",
         "equation_Prims._assert",
         "function_token_typing_FStar.List.Tot.test_sort", "int_inversion",
         "int_typing", "primitive_Prims.op_Addition",
@@ -4397,7 +4397,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4405,7 +4405,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4414,7 +4414,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.List.Tot.test_sort",
+        "__query", "equation_FStar.List.Tot.test_sort",
         "equation_Prims._assert",
         "function_token_typing_FStar.List.Tot.test_sort", "int_inversion",
         "primitive_Prims.op_Addition", "projection_inverse_BoxInt_proj_0"
@@ -4426,7 +4426,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4434,7 +4434,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4443,7 +4443,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "equation_Crypto.Symmetric.Poly1305.Lemmas.u26",
+        "__query", "b2t_def", "equation_Crypto.Symmetric.Poly1305.Lemmas.u26",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
@@ -4476,7 +4476,7 @@
       20,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4484,7 +4484,7 @@
       21,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4492,7 +4492,7 @@
       22,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4500,7 +4500,7 @@
       23,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4508,7 +4508,7 @@
       24,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4516,7 +4516,7 @@
       25,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4524,7 +4524,7 @@
       26,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4532,7 +4532,7 @@
       27,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4541,7 +4541,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.List.Tot.test_sort",
+        "__query", "equation_FStar.List.Tot.test_sort",
         "equation_FStar.Mul.op_Star", "equation_Prims._assert",
         "equation_Prims.nat",
         "function_token_typing_FStar.List.Tot.test_sort", "int_inversion",
@@ -4555,7 +4555,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4564,7 +4564,7 @@
       0,
       1,
       [
-        "@query", "equation_Prims.pos", "projection_inverse_BoxInt_proj_0",
+        "__query", "equation_Prims.pos", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_f048236b5f8051f83b495ea5eaa6127b"
       ],
       0
@@ -4575,7 +4575,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "equation_Crypto.Symmetric.Poly1305.Lemmas.u26",
+        "__query", "b2t_def", "equation_Crypto.Symmetric.Poly1305.Lemmas.u26",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt64.n",
@@ -4600,7 +4600,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4608,7 +4608,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4616,7 +4616,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4624,7 +4624,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4632,7 +4632,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4641,7 +4641,7 @@
       0,
       0,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "equation_Crypto.Symmetric.Poly1305.Bigint.bigint",
         "equation_Crypto.Symmetric.Poly1305.Bigint.norm",
         "equation_Crypto.Symmetric.Poly1305.Bigint.u64",
@@ -4657,7 +4657,7 @@
         "equation_Prims.nat", "fuel_guarded_inversion_FStar.Buffer._buffer",
         "fuel_guarded_inversion_FStar.HyperStack.mem",
         "function_token_typing_FStar.UInt32.n", "int_typing",
-        "kinding_FStar.UInt64.t_@tok", "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt64.t___tok", "kinding_FStar.UInt8.t___tok",
         "lemma_Crypto.Symmetric.Poly1305.Lemmas.pow2_32_lemma",
         "primitive_Prims.op_AmpAmp", "primitive_Prims.op_LessThanOrEqual",
         "primitive_Prims.op_Subtraction",
@@ -4681,10 +4681,10 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.HyperStack.HS", "data_elim_FStar.UInt32.Mk",
-        "data_typing_intro_FStar.UInt32.Mk@tok",
-        "data_typing_intro_FStar.UInt64.Mk@tok",
+        "data_typing_intro_FStar.UInt32.Mk__tok",
+        "data_typing_intro_FStar.UInt64.Mk__tok",
         "equation_Crypto.Symmetric.Poly1305.Bigint.bigint",
         "equation_Crypto.Symmetric.Poly1305.Bigint.norm",
         "equation_Crypto.Symmetric.Poly1305.Bigint.u64",
@@ -4713,7 +4713,7 @@
         "function_token_typing_FStar.HyperHeap.root",
         "function_token_typing_FStar.UInt32.n",
         "function_token_typing_FStar.UInt8.n", "int_typing",
-        "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt8.t___tok",
         "lemma_Crypto.Symmetric.Poly1305.Lemmas.pow2_32_lemma",
         "lemma_FStar.UInt.shift_right_value_lemma",
         "primitive_Prims.op_AmpAmp", "primitive_Prims.op_GreaterThanOrEqual",
@@ -4749,7 +4749,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4757,7 +4757,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4766,7 +4766,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt8.t",
+        "__query", "equation_FStar.UInt8.t",
         "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_0699cce76640a0e603c81e5b06c1bca9"
       ],
@@ -4778,7 +4778,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.Buffer.get", "equation_FStar.Mul.op_Star",
+        "__query", "equation_FStar.Buffer.get", "equation_FStar.Mul.op_Star",
         "equation_FStar.UInt8.n", "equation_FStar.UInt8.t",
         "equation_FStar.UInt8.v", "equation_Prims.nat",
         "fuel_correspondence_Prims.pow2.fuel_instrumented",
@@ -4802,9 +4802,9 @@
       0,
       1,
       [
-        "@query", "assumption_FStar.Seq.Base.seq_haseq",
+        "__query", "assumption_FStar.Seq.Base.seq_haseq",
         "assumption_FStar.UInt8.t__haseq", "equation_FStar.UInt8.t",
-        "kinding_FStar.UInt8.t_@tok"
+        "kinding_FStar.UInt8.t___tok"
       ],
       0
     ],
@@ -4814,7 +4814,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "equation_FStar.Buffer.buffer",
+        "__query", "b2t_def", "equation_FStar.Buffer.buffer",
         "equation_FStar.Buffer.contains", "equation_FStar.Buffer.idx",
         "equation_FStar.Buffer.includes", "equation_FStar.Buffer.length",
         "equation_FStar.Buffer.live", "equation_FStar.UInt.fits",
@@ -4825,7 +4825,7 @@
         "fuel_guarded_inversion_FStar.HyperStack.mem",
         "fuel_guarded_inversion_FStar.HyperStack.reference",
         "fuel_guarded_inversion_FStar.UInt32.t_",
-        "kinding_FStar.UInt8.t_@tok", "lemma_FStar.Buffer.lemma_size",
+        "kinding_FStar.UInt8.t___tok", "lemma_FStar.Buffer.lemma_size",
         "primitive_Prims.op_Addition", "primitive_Prims.op_AmpAmp",
         "primitive_Prims.op_LessThanOrEqual",
         "primitive_Prims.op_Subtraction",
@@ -4852,7 +4852,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "equation_FStar.Buffer.buffer",
+        "__query", "b2t_def", "equation_FStar.Buffer.buffer",
         "equation_FStar.Buffer.idx", "equation_FStar.Buffer.length",
         "equation_FStar.Buffer.sub", "equation_FStar.UInt.add",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.max_int",
@@ -4863,7 +4863,7 @@
         "fuel_guarded_inversion_FStar.Buffer._buffer",
         "fuel_guarded_inversion_FStar.HyperStack.mem",
         "fuel_guarded_inversion_FStar.UInt32.t_",
-        "kinding_FStar.UInt8.t_@tok", "lemma_FStar.Buffer.lemma_size",
+        "kinding_FStar.UInt8.t___tok", "lemma_FStar.Buffer.lemma_size",
         "lemma_FStar.Buffer.lemma_sub_spec", "primitive_Prims.op_Addition",
         "primitive_Prims.op_AmpAmp", "primitive_Prims.op_LessThanOrEqual",
         "primitive_Prims.op_Subtraction",
@@ -4891,7 +4891,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4899,7 +4899,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4907,7 +4907,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4915,7 +4915,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4923,7 +4923,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4931,7 +4931,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -4940,7 +4940,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
         "equation_Crypto.Symmetric.Poly1305.Parameters.nlength",
@@ -4959,7 +4959,7 @@
         "fuel_guarded_inversion_FStar.HyperStack.reference",
         "function_token_typing_Crypto.Symmetric.Poly1305.Parameters.blength",
         "function_token_typing_Crypto.Symmetric.Poly1305.Parameters.nlength",
-        "kinding_FStar.UInt8.t_@tok", "primitive_Prims.op_Addition",
+        "kinding_FStar.UInt8.t___tok", "primitive_Prims.op_Addition",
         "primitive_Prims.op_AmpAmp", "primitive_Prims.op_LessThanOrEqual",
         "primitive_Prims.op_Subtraction",
         "proj_equation_FStar.Buffer.MkBuffer_content",
@@ -4983,7 +4983,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.HyperStack.HS", "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Bytes.bytes",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
@@ -5003,7 +5003,7 @@
         "fuel_guarded_inversion_FStar.HyperStack.reference",
         "function_token_typing_Crypto.Symmetric.Poly1305.Parameters.blength",
         "function_token_typing_FStar.HyperHeap.root",
-        "kinding_FStar.UInt8.t_@tok", "lemma_FStar.Seq.Base.lemma_len_append",
+        "kinding_FStar.UInt8.t___tok", "lemma_FStar.Seq.Base.lemma_len_append",
         "primitive_Prims.op_Addition", "primitive_Prims.op_AmpAmp",
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Multiply",
         "primitive_Prims.op_Subtraction",
@@ -5044,7 +5044,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
         "haseqTm_refine_89ca984d58100ebf87df2ad1ed88d530",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -5056,7 +5056,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
         "haseqTm_refine_89ca984d58100ebf87df2ad1ed88d530",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -5068,7 +5068,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
         "haseqTm_refine_e0b8a7ce8790eaaca2b2e4fb4d625bad",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -5080,7 +5080,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt64.n",
         "haseqTm_refine_e0b8a7ce8790eaaca2b2e4fb4d625bad",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -5092,7 +5092,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt64.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt64.Mk",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
@@ -5119,7 +5119,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5128,7 +5128,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt32.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt32.Mk",
         "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
@@ -5160,7 +5160,7 @@
       0,
       0,
       [
-        "@query", "b2t_def",
+        "__query", "b2t_def",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.min_int", "equation_FStar.UInt.size",
@@ -5192,7 +5192,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5200,7 +5200,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5209,7 +5209,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt32.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt32.Mk",
         "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
@@ -5241,7 +5241,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt32.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt32.Mk",
         "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
@@ -5276,7 +5276,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5284,7 +5284,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5292,7 +5292,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5300,7 +5300,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5309,7 +5309,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt32.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt32.Mk",
         "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
@@ -5341,7 +5341,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.Poly1305.Lemmas.eval_4",
+        "__query", "equation_Crypto.Symmetric.Poly1305.Lemmas.eval_4",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt64.v",
         "primitive_Prims.op_Addition", "projection_inverse_BoxInt_proj_0"
       ],
@@ -5352,7 +5352,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5361,7 +5361,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt32.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt32.Mk",
         "data_elim_FStar.UInt64.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.max_int",
@@ -5391,7 +5391,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5399,7 +5399,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5407,7 +5407,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5415,7 +5415,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5423,7 +5423,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5431,7 +5431,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5439,7 +5439,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5447,7 +5447,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5455,7 +5455,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5463,7 +5463,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5471,7 +5471,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5480,7 +5480,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
         "equation_Crypto.Symmetric.Poly1305.Parameters.nlength",
@@ -5499,7 +5499,7 @@
         "fuel_guarded_inversion_FStar.HyperStack.reference",
         "function_token_typing_Crypto.Symmetric.Poly1305.Parameters.blength",
         "function_token_typing_Crypto.Symmetric.Poly1305.Parameters.nlength",
-        "kinding_FStar.UInt8.t_@tok", "primitive_Prims.op_Addition",
+        "kinding_FStar.UInt8.t___tok", "primitive_Prims.op_Addition",
         "primitive_Prims.op_AmpAmp", "primitive_Prims.op_LessThanOrEqual",
         "primitive_Prims.op_Subtraction",
         "proj_equation_FStar.Buffer.MkBuffer_content",
@@ -5523,7 +5523,7 @@
       0,
       1,
       [
-        "@query", "equation_Crypto.Symmetric.Poly1305.Lemmas.eval_4",
+        "__query", "equation_Crypto.Symmetric.Poly1305.Lemmas.eval_4",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.lemma_add_word_post",
         "equation_Crypto.Symmetric.Poly1305.Lemmas.u64_32",
         "equation_FStar.UInt64.t", "equation_FStar.UInt8.t",
@@ -5540,7 +5540,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5548,7 +5548,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5556,7 +5556,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5564,7 +5564,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5572,7 +5572,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5580,7 +5580,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5588,7 +5588,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5596,7 +5596,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5604,7 +5604,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5612,7 +5612,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5620,7 +5620,7 @@
       11,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5628,7 +5628,7 @@
       12,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5636,7 +5636,7 @@
       13,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5644,7 +5644,7 @@
       14,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5652,7 +5652,7 @@
       15,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5660,7 +5660,7 @@
       16,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5668,7 +5668,7 @@
       17,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5676,7 +5676,7 @@
       18,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5684,7 +5684,7 @@
       19,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5692,7 +5692,7 @@
       20,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5700,7 +5700,7 @@
       21,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5708,7 +5708,7 @@
       22,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5716,7 +5716,7 @@
       23,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5724,7 +5724,7 @@
       24,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5732,7 +5732,7 @@
       25,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5740,7 +5740,7 @@
       26,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5748,7 +5748,7 @@
       27,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5756,7 +5756,7 @@
       28,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5764,7 +5764,7 @@
       29,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5772,7 +5772,7 @@
       30,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5780,7 +5780,7 @@
       31,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5788,7 +5788,7 @@
       32,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5796,7 +5796,7 @@
       33,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5805,7 +5805,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
         "equation_FStar.Buffer.buffer", "equation_FStar.Buffer.contains",
@@ -5826,7 +5826,7 @@
         "fuel_guarded_inversion_FStar.UInt32.t_",
         "function_token_typing_Crypto.Symmetric.Poly1305.Parameters.blength",
         "function_token_typing_FStar.UInt8.n", "int_inversion", "int_typing",
-        "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt8.t___tok",
         "lemma_Crypto.Symmetric.Poly1305.Lemmas.pow2_8_lemma",
         "lemma_FStar.Buffer.lemma_size", "primitive_Prims.op_Addition",
         "primitive_Prims.op_AmpAmp", "primitive_Prims.op_LessThanOrEqual",
@@ -5857,7 +5857,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.HyperStack.HS", "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
         "equation_FStar.Buffer.buffer", "equation_FStar.Buffer.contains",
@@ -5877,7 +5877,7 @@
         "fuel_guarded_inversion_FStar.HyperStack.reference",
         "function_token_typing_Crypto.Symmetric.Poly1305.Parameters.blength",
         "function_token_typing_FStar.HyperHeap.root",
-        "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_disjoint_symm",
         "lemma_FStar.Buffer.lemma_live_disjoint",
         "lemma_FStar.Buffer.lemma_modifies_1_1",
@@ -5918,7 +5918,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5927,7 +5927,7 @@
       0,
       1,
       [
-        "@query", "data_elim_FStar.UInt32.Mk", "equation_FStar.UInt.uint_t",
+        "__query", "data_elim_FStar.UInt32.Mk", "equation_FStar.UInt.uint_t",
         "equation_FStar.UInt32.n", "equation_FStar.UInt32.t",
         "equation_FStar.UInt32.v", "equation_Prims.pos",
         "fuel_guarded_inversion_FStar.UInt32.t_", "int_inversion",
@@ -5945,7 +5945,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "data_elim_FStar.UInt32.Mk",
+        "__query", "b2t_def", "data_elim_FStar.UInt32.Mk",
         "equation_FStar.Mul.op_Star", "equation_FStar.UInt.fits",
         "equation_FStar.UInt.max_int", "equation_FStar.UInt.size",
         "equation_FStar.UInt.uint_t", "equation_FStar.UInt32.n",
@@ -5969,7 +5969,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5977,7 +5977,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5985,7 +5985,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -5993,7 +5993,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6001,7 +6001,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6009,7 +6009,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6017,7 +6017,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6025,7 +6025,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6033,7 +6033,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6041,7 +6041,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6049,7 +6049,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6057,7 +6057,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6065,7 +6065,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6073,7 +6073,7 @@
       11,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6081,7 +6081,7 @@
       12,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6089,7 +6089,7 @@
       13,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6097,7 +6097,7 @@
       14,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6105,7 +6105,7 @@
       15,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6113,7 +6113,7 @@
       16,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6121,7 +6121,7 @@
       17,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6129,7 +6129,7 @@
       18,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6138,7 +6138,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
         "equation_FStar.Buffer.buffer", "equation_FStar.Buffer.contains",
@@ -6159,7 +6159,7 @@
         "fuel_guarded_inversion_FStar.UInt32.t_",
         "function_token_typing_Crypto.Symmetric.Poly1305.Parameters.blength",
         "function_token_typing_FStar.UInt8.n", "int_inversion", "int_typing",
-        "kinding_FStar.UInt8.t_@tok",
+        "kinding_FStar.UInt8.t___tok",
         "lemma_Crypto.Symmetric.Poly1305.Lemmas.pow2_8_lemma",
         "lemma_FStar.Buffer.lemma_size", "primitive_Prims.op_Addition",
         "primitive_Prims.op_AmpAmp", "primitive_Prims.op_LessThanOrEqual",
@@ -6189,7 +6189,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.HyperStack.HS", "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Bytes.bytes",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
@@ -6209,7 +6209,7 @@
         "fuel_guarded_inversion_FStar.HyperStack.reference",
         "function_token_typing_Crypto.Symmetric.Poly1305.Parameters.blength",
         "function_token_typing_FStar.HyperHeap.root", "int_inversion",
-        "int_typing", "kinding_FStar.UInt8.t_@tok",
+        "int_typing", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_size", "lemma_FStar.Seq.Base.lemma_len_append",
         "primitive_Prims.op_Addition", "primitive_Prims.op_AmpAmp",
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Multiply",
@@ -6249,7 +6249,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
         "haseqTm_refine_89ca984d58100ebf87df2ad1ed88d530",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -6261,7 +6261,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
         "haseqTm_refine_89ca984d58100ebf87df2ad1ed88d530",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -6273,7 +6273,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
         "haseqTm_refine_e0b8a7ce8790eaaca2b2e4fb4d625bad",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -6285,7 +6285,7 @@
       0,
       1,
       [
-        "@query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
+        "__query", "assumption_Prims.HasEq_int", "equation_FStar.UInt32.n",
         "haseqTm_refine_e0b8a7ce8790eaaca2b2e4fb4d625bad",
         "projection_inverse_BoxInt_proj_0"
       ],
@@ -6296,7 +6296,7 @@
       1,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6304,7 +6304,7 @@
       2,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6312,7 +6312,7 @@
       3,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6320,7 +6320,7 @@
       4,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6328,7 +6328,7 @@
       5,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6336,7 +6336,7 @@
       6,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6344,7 +6344,7 @@
       7,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6352,7 +6352,7 @@
       8,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6360,7 +6360,7 @@
       9,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6368,7 +6368,7 @@
       10,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6376,7 +6376,7 @@
       11,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6384,7 +6384,7 @@
       12,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6392,7 +6392,7 @@
       13,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6400,7 +6400,7 @@
       14,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6408,7 +6408,7 @@
       15,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6416,7 +6416,7 @@
       16,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6424,7 +6424,7 @@
       17,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6432,7 +6432,7 @@
       18,
       0,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -6441,7 +6441,7 @@
       0,
       1,
       [
-        "@query", "b2t_def", "bool_inversion", "bool_typing",
+        "__query", "b2t_def", "bool_inversion", "bool_typing",
         "data_elim_FStar.UInt32.Mk",
         "equation_Crypto.Symmetric.Poly1305.Parameters.blength",
         "equation_FStar.Buffer.buffer", "equation_FStar.Buffer.contains",
@@ -6461,7 +6461,7 @@
         "fuel_guarded_inversion_FStar.HyperStack.reference",
         "fuel_guarded_inversion_FStar.UInt32.t_",
         "function_token_typing_Crypto.Symmetric.Poly1305.Parameters.blength",
-        "int_inversion", "int_typing", "kinding_FStar.UInt8.t_@tok",
+        "int_inversion", "int_typing", "kinding_FStar.UInt8.t___tok",
         "lemma_FStar.Buffer.lemma_size", "primitive_Prims.op_Addition",
         "primitive_Prims.op_AmpAmp", "primitive_Prims.op_LessThanOrEqual",
         "primitive_Prims.op_Subtraction",
@@ -6488,7 +6488,7 @@
       0,
       1,
       [
-        "@query", "equation_FStar.UInt8.t",
+        "__query", "equation_FStar.UInt8.t",
         "refinement_interpretation_Tm_refine_d53d5e0c08e95462e52790e17358eded"
       ],
       0

@@ -7,11 +7,11 @@
       1,
       0,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "binder_x_6bc3f3d403bc21efda18ffafe436948a_2",
         "binder_x_6d0180d4fcd10237cf0d87dd345d77cc_1",
-        "equality_tok_Prims.LexTop@tok", "int_inversion", "int_typing",
+        "equality_tok_Prims.LexTop__tok", "int_inversion", "int_typing",
         "primitive_Prims.op_Addition", "primitive_Prims.op_Subtraction",
         "primitive_Prims.op_disEquality",
         "projection_inverse_BoxBool_proj_0",
@@ -26,7 +26,7 @@
       2,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -34,7 +34,7 @@
       1,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -43,7 +43,7 @@
       1,
       0,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_FStar.DM4F.Heap.ST_Tm_refine_d3cff47ff117e43191fee5488bb29a1f"
       ],
       0
@@ -54,9 +54,9 @@
       1,
       0,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_Loops.sum_up.fuel_instrumented",
-        "@fuel_irrelevance_Loops.sum_up.fuel_instrumented", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_Loops.sum_up.fuel_instrumented",
+        "__fuel_irrelevance_Loops.sum_up.fuel_instrumented", "__query",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__get_equality",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__get_token_correspondence",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__put_equality",
@@ -68,7 +68,7 @@
         "binder_x_9e994b2094c854066a1cc086b0bba147_0",
         "binder_x_f61c9cff6cbc38b135d514766847459d_3",
         "binder_x_f61c9cff6cbc38b135d514766847459d_4",
-        "equality_tok_Prims.LexTop@tok",
+        "equality_tok_Prims.LexTop__tok",
         "equation_FStar.DM4F.Heap.ST.op_Bang",
         "equation_FStar.DM4F.Heap.ST.op_Colon_Equals",
         "equation_FStar.DM4F.Heap.ST.read",
@@ -107,7 +107,7 @@
       4,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -115,7 +115,7 @@
       5,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -123,7 +123,7 @@
       1,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -132,7 +132,7 @@
       1,
       0,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "function_token_typing_Prims.int",
         "lemma_FStar.DM4F.Heap.upd_contains_a_well_typed",
@@ -146,9 +146,9 @@
       1,
       0,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_Loops.sum_up.fuel_instrumented",
-        "@fuel_irrelevance_Loops.sum_up.fuel_instrumented", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_Loops.sum_up.fuel_instrumented",
+        "__fuel_irrelevance_Loops.sum_up.fuel_instrumented", "__query",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__get_equality",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__get_token_correspondence",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__put_equality",
@@ -160,7 +160,7 @@
         "binder_x_6d0180d4fcd10237cf0d87dd345d77cc_3",
         "binder_x_9e994b2094c854066a1cc086b0bba147_0",
         "binder_x_f61c9cff6cbc38b135d514766847459d_4",
-        "equality_tok_Prims.LexTop@tok",
+        "equality_tok_Prims.LexTop__tok",
         "equation_FStar.DM4F.Heap.ST.op_Bang",
         "equation_FStar.DM4F.Heap.ST.op_Colon_Equals",
         "equation_FStar.DM4F.Heap.ST.read",
@@ -200,7 +200,7 @@
       4,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -208,7 +208,7 @@
       5,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -216,7 +216,7 @@
       6,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -224,7 +224,7 @@
       7,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -232,7 +232,7 @@
       8,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -240,7 +240,7 @@
       9,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -249,11 +249,11 @@
       1,
       0,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "binder_x_6bc3f3d403bc21efda18ffafe436948a_2",
         "binder_x_6d0180d4fcd10237cf0d87dd345d77cc_1",
-        "equality_tok_Prims.LexTop@tok", "int_inversion", "int_typing",
+        "equality_tok_Prims.LexTop__tok", "int_inversion", "int_typing",
         "primitive_Prims.op_Subtraction", "primitive_Prims.op_disEquality",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
@@ -267,7 +267,7 @@
       2,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -275,7 +275,7 @@
       1,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -284,7 +284,7 @@
       1,
       0,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_FStar.DM4F.Heap.ST_Tm_refine_d3cff47ff117e43191fee5488bb29a1f"
       ],
       0
@@ -295,9 +295,9 @@
       1,
       0,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_Loops.sum_dn.fuel_instrumented",
-        "@fuel_irrelevance_Loops.sum_dn.fuel_instrumented", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_Loops.sum_dn.fuel_instrumented",
+        "__fuel_irrelevance_Loops.sum_dn.fuel_instrumented", "__query",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__get_equality",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__get_token_correspondence",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__put_equality",
@@ -310,7 +310,7 @@
         "binder_x_9e994b2094c854066a1cc086b0bba147_0",
         "binder_x_f61c9cff6cbc38b135d514766847459d_3",
         "binder_x_f61c9cff6cbc38b135d514766847459d_4",
-        "equality_tok_Prims.LexTop@tok",
+        "equality_tok_Prims.LexTop__tok",
         "equation_FStar.DM4F.Heap.ST.op_Bang",
         "equation_FStar.DM4F.Heap.ST.op_Colon_Equals",
         "equation_FStar.DM4F.Heap.ST.read",
@@ -359,7 +359,7 @@
       4,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -367,7 +367,7 @@
       5,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -375,7 +375,7 @@
       1,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -384,7 +384,7 @@
       1,
       0,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "function_token_typing_Prims.int",
         "lemma_FStar.DM4F.Heap.upd_contains_a_well_typed",
@@ -398,9 +398,9 @@
       1,
       0,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_Loops.sum_dn.fuel_instrumented",
-        "@fuel_irrelevance_Loops.sum_dn.fuel_instrumented", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_Loops.sum_dn.fuel_instrumented",
+        "__fuel_irrelevance_Loops.sum_dn.fuel_instrumented", "__query",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__get_equality",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__get_token_correspondence",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__put_equality",
@@ -412,7 +412,7 @@
         "binder_x_6d0180d4fcd10237cf0d87dd345d77cc_3",
         "binder_x_9e994b2094c854066a1cc086b0bba147_0",
         "binder_x_f61c9cff6cbc38b135d514766847459d_4",
-        "equality_tok_Prims.LexTop@tok",
+        "equality_tok_Prims.LexTop__tok",
         "equation_FStar.DM4F.Heap.ST.op_Bang",
         "equation_FStar.DM4F.Heap.ST.op_Colon_Equals",
         "equation_FStar.DM4F.Heap.ST.read",
@@ -452,7 +452,7 @@
       4,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -460,7 +460,7 @@
       5,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -468,7 +468,7 @@
       6,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -476,7 +476,7 @@
       7,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -484,7 +484,7 @@
       8,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -492,7 +492,7 @@
       9,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -500,7 +500,7 @@
       1,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -509,7 +509,7 @@
       1,
       0,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_FStar.DM4F.Heap.ST_Tm_refine_d3cff47ff117e43191fee5488bb29a1f",
         "refinement_interpretation_Loops_Tm_refine_5d68b4aedab07e9543c96792e76744c9"
       ],
@@ -521,11 +521,11 @@
       1,
       0,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_Loops.sum_dn.fuel_instrumented",
-        "@fuel_correspondence_Loops.sum_up.fuel_instrumented",
-        "@fuel_irrelevance_Loops.sum_dn.fuel_instrumented",
-        "@fuel_irrelevance_Loops.sum_up.fuel_instrumented", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_Loops.sum_dn.fuel_instrumented",
+        "__fuel_correspondence_Loops.sum_up.fuel_instrumented",
+        "__fuel_irrelevance_Loops.sum_dn.fuel_instrumented",
+        "__fuel_irrelevance_Loops.sum_up.fuel_instrumented", "__query",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__get_equality",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__get_token_correspondence",
         "FStar.DM4F.Heap.ST.__proj__STATE__item__put_equality",
@@ -538,7 +538,7 @@
         "binder_x_9e994b2094c854066a1cc086b0bba147_0",
         "binder_x_ceb4d4b2779d1a4071dbe8914fd20bb2_3",
         "binder_x_f61c9cff6cbc38b135d514766847459d_4",
-        "equality_tok_Prims.LexTop@tok",
+        "equality_tok_Prims.LexTop__tok",
         "equation_FStar.DM4F.Heap.ST.op_Bang",
         "equation_FStar.DM4F.Heap.ST.op_Colon_Equals",
         "equation_FStar.DM4F.Heap.ST.read",
@@ -589,7 +589,7 @@
       4,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -598,9 +598,9 @@
       1,
       0,
       [
-        "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_Loops.sum_dn.fuel_instrumented",
-        "@fuel_correspondence_Loops.sum_up.fuel_instrumented", "@query",
+        "__MaxFuel_assumption", "__MaxIFuel_assumption",
+        "__fuel_correspondence_Loops.sum_dn.fuel_instrumented",
+        "__fuel_correspondence_Loops.sum_up.fuel_instrumented", "__query",
         "FStar.DM4F.Heap.ST_interpretation_Tm_arrow_f8fb0cf29b882d55ae2e4f05eeae4b4a",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "Prims_pretyping_f8666440faa91836cc5a13998af863fc",
@@ -632,7 +632,7 @@
       2,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -640,7 +640,7 @@
       3,
       1,
       0,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ]
   ]

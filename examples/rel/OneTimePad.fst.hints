@@ -6,17 +6,17 @@
       1,
       0,
       4,
-      [ "@query", "assumption_Prims.HasEq_bool" ],
+      [ "__query", "assumption_Prims.HasEq_bool" ],
       0
     ],
-    [ "OneTimePad.xor", 1, 0, 4, [ "@query" ], 0 ],
+    [ "OneTimePad.xor", 1, 0, 4, [ "__query" ], 0 ],
     [
       "OneTimePad.xor_properties",
       1,
       0,
       4,
       [
-        "@MaxIFuel_assumption", "@query", "bool_inversion", "bool_typing",
+        "__MaxIFuel_assumption", "__query", "bool_inversion", "bool_typing",
         "data_elim_FStar.Pervasives.Native.Mktuple4",
         "equation_OneTimePad.nib", "equation_OneTimePad.xor",
         "equation_OneTimePad.xor_b",
@@ -39,7 +39,7 @@
       0,
       4,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
         "assumption_Prims.HasEq_bool", "function_token_typing_Prims.bool"
       ],
       0
@@ -50,7 +50,7 @@
       0,
       4,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
         "assumption_Prims.HasEq_bool", "function_token_typing_Prims.bool"
       ],
       0
@@ -61,7 +61,7 @@
       0,
       4,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
         "assumption_Prims.HasEq_bool", "function_token_typing_Prims.bool"
       ],
       0
@@ -72,23 +72,23 @@
       0,
       4,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
         "assumption_Prims.HasEq_bool", "function_token_typing_Prims.bool"
       ],
       0
     ],
-    [ "OneTimePad.bind", 1, 0, 4, [ "@query" ], 0 ],
-    [ "OneTimePad.rand", 1, 0, 4, [ "@query" ], 0 ],
-    [ "OneTimePad._dm4f_RANDOM_lift_from_pure", 1, 0, 4, [ "@query" ], 0 ],
-    [ "OneTimePad._dm4f_RANDOM_return_wp", 1, 0, 4, [ "@query" ], 0 ],
-    [ "OneTimePad._dm4f_RANDOM_bind_wp", 1, 0, 4, [ "@query" ], 0 ],
+    [ "OneTimePad.bind", 1, 0, 4, [ "__query" ], 0 ],
+    [ "OneTimePad.rand", 1, 0, 4, [ "__query" ], 0 ],
+    [ "OneTimePad._dm4f_RANDOM_lift_from_pure", 1, 0, 4, [ "__query" ], 0 ],
+    [ "OneTimePad._dm4f_RANDOM_return_wp", 1, 0, 4, [ "__query" ], 0 ],
+    [ "OneTimePad._dm4f_RANDOM_bind_wp", 1, 0, 4, [ "__query" ], 0 ],
     [
       "OneTimePad._dm4f_RANDOM___proj__RANDOM__item__rand_elab",
       1,
       0,
       4,
       [
-        "@query", "projection_inverse_FStar.Pervasives.Native.Mktuple2__1",
+        "__query", "projection_inverse_FStar.Pervasives.Native.Mktuple2__1",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__2",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__a",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__b"
@@ -100,22 +100,22 @@
       1,
       0,
       4,
-      [ "@query" ],
+      [ "__query" ],
       0
     ],
-    [ "OneTimePad.RANDOM", 1, 0, 4, [ "@query" ], 0 ],
-    [ "OneTimePad.RANDOM", 2, 0, 4, [ "@query" ], 0 ],
-    [ "OneTimePad.RANDOM", 3, 0, 4, [ "@query" ], 0 ],
+    [ "OneTimePad.RANDOM", 1, 0, 4, [ "__query" ], 0 ],
+    [ "OneTimePad.RANDOM", 2, 0, 4, [ "__query" ], 0 ],
+    [ "OneTimePad.RANDOM", 3, 0, 4, [ "__query" ], 0 ],
     [
       "OneTimePad.one_time_pad",
       1,
       0,
       4,
       [
-        "@MaxIFuel_assumption", "@query",
-        "data_typing_intro_FStar.Pervasives.Native.Mktuple2@tok",
+        "__MaxIFuel_assumption", "__query",
+        "data_typing_intro_FStar.Pervasives.Native.Mktuple2__tok",
         "equation_OneTimePad.nib", "function_token_typing_Prims.int",
-        "int_typing", "kinding_FStar.Pervasives.Native.tuple2@tok",
+        "int_typing", "kinding_FStar.Pervasives.Native.tuple2__tok",
         "kinding_Tm_arrow_f82c3fb9ac6610efb97620a59b378092",
         "primitive_Prims.op_Addition",
         "projection_inverse_FStar.Pervasives.Native.Mktuple2__1",
@@ -129,7 +129,7 @@
       0,
       4,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
         "assumption_Prims.HasEq_bool", "equation_OneTimePad.nib",
         "function_token_typing_Prims.bool"
       ],
@@ -141,7 +141,7 @@
       0,
       4,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "OneTimePad_interpretation_Tm_arrow_9fbd9638cf623289ed842c175de6fcc1",
         "Prims_pretyping_f537159ed795b314b4e58c260361ae86", "bool_inversion",
         "bool_typing", "data_elim_FStar.Pervasives.Native.Mktuple4",
@@ -170,7 +170,7 @@
       2,
       0,
       4,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -179,7 +179,7 @@
       0,
       4,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "OneTimePad.__proj__RANDOM__item__rand_equality",
         "OneTimePad.__proj__RANDOM__item__rand_token_correspondence",
         "OneTimePad_interpretation_Tm_arrow_ea171f68ae4980abed1817fcfa33edb7",
@@ -217,7 +217,7 @@
       0,
       4,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
         "assumption_Prims.HasEq_bool", "equation_OneTimePad.nib",
         "function_token_typing_Prims.bool"
       ],
@@ -229,7 +229,7 @@
       0,
       4,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
         "assumption_Prims.HasEq_bool", "equation_OneTimePad.nib",
         "function_token_typing_Prims.bool"
       ],
@@ -241,7 +241,7 @@
       0,
       4,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
         "assumption_Prims.HasEq_bool", "equation_OneTimePad.nib",
         "function_token_typing_Prims.bool"
       ],
@@ -253,7 +253,7 @@
       0,
       4,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
         "assumption_Prims.HasEq_bool", "equation_OneTimePad.nib",
         "function_token_typing_Prims.bool"
       ],
@@ -265,7 +265,7 @@
       0,
       4,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
         "assumption_Prims.HasEq_bool", "equation_OneTimePad.nib",
         "function_token_typing_Prims.bool"
       ],
@@ -277,7 +277,7 @@
       0,
       4,
       [
-        "@query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
+        "__query", "assumption_FStar.Pervasives.Native.tuple4_haseq",
         "assumption_Prims.HasEq_bool", "equation_OneTimePad.nib",
         "function_token_typing_Prims.bool"
       ],

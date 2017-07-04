@@ -6,7 +6,7 @@
       1,
       2,
       1,
-      [ "@query", "equation_ImmutableST.contains", "unit_typing" ],
+      [ "__query", "equation_ImmutableST.contains", "unit_typing" ],
       0
     ],
     [
@@ -15,7 +15,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_ImmutableST.contains",
+        "__MaxIFuel_assumption", "__query", "equation_ImmutableST.contains",
         "lemma_ImmutableST.contains_lemma",
         "refinement_interpretation_ImmutableST_Tm_refine_6f8aef5da32367b0818e015b75ddf1d7"
       ],
@@ -27,7 +27,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_ImmutableST.heap_rel",
+        "__MaxIFuel_assumption", "__query", "equation_ImmutableST.heap_rel",
         "equation_Preorder.preorder",
         "refinement_interpretation_ImmutableST_Tm_refine_6f8aef5da32367b0818e015b75ddf1d7",
         "token_correspondence_ImmutableST.heap_rel"
@@ -40,7 +40,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_ImmutableST.heap_rel",
+        "__MaxIFuel_assumption", "__query", "equation_ImmutableST.heap_rel",
         "equation_Preorder.preorder",
         "refinement_interpretation_ImmutableST_Tm_refine_6f8aef5da32367b0818e015b75ddf1d7",
         "token_correspondence_ImmutableST.heap_rel"
@@ -53,7 +53,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_ImmutableST.heap_rel",
+        "__MaxIFuel_assumption", "__query", "equation_ImmutableST.heap_rel",
         "equation_Preorder.preorder",
         "refinement_interpretation_ImmutableST_Tm_refine_6f8aef5da32367b0818e015b75ddf1d7",
         "token_correspondence_ImmutableST.heap_rel"
@@ -66,7 +66,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_ImmutableST.heap_rel",
+        "__MaxIFuel_assumption", "__query", "equation_ImmutableST.heap_rel",
         "equation_Preorder.preorder",
         "refinement_interpretation_ImmutableST_Tm_refine_6f8aef5da32367b0818e015b75ddf1d7",
         "token_correspondence_ImmutableST.heap_rel"
@@ -79,7 +79,7 @@
       2,
       1,
       [
-        "@query", "equation_ImmutableST.heap_rel",
+        "__query", "equation_ImmutableST.heap_rel",
         "equation_Preorder.stable",
         "token_correspondence_ImmutableST.contains",
         "token_correspondence_ImmutableST.heap_rel"
@@ -92,7 +92,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "equation_FStar.Pervasives.Native.fst",
         "equation_FStar.Pervasives.Native.snd",
         "equation_ImmutableST.contains", "equation_ImmutableST.heap_rel",
@@ -116,7 +116,7 @@
       1,
       2,
       1,
-      [ "@query", "equation_ImmutableST.contains" ],
+      [ "__query", "equation_ImmutableST.contains" ],
       0
     ],
     [
@@ -125,7 +125,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_ImmutableST.contains",
+        "__MaxIFuel_assumption", "__query", "equation_ImmutableST.contains",
         "equation_ImmutableST.heap_rel", "equation_ImmutableST.ref",
         "equation_Preorder.stable",
         "refinement_interpretation_ImmutableST_Tm_refine_3b96159e2f11c189d5827512307ee48c",
@@ -139,7 +139,7 @@
       1,
       2,
       1,
-      [ "@query", "equation_ImmutableST.contains" ],
+      [ "__query", "equation_ImmutableST.contains" ],
       0
     ],
     [
@@ -147,7 +147,7 @@
       2,
       2,
       1,
-      [ "@query", "equation_ImmutableST.heap_rel" ],
+      [ "__query", "equation_ImmutableST.heap_rel" ],
       0
     ],
     [
@@ -155,17 +155,17 @@
       1,
       2,
       1,
-      [ "@query", "equation_ImmutableST.contains" ],
+      [ "__query", "equation_ImmutableST.contains" ],
       0
     ],
-    [ "ImmutableST.write_nop", 2, 2, 1, [ "@query", "unit_typing" ], 0 ],
+    [ "ImmutableST.write_nop", 2, 2, 1, [ "__query", "unit_typing" ], 0 ],
     [
       "ImmutableST.recall",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_ImmutableST.heap_rel",
+        "__MaxIFuel_assumption", "__query", "equation_ImmutableST.heap_rel",
         "equation_ImmutableST.ref", "equation_Preorder.stable",
         "refinement_interpretation_ImmutableST_Tm_refine_3b96159e2f11c189d5827512307ee48c",
         "token_correspondence_ImmutableST.contains",

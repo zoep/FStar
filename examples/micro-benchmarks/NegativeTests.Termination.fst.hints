@@ -9,7 +9,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     [
@@ -17,7 +17,7 @@
       3,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     null,
@@ -27,7 +27,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "binder_x_e22ba7a032a73f6d0678d3d186686631_0", "equation_Prims.nat",
         "int_inversion", "primitive_Prims.op_Addition",
@@ -43,7 +43,7 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
     null,
@@ -52,19 +52,19 @@
       2,
       2,
       1,
-      [ "@query", "assumption_Prims.HasEq_int" ],
+      [ "__query", "assumption_Prims.HasEq_int" ],
       0
     ],
-    [ "NegativeTests.Termination.snat", 1, 2, 1, [ "@query" ], 0 ],
-    [ "NegativeTests.Termination.uu___is_O", 1, 2, 1, [ "@query" ], 0 ],
-    [ "NegativeTests.Termination.uu___is_S", 1, 2, 1, [ "@query" ], 0 ],
+    [ "NegativeTests.Termination.snat", 1, 2, 1, [ "__query" ], 0 ],
+    [ "NegativeTests.Termination.uu___is_O", 1, 2, 1, [ "__query" ], 0 ],
+    [ "NegativeTests.Termination.uu___is_S", 1, 2, 1, [ "__query" ], 0 ],
     [
       "NegativeTests.Termination.__proj__S__item___0",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "disc_equation_NegativeTests.Termination.S",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_NegativeTests.Termination_Tm_refine_58d69b53f68a55a0902003d29e7d86f7"

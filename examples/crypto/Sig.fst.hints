@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@query", "equation_Sig.sigsize", "projection_inverse_BoxInt_proj_0"
+        "__query", "equation_Sig.sigsize", "projection_inverse_BoxInt_proj_0"
       ],
       0
     ],
@@ -16,7 +16,7 @@
       1,
       2,
       1,
-      [ "@query", "equation_Sig.pksize", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "equation_Sig.pksize", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -24,7 +24,7 @@
       1,
       2,
       1,
-      [ "@query", "equation_Sig.sksize", "projection_inverse_BoxInt_proj_0" ],
+      [ "__query", "equation_Sig.sksize", "projection_inverse_BoxInt_proj_0" ],
       0
     ],
     [
@@ -33,7 +33,7 @@
       2,
       1,
       [
-        "@query", "assumption_Platform.Bytes.HasEq_bytes",
+        "__query", "assumption_Platform.Bytes.HasEq_bytes",
         "equation_Platform.Bytes.bytes", "equation_Platform.Bytes.lbytes",
         "equation_Sig.pk", "equation_Sig.pksize", "equation_Sig.sig_t",
         "equation_Sig.sigsize", "equation_Sig.text",
@@ -42,29 +42,29 @@
       ],
       0
     ],
-    [ "Sig.__proj__Entry__item__k", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Sig.__proj__Entry__item__k", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Sig.__proj__Entry__item__t",
       1,
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_Platform.Bytes.bytes",
+        "__MaxIFuel_assumption", "__query", "equation_Platform.Bytes.bytes",
         "equation_Sig.text", "proj_equation_Sig.Entry_k",
         "projection_inverse_Sig.Entry_k",
         "refinement_interpretation_Sig_Tm_refine_cde4d222f8ab5744405107af8baa7ed1"
       ],
       0
     ],
-    [ "Sig.__proj__Entry__item__m", 1, 2, 1, [ "@query" ], 0 ],
-    [ "Sig.sign", 1, 2, 1, [ "@query" ], 0 ],
+    [ "Sig.__proj__Entry__item__m", 1, 2, 1, [ "__query" ], 0 ],
+    [ "Sig.sign", 1, 2, 1, [ "__query" ], 0 ],
     [
       "Sig.verify",
       1,
       2,
       2,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "data_elim_FStar.Pervasives.Native.Some", "data_elim_Sig.Entry",
         "disc_equation_FStar.Pervasives.Native.Some",
         "equation_Platform.Bytes.bytes", "equation_Sig.pk",
@@ -82,7 +82,7 @@
       2,
       1,
       [
-        "@query", "assumption_Platform.Bytes.HasEq_bytes",
+        "__query", "assumption_Platform.Bytes.HasEq_bytes",
         "equation_Platform.Bytes.bytes", "equation_Platform.Bytes.lbytes",
         "equation_Sig.pk", "equation_Sig.pksize", "equation_Sig.sigsize",
         "haseqPlatform.Bytes_Tm_refine_3458b9f6f40fe62446cdc2c6d3755a94"
@@ -95,7 +95,7 @@
       2,
       1,
       [
-        "@query", "assumption_Platform.Bytes.HasEq_bytes",
+        "__query", "assumption_Platform.Bytes.HasEq_bytes",
         "equation_Sig.text"
       ],
       0
@@ -106,7 +106,7 @@
       2,
       1,
       [
-        "@query", "assumption_Platform.Bytes.HasEq_bytes",
+        "__query", "assumption_Platform.Bytes.HasEq_bytes",
         "equation_Platform.Bytes.bytes", "equation_Platform.Bytes.lbytes",
         "equation_Sig.pk", "equation_Sig.pksize", "equation_Sig.sigsize",
         "equation_Sig.text",

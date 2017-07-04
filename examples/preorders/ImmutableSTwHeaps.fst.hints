@@ -7,7 +7,7 @@
       2,
       1,
       [
-        "@query", "equation_ImmutableSTwHeaps.heap_rel",
+        "__query", "equation_ImmutableSTwHeaps.heap_rel",
         "equation_Preorder.preorder",
         "token_correspondence_ImmutableSTwHeaps.heap_rel"
       ],
@@ -19,7 +19,7 @@
       2,
       1,
       [
-        "@query", "equation_ImmutableSTwHeaps.heap_rel",
+        "__query", "equation_ImmutableSTwHeaps.heap_rel",
         "equation_Preorder.preorder",
         "token_correspondence_ImmutableSTwHeaps.heap_rel"
       ],
@@ -31,7 +31,7 @@
       2,
       1,
       [
-        "@query", "equation_ImmutableSTwHeaps.heap_rel",
+        "__query", "equation_ImmutableSTwHeaps.heap_rel",
         "equation_Preorder.preorder",
         "token_correspondence_ImmutableSTwHeaps.heap_rel"
       ],
@@ -43,7 +43,7 @@
       2,
       1,
       [
-        "@query", "equation_ImmutableSTwHeaps.heap_rel",
+        "__query", "equation_ImmutableSTwHeaps.heap_rel",
         "equation_Preorder.preorder",
         "token_correspondence_ImmutableSTwHeaps.heap_rel"
       ],
@@ -55,7 +55,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_FStar.Heap.modifies",
+        "__MaxIFuel_assumption", "__query", "equation_FStar.Heap.modifies",
         "equation_FStar.Heap.modifies_t",
         "equation_ImmutableSTwHeaps.heap_rel",
         "lemma_FStar.Heap.lemma_contains_implies_used",
@@ -77,7 +77,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query",
+        "__MaxIFuel_assumption", "__query",
         "refinement_interpretation_ImmutableSTwHeaps_Tm_refine_c443bed4b5cd174ac857a1cb26ece6b1"
       ],
       0
@@ -88,7 +88,7 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "equation_FStar.Heap.modifies",
+        "__MaxIFuel_assumption", "__query", "equation_FStar.Heap.modifies",
         "equation_FStar.Heap.modifies_t",
         "equation_ImmutableSTwHeaps.heap_rel",
         "lemma_FStar.Heap.lemma_contains_upd_modifies",
