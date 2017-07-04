@@ -7,7 +7,8 @@
       2,
       1,
       [
-        "__query", "equation_SHA1.keysize", "projection_inverse_BoxInt_proj_0"
+        "__query", "equation_SHA1.keysize",
+        "projection_inverse_BoxInt_proj_0"
       ],
       0
     ],
