@@ -1496,7 +1496,7 @@ let rec declToSmt : decl -> Prims.string =
         let uu____3047 = termToSmt n1 a.assumption_term  in
         FStar_Util.format4 "%s%s(assert (! %s\n:named %s))" uu____3046 fids
           uu____3047 n1
-    | Get_value (x,uu____3049) -> FStar_Util.format1 "(get-value %s)" x
+    | Get_value (x,uu____3049) -> FStar_Util.format1 "(get-value (%s))" x
     | Echo s -> FStar_Util.format1 "(echo \"%s\")" s
     | RetainAssumptions uu____3051 -> ""
     | CheckSat  -> "(check-sat)"
