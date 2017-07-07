@@ -602,7 +602,7 @@ let rec declToSmt decl =
             (termToSmt n a.assumption_term)
             n
   | Get_value (x, _) ->
-    format1 "(get-value %s)" x
+    format1 "(get-value (%s))" x
   | Echo s ->
     format1 "(echo \"%s\")" s
   | RetainAssumptions _ ->
