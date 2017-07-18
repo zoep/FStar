@@ -297,7 +297,7 @@ let find_t env x =
     failwith (BU.format1 "Internal error: name not found %s\n" x)
 
 let add_binders env binders =
-  List.fold_left (fun env ((name, _), _) -> extend env name false) env binders
+  List.fold_left (fun env (name, _) -> extend env name false) env binders
 
 (* Actual translation ********************************************************)
 
@@ -342,18 +342,18 @@ and translate_flags flags =
 and translate_decl env d: option<decl> =
   match d with
   | MLM_Let (flavor, flags, [ {
-      mllb_name = name, _;
+      mllb_name = name;
       mllb_tysc = Some (tvars, t0);
       mllb_def = { expr = MLE_Fun (args, body) }
     } ])
   | MLM_Let (flavor, flags, [ {
-      mllb_name = name, _;
+      mllb_name = name;
       mllb_tysc = Some (tvars, t0);
       mllb_def = { expr = MLE_Coerce ({ expr = MLE_Fun (args, body) }, _, _) }
     } ]) ->
       let assumed = BU.for_some (function Syntax.Assumed -> true | _ -> false) flags in
       let env = if flavor = Rec then extend env name false else env in
-      let env = List.fold_left (fun env (name, _) -> extend_t env name) env tvars in
+      let env = List.fold_left (fun env name -> extend_t env name) env tvars in
       let rec find_return_type = function
         | MLTY_Fun (_, _, t) ->
             find_return_type t
@@ -380,7 +380,7 @@ and translate_decl env d: option<decl> =
       end
 
   | MLM_Let (flavor, flags, [ {
-      mllb_name = name, _;
+      mllb_name = name;
       mllb_tysc = Some ([], t);
       mllb_def = expr
     } ]) ->
@@ -395,7 +395,7 @@ and translate_decl env d: option<decl> =
         Some (DGlobal (flags, name, t, EAny))
       end
 
-  | MLM_Let (_, _, { mllb_name = name, _; mllb_tysc = ts } :: _) ->
+  | MLM_Let (_, _, { mllb_name = name; mllb_tysc = ts } :: _) ->
       (* Things we currently do not translate:
        * - polymorphic functions (lemmas do count, sadly)
        *)
@@ -403,7 +403,7 @@ and translate_decl env d: option<decl> =
       begin match ts with
       | Some (idents, t) ->
           BU.print2 "Type scheme is: forall %s. %s\n"
-            (String.concat ", " (List.map fst idents))
+            (String.concat ", " idents)
             (ML.Code.string_of_mlty ([], "") t)
       | None ->
           ()
@@ -418,7 +418,7 @@ and translate_decl env d: option<decl> =
 
   | MLM_Ty [ (assumed, name, _mangled_name, args, _, Some (MLTD_Abbrev t)) ] ->
       let name = env.module_name, name in
-      let env = List.fold_left (fun env (name, _) -> extend_t env name) env args in
+      let env = List.fold_left (fun env name -> extend_t env name) env args in
       if assumed then
         None
       else
@@ -426,13 +426,13 @@ and translate_decl env d: option<decl> =
 
   | MLM_Ty [ (_, name, _mangled_name, args, _, Some (MLTD_Record fields)) ] ->
       let name = env.module_name, name in
-      let env = List.fold_left (fun env (name, _) -> extend_t env name) env args in
+      let env = List.fold_left (fun env name -> extend_t env name) env args in
       Some (DTypeFlat (name, List.length args, List.map (fun (f, t) ->
         f, (translate_type env t, false)) fields))
 
   | MLM_Ty [ (_, name, _mangled_name, args, _, Some (MLTD_DType branches)) ] ->
       let name = env.module_name, name in
-      let env = List.fold_left (fun env (name, _) -> extend_t env name) env args in
+      let env = List.fold_left (fun env name -> extend_t env name) env args in
       Some (DTypeVariant (name, List.length args, List.map (fun (cons, ts) ->
         cons, List.map (fun (name, t) ->
           name, (translate_type env t, false)
@@ -458,7 +458,7 @@ and translate_type env t: typ =
   | MLTY_Tuple []
   | MLTY_Top ->
       TAny
-  | MLTY_Var (name, _) ->
+  | MLTY_Var name ->
       TBound (find_t env name)
   | MLTY_Fun (t1, _, t2) ->
       TArrow (translate_type env t1, translate_type env t2)
@@ -490,7 +490,7 @@ and translate_type env t: typ =
 and translate_binders env args =
   List.map (translate_binder env) args
 
-and translate_binder env ((name, _), typ) =
+and translate_binder env (name, typ) =
   { name = name; typ = translate_type env typ; mut = false }
 
 and translate_expr env e: expr =
@@ -501,7 +501,7 @@ and translate_expr env e: expr =
   | MLE_Const c ->
       translate_constant c
 
-  | MLE_Var (name, _) ->
+  | MLE_Var name ->
       EBound (find env name)
 
   // Some of these may not appear beneath an [EApp] node because of partial applications
@@ -515,7 +515,7 @@ and translate_expr env e: expr =
       EQualified n
 
   | MLE_Let ((flavor, flags, [{
-      mllb_name = name, _;
+      mllb_name = name;
       mllb_tysc = Some ([], typ); // assuming unquantified type
       mllb_add_unit = add_unit; // ?
       mllb_def = body;
@@ -546,9 +546,9 @@ and translate_expr env e: expr =
 
   // We recognize certain distinguished names from [FStar.HST] and other
   // modules, and translate them into built-in Kremlin constructs
-  | MLE_App ({ expr = MLE_Name p }, [ { expr = MLE_Var (v, _) } ]) when (string_of_mlpath p = "FStar.HyperStack.ST.op_Bang" && is_mutable env v) ->
+  | MLE_App ({ expr = MLE_Name p }, [ { expr = MLE_Var v } ]) when (string_of_mlpath p = "FStar.HyperStack.ST.op_Bang" && is_mutable env v) ->
       EBound (find env v)
-  | MLE_App ({ expr = MLE_Name p }, [ { expr = MLE_Var (v, _) }; e ]) when (string_of_mlpath p = "FStar.HyperStack.ST.op_Colon_Equals" && is_mutable env v) ->
+  | MLE_App ({ expr = MLE_Name p }, [ { expr = MLE_Var v }; e ]) when (string_of_mlpath p = "FStar.HyperStack.ST.op_Colon_Equals" && is_mutable env v) ->
       EAssign (EBound (find env v), translate_expr env e)
   | MLE_App ({ expr = MLE_Name p }, [ e1; e2 ])
     when string_of_mlpath p = "FStar.Buffer.index" || string_of_mlpath p = "FStar.Buffer.op_Array_Access" ->
@@ -645,7 +645,7 @@ and translate_expr env e: expr =
   | MLE_App ({ expr = MLE_Name (path, function_name) }, args) ->
       EApp (EQualified (path, function_name), List.map (translate_expr env) args)
 
-  | MLE_App ({ expr = MLE_Var (name, _) }, args) ->
+  | MLE_App ({ expr = MLE_Var name }, args) ->
       EApp (EBound (find env name), List.map (translate_expr env) args)
 
   | MLE_Coerce (e, t_from, t_to) ->
@@ -714,7 +714,7 @@ and translate_pat env p =
       env, PUnit
   | MLP_Const (MLC_Bool b) ->
       env, PBool b
-  | MLP_Var (name, _) ->
+  | MLP_Var name ->
       let env = extend env name false in
       env, PVar ({ name = name; typ = TAny; mut = false })
   | MLP_Wild ->
