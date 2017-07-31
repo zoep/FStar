@@ -20,10 +20,10 @@ all: $(patsubst %,%.test,$(MODULES))
 	$(MAKE) -C $(ULIB_ML)
 
 %.ml: %.fst .ulib
-	$(FSTAR) $(OTHERFLAGS) --lax --codegen OCaml $< --extract_module $(patsubst %.fst,%,$<)
+	$(FSTAR) $(FSTAR_DEFAULT_ARGS) $(OTHERFLAGS) --lax --codegen OCaml $<
 
 %.cmxs: %.ml
-	ocamlfind ocamlopt -shared $(INCLUDES) -linkpkg -package zarith -o $@ $<
+	$(OCAMLOPT) -shared $(INCLUDES) -linkpkg -package zarith -o $@ $<
 
 %.test: %.cmxs %.Test.fst 
 	$(FSTAR) --load $^ --admit_smt_queries true
