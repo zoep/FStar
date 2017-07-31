@@ -3,10 +3,7 @@ open FStar_Tactics_Basic
 open FStar_Syntax_Syntax
 open FStar_Range
 
-open FStar_Tactics
 open FStar_Tactics_Builtins
-open FStar_Tactics_Derived
-open FStar_Tactics_Logic
 
 module E = FStar_Tactics_Effect
 module B = FStar_Tactics_Basic
