@@ -864,3 +864,5 @@ let proofstate_of_goal_ty env typ =
     }
     in
     (ps, u)
+
+let fresh_binder (t: term): tac<binder> = ret (gen_bv "__refl" None t, None)

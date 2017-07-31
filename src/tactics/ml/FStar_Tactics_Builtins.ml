@@ -150,3 +150,6 @@ let cases: RT.term -> unit -> (RT.term * RT.term) __tac = fun t  -> fun () -> __
 
 let __set_options (s: string) : unit __tac = from_tac_1 B.set_options s
 let set_options : string -> unit -> unit __tac = fun s -> fun () -> __set_options s
+
+let __fresh_binder (t: RT.typ): RT.binder __tac = from_tac_1 B.fresh_binder t
+let fresh_binder: RT.typ -> unit -> RT.binder __tac = fun t -> fun () -> __fresh_binder t
