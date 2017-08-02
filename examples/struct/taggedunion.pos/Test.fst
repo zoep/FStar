@@ -39,9 +39,6 @@ let option (a : P.typ) : Type0 =
 (*******************)
 
 let s_l : P.struct_typ = [("x", P.(TBase TUInt8)); ("y", P.(TBase TUInt8))]
-// FIXME?
-let s_x : P.struct_field s_l = "x"
-let s_y : P.struct_field s_l = "y"
 
 let s_typ : P.typ = P.TStruct s_l
 
@@ -65,7 +62,7 @@ let step (p: P.pointer st_typ):
    let s_ptr = TU.field st_tags p "left" in
    let x_ptr  = P.field s_ptr "x" in
    let x = P.read x_ptr in
-   let y = P.read (P.field s_ptr s_y) in
+   let y = P.read (P.field s_ptr "y") in
    P.write x_ptr (UInt8.logxor x y)
   ) else (
     assert (t == 1ul);
@@ -90,7 +87,7 @@ let step_alt (p: P.pointer st_typ):
     let s_ptr : P.pointer (P.TStruct s_l) = TU.field st_tags p "left" in
     let x_ptr = P.field s_ptr "x" in
     let x : UInt8.t = P.read x_ptr in
-    let y : UInt8.t = P.read (P.field s_ptr s_y) in
+    let y : UInt8.t = P.read (P.field s_ptr "y") in
     P.write x_ptr (UInt8.logxor x y)
   ) else (
     assert (t == 1ul);
