@@ -14,8 +14,8 @@ abstract
 let typ_l (l: P.union_typ) =
   P.([("tag", TBase TUInt32); ("union", TUnion l)])
 
-let tag_field (l: P.union_typ) : P.struct_field (typ_l l) = "tag"
-let union_field (l: P.union_typ) : P.struct_field (typ_l l) = "union"
+unfold let tag_field (l: P.union_typ) : P.struct_field (typ_l l) = "tag"
+unfold let union_field (l: P.union_typ) : P.struct_field (typ_l l) = "union"
 
 let typ (l: P.union_typ) : P.typ = P.TStruct (typ_l l)
 
