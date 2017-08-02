@@ -68,7 +68,7 @@ let step (p: P.pointer st_typ):
     assert (t == 1ul);
     let z = P.read (TU.field st_tags p "right") in
     let x = FStar.Int.Cast.uint16_to_uint8 z in
-    let v = P.struct_create' s_l [(|"x",x|); (|"y",0uy|)] in
+    let v = P.struct_create s_l [(|"x",x|); (|"y",0uy|)] in
     TU.write st_tags p "left" v
   )
 
