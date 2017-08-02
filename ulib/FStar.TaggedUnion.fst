@@ -162,7 +162,7 @@ let gfield
   (tgs: tags l)
   (p: P.pointer (typ l))
   (f: P.struct_field l)
-: GTot (p': P.pointer (P.typ_of_struct_field l f) { P.includes p p' })
+: GTot (p': P.pointer (normalize_term (P.typ_of_struct_field l f)) { P.includes p p' })
 = P.gufield (P.gfield p (union_field l)) f
 
 
@@ -171,7 +171,7 @@ let field
   (tgs: tags l)
   (p: P.pointer (typ l))
   (f: P.struct_field l)
-: HST.Stack (P.pointer (P.typ_of_struct_field l f))
+: HST.Stack (P.pointer (normalize_term (P.typ_of_struct_field l f)))
   (requires (fun h ->
     valid h tgs p /\
     gread_tag h tgs p == normalize_term (tag_of_field tgs f)
