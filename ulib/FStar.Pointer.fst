@@ -53,7 +53,7 @@ type typ =
   typ
 and struct_typ = (l: list (string * typ) {
   Cons? l /\ // C11, 6.2.5 al. 20: structs and unions must have at least one field
-  List.Tot.noRepeats (List.Tot.map fst l)
+  normalize_term (List.Tot.noRepeats (List.Tot.map fst l)) == true
 })
 and union_typ = struct_typ
 
@@ -63,7 +63,7 @@ and union_typ = struct_typ
 let struct_field
   (l: struct_typ)
 : Tot eqtype
-= (s: string { List.Tot.mem s (List.Tot.map fst l) } )
+= (s: string { normalize_term (List.Tot.mem s (List.Tot.map fst l)) == true } )
 
 (** `typ_of_struct_field l f` is the type of data associated with field `f` in
     `TStruct l` (i.e. a refinement of `typ`).
@@ -3748,7 +3748,7 @@ abstract let field
  (#l: struct_typ)
  (p: pointer (TStruct l))
  (fd: struct_field l)
-: HST.ST (pointer (typ_of_struct_field l fd))
+: HST.ST (pointer (normalize_term (typ_of_struct_field l fd)))
   (requires (fun h -> live h p))
   (ensures (fun h0 p' h1 -> h0 == h1 /\ p' == gfield p fd))
 = _field p fd
@@ -3757,7 +3757,7 @@ abstract let ufield
  (#l: union_typ)
  (p: pointer (TUnion l))
  (fd: struct_field l)
-: HST.ST (pointer (typ_of_struct_field l fd))
+: HST.ST (pointer (normalize_term (typ_of_struct_field l fd)))
   (requires (fun h -> live h p))
   (ensures (fun h0 p' h1 -> h0 == h1 /\ p' == gufield p fd))
 = _ufield p fd
@@ -3778,7 +3778,7 @@ private let reference_of
   (p: pointer value)
 : Pure (HS.reference pointer_ref_contents)
   (requires (live h p))
-  (ensures (fun x -> 
+  (ensures (fun x ->
     live h p /\
     x == HS.reference_of h (Pointer?.contents p) pointer_ref_contents (Heap.trivial_preorder pointer_ref_contents) /\
     HS.frameOf x == HS.frameOf (greference_of p) /\
@@ -3815,7 +3815,7 @@ private let reference_of
 abstract let read
  (#value: typ)
  (p: pointer value)
-: HST.ST (type_of_typ value)
+: HST.ST (normalize_term (type_of_typ value))
   (requires (fun h -> readable h p))
   (ensures (fun h0 v h1 -> readable h0 p /\ h0 == h1 /\ v == gread h0 p))
 = let h = HST.get () in
@@ -3988,6 +3988,20 @@ let modifies_1_readable_struct
     [SMTPat (readable h' p); SMTPat (readable h' (gfield p f))];
   ]]
 = readable_struct h' p
+
+let modifies_1_readable_struct_other_field
+  (#l: struct_typ)
+  (f f': struct_field l)
+  (p: pointer (TStruct l))
+  (h h' : HS.mem)
+: Lemma
+  (requires (readable h (gfield p f) /\ modifies_1 (gfield p f') h h' /\ f <> f'))
+  (ensures (readable h' (gfield p f)))
+  [SMTPatOr [
+    [SMTPat (readable h (gfield p f)); SMTPat (modifies_1 (gfield p f') h h')];
+    [SMTPat (readable h' (gfield p f)); SMTPat (modifies_1 (gfield p f') h h')]
+  ]]
+= ()
 
 let modifies_1_readable_array
   (#t: typ)
