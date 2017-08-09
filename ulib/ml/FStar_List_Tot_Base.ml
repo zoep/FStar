@@ -1,5 +1,5 @@
 (* We give an implementation here using OCaml's BatList,
-   which privide tail-recursive versions of most functions *)
+   which provide tail-recursive versions of most functions *)
 let isEmpty l = l = []
 let hd = BatList.hd
 let tail = BatList.tl
@@ -16,7 +16,7 @@ let flatten = BatList.flatten
 let map = BatList.map
 let mapi_init _ _ _ = failwith "FStar_List_Tot_Base.ml: Not implemented: mapi_init"
 let mapi f l = BatList.mapi (fun i x -> f (Z.of_int i) x) l
-let concatMap _ _ = failwith "FStar_List_Tot_Base.ml: Not implemented: concatMap"
+let concatMap f l = BatList.concat (List.map f l)
 let fold_left = BatList.fold_left
 let fold_right = BatList.fold_right
 let fold_left2 = BatList.fold_left2
